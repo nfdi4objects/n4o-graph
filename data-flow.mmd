@@ -1,16 +1,16 @@
 flowchart LR
-    Abfrage
-    Converter
-    KG
-    LIDO
-    LIDOMapping
-    RDF
-    TTL["Triple-Store"]
+    Abfrage["<b>Abfrage</b>"]
+    Converter["<b>Converter</b>"]
+    KG["<b>KG</b><br><tt>format:Cypher</tt><br><tt>model:CRM</tt>"]
+    LIDO["<b>LIDO</b><br><tt>format:XML</tt>"]
+    LIDOMapping["<b>LIDOMapping</b><br><tt>format:X3ML</tt>"]
+    RDF["<b>RDF</b>"]
+    TTL["<b>TTL</b><br><tt>name:Triple-Store</tt>"]
     LIDO --- Converter
     Converter --> KG
-    RDF -- "n4o-rdf-import" --> TTL
-    KG --> KG
+    RDF -- "<tt>name:n4o-rdf-import</tt>" --> TTL
+    KG -- "<i>enrich</i>" --> KG
     LIDOMapping --> Converter
-    KG --> Abfrage
-    TTL --> Abfrage
-    TTL --> KG
+    KG -- "<i>Cypher</i>" --> Abfrage
+    TTL -- "<i>SPARQL</i>" --> Abfrage
+    TTL -- "<i>convert?</i>" --> KG
