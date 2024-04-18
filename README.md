@@ -46,3 +46,14 @@ Die Expansion von zusätzlichen Klassen der [NFDI4Objects Core
 Ontology](https://github.com/nfdi4objects/n4o-core-ontology) auf CIDOC-CRM ist
 auf die gleiche Weise möglich.
 
+## Ausblick
+
+Das Datenmodell besteht zunächst nur aus einer Klassenhierarchie. Diese muss
+noch erweitert werden um
+
+- Properties
+- Identifier (für Normdaten-Identifier siehe <https://github.com/nfdi4objects/n4o-terminologies>)
+- Informationen über Sammlungen aus denen die Daten und Objekte stammen
+  (siehe <https://github.com/nfdi4objects/n4o-databases> und
+  <https://github.com/nfdi4objects/n4o-rdf-import>)
+
