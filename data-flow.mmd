@@ -1,0 +1,16 @@
+flowchart LR
+    Abfrage
+    Converter
+    KG
+    LIDO
+    LIDOMapping
+    RDF
+    TTL["Triple-Store"]
+    LIDO --- Converter
+    Converter --> KG
+    RDF -- "n4o-rdf-import" --> TTL
+    KG --> KG
+    LIDOMapping --> Converter
+    KG --> Abfrage
+    TTL --> Abfrage
+    TTL --> KG
