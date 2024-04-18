@@ -42,3 +42,7 @@ weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Gra
 Ein eigener Property-Graph mit dem gesamten CIDOC-CRM Datenmodell befindet sich dazu
 in Vorbereitung.
 
+Die Expansion von zusätzlichen Klassen der [NFDI4Objects Core
+Ontology](https://github.com/nfdi4objects/n4o-core-ontology) auf CIDOC-CRM ist
+auf die gleiche Weise möglich.
+
