@@ -12,6 +12,8 @@ umgesetzt wird.
 - Docker
 - [pgraphs](https://www.npmjs.com/package/pgraphs)
 - [mermaid-cli](https://www.npmjs.com/package/@mermaid-js/mermaid-cli)
+- jq
+- Perl
 
 ## Datenfluss
 
@@ -32,17 +34,25 @@ Als Sammlungsübergeifendes Datenmodell wird CIDOC-CRM verwendet.
 ## Expansion
 
 Da Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und
-weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen
-*expandiert*. Dabei werden Knoten mit *zusätzlichen* Labels angereichert, z.B.
+weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im
+Property-Graphen *expandiert*.  Grundlage ist ein eigener Property-Graph mit
+der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich
+umbenannter oder veralteter Klassen in der Datei `crm-classes.pg` (siehe
+[SVG-Diagram](crm-classes.svg)). Der Graph aller Klassen enthält Informationen
+darüber welche Klassen sich aus einer anderen ergeben, z.B.
 
 - `E22_Man_Made_Object` => `E22_Human_Made_Object` (renamedTo)
 - `E50_Date` => `E41_Appellation` (replacedBy)
 - `E7_Activity`=> `E5_Event` (superClass)
 
-Ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell
-samt zwischenzeitlich umbenannter oder veralteter Klassen befindet sich dafür
-in der Datei `crm-classes.pg` (siehe [SVG-Diagram](crm-classes.svg)), woraus
-die Datei [`crm-expand.csv`](crm-expand.csv) erzeugt wird.
+Aus diesen Daten wird die Expansionstabelle [`crm-expand.txt`](crm-expand.txt)
+erzeugt, z.B.:
+
+- `E22_Human_Made_Object` => `E22`, `E71`, `E70`, `E24` `E77` und `E1`
+
+Auf diese Weise ist die Abfrage nach allen Knoten mit einem bestimmten Label
+wie z.B. `E22_Human_Made_Object` möglich oder nach allen Knoten, die direkt
+oder indirekt er Klasse `E22` angehören.
 
 Die Expansion von zusätzlichen Klassen der [NFDI4Objects Core
 Ontology](https://github.com/nfdi4objects/n4o-core-ontology) auf CIDOC-CRM ist

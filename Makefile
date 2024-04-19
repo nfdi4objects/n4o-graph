@@ -1,4 +1,4 @@
-default: data-flow.svg crm-classes.svg crm-expand.csv
+default: data-flow.svg crm-classes.svg crm-expand.txt
 
 data-flow.svg: data-flow.mmd
 	mmdc -i $< -o $@
@@ -12,7 +12,10 @@ crm-classes.svg: crm-classes.mmd
 crm-classes.mmd: crm-classes.pg
 	pgraph --html $< $@
 
-crm-expand.csv: crm-classes.pg
-	pgraph $< | jq -r 'select(.type=="edge")|[.to,.from]|@tsv' > $@
-	pgraph $< | jq -r 'select(.type=="node" and .properties.alias)|[.id,.properties.alias[0]]|@tsv' >> $@
+crm-expand.txt: crm-expand.tsv
+	./expansion-list.pl < $< > $@
+
+crm-expand.tsv: crm-classes.pg
+	pgraph $< | jq -r 'select(.type=="edge")|[.from,.to]|@tsv' > $@
+	pgraph $< | jq -r 'select(.type=="node" and .properties.alias)|[.properties.alias[0],.id]|@tsv' >> $@
 
