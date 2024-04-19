@@ -1,3 +1,4 @@
+# Daten aus https://www.cidoc-crm.org/releases_table und https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html
 E1_CRM_Entity since:"4.0" 
 E2_Temporal_Entity since:"4.0" 
 E3_Condition_State since:"4.0" 
@@ -191,17 +192,7 @@ E90_Symbolic_Object -> E73_Information_Object :superClass since:"4.2.5"
 E92_Spacetime_Volume -> E4_Period :superClass since:"6.2"
 E92_Spacetime_Volume -> E93_Presence :superClass since:"5.1.2"
 
-
-
-
-
-
-
-
-
-
-
-# replacedBy (replaces) könnte in :superClass?
+# replacedBy
 # E91 ist nur "withdrawn" nicht replaced, E13 war die SuperClass
 E40_Legal_Body -> E74_Group :replacedBy since:"6.2.8"
 E44_Place_Appellation -> E41_Appellation :replacedBy since:"6.2.8"
@@ -216,20 +207,3 @@ E75_Conceptual_Object_Appellation -> E41_Appellation :replacedBy since:"6.2.8"
 E82_Actor_Appellation -> E41_Appellation :replacedBy since:"6.2.8"
 E84_Information_Carrier -> E22_Human_Made_Object :replacedBy since:"6.2.8"
 E91_Co_Reference_Assignment -> E13_Attribute_Assignment :replacedBy since:"6.1"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
