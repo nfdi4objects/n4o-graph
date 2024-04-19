@@ -39,8 +39,10 @@ weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Gra
 - `E50_Date` => `E41_Appellation` (replacedBy)
 - `E7_Activity`=> `E5_Event` (superClass)
 
-Ein eigener Property-Graph mit dem gesamten CIDOC-CRM Datenmodell befindet sich dazu
-in Vorbereitung.
+Ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell
+samt zwischenzeitlich umbenannter oder veralteter Klassen befindet sich dafür
+in der Datei `crm-classes.pg` (siehe [SVG-Diagram](crm-classes.svg)), woraus
+die Datei [`crm-expand.csv`](crm-expand.csv) erzeugt wird.
 
 Die Expansion von zusätzlichen Klassen der [NFDI4Objects Core
 Ontology](https://github.com/nfdi4objects/n4o-core-ontology) auf CIDOC-CRM ist
