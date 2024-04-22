@@ -1,4 +1,5 @@
-# Daten aus http://nomisma.org/ontology/230912
+# Source: http://nomisma.org/ontology/
+
 nmo_Authenticity
 nmo_CoinWear
 nmo_Collection
@@ -34,6 +35,8 @@ nmo_TypeSeriesItem
 nmo_Wear
 nmo_WeightStandard
 
+# Class hierarchy
+
 nmo_CoinWear -> nmo_Wear :superClass
 nmo_Countermark -> nmo_SecondaryTreatment :superClass
 nmo_DepositionType -> nmo_Context :superClass
@@ -47,3 +50,14 @@ nmo_ReferenceWork -> dcterms_BibliographicResource :superClass
 nmo_SecondaryTreatment -> nmo_Peculiarity :superClass
 nmo_TypeSeries -> nmo_ReferenceWork :superClass
 nmo_WeightStandard -> dcterms_Standard :superClass
+
+# Property hierarchy
+
+nmo_hasBearsDate -> nmo_hasAppearance :superProperty
+nmo_hasFindType -> nmo_hasContext :replacedBy
+# ...TODO
+
+# Property domain and ranges
+
+nmo_StratigraphicUnit -> StratigraphicUnit :nmo_isAbove 
+# ...TODO

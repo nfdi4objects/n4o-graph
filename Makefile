@@ -1,16 +1,13 @@
-default: data-flow.svg crm-classes.svg crm-expand.txt
+default: data-flow.svg crm-classes.svg nomisma-classes.svg crm-expand.txt
 
-data-flow.svg: data-flow.mmd
-	mmdc -i $< -o $@
+data-flow.svg: data-flow.pg
+	pgraph $< --html -t mmd | mmdc -i - -o $@
 
-data-flow.mmd: data-flow.pg
-	pgraph --html $< $@
+crm-classes.svg: crm-classes.pg
+	pgraph $< --html -t mmd | mmdc -i - -o $@
 
-crm-classes.svg: crm-classes.mmd
-	mmdc -i $< -o $@
-
-crm-classes.mmd: crm-classes.pg
-	pgraph --html $< $@
+nomisma-classes.svg: nomisma-classes.pg
+	pgraph $< --html -t mmd | mmdc -i - -o $@
 
 crm-expand.txt: crm-expand.tsv
 	./expansion-list.pl < $< > $@
