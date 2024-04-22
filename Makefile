@@ -10,7 +10,7 @@ nomisma-classes.svg: nomisma-classes.pg
 	pgraph $< --html -t mmd | mmdc -i - -o $@
 
 crm-expand.txt: crm-expand.tsv
-	./expansion-list.pl < $< > $@
+	./expansion-list.pl < $< | sort > $@
 
 crm-expand.tsv: crm-classes.pg
 	pgraph $< | jq -r 'select(.type=="edge")|[.from,.to]|@tsv' > $@

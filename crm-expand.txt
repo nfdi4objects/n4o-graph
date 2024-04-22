@@ -1,102 +1,102 @@
-E1_CRM_Entity E1
-E8_Acquisition E1 E4 E5 E7 E8 E92
-E5_Event E1 E4 E5 E92
-E90_Symbolic_Object E1 E70 E72 E77 E90
-E24_Physical_Human_Made_Thing E1 E24 E70 E71 E77
-E60_Number E1 E59 E60
-E87_Curation_Activity E1 E4 E5 E7 E87 E92
-E17_Type_Assignment E1 E13 E17 E4 E5 E7 E92
-E96_Purchase E1 E4 E5 E7 E8 E92 E96
-E69_Death E1 E4 E5 E64 E69 E92
-E97_Monetary_Amount E1 E54 E97
-E42_Identifier E1 E41 E42 E70 E72 E77 E90
-E77_Persistent_Item E1 E77
-E93_Presence E1 E92 E93
-E12_Production_Event E1 E12 E4 E5 E63 E92
-E35_Title E1 E35 E41 E70 E72 E77 E90
-E29_Design_or_Procedure E1 E29 E70 E72 E73 E77 E90
-E53_Place E1 E53
-E51_Contact_Point E1 E41 E51 E70 E72 E77 E90
-E86_Leaving E1 E4 E5 E7 E86 E92
-E6_Destruction E1 E4 E5 E6 E64 E92
-E52_Time_Span E1 E52
-E40_Legal_Body E1 E39 E40 E74 E77
-E48_Place_Name E1 E41 E48 E70 E72 E77 E90
-E59_Primitive_Value E1 E59
-E2_Temporal_Entity E1 E2
-E25_Human_Made_Feature E1 E18 E25 E26 E70 E72 E77
-E89_Propositional_Object E1 E28 E70 E71 E77 E89
-E72_Legal_Object E1 E70 E72 E77
-E25_Man_Made_Feature E1 E18 E25 E26 E70 E72 E77
-E63_Beginning_of_Existence E1 E4 E5 E63 E92
-E22_Man_Made_Object E1 E22 E24 E70 E71 E77
-E79_Part_Addition E1 E11 E4 E5 E7 E79 E92
-E45_Address E1 E41 E45 E70 E72 E77 E90
-E21_Person E1 E21 E39 E77
-E15_Identifier_Assignment E1 E13 E15 E4 E5 E7 E92
-E14_Condition_Assessment E1 E13 E14 E4 E5 E7 E92
-E16_Measurement E1 E13 E16 E4 E5 E7 E92
-E80_Part_Removal E1 E11 E4 E5 E7 E80 E92
-E58_Measurement_Unit E1 E28 E55 E58 E70 E71 E77
-E61_Time_Primitive E1 E59 E61
-E34_Inscription E1 E34 E36 E37 E70 E72 E73 E77 E90
-E44_Place_Appellation E1 E41 E44 E70 E72 E77 E90
-E18_Physical_Thing E1 E18 E70 E72 E77
-E30_Right E1 E28 E30 E70 E71 E77 E89
-E39_Actor E1 E39 E77
-E46_Section_Definition E1 E41 E46 E70 E72 E77 E90
-E49_Time_Appellation E1 E41 E49 E70 E72 E77 E90
-E85_Joining E1 E4 E5 E7 E85 E92
-E20_Biological_Object E1 E18 E19 E20 E70 E72 E77
-E81_Transformation E1 E4 E5 E64 E81 E92
-E54_Dimension E1 E54
-E16_Measurement_Event E1 E13 E16 E4 E5 E7 E92
-E67_Birth E1 E4 E5 E63 E67 E92
-E18_Physical_Stuff E1 E18 E70 E72 E77
-E36_Visual_Item E1 E36 E70 E72 E73 E77 E90
-E13_Attribute_Assignment E1 E13 E4 E5 E7 E92
 E10_Transfer_of_Custody E1 E10 E4 E5 E7 E92
-E91_Co_Reference_Assignment E1 E13 E4 E5 E7 E91 E92
-E71_Human_Made_Thing E1 E70 E71 E77
 E11_Modification E1 E11 E4 E5 E7 E92
-E55_Type E1 E28 E55 E70 E71 E77
-E26_Physical_Feature E1 E18 E26 E70 E72 E77
-E62_String E1 E59 E62
-E75_Conceptual_Object_Appellation E1 E41 E70 E72 E75 E77 E90
-E9_Move E1 E4 E5 E7 E9 E92
-E24_Physical_Man_Made_Thing E1 E24 E70 E71 E77
-E28_Conceptual_Object E1 E28 E70 E71 E77
-E64_End_of_Existence E1 E4 E5 E64 E92
-E70_Thing E1 E70 E77
-E66_Formation E1 E4 E5 E63 E66 E92
-E32_Authority_Document E1 E31 E32 E70 E72 E73 E77 E90
-E65_Creation E1 E4 E5 E63 E65 E92
-E8_Acquisition_Event E1 E4 E5 E7 E8 E92
-E94_Space_Primitive E1 E59 E94
-E31_Document E1 E31 E70 E72 E73 E77 E90
-E98_Currency E1 E28 E55 E58 E70 E71 E77 E98
-E22_Human_Made_Object E1 E22 E24 E70 E71 E77
-E83_Type_Creation E1 E4 E5 E63 E65 E83 E92
-E73_Information_Object E1 E70 E72 E73 E77 E90
-E4_Period E1 E4 E92
-E47_Spatial_Coordinates E1 E41 E47 E70 E72 E77 E90
-E78_Curated_Holding E1 E24 E70 E71 E77 E78
-E7_Activity E1 E4 E5 E7 E92
-E50_Date E1 E41 E50 E70 E72 E77 E90
-E33_Linguistic_Object E1 E33 E70 E72 E73 E77 E90
-E12_Production E1 E12 E4 E5 E63 E92
-E37_Mark E1 E36 E37 E70 E72 E73 E77 E90
-E57_Material E1 E28 E55 E57 E70 E71 E77
-E56_Language E1 E28 E55 E56 E70 E71 E77
-E19_Physical_Object E1 E18 E19 E70 E72 E77
-E82_Actor_Appellation E1 E41 E70 E72 E77 E82 E90
-E84_Information_Carrier E1 E22 E24 E70 E71 E77 E84
-E92_Spacetime_Volume E1 E92
-E68_Dissolution E1 E4 E5 E64 E68 E92
-E95_Spacetime_Primitive E1 E59 E95
-E41_Appellation E1 E41 E70 E72 E77 E90
 E11_Modification_Event E1 E11 E4 E5 E7 E92
-E3_Condition_State E1 E2 E3
-E99_Product_Type E1 E28 E55 E70 E71 E77 E99
+E12_Production E1 E12 E4 E5 E63 E92
+E12_Production_Event E1 E12 E4 E5 E63 E92
+E13_Attribute_Assignment E1 E13 E4 E5 E7 E92
+E14_Condition_Assessment E1 E13 E14 E4 E5 E7 E92
+E15_Identifier_Assignment E1 E13 E15 E4 E5 E7 E92
+E16_Measurement E1 E13 E16 E4 E5 E7 E92
+E16_Measurement_Event E1 E13 E16 E4 E5 E7 E92
+E17_Type_Assignment E1 E13 E17 E4 E5 E7 E92
+E18_Physical_Stuff E1 E18 E70 E72 E77
+E18_Physical_Thing E1 E18 E70 E72 E77
+E19_Physical_Object E1 E18 E19 E70 E72 E77
+E1_CRM_Entity E1
+E20_Biological_Object E1 E18 E19 E20 E70 E72 E77
+E21_Person E1 E21 E39 E77
+E22_Human_Made_Object E1 E22 E24 E70 E71 E77
+E22_Man_Made_Object E1 E22 E24 E70 E71 E77
+E24_Physical_Human_Made_Thing E1 E24 E70 E71 E77
+E24_Physical_Man_Made_Thing E1 E24 E70 E71 E77
+E25_Human_Made_Feature E1 E18 E25 E26 E70 E72 E77
+E25_Man_Made_Feature E1 E18 E25 E26 E70 E72 E77
+E26_Physical_Feature E1 E18 E26 E70 E72 E77
 E27_Site E1 E18 E26 E27 E70 E72 E77
+E28_Conceptual_Object E1 E28 E70 E71 E77
+E29_Design_or_Procedure E1 E29 E70 E72 E73 E77 E90
+E2_Temporal_Entity E1 E2
+E30_Right E1 E28 E30 E70 E71 E77 E89
+E31_Document E1 E31 E70 E72 E73 E77 E90
+E32_Authority_Document E1 E31 E32 E70 E72 E73 E77 E90
+E33_Linguistic_Object E1 E33 E70 E72 E73 E77 E90
+E34_Inscription E1 E34 E36 E37 E70 E72 E73 E77 E90
+E35_Title E1 E35 E41 E70 E72 E77 E90
+E36_Visual_Item E1 E36 E70 E72 E73 E77 E90
+E37_Mark E1 E36 E37 E70 E72 E73 E77 E90
+E39_Actor E1 E39 E77
+E3_Condition_State E1 E2 E3
+E40_Legal_Body E1 E39 E40 E74 E77
+E41_Appellation E1 E41 E70 E72 E77 E90
+E42_Identifier E1 E41 E42 E70 E72 E77 E90
+E44_Place_Appellation E1 E41 E44 E70 E72 E77 E90
+E45_Address E1 E41 E45 E70 E72 E77 E90
+E46_Section_Definition E1 E41 E46 E70 E72 E77 E90
+E47_Spatial_Coordinates E1 E41 E47 E70 E72 E77 E90
+E48_Place_Name E1 E41 E48 E70 E72 E77 E90
+E49_Time_Appellation E1 E41 E49 E70 E72 E77 E90
+E4_Period E1 E4 E92
+E50_Date E1 E41 E50 E70 E72 E77 E90
+E51_Contact_Point E1 E41 E51 E70 E72 E77 E90
+E52_Time_Span E1 E52
+E53_Place E1 E53
+E54_Dimension E1 E54
+E55_Type E1 E28 E55 E70 E71 E77
+E56_Language E1 E28 E55 E56 E70 E71 E77
+E57_Material E1 E28 E55 E57 E70 E71 E77
+E58_Measurement_Unit E1 E28 E55 E58 E70 E71 E77
+E59_Primitive_Value E1 E59
+E5_Event E1 E4 E5 E92
+E60_Number E1 E59 E60
+E61_Time_Primitive E1 E59 E61
+E62_String E1 E59 E62
+E63_Beginning_of_Existence E1 E4 E5 E63 E92
+E64_End_of_Existence E1 E4 E5 E64 E92
+E65_Creation E1 E4 E5 E63 E65 E92
+E66_Formation E1 E4 E5 E63 E66 E92
+E67_Birth E1 E4 E5 E63 E67 E92
+E68_Dissolution E1 E4 E5 E64 E68 E92
+E69_Death E1 E4 E5 E64 E69 E92
+E6_Destruction E1 E4 E5 E6 E64 E92
+E70_Thing E1 E70 E77
+E71_Human_Made_Thing E1 E70 E71 E77
+E72_Legal_Object E1 E70 E72 E77
+E73_Information_Object E1 E70 E72 E73 E77 E90
 E74_Group E1 E39 E74 E77
+E75_Conceptual_Object_Appellation E1 E41 E70 E72 E75 E77 E90
+E77_Persistent_Item E1 E77
+E78_Curated_Holding E1 E24 E70 E71 E77 E78
+E79_Part_Addition E1 E11 E4 E5 E7 E79 E92
+E7_Activity E1 E4 E5 E7 E92
+E80_Part_Removal E1 E11 E4 E5 E7 E80 E92
+E81_Transformation E1 E4 E5 E64 E81 E92
+E82_Actor_Appellation E1 E41 E70 E72 E77 E82 E90
+E83_Type_Creation E1 E4 E5 E63 E65 E83 E92
+E84_Information_Carrier E1 E22 E24 E70 E71 E77 E84
+E85_Joining E1 E4 E5 E7 E85 E92
+E86_Leaving E1 E4 E5 E7 E86 E92
+E87_Curation_Activity E1 E4 E5 E7 E87 E92
+E89_Propositional_Object E1 E28 E70 E71 E77 E89
+E8_Acquisition E1 E4 E5 E7 E8 E92
+E8_Acquisition_Event E1 E4 E5 E7 E8 E92
+E90_Symbolic_Object E1 E70 E72 E77 E90
+E91_Co_Reference_Assignment E1 E13 E4 E5 E7 E91 E92
+E92_Spacetime_Volume E1 E92
+E93_Presence E1 E92 E93
+E94_Space_Primitive E1 E59 E94
+E95_Spacetime_Primitive E1 E59 E95
+E96_Purchase E1 E4 E5 E7 E8 E92 E96
+E97_Monetary_Amount E1 E54 E97
+E98_Currency E1 E28 E55 E58 E70 E71 E77 E98
+E99_Product_Type E1 E28 E55 E70 E71 E77 E99
+E9_Move E1 E4 E5 E7 E9 E92
