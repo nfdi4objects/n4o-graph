@@ -14,6 +14,8 @@ umgesetzt wird.
 - [mermaid-cli](https://www.npmjs.com/package/@mermaid-js/mermaid-cli)
 - jq
 - Perl
+- Python3 mit [Package neo4j](https://pypi.org/project/neo4j/):
+  `pip install -r requirements.txt --break-system-packages`
 
 ## Datenfluss
 
@@ -50,7 +52,17 @@ erzeugt, z.B.:
 
 - `E22_Human_Made_Object` => `E22`, `E71`, `E70`, `E24` `E77` und `E1`
 
-Auf diese Weise ist die Abfrage nach allen Knoten mit einem bestimmten Label
+Zum Ausführen der Expansion: 
+
+~~~sh
+./pg-expand-labels.py [Neo4j login file] < crm-expand.txt
+~~~
+
+Ohne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit
+Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank
+ausgeführt.
+
+Nach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label
 wie z.B. `E22_Human_Made_Object` möglich oder nach allen Knoten, die direkt
 oder indirekt er Klasse `E22` angehören.
 
