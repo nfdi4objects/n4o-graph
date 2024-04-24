@@ -4,7 +4,7 @@ Dieses Repositoriy enthält Skripte und Dokumentation zur Erstellung und
 Management eine Knowledge Graphen der von NFDI4Objects TA5 als Property-Graph
 umgesetzt wird.
 
-*WORK IN PROGRESS*
+*Zur Einführung in Property Graphen [siehe dieser Artikel](https://jakobib.github.io/pgraphen2024/) <https://doi.org/10.5281/zenodo.10971391>.*
 
 ## Technische Voraussetzungen
 
@@ -15,23 +15,39 @@ umgesetzt wird.
 - jq
 - Perl
 - Python3 mit [Package neo4j](https://pypi.org/project/neo4j/):
-  `pip install -r requirements.txt --break-system-packages`
+  `pip install -r requirements.txt --break-system-packages` ?
 
 ## Datenfluss
+
+LIDO-XML-Daten werden mit Hilfe von [X3ML](https://github.com/isl/x3ml)
+konvertiert. Die Konvertierung von RDF-Daten, nachdem diese mit
+[n4o-rdf-import](https://github.com/nfdi4objects/n4o-rdf-import)
+angenommen wurden, steht noch aus.
 
 ![](data-flow.svg)
 
 ## Datenmodell
 
-Als Sammlungsübergeifendes Datenmodell wird CIDOC-CRM verwendet.
+Als Sammlungsübergeifendes Datenmodell wird CIDOC-CRM mit Erweiterung durch die DFI4Objects Core Ontologie (N4O) verwendet.
 
-- Knoten erhalten als Knoten-Label die entsprechenden CRM-Klassen. Dabei werden
-  Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also z.B.
-  `E22_Human_Made_Object` für
-  [E22 Human-Made Object](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22).
- 
-- Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings
-  werden diese durch [Expansion](#expansion) auf die neueste Form gemappt.
+- Knoten erhalten als Knoten-Label die entsprechenden CRM- bzw. N4O Klassen.
+  Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also
+  z.B.
+
+  - `E22_Human_Made_Object` für
+  [E22 Human-Made Object](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22)
+
+- Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet
+  werden, allerdings werden diese durch [Expansion](#expansion) auf die neueste
+  Form gemappt.
+
+*Das Datenmodell beschränkt sich noch auf Klassen ohne Properties!*
+
+Die Klassenhierarchien als Diagramm
+
+  - [CIDOC-CRM (alle Versionen)](crm-classes.svg)
+  - [N4O (bis zur ersten CRM-Klasse)](n4o-classes.svg)
+  - [beide zusammen](n4o-all-classes.svg)
 
 ## Expansion
 
@@ -66,9 +82,9 @@ Nach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label
 wie z.B. `E22_Human_Made_Object` möglich oder nach allen Knoten, die direkt
 oder indirekt er Klasse `E22` angehören.
 
-Die Expansion von zusätzlichen Klassen der [NFDI4Objects Core
+*Die Expansion von zusätzlichen Klassen der [NFDI4Objects Core
 Ontology](https://github.com/nfdi4objects/n4o-core-ontology) auf CIDOC-CRM ist
-auf die gleiche Weise möglich.
+auf die gleiche Weise möglich aber noch nicht umgesetzt.*
 
 ## Ausblick
 
