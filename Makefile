@@ -1,4 +1,4 @@
-default: data-flow.svg crm-classes.svg nomisma-classes.svg crm-expand.txt
+default: data-flow.svg crm-classes.svg nomisma-classes.svg crm-expand.txt n4o-classes.svg
 
 data-flow.svg: data-flow.pg
 	pgraph $< --html -t mmd | mmdc -i - -o $@
@@ -7,6 +7,9 @@ crm-classes.svg: crm-classes.pg
 	pgraph $< --html -t mmd | mmdc -i - -o $@
 
 nomisma-classes.svg: nomisma-classes.pg
+	pgraph $< --html -t mmd | mmdc -i - -o $@
+
+n4o-classes.svg: n4o-classes.pg
 	pgraph $< --html -t mmd | mmdc -i - -o $@
 
 crm-expand.txt: crm-expand.tsv
