@@ -4,7 +4,7 @@ LIDO format:XML
 LIDO -- Converter
 Converter -> KG 
 KG format:Cypher model:CRM
-RDF -> TTL name:"n4o-rdf-import"
+RDF -> TTL "n4o-import":"load-rdf"
 
 KG -> KG :enrich
 
