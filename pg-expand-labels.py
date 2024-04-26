@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import sys
+import argparse
 from neo4j import GraphDatabase
 import json
 
@@ -8,10 +9,10 @@ import json
 The first label in each line will get expanded with every other label in that line.
 Labels should be split by a space.
 
-If a json file with Neo4j login is provided as first argument, the Cypher queries
+If a json file with Neo4j login is provided, the Cypher queries
 to expand labels are directly executed, otherwise printed out.
 
-Usage: ./pg-expand-labels.py [Neo4j login file] < [expand file]
+Usage: ./pg-expand-labels.py -c [Neo4j login file] < [expand file]
 """
 
 # Read the expand file from stdin and create the cypher queries.
@@ -25,9 +26,15 @@ cypher_queries = cypher_queries[:-1]
 
 
 # Read the json file and enter the information.
-try:
-  neo4j_file = sys.argv[1]
-  with open(neo4j_file, 'r') as file:
+parser = argparse.ArgumentParser()
+parser.add_argument('-c', '--config', dest="config")
+args = parser.parse_args()
+# No json file provided. Print out the queries.
+if args.cmd is None:
+  print(cypher_queries)
+  
+else:
+  with open(args.config, 'r') as file:
     neo4j_login = json.loads(file.read())
   uri = neo4j_login.get("uri")
   username = neo4j_login.get("user")
@@ -45,8 +52,3 @@ try:
   print("Nodes changed=", nodes_changed)
   print("Labels added=", labels_added)
   driver.close()
-
-# No json file provided. Print out the queries.
-except IndexError:
-  print(cypher_queries)
-
