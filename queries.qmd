@@ -22,6 +22,12 @@ RETURN substring(head(labels(n)), 0, 1) AS entityTypes, count(\*) AS entityCount
 
 ```{python}
 from neo4j import GraphDatabase
+import json
+with open('neo4j.json', 'r') as file:
+  neo4j_login = json.loads(file.read())
+  uri = neo4j_login.get("uri")
+  user = neo4j_login.get("user")
+  password = neo4j_login.get("password")
 uri = "neo4j://localhost"
 user = ""
 password = ""
@@ -43,10 +49,6 @@ RETURN labels(n) AS entityTypes LIMIT 10;
 ```
 
 ```{python}
-from neo4j import GraphDatabase
-uri = "neo4j://localhost"
-user = ""
-password = ""
 cmd = "MATCH (n) WHERE any(label IN labels(n) WHERE label =~ '^E\\d+.*') RETURN labels(n) AS entityTypes LIMIT 10;"
 driver = GraphDatabase.driver(uri, auth=(user, password))
 with driver.session() as session:
@@ -64,10 +66,6 @@ RETURN labels(n) AS entityTypes, count(\*) AS entityCount LIMIT 10
 ```
 
 ```{python}
-from neo4j import GraphDatabase
-uri = "neo4j://localhost"
-user = ""
-password = ""
 cmd = "MATCH (n) WHERE any(label IN labels(n) WHERE label =~ '^.[^0-9].*') RETURN labels(n) AS entityTypes, count(*) AS entityCount LIMIT 10;"
 driver = GraphDatabase.driver(uri, auth=(user, password))
 with driver.session() as session:
@@ -86,10 +84,6 @@ RETURN DISTINCT type(r) AS relationshipType, count(*) AS relationshipCount LIMIT
 ```
 
 ```{python}
-from neo4j import GraphDatabase
-uri = "neo4j://localhost"
-user = ""
-password = ""
 cmd = "MATCH ()-[r]->() RETURN DISTINCT type(r) AS relationshipType, count(*) AS relationshipCount LIMIT 10;"
 driver = GraphDatabase.driver(uri, auth=(user, password))
 with driver.session() as session:

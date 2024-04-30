@@ -1,0 +1,82 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "NFDI4Objects Knowledge Graph",
+    "section": "",
+    "text": "An dieser Stelle soll ein Handbuch für die Nutzung des NFDI4Objects Knowledge Graphen aus TA5 entstehen.\nDer Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus verschiedenene Quellen zusammengeführt werden:\n\nEinem Property-Graphen mit normalisierten Daten\nEinem Triple-Store mit RDF-Daten\n\nWeitere Details und Hintergründe werden im Kapitel zur technischen Architektur erklärt.\nZur Nutzung stehen verschiedene Schnittstellen. Zur Nutzung der Cypher-API siehe:\n\nCypher-Einführung\nBeispiel Cypher-Abfragen",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Übersicht</span>"
+    ]
+  },
+  {
+    "objectID": "property-graph.html",
+    "href": "property-graph.html",
+    "title": "Property Graph",
+    "section": "",
+    "text": "…",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Property Graph</span>"
+    ]
+  },
+  {
+    "objectID": "data-model.html",
+    "href": "data-model.html",
+    "title": "Datenmodell",
+    "section": "",
+    "text": "Als Sammlungsübergeifendes Datenmodell wird CIDOC-CRM mit Erweiterung durch die DFI4Objects Core Ontologie (N4O) verwendet.\n\nKnoten im Property Graphen erhalten als Knoten-Label die entsprechenden CRM- bzw. N4O Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also z.B.\n\nE22_Human_Made_Object für E22 Human-Made Object\n\nZwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch Expansion auf die neueste Form gemappt.\n\nDas Datenmodell beschränkt sich noch auf Klassen ohne Properties!\nDie Klassenhierarchien als Diagramm\n\nCIDOC-CRM (alle Versionen)\nN4O (bis zur ersten CRM-Klasse)\nbeide zusammen",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenmodell</span>"
+    ]
+  },
+  {
+    "objectID": "cypher.html",
+    "href": "cypher.html",
+    "title": "Cypher-Einführung",
+    "section": "",
+    "text": "Ein Property-Graph kann mit Cypher-Anfragen nähere Informationen über seinen Inhalt liefern und verändert werden. Dafür muss er in Neo4j oder einer anderen Graphdatenbank, die mit Cypher-Anfragen umgehen kann, übertragen werden. Cypher ist eine SQL-aquivalente Sprache für Graphdatenbanken.\n\nEinen Graph mit Cypher erstellen\nMit CREATE lassen sich neue Kanten (Nodes), Kanten (Relationships) und Eigenschaften (Properties) erstellen. Eine Reihe von CREATE Cypher-Anfragen ist eine Möglichkeit einen Property-Graph in Neo4j zu übertragen. MERGE ist ähnlich, aber erstellt keine Duplikate.\nCREATE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]-&gt;(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) \nMERGE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]-&gt;(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) \n\n\nNodes\nKnoten heißen Nodes und werden in runden Klammern definiert.\nMATCH (n:Person {name:'Anna'})\nRETURN n.geboren AS geburtsjahr\nPerson ist ein Label. Labels sind wie Tags und werden genutzt um die Datenbank zu befragen. Eine Node Kann mehrere Labels haben.\nName ist eine Property von Anna. Properties werden in geschweiften Klammern definiert and geben nähere Informationen. Nach Properties kann auch gefragt werden.\nN ist eine Variabel. Auf Variabeln kann weiter verwiesen werden.\nIn diesem Beispiel findet MATCH alle Person Nodes in dem Graph wo die Property name Anna ist und setzt die Variabel n zu dem Ergebnis. n wird dann an RETURN weitergegeben, welche den Wert von einer anderen Property (geboren) dieser Nodes wiedergibt.\n\n\nRelationships\nNodes können mit Relationships verbunden werden. Eine Relationship braucht eine Start Node, eine Ende Node und genau einen Typ. Relationships haben in Cypher einen Pfeil um die Richting zu zeigen. Die Informationen über eine Relationship sind in eckigen Klammern eingeschlossen.\nWährend Nodes mehrere Labels haben können, können Relationships nur einen Typ haben.\nMATCH (:Person {name: 'Anna'})-[r:KENNT WHERE r.seit &lt; 2020]-&gt;(freund:Person)\nRETURN count(r) As zahlAnFreunden\nIn dieser Anfrage findet Match Relationships des Typs KENNT wo die Property seit kleiner als 2020 ist. Außerdem müssen Relationships von einer Person Node mit der Property Anna zu einer anderen Personen Node gehen (wir nennen diese freund). count() wird genutzt um zu zählen wie viele Relationships an die Variabel r in MATCH gebunden wurden somit erhalten wir mit RETURN eine Zahl.\n\n\nPfade\nMATCH (n:Person {name: 'Anna'})-[:KENNT]-{1,5}(freund:Person WHERE n.geboren &lt; freund.geboren)\nRETURN DISTINCT freund.name AS ältereFreunde\nDieses Beispiel nutzt eine quantifizierte Relationship um alle Pfade, die bis zu 5 Schritte entfernt sind, zu finden. Dabei werden nur Relationships des Typs KENNT verwendet. Die Start Node ist Anna und Ende Node sind Personen älter als Anna. Durch DISTINCT wird das gleiche Ergebnis nur einmal ausgegeben.\nMATCH p=shortestPath((:Person {name: 'Anna'})-[:KENNT*1..10]-(:Person {nationalität: 'Kanadier'}))\nRETURN p\nAuch Pfade können einer Variable zugewiesen werden. Hier wird der vollständige Pfad ausgegeben.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Cypher-Einführung</span>"
+    ]
+  },
+  {
+    "objectID": "queries.html",
+    "href": "queries.html",
+    "title": "Beispiel Cypher-Abfragen",
+    "section": "",
+    "text": "Zeige wie viele Node-Labels jeweils existieren, die einen Buchstaben gefolgt auf eine Zahl am Anfang haben.\nDa eine Node mehrere Labels haben kann, nutzen wir “any(label”.\n~ ‘^[a-zA-Z][0-9].*’ Die Tilde bedeuted, dass das folgende RegEx ist.\nMit return geben wir den ersten Buchstaben des ersten Labels aus und wieviele erste Labels mit diesem ersten Buchstaben.\nS,98\nE,58\nN,42\nP,104\nD,3",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Beispiel Cypher-Abfragen</span>"
+    ]
+  },
+  {
+    "objectID": "queries.html#weitere-informationen",
+    "href": "queries.html#weitere-informationen",
+    "title": "Beispiel Cypher-Abfragen",
+    "section": "Weitere Informationen",
+    "text": "Weitere Informationen\nDas englische Cypher Handbuch\nFür Informationen über Property-Graphen: Voß, Jakob. 2024. “Property-Graphen: eine kurze Einführung.” VZG Aktuell. https://doi.org/10.5281/zenodo.10971391.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Beispiel Cypher-Abfragen</span>"
+    ]
+  },
+  {
+    "objectID": "triple-store.html",
+    "href": "triple-store.html",
+    "title": "Triple Store",
+    "section": "",
+    "text": "Die im Knowledge-Graph zusammengeführten Daten werden zusammen mit weiteren RDF-Daten in einem Triple Store zur verfügung gestellt und können per SPARQL abgefragt werden.\nDieser Dienst befindet sich noch im Aufbau",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Triple Store</span>"
+    ]
+  },
+  {
+    "objectID": "architecture.html",
+    "href": "architecture.html",
+    "title": "Technische Architektur",
+    "section": "",
+    "text": "Datenfluss\nLIDO-XML-Daten werden mit Hilfe von X3ML konvertiert. Die Konvertierung von RDF-Daten, nachdem diese mit n4o-rdf-import angenommen wurden, steht noch aus.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Technische Architektur</span>"
+    ]
+  }
+]
