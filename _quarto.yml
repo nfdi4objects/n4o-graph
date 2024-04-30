@@ -1,0 +1,32 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  repo-url: https://github.com/nfdi4objects/n4o-property-graph
+  repo-actions:
+    - source
+  chapters:
+    - index.qmd
+    - queries.qmd
+  page-footer: 
+    right: 
+      - text: Datenschutz
+        href: https://www.gbv.de/datenschutz
+      - text: hosted by VZG
+        href: https://www.gbv.de/impressum
+      - icon: github
+        href: https://github.com/nfdi4objects/n4o-property-graph
+
+tbl-cap-location: bottom
+number-sections: false
+number-depth: 1
+
+format:
+  html:
+    theme: cosmo
+    link-external-icon: true
+
+  docx: {}
+  #pdf:
+  #  documentclass: scrreprt

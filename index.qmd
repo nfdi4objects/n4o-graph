@@ -1,0 +1,61 @@
+---
+title: Cypher-Einführung
+execute:
+  echo: false
+lang: de
+toc: true
+---
+
+Ein Property-Graph kann mit Cypher-Anfragen nähere Informationen über seinen Inhalt liefern und verändert werden. Dafür muss er in Neo4j oder einer anderen Graphdatenbank, die mit Cypher-Anfragen umgehen kann, übertragen werden. Cypher ist eine SQL-aquivalente Sprache für Graphdatenbanken. 
+
+### Einen Graph mit Cypher erstellen
+
+Mit CREATE lassen sich neue Kanten (Nodes), Kanten (Relationships) und Eigenschaften (Properties) erstellen. Eine Reihe von CREATE Cypher-Anfragen ist eine Möglichkeit einen Property-Graph in Neo4j zu übertragen.
+MERGE ist ähnlich, aber erstellt keine Duplikate. 
+
+```{cypher}
+CREATE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]->(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) 
+MERGE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]->(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) 
+```
+
+### Nodes
+Knoten heißen Nodes und werden in runden Klammern definiert.
+```{cypher}
+MATCH (n:Person {name:'Anna'})
+RETURN n.geboren AS geburtsjahr
+```
+
+Person ist ein Label. Labels sind wie Tags und werden genutzt um die Datenbank zu befragen. Eine Node Kann mehrere Labels haben.  
+Name ist eine Property von Anna. Properties werden in geschweiften Klammern definiert and geben nähere Informationen. Nach Properties kann auch gefragt werden.  
+N ist eine Variabel. Auf Variabeln kann weiter verwiesen werden.  
+
+In diesem Beispiel findet MATCH alle Person Nodes in dem Graph wo die Property name Anna ist und setzt die Variabel n zu dem Ergebnis. n wird dann an RETURN weitergegeben, welche den Wert von einer anderen Property (geboren) dieser Nodes wiedergibt.  
+
+### Relationships
+
+Nodes können mit Relationships verbunden werden. Eine Relationship braucht eine Start Node, eine Ende Node und genau einen Typ. Relationships haben in Cypher einen Pfeil um die Richting zu zeigen. Die Informationen über eine Relationship sind in eckigen Klammern eingeschlossen.  
+Während Nodes mehrere Labels haben können, können Relationships nur einen Typ haben.
+
+```{cypher}
+MATCH (:Person {name: 'Anna'})-[r:KENNT WHERE r.seit < 2020]->(freund:Person)
+RETURN count(r) As zahlAnFreunden
+```
+
+In dieser Anfrage findet Match Relationships des Typs KENNT wo die Property seit kleiner als 2020 ist. Außerdem müssen Relationships von einer Person Node mit der Property Anna zu einer anderen Personen Node gehen (wir nennen diese freund). count() wird genutzt um zu zählen wie viele Relationships an die Variabel r in MATCH gebunden wurden somit erhalten wir mit RETURN eine Zahl.
+
+### Pfade
+
+```{cypher}
+MATCH (n:Person {name: 'Anna'})-[:KENNT]-{1,5}(freund:Person WHERE n.geboren < freund.geboren)
+RETURN DISTINCT freund.name AS ältereFreunde
+```
+
+Dieses Beispiel nutzt eine quantifizierte Relationship um alle Pfade, die bis zu 5 Schritte entfernt sind, zu finden. Dabei werden nur Relationships des Typs KENNT verwendet. Die Start Node ist Anna und Ende Node sind Personen älter als Anna. Durch DISTINCT wird das gleiche Ergebnis nur einmal ausgegeben.
+
+
+```{cypher}
+MATCH p=shortestPath((:Person {name: 'Anna'})-[:KENNT*1..10]-(:Person {nationalität: 'Kanadier'}))
+RETURN p
+```
+
+Auch Pfade können einer Variable zugewiesen werden. Hier wird der vollständige Pfad ausgegeben.
