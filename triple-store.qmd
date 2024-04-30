@@ -1,0 +1,10 @@
+---
+title: Triple Store
+---
+
+Die im Knowledge-Graph zusammengeführten Daten werden zusammen mit weiteren
+RDF-Daten in einem **Triple Store** zur verfügung gestellt und können per
+**SPARQL** abgefragt werden.
+
+*Dieser Dienst befindet sich noch im Aufbau*
+

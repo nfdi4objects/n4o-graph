@@ -2,3 +2,5 @@ node_modules/
 
 # temporary files
 *.mmd
+
+/.quarto/

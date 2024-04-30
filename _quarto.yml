@@ -1,20 +1,26 @@
 project:
   type: book
+  output-dir: docs
 
 book:
-  title: "Der NFDI4Objects Knowledge Graph"
+  title: "NFDI4Objects Knowledge Graph"
+  subtitle: "Eine Einführung"
   repo-url: https://github.com/nfdi4objects/n4o-property-graph
   repo-actions:
     - source
   chapters:
     - index.qmd
+    - property-graph.qmd
+    - data-model.qmd
     - cypher.qmd
     - queries.qmd
+    - triple-store.qmd
+    - architecture.qmd
   page-footer: 
     right: 
       - text: Datenschutz
         href: https://www.gbv.de/datenschutz
-      - text: hosted by VZG
+      - text: Impressum
         href: https://www.gbv.de/impressum
       - icon: github
         href: https://github.com/nfdi4objects/n4o-property-graph
@@ -27,7 +33,3 @@ format:
   html:
     theme: cosmo
     link-external-icon: true
-
-  docx: {}
-  #pdf:
-  #  documentclass: scrreprt

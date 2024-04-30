@@ -1,0 +1,26 @@
+---
+title: Datenmodell
+---
+
+Als Sammlungsübergeifendes Datenmodell wird CIDOC-CRM mit Erweiterung durch die DFI4Objects Core Ontologie (N4O) verwendet.
+
+- Knoten im [Property Graphen](property-graph.qmd) erhalten als Knoten-Label
+  die entsprechenden CRM- bzw. N4O Klassen. Dabei werden Leerzeichen und
+  Sonderzeichen durch Unterstrich ersetzt, also z.B.
+
+  - `E22_Human_Made_Object` für
+  [E22 Human-Made Object](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22)
+
+- Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet
+  werden, allerdings werden diese durch [Expansion](#expansion) auf die neueste
+  Form gemappt.
+
+*Das Datenmodell beschränkt sich noch auf Klassen ohne Properties!*
+
+Die Klassenhierarchien als Diagramm
+
+  - [CIDOC-CRM (alle Versionen)](crm-classes.svg)
+  - [N4O (bis zur ersten CRM-Klasse)](n4o-classes.svg)
+  - [beide zusammen](n4o-all-classes.svg)
+
+

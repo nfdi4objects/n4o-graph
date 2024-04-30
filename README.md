@@ -19,35 +19,7 @@ umgesetzt wird.
 
 ## Datenfluss
 
-LIDO-XML-Daten werden mit Hilfe von [X3ML](https://github.com/isl/x3ml)
-konvertiert. Die Konvertierung von RDF-Daten, nachdem diese mit
-[n4o-rdf-import](https://github.com/nfdi4objects/n4o-rdf-import)
-angenommen wurden, steht noch aus.
-
-![](data-flow.svg)
-
-## Datenmodell
-
-Als Sammlungsübergeifendes Datenmodell wird CIDOC-CRM mit Erweiterung durch die DFI4Objects Core Ontologie (N4O) verwendet.
-
-- Knoten erhalten als Knoten-Label die entsprechenden CRM- bzw. N4O Klassen.
-  Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also
-  z.B.
-
-  - `E22_Human_Made_Object` für
-  [E22 Human-Made Object](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22)
-
-- Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet
-  werden, allerdings werden diese durch [Expansion](#expansion) auf die neueste
-  Form gemappt.
-
-*Das Datenmodell beschränkt sich noch auf Klassen ohne Properties!*
-
-Die Klassenhierarchien als Diagramm
-
-  - [CIDOC-CRM (alle Versionen)](crm-classes.svg)
-  - [N4O (bis zur ersten CRM-Klasse)](n4o-classes.svg)
-  - [beide zusammen](n4o-all-classes.svg)
+siehe [Handbuch](architecture.qmd).
 
 ## Expansion
 
@@ -97,3 +69,11 @@ noch erweitert werden um
   (siehe <https://github.com/nfdi4objects/n4o-databases> und
   <https://github.com/nfdi4objects/n4o-rdf-import>)
 
+## Handbuch
+
+Dieses Repository enthält als Handbuch eine Einführung in den Aufbau und die
+Nutzung des NFDI4Objects Knowledge Graphen. Das Handbuch ist mit
+[quarto](https://quarto.org/) erstellt und enthält Code-Beispiele in Python.
+Quelltext des Handbuch sind alle Dateien mit der Endung `.qmd`.
+
+Zur Aktualisierung der HTML-Version des Handbuch wird neben quarto jupyter notebook benötigt (Installation z.B. via `sudo apt install jupyter-notebook`). Anschließend kann es mit `quarto render` aktualisiert werden. 

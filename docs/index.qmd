@@ -1,2 +1,0 @@
-[Cypher-Einführung](cypher.html)  
-[Beispiel Cypher-Abfragen](queries.html)

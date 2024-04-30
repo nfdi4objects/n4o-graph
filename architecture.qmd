@@ -1,0 +1,14 @@
+---
+title: Technische Architektur
+---
+
+## Datenfluss
+
+LIDO-XML-Daten werden mit Hilfe von [X3ML](https://github.com/isl/x3ml)
+konvertiert. Die Konvertierung von RDF-Daten, nachdem diese mit
+[n4o-rdf-import](https://github.com/nfdi4objects/n4o-rdf-import)
+angenommen wurden, steht noch aus.
+
+![](data-flow.svg)
+
+
