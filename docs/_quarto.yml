@@ -1,13 +1,14 @@
 project:
   type: book
-  output-dir: docs
 
 book:
+  title: "Der NFDI4Objects Knowledge Graph"
   repo-url: https://github.com/nfdi4objects/n4o-property-graph
   repo-actions:
     - source
   chapters:
     - index.qmd
+    - cypher.qmd
     - queries.qmd
   page-footer: 
     right: 

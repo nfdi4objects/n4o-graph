@@ -6,7 +6,6 @@ lang: de
 toc: true
 ---
 
-### Beispiel Cypher-Anfragen und ihre Ergebnisse. 
 Mit MATCH werden Daten aus dem Graph abgefragt.
 RETURN gibt Ergebnisse aus. So würde "MATCH (n) RETURN n" die vollständige Datenbank ausgeben.
 
@@ -97,24 +96,6 @@ with driver.session() as session:
  for x in session.run(cmd):
   print(','.join((str(x) for x in x.values())))
 driver.close()
-```
-
-
-```{mermaid}
-%%| label: fig-image
-%%| fig-cap: Visualisierung des Beispiel-Graphen
-%%| fig-width: 100%
-flowchart LR
-   Padme["<b>Padmé</b><br><i>person</i><br><tt>gender:female</tt>"]
-   Anakin["<b>Anakin</b><br><i>person</i><br><tt>gender:male</tt>"]              
-   Luke["<b>Luke</b><br><i>person</i><br><tt>gender:male</tt>"]
-   R2D2["<b>R2D2</b><br><i>robot</i>"]
-   Padme -- "<i>owns</i><br><tt>episode:1</tt>" --> R2D2
-   Padme -- "<i>marriage<i><br><tt>episode:2</tt>" --- Anakin
-   Anakin -- "<i>owns</i><br><tt>episode:2</tt>" --> R2D2
-   Anakin -- "<i>child</i><br><tt>episode:3</tt>" --> Luke
-   Padme -- "<i>child</i><br><tt>episode:3</tt>" --> Luke      
-   Luke -- "<i>owns</i><br><tt>episode:4</tt>" --> R2D2
 ```
 
 ## Weitere Informationen
