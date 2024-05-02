@@ -8,3 +8,30 @@ RDF-Daten in einem **Triple Store** zur verfügung gestellt und können per
 
 *Dieser Dienst befindet sich noch im Aufbau*
 
+## Beispielabfragen
+
+### Statistik aller Prädikate und ihrer Häufigkeit
+```sparql
+SELECT distinct ?pred WHERE {
+  ?sub ?pred ?obj .
+}
+```
+
+### Statistik aller Prädikate sortiert nach Anzahl der Prädikate
+```sparql
+SELECT distinct ?pre (COUNT(?pre) AS ?count) WHERE {
+  ?s ?pre ?obj
+} 
+GROUP BY ?pre
+ORDER BY DESC(?count)
+```
+
+### Statistik aller Obj mit spezifischen Prädikat sortiert nach Anzahl der Subjekte
+```sparql
+SELECT distinct (COUNT(?s) AS ?count) ?obj WHERE {
+  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?obj
+} 
+GROUP BY ?obj
+ORDER BY DESC(?count)
+```
+
