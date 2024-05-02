@@ -28,9 +28,6 @@ with open('neo4j.json', 'r') as file:
   uri = neo4j_login.get("uri")
   user = neo4j_login.get("user")
   password = neo4j_login.get("password")
-uri = "neo4j://localhost"
-user = ""
-password = ""
 cmd = "MATCH (n) WHERE any(label IN labels(n) WHERE label =~ '^[a-zA-Z][0-9].*') RETURN substring(head(labels(n)), 0, 1) AS entityTypes, count(*) AS entityCount;"
 driver = GraphDatabase.driver(uri, auth=(user, password))
 with driver.session() as session:
@@ -92,7 +89,54 @@ with driver.session() as session:
 driver.close()
 ```
 
+```{cypher}
+MATCH (m)-[r]->(n) 
+WHERE any(label IN labels(n) WHERE label =~ 'E53.*') 
+RETURN labels(m),type(r),labels(n)
+```
+
+```{python}
+cmd = "MATCH (m)-[r]->(n) WHERE any(label IN labels(n) WHERE label =~ 'E53.*') RETURN labels(m),type(r),labels(n);"
+driver = GraphDatabase.driver(uri, auth=(user, password))
+with driver.session() as session:
+ for x in session.run(cmd):
+  print(','.join((str(x) for x in x.values())))
+driver.close()
+```
+
+```{python}
+cmd = "MATCH (m)-[r]->(n) WHERE any(label IN labels(n) WHERE label =~ 'E53.*') RETURN m,r,n;"
+driver = GraphDatabase.driver(uri, auth=(user, password))
+with driver.session() as session:
+ for x in session.run(cmd):
+  print(','.join((str(x) for x in x.values())))
+driver.close()
+```
+
+```{mermaid}
+%%| fig-width: 100%
+flowchart LR
+    BNode["<b>BNode</b>"]
+    BNode1["<b>BNode</b>"]
+    BNode2["<b>BNode</b>"]
+    BNode3["<b>BNode</b>"]
+    E53_Place["<b>E53_Place</b>"]
+    N10_falls_within["<b>N10_falls_within</b>"]
+    N10i_contains["<b>N10i_contains</b>"]
+    S39_Location["<b>S39_Location</b>"]
+    S40_Geographical_Place["<b>S40_Geographical_Place</b>"]
+    BNode1 -- "<i>someValuesFrom</i>" --> E53_Place
+    N10i_contains -- "<i>domain</i>" --> E53_Place
+    N10i_contains -- "<i>range</i>" --> E53_Place
+    S39_Location -- "<i>subClassOf</i>" --> E53_Place
+    N10_falls_within -- "<i>domain</i>" --> E53_Place
+    BNode2 -- "<i>someValuesFrom</i>" --> E53_Place
+    S40_Geographical_Place -- "<i>subClassOf</i>" --> E53_Place
+    BNode -- "<i>someValuesFrom</i>" --> E53_Place
+    N10_falls_within -- "<i>range</i>" --> E53_Place
+    BNode3 -- "<i>someValuesFrom</i>" --> E53_Place
+```
+
 ## Weitere Informationen
 
-[Das englische Cypher Handbuch](https://neo4j.com/docs/cypher-manual/current/introduction/)  
-Für Informationen über Property-Graphen: Voß, Jakob. 2024. “Property-Graphen: eine kurze Einführung.” VZG Aktuell. [https://doi.org/10.5281/zenodo.10971391](https://doi.org/10.5281/zenodo.10971391). 
+[Das englische Cypher Handbuch](https://neo4j.com/docs/cypher-manual/current/)  

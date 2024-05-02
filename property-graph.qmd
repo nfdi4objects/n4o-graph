@@ -2,4 +2,14 @@
 title: Property Graph
 ---
 
-...
+Property-Graphen bilden ein flexibles und nicht zu kompliziertes Werkzeug zur
+Strukturierung, Speicherung und Auswertung vernetzter Daten. Im Gegensatz zu
+RDF sind Property Graphen allerdings nicht als allgemeines Austauschformat
+gedacht. 
+
+Bei Property-Graphen werden Daten nicht wie bei SQL in Form von
+Tabellen sondern in Form von Graphen aus *Knoten* gespeichert, die durch
+*Kanten* miteinander verbunden sind. Sowohl Knoten als auch Kanten haben jeweils *Labels*
+und können mit *Eigenschaften* versehen werden.
+
+Für weitere Informationen über Property-Graphen: Voß, Jakob. 2024. “Property-Graphen: eine kurze Einführung.” VZG Aktuell. [https://doi.org/10.5281/zenodo.10971391](https://doi.org/10.5281/zenodo.10971391). 

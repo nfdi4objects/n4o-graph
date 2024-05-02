@@ -14,6 +14,7 @@ book:
     - data-model.qmd
     - cypher.qmd
     - queries.qmd
+    - cypher_mit_python.qmd
     - triple-store.qmd
     - architecture.qmd
   page-footer: 
