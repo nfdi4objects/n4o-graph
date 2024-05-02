@@ -11,13 +11,13 @@ book:
   chapters:
     - index.qmd
     - datenquellen.qmd
-    - property-graph.qmd
     - data-model.qmd
+    - architecture.qmd
+    - property-graph.qmd
     - cypher.qmd
     - queries.qmd
     - cypher_mit_python.qmd
     - triple-store.qmd
-    - architecture.qmd
   page-footer: 
     right: 
       - text: Datenschutz
