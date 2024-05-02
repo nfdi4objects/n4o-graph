@@ -2,7 +2,10 @@
 title: Datenmodell
 ---
 
-Als Sammlungsübergeifendes Datenmodell wird CIDOC-CRM mit Erweiterung durch die DFI4Objects Core Ontologie (N4O) verwendet.
+Als Sammlungsübergeifendes Datenmodell wird **CIDOC-CRM** mit Erweiterung
+durch die DFI4Objects Core Ontologie (N4O) verwendet.
+
+*Das Datenmodell beschränkt sich im Moment noch auf Klassen ohne Properties!*
 
 - Knoten im [Property Graphen](property-graph.qmd) erhalten als Knoten-Label
   die entsprechenden CRM- bzw. N4O Klassen. Dabei werden Leerzeichen und
@@ -15,12 +18,25 @@ Als Sammlungsübergeifendes Datenmodell wird CIDOC-CRM mit Erweiterung durch die
   werden, allerdings werden diese durch [Expansion](#expansion) auf die neueste
   Form gemappt.
 
-*Das Datenmodell beschränkt sich noch auf Klassen ohne Properties!*
-
 Die Klassenhierarchien als Diagramm
 
   - [CIDOC-CRM (alle Versionen)](crm-classes.svg)
   - [N4O (bis zur ersten CRM-Klasse)](n4o-classes.svg)
   - [beide zusammen](n4o-all-classes.svg)
 
+## CIDOC-CRM
+
+...
+
+## Die NFDI4Objects Core Ontologie
+
+...
+
+## Weitere unterstütze Ontologien
+
+...
+
+## Terminologien
+
+...
 

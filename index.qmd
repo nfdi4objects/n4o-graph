@@ -2,17 +2,14 @@
 title: Übersicht
 ---
 
-An dieser Stelle entsteht ein **Handbuch für die Nutzung des Knowledge Graphen
-von NFDI4Objects** (TA5).
-
-Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen
-Daten aus [verschiedenene Quellen](datenquellen.qmd) zusammengeführt werden:
+An dieser Stelle entsteht ein Handbuch für die Nutzung des **Knowledge Graphen
+von NFDI4Objects** (TA5). Der Knowledge Graph besteht im Wesentlichen aus zwei
+Datenbanken, in denen Daten aus [verschiedenene Quellen](datenquellen.qmd)
+zusammengeführt werden:
 
 - ein [Triple-Store](triple-store.qmd) mit Rohdaten in RDF und Abfrage in SPARL
-- ein [Property-Graph](property-graph.qmd) mit aufbereiteten Daten und Abfrage in Cypher
+- ein [Property-Graph](property-graph.qmd) mit aufbereiteten Daten und Abfrage in [Cypher](cypher.qmd)
 
 Darüber hinaus ist eine Oberfläche mit Möglichkeiten zur Datenvisualisierung
-geplant.
-
-Weitere Details und Hintergründe werden im Kapitel zur [technischen Architektur](architecture.qmd) erklärt.
+geplant. Weitere Details und Hintergründe werden im Kapitel zur [technischen Architektur](architecture.qmd) erklärt.
 
