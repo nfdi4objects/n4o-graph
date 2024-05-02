@@ -8,6 +8,20 @@ RDF-Daten in einem **Triple Store** zur verfügung gestellt und können per
 
 *Dieser Dienst befindet sich noch im Aufbau*
 
+
+## Grundlagen
+Ein **Triple Store** ist eine [Graphendatenbank](https://de.wikipedia.org/wiki/Graphdatenbank), die auf Basis von [RDF](https://de.wikipedia.org/wiki/Resource_Description_Framework) Daten in Subjekt-Prädikat-Objekt Triples speichert. Das Subjekt und Objekt stellen die Knoten dar, die über ein Prädikat verbunden sind.
+
+
+## Inhalt des Triple Store
+
+- Alle in RDF angelieferten Daten (soweit syntaxktisch korrekt). Es ist also kein einheitliches Datenmodell vorgeschrieben! Aus den RDF-Daten werden lediglich Aussagen über Terminologien und Ontologien herausgefiltert
+
+- Jede Lieferung ist ein Named Graph, so dass die Lieferungen sowohl einzeln, als auch in einem RDF-Graphen zusammengefasst abgefragt werden können.
+
+- Unterstützte Ontologien und Terminologien sind ebenfalls als eigene Namend Graphs eingespielt, so dass sie für Abfragen verwendet werden können.
+
+
 ## Beispielabfragen
 
 ### Statistik aller Prädikate und ihrer Häufigkeit
@@ -26,7 +40,7 @@ GROUP BY ?pre
 ORDER BY DESC(?count)
 ```
 
-### Statistik aller Obj mit spezifischen Prädikat sortiert nach Anzahl der Subjekte
+### Statistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte
 ```sparql
 SELECT distinct (COUNT(?s) AS ?count) ?obj WHERE {
   ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?obj
