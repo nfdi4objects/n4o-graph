@@ -14,7 +14,7 @@ Da eine Node mehrere Labels haben kann, nutzen wir "any(label".
 \~ '\^[a-zA-Z][0-9].\*' Die Tilde bedeuted, dass das folgende RegEx ist.  
 Mit return geben wir den ersten Buchstaben des ersten Labels aus und wieviele erste Labels mit diesem ersten Buchstaben.
 
-```{cypher}
+```cypher
 MATCH (n)  
 WHERE any(label IN labels(n) WHERE label =~ '\^[a-zA-Z][0-9].\*')  
 RETURN substring(head(labels(n)), 0, 1) AS entityTypes, count(\*) AS entityCount;
@@ -33,13 +33,12 @@ driver = GraphDatabase.driver(uri, auth=(user, password))
 with driver.session() as session:
  for x in session.run(cmd):
   print(','.join((str(x) for x in x.values())))
-driver.close()
 ```
 
 #### Welche CIDOC-CRM Node-Labels existieren? Ist gleich der Nodes mit Label E.
 LIMIT ist hier um nicht die ganze Seite zu füllen. So werden nur die ersten 10 Treffer ausgegeben.
 
-```{cypher}
+```cypher
 MATCH (n)  
 WHERE any(label IN labels(n) WHERE label =~ '^E\\d+.\*')  
 RETURN labels(n) AS entityTypes LIMIT 10;
@@ -47,16 +46,14 @@ RETURN labels(n) AS entityTypes LIMIT 10;
 
 ```{python}
 cmd = "MATCH (n) WHERE any(label IN labels(n) WHERE label =~ '^E\\d+.*') RETURN labels(n) AS entityTypes LIMIT 10;"
-driver = GraphDatabase.driver(uri, auth=(user, password))
 with driver.session() as session:
  for x in session.run(cmd):
   print(','.join((str(x) for x in x.values())))
-driver.close()
 ```
 
 #### Zeige alle anderen Node-Lables und wie viele von ihnen existieren.
 
-```{cypher}
+```cypher
 MATCH (n)  
 WHERE any(label IN labels(n) WHERE label =~ '^.[^0-9].\*')  
 RETURN labels(n) AS entityTypes, count(\*) AS entityCount LIMIT 10
@@ -64,32 +61,28 @@ RETURN labels(n) AS entityTypes, count(\*) AS entityCount LIMIT 10
 
 ```{python}
 cmd = "MATCH (n) WHERE any(label IN labels(n) WHERE label =~ '^.[^0-9].*') RETURN labels(n) AS entityTypes, count(*) AS entityCount LIMIT 10;"
-driver = GraphDatabase.driver(uri, auth=(user, password))
 with driver.session() as session:
  for x in session.run(cmd):
   print(','.join((str(x) for x in x.values())))
-driver.close()
 ```
 
 
 #### Zeige alle Relationships und wie viele von ihnen existieren.
 Relationships in Cypher werden sehr direkt mit einem ASCII-Pfeil beschrieben. So haben wir hier zwei Nodes in runden Klammern, die uns für diese Anfrage nicht interessieren. Diese Nodes sind mit einem Pfeil und einer Relationship in eckigen Klammern verknüpft.
 
-```{cypher}
+```cypher
 MATCH ()-[r]->()  
 RETURN DISTINCT type(r) AS relationshipType, count(*) AS relationshipCount LIMIT 10
 ```
 
 ```{python}
 cmd = "MATCH ()-[r]->() RETURN DISTINCT type(r) AS relationshipType, count(*) AS relationshipCount LIMIT 10;"
-driver = GraphDatabase.driver(uri, auth=(user, password))
 with driver.session() as session:
  for x in session.run(cmd):
   print(','.join((str(x) for x in x.values())))
-driver.close()
 ```
 
-```{cypher}
+```cypher
 MATCH (m)-[r]->(n) 
 WHERE any(label IN labels(n) WHERE label =~ 'E53.*') 
 RETURN labels(m),type(r),labels(n)
@@ -97,20 +90,16 @@ RETURN labels(m),type(r),labels(n)
 
 ```{python}
 cmd = "MATCH (m)-[r]->(n) WHERE any(label IN labels(n) WHERE label =~ 'E53.*') RETURN labels(m),type(r),labels(n);"
-driver = GraphDatabase.driver(uri, auth=(user, password))
 with driver.session() as session:
  for x in session.run(cmd):
   print(','.join((str(x) for x in x.values())))
-driver.close()
 ```
 
 ```{python}
 cmd = "MATCH (m)-[r]->(n) WHERE any(label IN labels(n) WHERE label =~ 'E53.*') RETURN m,r,n;"
-driver = GraphDatabase.driver(uri, auth=(user, password))
 with driver.session() as session:
  for x in session.run(cmd):
   print(','.join((str(x) for x in x.values())))
-driver.close()
 ```
 
 ```{mermaid}

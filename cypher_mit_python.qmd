@@ -1,26 +1,27 @@
 ---
 title: Cypher mit Python 
-execute:
-  echo: false
 lang: de
 toc: true
 ---
 
-Um sich mit einer Neo4j Datenbank zu verbinden wird der [Neo4j driver](https://pypi.org/project/neo4j/) benötigt.  
-Mit einem Driver Objekt wird eine Verbindung zur Datenbank erstellt. Dafür werden die URL der Datenbank und die Authentifizierungsdaten benötigt.
+Um Cypher Anfragen in Python auszuführen muss sich mit einer Datenbank verbunden werden. Für Neo4j wird der [Neo4j driver](https://pypi.org/project/neo4j/) benötigt.  
+Mit einem Driver Objekt wird eine Verbindung zur Datenbank erstellt. Dafür werden die URL der Datenbank und die Authentifizierungsdaten benötigt.  
+Es ist möglichen Daten aus der Datenbank zu lesen oder sie zu verändern, genauso wie mit einem direkten Zugriff.
 
-```
+```python
 from neo4j import GraphDatabase
 
 # URI Beispiele: "neo4j://localhost", "neo4j+s://xxx.databases.neo4j.io"
-URI = "<URI for Neo4j database>"
+URI = "<URI der Neo4j Datenbank>"
 AUTH = ("<Username>", "<Password>")
-
-with GraphDatabase.driver(URI, auth=AUTH) as driver:
-    driver.verify_connectivity()
-    
-    driver.close()
+query = "<Cypher Anfrage>"
+driver = GraphDatabase.driver(URI, auth=AUTH)
+with driver.session() as session:
+   result = session.run(query)
+driver.close()
 ```
+
+Mit [Result Methoden](https://neo4j.com/docs/api/python-driver/current/api.html#result) lassen sich nähere Informationen über die Ergebnis der Anfrage erhalten, zum Beispiel wie viele Nodes verändert wurden.
 
 ## Weitere Informationen
 

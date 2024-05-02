@@ -13,14 +13,14 @@ Ein Property-Graph kann mit Cypher-Anfragen nähere Informationen über seinen I
 Mit CREATE lassen sich neue Kanten (Nodes), Kanten (Relationships) und Eigenschaften (Properties) erstellen. Eine Reihe von CREATE Cypher-Anfragen ist eine Möglichkeit einen Property-Graph in Neo4j zu übertragen.
 MERGE ist ähnlich, aber erstellt keine Duplikate. 
 
-```{cypher}
+```cypher
 CREATE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]->(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) 
 MERGE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]->(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) 
 ```
 
 ### Nodes
 Knoten heißen Nodes und werden in runden Klammern definiert.
-```{cypher}
+```cypher
 MATCH (n:Person {name:'Anna'})
 RETURN n.geboren AS geburtsjahr
 ```
@@ -36,7 +36,7 @@ In diesem Beispiel findet MATCH alle Person Nodes in dem Graph wo die Property n
 Nodes können mit Relationships verbunden werden. Eine Relationship braucht eine Start Node, eine Ende Node und genau einen Typ. Relationships haben in Cypher einen Pfeil um die Richting zu zeigen. Die Informationen über eine Relationship sind in eckigen Klammern eingeschlossen.  
 Während Nodes mehrere Labels haben können, können Relationships nur einen Typ haben.
 
-```{cypher}
+```cypher
 MATCH (:Person {name: 'Anna'})-[r:KENNT WHERE r.seit < 2020]->(freund:Person)
 RETURN count(r) As zahlAnFreunden
 ```
@@ -45,7 +45,7 @@ In dieser Anfrage findet Match Relationships des Typs KENNT wo die Property seit
 
 ### Pfade
 
-```{cypher}
+```cypher
 MATCH (n:Person {name: 'Anna'})-[:KENNT]-{1,5}(freund:Person WHERE n.geboren < freund.geboren)
 RETURN DISTINCT freund.name AS ältereFreunde
 ```
@@ -53,7 +53,7 @@ RETURN DISTINCT freund.name AS ältereFreunde
 Dieses Beispiel nutzt eine quantifizierte Relationship um alle Pfade, die bis zu 5 Schritte entfernt sind, zu finden. Dabei werden nur Relationships des Typs KENNT verwendet. Die Start Node ist Anna und Ende Node sind Personen älter als Anna. Durch DISTINCT wird das gleiche Ergebnis nur einmal ausgegeben.
 
 
-```{cypher}
+```cypher
 MATCH p=shortestPath((:Person {name: 'Anna'})-[:KENNT*1..10]-(:Person {nationalität: 'Kanadier'}))
 RETURN p
 ```
