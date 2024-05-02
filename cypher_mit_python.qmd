@@ -18,7 +18,7 @@ AUTH = ("<Username>", "<Password>")
 
 with GraphDatabase.driver(URI, auth=AUTH) as driver:
     driver.verify_connectivity()
-    
+
     driver.close()
 ```
 
