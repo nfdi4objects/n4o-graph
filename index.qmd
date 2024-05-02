@@ -2,18 +2,17 @@
 title: Übersicht
 ---
 
-An dieser Stelle soll ein Handbuch für die Nutzung des NFDI4Objects Knowledge
-Graphen aus TA5 entstehen.
+An dieser Stelle entsteht ein **Handbuch für die Nutzung des Knowledge Graphen
+von NFDI4Objects** (TA5).
 
 Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen
-Daten aus verschiedenene Quellen zusammengeführt werden:
+Daten aus [verschiedenene Quellen](datenquellen.qmd) zusammengeführt werden:
 
-- Einem [Property-Graphen](property-graph.qmd) mit normalisierten Daten
-- Einem [Triple-Store](triple-store.qmd) mit RDF-Daten
+- ein [Triple-Store](triple-store.qmd) mit Rohdaten in RDF und Abfrage in SPARL
+- ein [Property-Graph](property-graph.qmd) mit aufbereiteten Daten und Abfrage in Cypher
+
+Darüber hinaus ist eine Oberfläche mit Möglichkeiten zur Datenvisualisierung
+geplant.
 
 Weitere Details und Hintergründe werden im Kapitel zur [technischen Architektur](architecture.qmd) erklärt.
 
-Zur Nutzung stehen verschiedene Schnittstellen. Zur Nutzung der Cypher-API siehe:
-
-- [Cypher-Einführung](cypher.qmd)
-- [Beispiel Cypher-Abfragen](queries.qmd)
