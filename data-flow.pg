@@ -1,10 +1,10 @@
 # Visualization of data flow
 
 LIDO format:XML
-LIDO -- Converter
-Converter -> KG 
+LIDO -> Converter :n4o-import
+Converter -> KG :pgraphs 
 KG format:Cypher model:CRM
-RDF -> TTL "n4o-import":"load-rdf"
+RDF -> TTL :n4o-import :load-rdf
 
 KG -> KG :enrich
 
@@ -16,4 +16,7 @@ TTL name:"Triple-Store"
 KG -> Abfrage :Cypher
 TTL -> Abfrage :SPARQL
 
-TTL -> KG :convert?
+TTL -> KG :convert
+KG -> TTL :convert
+
+Terminologies -> TTL :load-rdf

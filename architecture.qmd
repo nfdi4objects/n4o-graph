@@ -2,6 +2,10 @@
 title: Technische Architektur
 ---
 
+## Datenannahme
+
+Siehe [n4o-import](https://github.com/nfdi4objects/n4o-import)
+
 ## Datenfluss
 
 LIDO-XML-Daten werden mit Hilfe von [X3ML](https://github.com/isl/x3ml)
