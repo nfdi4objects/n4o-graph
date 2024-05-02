@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -163,7 +197,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#datenfluss" id="toc-datenfluss" class="nav-link active" data-scroll-target="#datenfluss">Datenfluss</a></li>
+  <li><a href="#datenannahme" id="toc-datenannahme" class="nav-link active" data-scroll-target="#datenannahme">Datenannahme</a></li>
+  <li><a href="#datenfluss" id="toc-datenfluss" class="nav-link" data-scroll-target="#datenfluss">Datenfluss</a></li>
+  <li><a href="#expansion-der-klassenhierarchie" id="toc-expansion-der-klassenhierarchie" class="nav-link" data-scroll-target="#expansion-der-klassenhierarchie">Expansion der Klassenhierarchie</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/architecture.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -189,10 +225,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="datenannahme" class="level2">
+<h2 class="anchored" data-anchor-id="datenannahme">Datenannahme</h2>
+<p>Siehe <a href="https://github.com/nfdi4objects/n4o-import">n4o-import</a></p>
+</section>
 <section id="datenfluss" class="level2">
 <h2 class="anchored" data-anchor-id="datenfluss">Datenfluss</h2>
 <p>LIDO-XML-Daten werden mit Hilfe von <a href="https://github.com/isl/x3ml">X3ML</a> konvertiert. Die Konvertierung von RDF-Daten, nachdem diese mit <a href="https://github.com/nfdi4objects/n4o-rdf-import">n4o-rdf-import</a> angenommen wurden, steht noch aus.</p>
 <p><img src="data-flow.svg" class="img-fluid"></p>
+</section>
+<section id="expansion-der-klassenhierarchie" class="level2">
+<h2 class="anchored" data-anchor-id="expansion-der-klassenhierarchie">Expansion der Klassenhierarchie</h2>
+<p>Da Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen <em>expandiert</em>. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei <code>crm-classes.pg</code> (siehe <a href="crm-classes.svg">SVG-Diagram</a>). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.</p>
+<ul>
+<li><code>E22_Man_Made_Object</code> =&gt; <code>E22_Human_Made_Object</code> (renamedTo)</li>
+<li><code>E50_Date</code> =&gt; <code>E41_Appellation</code> (replacedBy)</li>
+<li><code>E7_Activity</code>=&gt; <code>E5_Event</code> (superClass)</li>
+</ul>
+<p>Aus diesen Daten wird die Expansionstabelle <a href="crm-expand.txt"><code>crm-expand.txt</code></a> erzeugt, z.B.:</p>
+<ul>
+<li><code>E22_Human_Made_Object</code> =&gt; <code>E22</code>, <code>E71</code>, <code>E70</code>, <code>E24</code> <code>E77</code> und <code>E1</code></li>
+</ul>
+<p>Zum Ausführen der Expansion:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./pg-expand-labels.py</span> [Neo4j login file] <span class="op">&lt;</span> crm-expand.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ohne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.</p>
+<p>Nach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. <code>E22_Human_Made_Object</code> möglich oder nach allen Knoten, die direkt oder indirekt er Klasse <code>E22</code> angehören.</p>
+<p><em>Die Expansion von zusätzlichen Klassen der <a href="https://github.com/nfdi4objects/n4o-core-ontology">NFDI4Objects Core Ontology</a> auf CIDOC-CRM ist auf die gleiche Weise möglich aber noch nicht umgesetzt.</em></p>
 
 
 </section>

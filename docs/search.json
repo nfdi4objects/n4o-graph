@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "NFDI4Objects Knowledge Graph",
     "section": "",
-    "text": "An dieser Stelle entsteht ein Handbuch für die Nutzung des Knowledge Graphen von NFDI4Objects (TA5).\nDer Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus verschiedenene Quellen zusammengeführt werden:\n\nein Triple-Store mit Rohdaten in RDF und Abfrage in SPARL\nein Property-Graph mit aufbereiteten Daten und Abfrage in Cypher\n\nDarüber hinaus ist eine Oberfläche mit Möglichkeiten zur Datenvisualisierung geplant.\nWeitere Details und Hintergründe werden im Kapitel zur technischen Architektur erklärt.",
+    "text": "An dieser Stelle entsteht ein Handbuch für die Nutzung des Knowledge Graphen von NFDI4Objects (TA5). Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus verschiedenene Quellen zusammengeführt werden:\n\nein Triple-Store mit Rohdaten in RDF und Abfrage in SPARL\nein Property-Graph mit aufbereiteten Daten und Abfrage in Cypher\n\nDarüber hinaus ist eine Oberfläche mit Möglichkeiten zur Datenvisualisierung geplant. Weitere Details und Hintergründe werden im Kapitel zur technischen Architektur erklärt.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Übersicht</span>"
     ]
@@ -34,7 +34,37 @@
     "href": "data-model.html",
     "title": "Datenmodell",
     "section": "",
-    "text": "Als Sammlungsübergeifendes Datenmodell wird CIDOC-CRM mit Erweiterung durch die DFI4Objects Core Ontologie (N4O) verwendet.\n\nKnoten im Property Graphen erhalten als Knoten-Label die entsprechenden CRM- bzw. N4O Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also z.B.\n\nE22_Human_Made_Object für E22 Human-Made Object\n\nZwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch Expansion auf die neueste Form gemappt.\n\nDas Datenmodell beschränkt sich noch auf Klassen ohne Properties!\nDie Klassenhierarchien als Diagramm\n\nCIDOC-CRM (alle Versionen)\nN4O (bis zur ersten CRM-Klasse)\nbeide zusammen",
+    "text": "CIDOC-CRM\n…",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenmodell</span>"
+    ]
+  },
+  {
+    "objectID": "data-model.html#die-nfdi4objects-core-ontologie",
+    "href": "data-model.html#die-nfdi4objects-core-ontologie",
+    "title": "Datenmodell",
+    "section": "Die NFDI4Objects Core Ontologie",
+    "text": "Die NFDI4Objects Core Ontologie\n…",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenmodell</span>"
+    ]
+  },
+  {
+    "objectID": "data-model.html#weitere-unterstütze-ontologien",
+    "href": "data-model.html#weitere-unterstütze-ontologien",
+    "title": "Datenmodell",
+    "section": "Weitere unterstütze Ontologien",
+    "text": "Weitere unterstütze Ontologien\n…",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenmodell</span>"
+    ]
+  },
+  {
+    "objectID": "data-model.html#terminologien",
+    "href": "data-model.html#terminologien",
+    "title": "Datenmodell",
+    "section": "Terminologien",
+    "text": "Terminologien\n…",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenmodell</span>"
     ]
@@ -114,7 +144,27 @@
     "href": "architecture.html",
     "title": "Technische Architektur",
     "section": "",
+    "text": "Datenannahme\nSiehe n4o-import",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Technische Architektur</span>"
+    ]
+  },
+  {
+    "objectID": "architecture.html#datenfluss",
+    "href": "architecture.html#datenfluss",
+    "title": "Technische Architektur",
+    "section": "Datenfluss",
     "text": "Datenfluss\nLIDO-XML-Daten werden mit Hilfe von X3ML konvertiert. Die Konvertierung von RDF-Daten, nachdem diese mit n4o-rdf-import angenommen wurden, steht noch aus.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Technische Architektur</span>"
+    ]
+  },
+  {
+    "objectID": "architecture.html#expansion-der-klassenhierarchie",
+    "href": "architecture.html#expansion-der-klassenhierarchie",
+    "title": "Technische Architektur",
+    "section": "Expansion der Klassenhierarchie",
+    "text": "Expansion der Klassenhierarchie\nDa Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen expandiert. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei crm-classes.pg (siehe SVG-Diagram). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.\n\nE22_Man_Made_Object =&gt; E22_Human_Made_Object (renamedTo)\nE50_Date =&gt; E41_Appellation (replacedBy)\nE7_Activity=&gt; E5_Event (superClass)\n\nAus diesen Daten wird die Expansionstabelle crm-expand.txt erzeugt, z.B.:\n\nE22_Human_Made_Object =&gt; E22, E71, E70, E24 E77 und E1\n\nZum Ausführen der Expansion:\n./pg-expand-labels.py [Neo4j login file] &lt; crm-expand.txt\nOhne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.\nNach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. E22_Human_Made_Object möglich oder nach allen Knoten, die direkt oder indirekt er Klasse E22 angehören.\nDie Expansion von zusätzlichen Klassen der NFDI4Objects Core Ontology auf CIDOC-CRM ist auf die gleiche Weise möglich aber noch nicht umgesetzt.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Technische Architektur</span>"
     ]
