@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NFDI4Objects Knowledge Graph - Triple Store</title>
+<title>NFDI4Objects Knowledge Graph - Datenquellen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./architecture.html" rel="next">
-<link href="./cypher_mit_python.html" rel="prev">
+<link href="./property-graph.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./triple-store.html"><span class="chapter-title">Triple Store</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./datenquellen.html"><span class="chapter-title">Datenquellen</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -116,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datenquellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
+  <a href="./datenquellen.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Datenquellen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -146,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./triple-store.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Triple Store</span></a>
+  <a href="./triple-store.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Triple Store</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -160,27 +160,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#grundlagen" id="toc-grundlagen" class="nav-link active" data-scroll-target="#grundlagen">Grundlagen</a></li>
-  <li><a href="#inhalt-des-triple-store" id="toc-inhalt-des-triple-store" class="nav-link" data-scroll-target="#inhalt-des-triple-store">Inhalt des Triple Store</a></li>
-  <li><a href="#beispielabfragen" id="toc-beispielabfragen" class="nav-link" data-scroll-target="#beispielabfragen">Beispielabfragen</a>
-  <ul class="collapse">
-  <li><a href="#statistik-aller-prädikate-und-ihrer-häufigkeit" id="toc-statistik-aller-prädikate-und-ihrer-häufigkeit" class="nav-link" data-scroll-target="#statistik-aller-prädikate-und-ihrer-häufigkeit">Statistik aller Prädikate und ihrer Häufigkeit</a></li>
-  <li><a href="#statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate" id="toc-statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate" class="nav-link" data-scroll-target="#statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate">Statistik aller Prädikate sortiert nach Anzahl der Prädikate</a></li>
-  <li><a href="#statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte" id="toc-statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte" class="nav-link" data-scroll-target="#statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte">Statistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte</a></li>
-  </ul></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/triple-store.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Triple Store</span></h1>
+<h1 class="title"><span class="chapter-title">Datenquellen</span></h1>
+<p class="subtitle lead">Aus welchen Daten setzt sich der Knowledge Graph zusammen?</p>
 </div>
 
 
@@ -197,47 +185,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Die im Knowledge-Graph zusammengeführten Daten werden zusammen mit weiteren RDF-Daten in einem <strong>Triple Store</strong> zur verfügung gestellt und können per <strong>SPARQL</strong> abgefragt werden.</p>
-<p><em>Dieser Dienst befindet sich noch im Aufbau</em></p>
-<section id="grundlagen" class="level2">
-<h2 class="anchored" data-anchor-id="grundlagen">Grundlagen</h2>
-<p>Ein <strong>Triple Store</strong> ist eine <a href="https://de.wikipedia.org/wiki/Graphdatenbank">Graphendatenbank</a>, die auf Basis von <a href="https://de.wikipedia.org/wiki/Resource_Description_Framework">RDF</a> Daten in Subjekt-Prädikat-Objekt Triples speichert. Das Subjekt und Objekt stellen die Knoten dar, die über ein Prädikat verbunden sind.</p>
-</section>
-<section id="inhalt-des-triple-store" class="level2">
-<h2 class="anchored" data-anchor-id="inhalt-des-triple-store">Inhalt des Triple Store</h2>
-<ul>
-<li><p>Alle in RDF angelieferten Daten (soweit syntaxktisch korrekt). Es ist also kein einheitliches Datenmodell vorgeschrieben! Aus den RDF-Daten werden lediglich Aussagen über Terminologien und Ontologien herausgefiltert</p></li>
-<li><p>Jede Lieferung ist ein Named Graph, so dass die Lieferungen sowohl einzeln, als auch in einem RDF-Graphen zusammengefasst abgefragt werden können.</p></li>
-<li><p>Unterstützte Ontologien und Terminologien sind ebenfalls als eigene Namend Graphs eingespielt, so dass sie für Abfragen verwendet werden können.</p></li>
-</ul>
-</section>
-<section id="beispielabfragen" class="level2">
-<h2 class="anchored" data-anchor-id="beispielabfragen">Beispielabfragen</h2>
-<section id="statistik-aller-prädikate-und-ihrer-häufigkeit" class="level3">
-<h3 class="anchored" data-anchor-id="statistik-aller-prädikate-und-ihrer-häufigkeit">Statistik aller Prädikate und ihrer Häufigkeit</h3>
-<pre class="sparql"><code>SELECT distinct ?pred WHERE {
-  ?sub ?pred ?obj .
-}</code></pre>
-</section>
-<section id="statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate" class="level3">
-<h3 class="anchored" data-anchor-id="statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate">Statistik aller Prädikate sortiert nach Anzahl der Prädikate</h3>
-<pre class="sparql"><code>SELECT distinct ?pre (COUNT(?pre) AS ?count) WHERE {
-  ?s ?pre ?obj
-} 
-GROUP BY ?pre
-ORDER BY DESC(?count)</code></pre>
-</section>
-<section id="statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte" class="level3">
-<h3 class="anchored" data-anchor-id="statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte">Statistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte</h3>
-<pre class="sparql"><code>SELECT distinct (COUNT(?s) AS ?count) ?obj WHERE {
-  ?s &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; ?obj
-} 
-GROUP BY ?obj
-ORDER BY DESC(?count)</code></pre>
+<p>Der Knowledge Graph besteht aus Metadaten von Sammlungen aus <a href="https://nfdi4objects.github.io/n4o-databases/">verschiedenenen Datenbanken</a>, die mit bekannten Vokabularen angereichert werden.</p>
+<p>Eine vorläufige Liste von Sammlungen <a href="https://github.com/nfdi4objects/n4o-import/blob/main/n4o-collections.csv">befindet sich hier</a>.</p>
+<p>Die technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie Update-Verfahren befinden sich noch in Entwicklung.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -653,13 +605,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./cypher_mit_python.html" class="pagination-link" aria-label="Cypher mit Python">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Cypher mit Python</span></span>
+      <a href="./index.html" class="pagination-link" aria-label="Übersicht">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Übersicht</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./architecture.html" class="pagination-link" aria-label="Technische Architektur">
-        <span class="nav-page-text"><span class="chapter-title">Technische Architektur</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./property-graph.html" class="pagination-link" aria-label="Property Graph">
+        <span class="nav-page-text"><span class="chapter-title">Property Graph</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -671,7 +623,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/triple-store.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/datenquellen.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

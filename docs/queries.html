@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./triple-store.html" rel="next">
+<link href="./cypher_mit_python.html" rel="next">
 <link href="./cypher.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -68,6 +68,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -116,6 +119,11 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./datenquellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
   </div>
 </li>
@@ -132,6 +140,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./queries.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Beispiel Cypher-Abfragen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cypher_mit_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cypher mit Python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -189,15 +202,6 @@ Mit return geben wir den ersten Buchstaben des ersten Labels aus und wieviele er
 <pre class="{cypher}"><code>MATCH (n)  
 WHERE any(label IN labels(n) WHERE label =~ '\^[a-zA-Z][0-9].\*')  
 RETURN substring(head(labels(n)), 0, 1) AS entityTypes, count(\*) AS entityCount;</code></pre>
-<div id="4dd4acb2" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-stdout">
-<pre><code>S,98
-E,58
-N,42
-P,104
-D,3</code></pre>
-</div>
-</div>
 </section>
 <section id="welche-cidoc-crm-node-labels-existieren-ist-gleich-der-nodes-mit-label-e." class="level4">
 <h4 class="anchored" data-anchor-id="welche-cidoc-crm-node-labels-existieren-ist-gleich-der-nodes-mit-label-e.">Welche CIDOC-CRM Node-Labels existieren? Ist gleich der Nodes mit Label E.</h4>
@@ -205,65 +209,61 @@ D,3</code></pre>
 <pre class="{cypher}"><code>MATCH (n)  
 WHERE any(label IN labels(n) WHERE label =~ '^E\\d+.\*')  
 RETURN labels(n) AS entityTypes LIMIT 10;</code></pre>
-<div id="adf2b7db" class="cell" data-execution_count="2">
-<div class="cell-output cell-output-stdout">
-<pre><code>['E53_Place']
-['E12_Production']
-['E48_Place_Name']
-['E16_Measurement']
-['E8_Acquisition']
-['E55_Type']
-['E35_Title']
-['E44_Place_Appellation']
-['E42_Identifier']
-['E14_Condition_Assessment']</code></pre>
-</div>
-</div>
 </section>
 <section id="zeige-alle-anderen-node-lables-und-wie-viele-von-ihnen-existieren." class="level4">
 <h4 class="anchored" data-anchor-id="zeige-alle-anderen-node-lables-und-wie-viele-von-ihnen-existieren.">Zeige alle anderen Node-Lables und wie viele von ihnen existieren.</h4>
 <pre class="{cypher}"><code>MATCH (n)  
 WHERE any(label IN labels(n) WHERE label =~ '^.[^0-9].\*')  
 RETURN labels(n) AS entityTypes, count(\*) AS entityCount LIMIT 10</code></pre>
-<div id="813e1d20" class="cell" data-execution_count="3">
-<div class="cell-output cell-output-stdout">
-<pre><code>['Node'],9880
-['Literal'],12582
-['BNode'],77
-['ObjectProperty'],1
-['Class'],1
-['Restriction'],1
-['Ontology'],1
-['related'],1
-['mappingRelation'],1
-['DatatypeProperty'],1</code></pre>
-</div>
-</div>
 </section>
 <section id="zeige-alle-relationships-und-wie-viele-von-ihnen-existieren." class="level4">
 <h4 class="anchored" data-anchor-id="zeige-alle-relationships-und-wie-viele-von-ihnen-existieren.">Zeige alle Relationships und wie viele von ihnen existieren.</h4>
 <p>Relationships in Cypher werden sehr direkt mit einem ASCII-Pfeil beschrieben. So haben wir hier zwei Nodes in runden Klammern, die uns für diese Anfrage nicht interessieren. Diese Nodes sind mit einem Pfeil und einer Relationship in eckigen Klammern verknüpft.</p>
 <pre class="{cypher}"><code>MATCH ()-[r]-&gt;()  
 RETURN DISTINCT type(r) AS relationshipType, count(*) AS relationshipCount LIMIT 10</code></pre>
-<div id="02e79659" class="cell" data-execution_count="4">
+<div id="ae3c6fd1" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
-<pre><code>type,9904
-P1_is_identified_by,577
-N35i_forms_part_of,408
-eid,9762
-P139_has_alternative_form,2170
-subClassOf,124
-P89_falls_within,298
-P40_observed_dimension,798
-P7_took_place_at,401
-P2_has_type,3504</code></pre>
+<pre><code>x,2</code></pre>
+</div>
+</div>
+<pre class="{cypher}"><code>MATCH (m)-[r]-&gt;(n) 
+WHERE any(label IN labels(n) WHERE label =~ 'E53.*') 
+RETURN labels(m),type(r),labels(n)</code></pre>
+<div class="cell" data-fig-width="100%" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+    BNode["&lt;b&gt;BNode&lt;/b&gt;"]
+    BNode1["&lt;b&gt;BNode&lt;/b&gt;"]
+    BNode2["&lt;b&gt;BNode&lt;/b&gt;"]
+    BNode3["&lt;b&gt;BNode&lt;/b&gt;"]
+    E53_Place["&lt;b&gt;E53_Place&lt;/b&gt;"]
+    N10_falls_within["&lt;b&gt;N10_falls_within&lt;/b&gt;"]
+    N10i_contains["&lt;b&gt;N10i_contains&lt;/b&gt;"]
+    S39_Location["&lt;b&gt;S39_Location&lt;/b&gt;"]
+    S40_Geographical_Place["&lt;b&gt;S40_Geographical_Place&lt;/b&gt;"]
+    BNode1 -- "&lt;i&gt;someValuesFrom&lt;/i&gt;" --&gt; E53_Place
+    N10i_contains -- "&lt;i&gt;domain&lt;/i&gt;" --&gt; E53_Place
+    N10i_contains -- "&lt;i&gt;range&lt;/i&gt;" --&gt; E53_Place
+    S39_Location -- "&lt;i&gt;subClassOf&lt;/i&gt;" --&gt; E53_Place
+    N10_falls_within -- "&lt;i&gt;domain&lt;/i&gt;" --&gt; E53_Place
+    BNode2 -- "&lt;i&gt;someValuesFrom&lt;/i&gt;" --&gt; E53_Place
+    S40_Geographical_Place -- "&lt;i&gt;subClassOf&lt;/i&gt;" --&gt; E53_Place
+    BNode -- "&lt;i&gt;someValuesFrom&lt;/i&gt;" --&gt; E53_Place
+    N10_falls_within -- "&lt;i&gt;range&lt;/i&gt;" --&gt; E53_Place
+    BNode3 -- "&lt;i&gt;someValuesFrom&lt;/i&gt;" --&gt; E53_Place
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
 </div>
 </div>
 </section>
 <section id="weitere-informationen" class="level2">
 <h2 class="anchored" data-anchor-id="weitere-informationen">Weitere Informationen</h2>
-<p><a href="https://neo4j.com/docs/cypher-manual/current/introduction/">Das englische Cypher Handbuch</a><br>
-Für Informationen über Property-Graphen: Voß, Jakob. 2024. “Property-Graphen: eine kurze Einführung.” VZG Aktuell. <a href="https://doi.org/10.5281/zenodo.10971391">https://doi.org/10.5281/zenodo.10971391</a>.</p>
+<p><a href="https://neo4j.com/docs/cypher-manual/current/">Das englische Cypher Handbuch</a></p>
 
 
 </section>
@@ -359,6 +359,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
           // default icon
           link.classList.add("external");
       }
@@ -397,7 +402,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -678,8 +687,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./triple-store.html" class="pagination-link" aria-label="Triple Store">
-        <span class="nav-page-text"><span class="chapter-title">Triple Store</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./cypher_mit_python.html" class="pagination-link" aria-label="Cypher mit Python">
+        <span class="nav-page-text"><span class="chapter-title">Cypher mit Python</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

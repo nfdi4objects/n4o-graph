@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.553">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./property-graph.html" rel="next">
+<link href="./datenquellen.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -115,6 +115,11 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./datenquellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
   </div>
 </li>
@@ -131,6 +136,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./queries.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Beispiel Cypher-Abfragen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cypher_mit_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cypher mit Python</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -172,18 +182,14 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>An dieser Stelle soll ein Handbuch für die Nutzung des NFDI4Objects Knowledge Graphen aus TA5 entstehen.</p>
-<p>Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus verschiedenene Quellen zusammengeführt werden:</p>
+<p>An dieser Stelle entsteht ein <strong>Handbuch für die Nutzung des Knowledge Graphen von NFDI4Objects</strong> (TA5).</p>
+<p>Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus <a href="./datenquellen.html">verschiedenene Quellen</a> zusammengeführt werden:</p>
 <ul>
-<li>Einem <a href="./property-graph.html">Property-Graphen</a> mit normalisierten Daten</li>
-<li>Einem <a href="./triple-store.html">Triple-Store</a> mit RDF-Daten</li>
+<li>ein <a href="./triple-store.html">Triple-Store</a> mit Rohdaten in RDF und Abfrage in SPARL</li>
+<li>ein <a href="./property-graph.html">Property-Graph</a> mit aufbereiteten Daten und Abfrage in Cypher</li>
 </ul>
+<p>Darüber hinaus ist eine Oberfläche mit Möglichkeiten zur Datenvisualisierung geplant.</p>
 <p>Weitere Details und Hintergründe werden im Kapitel zur <a href="./architecture.html">technischen Architektur</a> erklärt.</p>
-<p>Zur Nutzung stehen verschiedene Schnittstellen. Zur Nutzung der Cypher-API siehe:</p>
-<ul>
-<li><a href="./cypher.html">Cypher-Einführung</a></li>
-<li><a href="./queries.html">Beispiel Cypher-Abfragen</a></li>
-</ul>
 
 
 
@@ -278,6 +284,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
           // default icon
           link.classList.add("external");
       }
@@ -316,7 +327,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -594,8 +609,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./property-graph.html" class="pagination-link" aria-label="Property Graph">
-        <span class="nav-page-text"><span class="chapter-title">Property Graph</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./datenquellen.html" class="pagination-link" aria-label="Datenquellen">
+        <span class="nav-page-text"><span class="chapter-title">Datenquellen</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
