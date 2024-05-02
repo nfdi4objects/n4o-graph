@@ -21,43 +21,6 @@ umgesetzt wird.
 
 siehe [Handbuch](architecture.qmd).
 
-## Expansion
-
-Da Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und
-weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im
-Property-Graphen *expandiert*.  Grundlage ist ein eigener Property-Graph mit
-der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich
-umbenannter oder veralteter Klassen in der Datei `crm-classes.pg` (siehe
-[SVG-Diagram](crm-classes.svg)). Der Graph aller Klassen enthält Informationen
-darüber welche Klassen sich aus einer anderen ergeben, z.B.
-
-- `E22_Man_Made_Object` => `E22_Human_Made_Object` (renamedTo)
-- `E50_Date` => `E41_Appellation` (replacedBy)
-- `E7_Activity`=> `E5_Event` (superClass)
-
-Aus diesen Daten wird die Expansionstabelle [`crm-expand.txt`](crm-expand.txt)
-erzeugt, z.B.:
-
-- `E22_Human_Made_Object` => `E22`, `E71`, `E70`, `E24` `E77` und `E1`
-
-Zum Ausführen der Expansion: 
-
-~~~sh
-./pg-expand-labels.py [Neo4j login file] < crm-expand.txt
-~~~
-
-Ohne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit
-Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank
-ausgeführt.
-
-Nach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label
-wie z.B. `E22_Human_Made_Object` möglich oder nach allen Knoten, die direkt
-oder indirekt er Klasse `E22` angehören.
-
-*Die Expansion von zusätzlichen Klassen der [NFDI4Objects Core
-Ontology](https://github.com/nfdi4objects/n4o-core-ontology) auf CIDOC-CRM ist
-auf die gleiche Weise möglich aber noch nicht umgesetzt.*
-
 ## Ausblick
 
 Das Datenmodell besteht zunächst nur aus einer Klassenhierarchie. Diese muss
@@ -68,12 +31,15 @@ noch erweitert werden um
 - Informationen über Sammlungen aus denen die Daten und Objekte stammen
   (siehe <https://github.com/nfdi4objects/n4o-databases> und
   <https://github.com/nfdi4objects/n4o-rdf-import>)
+- Ontologien und Vokabulare
 
 ## Handbuch
 
 Dieses Repository enthält als Handbuch eine Einführung in den Aufbau und die
 Nutzung des NFDI4Objects Knowledge Graphen. Das Handbuch ist mit
-[quarto](https://quarto.org/) erstellt und enthält Code-Beispiele in Python.
-Quelltext des Handbuch sind alle Dateien mit der Endung `.qmd`.
+[quarto](https://quarto.org/) erstellt und enthält Code-Beispiele Cypher,
+SPARQL und Python. Quelltext des Handbuch sind alle Dateien mit der Endung
+`.qmd`.
 
 Zur Aktualisierung der HTML-Version des Handbuch wird neben quarto jupyter notebook benötigt (Installation z.B. via `sudo apt install jupyter-notebook`). Anschließend kann es mit `quarto render` aktualisiert werden. 
+
