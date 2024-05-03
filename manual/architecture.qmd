@@ -48,7 +48,7 @@ Da Neo4J aus dem Docker-Container nicht auf die Cypher-Datei zugreifen kann,
 muss ihr Inhalt per Pipe eingelesen werden:
 
 ```bash
-<file.cypher docker exec -it neo4j \
+<file.cypher | docker exec -t neo4j \
   cypher-shell -a <ADDRESS> -u <USERNAME> -p <PASSWORD>
 ```
 
