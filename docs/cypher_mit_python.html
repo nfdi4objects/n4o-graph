@@ -204,6 +204,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+
+<script type="text/javascript" src="https://unpkg.com/highlightjs-cypher/dist/cypher.min.js"></script>
+<script type="text/javascript" src="./js/sparql.js"></script>
+
+<script>
+	function hl() {
+		var elems = document.getElementsByClassName("cypher");
+		for (let i = 0; i < elems.length; i++) {
+  			var elem = elems.item(i);
+  			var child = elem.children[0];
+			child.classList.add("language-cypher");
+			hljs.highlightElement(child);
+		}
+
+		hljs.registerLanguage('sparql', window.hljsDefineSparql);
+		var elems = document.getElementsByClassName("sparql");
+		for (let i = 0; i < elems.length; i++) {
+  			var elem = elems.item(i);
+  			var child = elem.children[0];
+			child.classList.add("language-sparql");
+			hljs.highlightElement(child);
+		}
+	}
+	window.onload = hl;
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">

@@ -104,7 +104,7 @@
     "href": "architecture.html#konvertierung",
     "title": "Technische Architektur",
     "section": "Konvertierung",
-    "text": "Konvertierung\nLIDO-XML-Daten werden mit Hilfe von X3ML ins Property Graph Format konvertiert.\nZur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript rdf2cypher.py (wird derzeit überarbeitet).",
+    "text": "Konvertierung\nLIDO-XML-Daten werden mit Hilfe von X3ML ins Property Graph Format konvertiert.\nZur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript rdf2cypher.py (wird derzeit überarbeitet), das eine Cypher-Datei (in Zukunkft CYPHERL und/oder PG-JSONL) ausgibt.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Technische Architektur</span>"
     ]
@@ -114,7 +114,7 @@
     "href": "architecture.html#einspielung",
     "title": "Technische Architektur",
     "section": "Einspielung",
-    "text": "Einspielung\nMit cypher-shell lassen sich Daten in Neo4j einspielen. Dafür wird eine Neo4j Distribution benötigt oder eine seperate Instaltion.\n&lt;Cypher&gt; ist eine Datein mit mehreren Cypher Anfragen, die jeweils auf ; enden.\nDer Standard Wert für -a ist neo4j://localhost:7687. Für -u und -p ist der Standard Wert \"\"\ncypher-shell -f &lt;Cypher&gt; -a &lt;ADDRESSE&gt; -u &lt;USERNAME&gt; -p &lt;PASSWORT&gt;\ncypher-shell ist auch in der Docker Distribution von Neo4j möglich. Um Cypher in einem Docker Container zu verwenden müssen die Daten in Docker kopiert werden.\ndocker cp &lt;Cypher&gt; neo4j:&lt;Cypher&gt;\ndocker exec -it neo4j /bin/bash\ncypher-shell -f /&lt;Cypher&gt; -a &lt;ADDRESS&gt; -u &lt;USERNAME&gt; -p &lt;PASSWORD&gt;\nEin neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner für Volume muss bereits existieren.\ndocker run -d \\\n    --name=neo4j \\\n    --publish=7474:7474 --publish=7687:7687 \\\n    --env NEO4J_AUTH=none \\\n    --user $(id -u):$(id -g) \\\n    --volume=$cwd/data:/data \\\n    neo4j",
+    "text": "Einspielung\n\nRDF-Daten in den Property-Graph\nZum Einspielen der Cypher-Datei in eine Neo4J-Datenbank kann das Kommando cypher-shell verwendet werden, das im Neo4J-Docker-Container enthalten ist oder separat installiert werden kann.\nDa Neo4J aus dem Docker-Container nicht auf die Cypher-Datei zugreifen kann, muss ihr Inhalt per Pipe eingelesen werden:\n&lt;file.cypher | docker exec -t neo4j \\\n  cypher-shell -a &lt;ADDRESS&gt; -u &lt;USERNAME&gt; -p &lt;PASSWORD&gt;\nEin neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner für Volume muss bereits existieren.\ndocker run -d \\\n    --name=neo4j \\\n    --publish=7474:7474 --publish=7687:7687 \\\n    --env NEO4J_AUTH=none \\\n    --user $(id -u):$(id -g) \\\n    --volume=$cwd/data:/data \\\n    neo4j \n\n\nRDF-Daten\nSiehe https://github.com/nfdi4objects/n4o-import",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Technische Architektur</span>"
     ]

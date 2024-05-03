@@ -173,6 +173,34 @@ ul.task-list li input[type="checkbox"] {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css">
+
+<script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+
+<script type="text/javascript" src="https://unpkg.com/highlightjs-cypher/dist/cypher.min.js"></script>
+<script type="text/javascript" src="./js/sparql.js"></script>
+
+<script>
+	function hl() {
+		var elems = document.getElementsByClassName("cypher");
+		for (let i = 0; i < elems.length; i++) {
+  			var elem = elems.item(i);
+  			var child = elem.children[0];
+			child.classList.add("language-cypher");
+			hljs.highlightElement(child);
+		}
+
+		hljs.registerLanguage('sparql', window.hljsDefineSparql);
+		var elems = document.getElementsByClassName("sparql");
+		for (let i = 0; i < elems.length; i++) {
+  			var elem = elems.item(i);
+  			var child = elem.children[0];
+			child.classList.add("language-sparql");
+			hljs.highlightElement(child);
+		}
+	}
+	window.onload = hl;
+</script>
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -221,7 +249,7 @@ RETURN labels(n) AS entityTypes, count(*) AS entityCount LIMIT 10;</code></pre>
 <p>Relationships in Cypher werden sehr direkt mit einem ASCII-Pfeil beschrieben. So haben wir hier zwei Nodes in runden Klammern, die uns für diese Anfrage nicht interessieren. Diese Nodes sind mit einem Pfeil und einer Relationship in eckigen Klammern verknüpft.</p>
 <pre class="cypher"><code>MATCH ()-[r]-&gt;() 
 RETURN DISTINCT type(r) AS relationshipType, count(*) AS relationshipCount LIMIT 10;</code></pre>
-<div id="583132de" class="cell" data-execution_count="4">
+<div id="34ae960f" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>x,2</code></pre>
 </div>
