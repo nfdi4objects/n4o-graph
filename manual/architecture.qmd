@@ -32,27 +32,29 @@ LIDO-XML-Daten werden mit Hilfe von [X3ML](https://github.com/isl/x3ml)
 ins Property Graph Format konvertiert. 
 
 Zur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript
-`rdf2cypher.py` (wird derzeit überarbeitet).
+`rdf2cypher.py` (wird derzeit überarbeitet), das eine Cypher-Datei (in Zukunkft
+CYPHERL und/oder PG-JSONL) ausgibt.
 
 ## Einspielung
 
-Mit ```cypher-shell``` lassen sich Daten in Neo4j einspielen. Dafür wird eine Neo4j Distribution benötigt oder eine [seperate Instaltion](https://neo4j.com/deployment-center/?cypher-shell).  
-```<Cypher>``` ist eine Datein mit mehreren Cypher Anfragen, die jeweils auf ```;``` enden.  
-Der Standard Wert für ```-a``` ist ```neo4j://localhost:7687```. Für ```-u``` und ```-p``` ist der Standard Wert ```""```
+### RDF-Daten in den Property-Graph
+
+Zum Einspielen der Cypher-Datei in eine Neo4J-Datenbank kann das Kommando
+`cypher-shell` verwendet werden, das im Neo4J-Docker-Container enthalten ist
+oder [separat installiert](https://neo4j.com/deployment-center/?cypher-shell)
+werden kann.
+
+Da Neo4J aus dem Docker-Container nicht auf die Cypher-Datei zugreifen kann,
+muss ihr Inhalt per Pipe eingelesen werden:
 
 ```bash
-cypher-shell -f <Cypher> -a <ADDRESSE> -u <USERNAME> -p <PASSWORT>
+<file.cypher docker exec -it neo4j \
+  cypher-shell -a <ADDRESS> -u <USERNAME> -p <PASSWORD>
 ```
 
-```cypher-shell``` ist auch in der Docker Distribution von Neo4j möglich. Um Cypher in einem Docker Container zu verwenden müssen die Daten in Docker kopiert werden.  
+Ein neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner
+für Volume muss bereits existieren.
 
-```bash
-docker cp <Cypher> neo4j:<Cypher>
-docker exec -it neo4j /bin/bash
-cypher-shell -f /<Cypher> -a <ADDRESS> -u <USERNAME> -p <PASSWORD>
-```
-
-Ein neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner für Volume muss bereits existieren.
 ```bash
 docker run -d \
     --name=neo4j \
@@ -62,6 +64,10 @@ docker run -d \
     --volume=$cwd/data:/data \
     neo4j 
 ```
+
+### RDF-Daten
+
+*Siehe https://github.com/nfdi4objects/n4o-import*
 
 ## Anreicherung
 
