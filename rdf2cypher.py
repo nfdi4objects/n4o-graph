@@ -1,6 +1,5 @@
 """Loads a RDF file into a neo4j database"""
 
-import tools
 import argparse
 import rdflib
 import urllib.request as ULR
@@ -19,6 +18,12 @@ def defaultNSFile() :
 
 def collLabel(): 
     return "collection"
+    
+def fixSC(s: str):
+    '''Fix special characters'''
+    if s!= None:
+        return s.replace("\"","\\\"").replace("\'","\\\'")
+    return ""
 
 class RDFLoader():
     def __init__(self, fileName,collection=None):
@@ -60,7 +65,7 @@ class RDFLoader():
         return sn
     
     def cypherBuildCommand(self, s, p, o):
-        '''Returns a CYPHER command for building nodes/edges in neo4j '''
+        '''Returns a CYPHER command for building nodes/edges '''
         if isValid(s, p, o):
             #Process subject => Node
             collStr = f", {collLabel()}:'{ self.collection.replace('-', '_')}'" if  self.collection else ''
@@ -70,20 +75,20 @@ class RDFLoader():
             pn = str(p.fragment)
             if not pn:
                 pn = p.split('/')[-1]
-                pn = tools.fixSC(pn).replace('-', '_')    
+                pn = fixSC(pn).replace('-', '_')    
             #Process object => Node
             if isinstance(o, rdflib.term.URIRef) or isinstance(o, rdflib.term.BNode):
                 cypherCmd += f"WITH n MERGE( d:{self.getLabel(o)} {{ uri:'{o}'{collStr}}}) "
             else:
-                tstr = f", type:'{tools.fixSC(o.datatype)}'" if o.datatype else ''
-                cypherCmd += f"WITH n MERGE( d:Literal {{ value:'{tools.fixSC(o)}'{tstr}}}) " 
+                tstr = f", type:'{fixSC(o.datatype)}'" if o.datatype else ''
+                cypherCmd += f"WITH n MERGE( d:Literal {{ value:'{fixSC(o)}'{tstr}}}) " 
             cypherCmd += f"WITH n,d Merge (n)-[:{pn} {{ uri:'{p}' }}]->(d)"
             print(cypherCmd)
             return cypherCmd
         return ''
 
     def run(self, logger=None):
-        '''Passes the recent RDF data to the neo4j driver '''
+        '''Passes the recent RDF data '''
         graphLen = len(self.graph)
         for i, (s, p, o) in enumerate(self.graph,1):
             if cmd := self.cypherBuildCommand(s, p, o):
@@ -96,10 +101,7 @@ def makeArgParser():
     parser = argparse.ArgumentParser(prog='rdf2neo', description='Uploads an RDF file to a neo4j database.')
     parser.add_argument("-f", '--file', dest="file", help="Source RDF file")
     parser.add_argument('-v', '--verbose', dest="verbose", action='store_true', help="Print infos during transfer")
-    parser.add_argument('-r', '--reset', dest="reset", action='store_true', help="Reset database before upload")
     parser.add_argument('-c', '--collection', dest="collection", help="Gives a collection name")
-    parser.add_argument('-rc', '--rmColl', dest="rmColl", help="Removes a specific collection")
-    parser.add_argument('-ra', '--rmAll', dest="rmAll", action='store_true', help="Removes all items")
     return parser
 
 def main():
@@ -109,7 +111,7 @@ def main():
 
         if args.file is None:
             argParser.print_help()
-            argParser.error("a repository url and input file are required")
+            argParser.error("an input file is required")
 
         loader = RDFLoader(args.file,args.collection)
         logger = print if args.verbose else None 
