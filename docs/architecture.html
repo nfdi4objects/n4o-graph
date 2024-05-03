@@ -198,9 +198,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#datenannahme" id="toc-datenannahme" class="nav-link active" data-scroll-target="#datenannahme">Datenannahme</a></li>
-  <li><a href="#datenfluss" id="toc-datenfluss" class="nav-link" data-scroll-target="#datenfluss">Datenfluss</a></li>
+  <li><a href="#übersicht" id="toc-übersicht" class="nav-link active" data-scroll-target="#übersicht">Übersicht</a></li>
+  <li><a href="#konvertierung" id="toc-konvertierung" class="nav-link" data-scroll-target="#konvertierung">Konvertierung</a></li>
+  <li><a href="#anreicherung" id="toc-anreicherung" class="nav-link" data-scroll-target="#anreicherung">Anreicherung</a>
+  <ul class="collapse">
   <li><a href="#expansion-der-klassenhierarchie" id="toc-expansion-der-klassenhierarchie" class="nav-link" data-scroll-target="#expansion-der-klassenhierarchie">Expansion der Klassenhierarchie</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/architecture.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -226,17 +229,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="datenannahme" class="level2">
-<h2 class="anchored" data-anchor-id="datenannahme">Datenannahme</h2>
-<p>Siehe <a href="https://github.com/nfdi4objects/n4o-import">n4o-import</a></p>
+<section id="übersicht" class="level2">
+<h2 class="anchored" data-anchor-id="übersicht">Übersicht</h2>
+<p>Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus folgenden Schritten:</p>
+<ol type="1">
+<li><p><strong>Annahme</strong>, <strong>Prüfung</strong> und <strong>Bereinigung</strong></p>
+<p>Siehe <a href="https://github.com/nfdi4objects/n4o-import" class="uri">https://github.com/nfdi4objects/n4o-import</a></p></li>
+<li><p><strong><a href="#konvertierung">Konvertierung</a></strong></p></li>
+<li><p><strong>Einspielung</strong></p>
+<p>Implementierung siehe <a href="https://github.com/nfdi4objects/n4o-property-graph" class="uri">https://github.com/nfdi4objects/n4o-property-graph</a></p></li>
+<li><p><strong><a href="#anreicherung">Anreicherung</a></strong></p></li>
+<li><p><strong>Bereitstellung</strong></p>
+<p>Noch nicht umgesett</p></li>
+</ol>
+<p>Etwas genauer lässt sich der Prozess etwa wie in <a href="#fig-data-flow" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> dargestellt veranschaulichen.</p>
+<div id="fig-data-flow" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="img/data-flow.svg" id="fig-data-flow" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4.1
+</figcaption>
+</figure>
+</div>
 </section>
-<section id="datenfluss" class="level2">
-<h2 class="anchored" data-anchor-id="datenfluss">Datenfluss</h2>
-<p>LIDO-XML-Daten werden mit Hilfe von <a href="https://github.com/isl/x3ml">X3ML</a> konvertiert. Die Konvertierung von RDF-Daten, nachdem diese mit <a href="https://github.com/nfdi4objects/n4o-rdf-import">n4o-rdf-import</a> angenommen wurden, steht noch aus.</p>
-<p><img src="img/data-flow.svg" class="img-fluid"></p>
+<section id="konvertierung" class="level2">
+<h2 class="anchored" data-anchor-id="konvertierung">Konvertierung</h2>
+<p>LIDO-XML-Daten werden mit Hilfe von <a href="https://github.com/isl/x3ml">X3ML</a> ins Property Graph Format konvertiert.</p>
+<p>Zur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript <code>rdf2cypher.py</code> (wird derzeit überarbeitet).</p>
 </section>
-<section id="expansion-der-klassenhierarchie" class="level2">
-<h2 class="anchored" data-anchor-id="expansion-der-klassenhierarchie">Expansion der Klassenhierarchie</h2>
+<section id="anreicherung" class="level2">
+<h2 class="anchored" data-anchor-id="anreicherung">Anreicherung</h2>
+<section id="expansion-der-klassenhierarchie" class="level3">
+<h3 class="anchored" data-anchor-id="expansion-der-klassenhierarchie">Expansion der Klassenhierarchie</h3>
 <p>Da Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen <em>expandiert</em>. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei <code>crm-classes.pg</code> (siehe <a href="img/crm-classes.svg">SVG-Diagram</a>). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.</p>
 <ul>
 <li><code>E22_Man_Made_Object</code> =&gt; <code>E22_Human_Made_Object</code> (renamedTo)</li>
@@ -254,6 +280,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>Die Expansion von zusätzlichen Klassen der <a href="https://github.com/nfdi4objects/n4o-core-ontology">NFDI4Objects Core Ontology</a> auf CIDOC-CRM ist auf die gleiche Weise möglich aber noch nicht umgesetzt.</em></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
