@@ -20,9 +20,19 @@ durch die DFI4Objects Core Ontologie (N4O) verwendet.
 
 Die Klassenhierarchien als Diagramm
 
-  - [CIDOC-CRM (alle Versionen)](crm-classes.svg)
-  - [N4O (bis zur ersten CRM-Klasse)](n4o-classes.svg)
-  - [beide zusammen](n4o-all-classes.svg)
+  - [CIDOC-CRM (alle Versionen)](../crm-classes.svg)
+  - [N4O (bis zur ersten CRM-Klasse)](../n4o-classes.svg)
+  - [beide zusammen](../n4o-all-classes.svg)
+
+Das Datenmodell besteht zunächst nur aus einer Klassenhierarchie. Diese muss
+noch erweitert werden um
+
+- Properties
+- Identifier (für Normdaten-Identifier siehe <https://github.com/nfdi4objects/n4o-terminologies>)
+- Informationen über Sammlungen aus denen die Daten und Objekte stammen
+  (siehe <https://github.com/nfdi4objects/n4o-databases> und
+  <https://github.com/nfdi4objects/n4o-rdf-import>)
+- Ontologien und Vokabulare
 
 ## CIDOC-CRM
 
