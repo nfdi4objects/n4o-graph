@@ -5,16 +5,29 @@ Erstellung, Management und Nutzung des NFDI4Objects Knowledge Graphen von TA5.
 
 *Zur Einführung in Property Graphen [siehe dieser Artikel](https://jakobib.github.io/pgraphen2024/) <https://doi.org/10.5281/zenodo.10971391>.*
 
-## Technische Voraussetzungen
+## Installation
 
-- Unix-Shell und Standard-Tools
-- Docker
-- [pgraphs](https://www.npmjs.com/package/pgraphs)
-- [mermaid-cli](https://www.npmjs.com/package/@mermaid-js/mermaid-cli)
-- jq
-- Perl
-- Python3 mit [Package neo4j](https://pypi.org/project/neo4j/):
-  `pip install -r requirements.txt --break-system-packages` ?
+Benötigt werden eine Standard-Unix-Tools sowie Docker, Perl (ohne zusätzliche
+Libraries) und Python3. Anschließend die weitere Abhängigkeiten:
+
+Python-Umgebung
+
+~~~sh
+python -m venv venv
+venv/bin/pip install -r requirements.txt
+~~~
+
+Node-Programme [pgraphs](https://www.npmjs.com/package/pgraphs)
+und  [mermaid-cli](https://www.npmjs.com/package/@mermaid-js/mermaid-cli):
+
+~~~sh
+npm install pgraphs
+npm install mermaid-cli
+~~~
+
+jq: `sudo apt-get install jq`
+
+Quarto: siehe <https://quarto.org/docs/get-started/>
 
 ## Handbuch
 
