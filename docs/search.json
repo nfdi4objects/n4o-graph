@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "NFDI4Objects Knowledge Graph (TA5)",
     "section": "",
-    "text": "An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des Knowledge Graphen von NFDI4Objects (TA5). Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus verschiedenene Quellen zusammengeführt werden:\n\nein Triple-Store mit Rohdaten in RDF und Abfragemöglichkeit in SPARQL\nein Property-Graph mit aufbereiteten Daten und Abfragemöglichkeit in Cypher\n\nDarüber hinaus ist eine Oberfläche mit Möglichkeiten zur Interaktiven Abfrage und Datenvisualisierung geplant. Weitere Details und Hintergründe werden im Kapitel zur technischen Architektur erklärt.",
+    "text": "An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des Knowledge Graphen von NFDI4Objects (TA5). Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus verschiedenene Quellen zusammengeführt werden:\n\nein Property-Graph mit aufbereiteten Daten und Abfragemöglichkeit in Cypher\nein Triple-Store mit Rohdaten in RDF und Abfragemöglichkeit in SPARQL\n\nDarüber hinaus ist eine Oberfläche mit Möglichkeiten zur Interaktiven Abfrage und Datenvisualisierung geplant. Weitere Details und Hintergründe werden im Kapitel zur technischen Architektur erklärt.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Übersicht</span>"
     ]
@@ -24,6 +24,26 @@
     "href": "data-model.html",
     "title": "Datenmodell",
     "section": "",
+    "text": "Beispiel\nFolgender in CIDOC-CRM modellierter Teilgraph:\nwird konvertiert in folgenden Property Graph:",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenmodell</span>"
+    ]
+  },
+  {
+    "objectID": "data-model.html#beispiel",
+    "href": "data-model.html#beispiel",
+    "title": "Datenmodell",
+    "section": "",
+    "text": "@prefix crm: &lt;http://erlangen-crm.org/170309/&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d&gt;\n  a crm:E16_Measurement ;\n  crm:P40_observed_dimension &lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt;\n  a crm:E54_Dimension ;\n  crm:P2_has_type &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt; ;\n  crm:P91_has_unit &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  crm:P90_has_value 2.8 .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  a crm:E58_Measurement_Unit ;\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt;\n  a crm:E55_Type .\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt; ;\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"Höhe (Scan)\" .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"cm\" .\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d\n  :E16_Measurement\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d \n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :P40_observed_dimension\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :E54_Dimension \n  P90: 2.8\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :P2_has_type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :P91_has_unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :E58_Measurement_Unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :E55_Type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :P48\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :E42_Identifier\n  P3_has_note: \"Höhe (Scan)\"\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :E42_Identifier\n  P3: \"cm\"",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenmodell</span>"
+    ]
+  },
+  {
+    "objectID": "data-model.html#cidoc-crm",
+    "href": "data-model.html#cidoc-crm",
+    "title": "Datenmodell",
+    "section": "CIDOC-CRM",
     "text": "CIDOC-CRM\n…",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenmodell</span>"
@@ -90,6 +110,16 @@
     ]
   },
   {
+    "objectID": "architecture.html#einspielung",
+    "href": "architecture.html#einspielung",
+    "title": "Technische Architektur",
+    "section": "Einspielung",
+    "text": "Einspielung\nMit cypher-shell lassen sich Daten in Neo4j einspielen. Dafür wird eine Neo4j Distribution benötigt oder eine seperate Instaltion.\n&lt;Cypher&gt; ist eine Datein mit mehreren Cypher Anfragen, die jeweils auf ; enden.\nDer Standard Wert für -a ist neo4j://localhost:7687. Für -u und -p ist der Standard Wert \"\"\ncypher-shell -f &lt;Cypher&gt; -a &lt;ADDRESSE&gt; -u &lt;USERNAME&gt; -p &lt;PASSWORT&gt;\ncypher-shell ist auch in der Docker Distribution von Neo4j möglich. Um Cypher in einem Docker Container zu verwenden müssen die Daten in Docker kopiert werden.\ndocker cp &lt;Cypher&gt; neo4j:&lt;Cypher&gt;\ndocker exec -it neo4j /bin/bash\ncypher-shell -f /&lt;Cypher&gt; -a &lt;ADDRESS&gt; -u &lt;USERNAME&gt; -p &lt;PASSWORD&gt;\nEin neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner für Volume muss bereits existieren.\ndocker run -d \\\n    --name=neo4j \\\n    --publish=7474:7474 --publish=7687:7687 \\\n    --env NEO4J_AUTH=none \\\n    --user $(id -u):$(id -g) \\\n    --volume=$cwd/data:/data \\\n    neo4j",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Technische Architektur</span>"
+    ]
+  },
+  {
     "objectID": "architecture.html#anreicherung",
     "href": "architecture.html#anreicherung",
     "title": "Technische Architektur",
@@ -104,7 +134,7 @@
     "href": "property-graph.html",
     "title": "Property Graph",
     "section": "",
-    "text": "Property-Graphen bilden ein flexibles und nicht zu kompliziertes Werkzeug zur Strukturierung, Speicherung und Auswertung vernetzter Daten. Im Gegensatz zu RDF sind Property Graphen allerdings nicht als allgemeines Austauschformat gedacht.\nBei Property-Graphen werden Daten nicht wie bei SQL in Form von Tabellen sondern in Form von Graphen aus Knoten gespeichert, die durch Kanten miteinander verbunden sind. Sowohl Knoten als auch Kanten haben jeweils Labels und können mit Eigenschaften versehen werden.\nFür weitere Informationen über Property-Graphen: Voß, Jakob. 2024. “Property-Graphen: eine kurze Einführung.” VZG Aktuell. https://doi.org/10.5281/zenodo.10971391.",
+    "text": "Property-Graphen bilden ein flexibles und nicht zu kompliziertes Werkzeug zur Strukturierung, Speicherung und Auswertung vernetzter Daten. Dabei werden Daten nicht wie beispielsweise bei SQL in Form von Tabellen, sondern in Form von Graphen aus Knoten gespeichert, die durch Kanten miteinander verbunden sind. Sowohl Knoten als auch Kanten können mit Eigenschaften versehen werden und haben jeweils Labels als Angabe ihrer Art.\nEine weitergehende, allgemeine Erklärung zu Property-Graphen bietet der Artikel Property-Graphen: eine kurze Einführung.\nIm Gegensatz zu RDF sind Property Graphen nicht als allgemeines Format zum Austausch und zur Integration von Daten gedacht. Der Property Graph von NFDI4Objects benötigt daher eine Datenmodell das festlegt, welche Arten von Knoten und Kanten wie miteinander verknüpft und mit Eigenschaften versehen werden können.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Property Graph</span>"
     ]

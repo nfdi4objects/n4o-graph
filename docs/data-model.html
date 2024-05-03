@@ -164,7 +164,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#cidoc-crm" id="toc-cidoc-crm" class="nav-link active" data-scroll-target="#cidoc-crm">CIDOC-CRM</a></li>
+  <li><a href="#beispiel" id="toc-beispiel" class="nav-link active" data-scroll-target="#beispiel">Beispiel</a></li>
+  <li><a href="#cidoc-crm" id="toc-cidoc-crm" class="nav-link" data-scroll-target="#cidoc-crm">CIDOC-CRM</a></li>
   <li><a href="#die-nfdi4objects-core-ontologie" id="toc-die-nfdi4objects-core-ontologie" class="nav-link" data-scroll-target="#die-nfdi4objects-core-ontologie">Die NFDI4Objects Core Ontologie</a></li>
   <li><a href="#weitere-unterstütze-ontologien" id="toc-weitere-unterstütze-ontologien" class="nav-link" data-scroll-target="#weitere-unterstütze-ontologien">Weitere unterstütze Ontologien</a></li>
   <li><a href="#terminologien" id="toc-terminologien" class="nav-link" data-scroll-target="#terminologien">Terminologien</a></li>
@@ -215,6 +216,78 @@ ul.task-list li input[type="checkbox"] {
 <li>Informationen über Sammlungen aus denen die Daten und Objekte stammen (siehe <a href="https://github.com/nfdi4objects/n4o-databases" class="uri">https://github.com/nfdi4objects/n4o-databases</a> und <a href="https://github.com/nfdi4objects/n4o-rdf-import" class="uri">https://github.com/nfdi4objects/n4o-rdf-import</a>)</li>
 <li>Ontologien und Vokabulare</li>
 </ul>
+<section id="beispiel" class="level2">
+<h2 class="anchored" data-anchor-id="beispiel">Beispiel</h2>
+<p>Folgender in CIDOC-CRM modellierter Teilgraph:</p>
+<pre class="ttl"><code>@prefix crm: &lt;http://erlangen-crm.org/170309/&gt; .
+
+&lt;http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d&gt;
+  a crm:E16_Measurement ;
+  crm:P40_observed_dimension &lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt; .
+
+&lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt;
+  a crm:E54_Dimension ;
+  crm:P2_has_type &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt; ;
+  crm:P91_has_unit &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;
+  crm:P90_has_value 2.8 .
+
+&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;
+  a crm:E58_Measurement_Unit ;
+  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt; .
+
+&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt;
+  a crm:E55_Type .
+  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt; ;
+
+&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt;
+  a crm:E42_Identifier ;
+  crm:P3_has_note "Höhe (Scan)" .
+
+&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt;
+  a crm:E42_Identifier ;
+  crm:P3_has_note "cm" .</code></pre>
+<p>wird konvertiert in folgenden Property Graph:</p>
+<pre class="pg"><code>http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d
+  :E16_Measurement
+
+http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d 
+  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  :P40_observed_dimension
+
+http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  :E54_Dimension 
+  P90: 2.8
+
+http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
+  :P2_has_type
+
+http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
+  :P91_has_unit
+
+http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
+  :E58_Measurement_Unit
+
+http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
+  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc
+  :P48_has_preferred_identifier 
+
+http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
+  :E55_Type
+
+http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
+  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310
+  :P48
+
+http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310
+  :E42_Identifier
+  P3_has_note: "Höhe (Scan)"
+
+http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc
+  :E42_Identifier
+  P3: "cm"</code></pre>
+</section>
 <section id="cidoc-crm" class="level2">
 <h2 class="anchored" data-anchor-id="cidoc-crm">CIDOC-CRM</h2>
 <p>…</p>

@@ -200,6 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#übersicht" id="toc-übersicht" class="nav-link active" data-scroll-target="#übersicht">Übersicht</a></li>
   <li><a href="#konvertierung" id="toc-konvertierung" class="nav-link" data-scroll-target="#konvertierung">Konvertierung</a></li>
+  <li><a href="#einspielung" id="toc-einspielung" class="nav-link" data-scroll-target="#einspielung">Einspielung</a></li>
   <li><a href="#anreicherung" id="toc-anreicherung" class="nav-link" data-scroll-target="#anreicherung">Anreicherung</a>
   <ul class="collapse">
   <li><a href="#expansion-der-klassenhierarchie" id="toc-expansion-der-klassenhierarchie" class="nav-link" data-scroll-target="#expansion-der-klassenhierarchie">Expansion der Klassenhierarchie</a></li>
@@ -236,7 +237,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Annahme</strong>, <strong>Prüfung</strong> und <strong>Bereinigung</strong></p>
 <p>Siehe <a href="https://github.com/nfdi4objects/n4o-import" class="uri">https://github.com/nfdi4objects/n4o-import</a></p></li>
 <li><p><strong><a href="#konvertierung">Konvertierung</a></strong></p></li>
-<li><p><strong>Einspielung</strong></p>
+<li><p><strong><a href="#einspielung">Einspielung</a></strong></p>
 <p>Implementierung siehe <a href="https://github.com/nfdi4objects/n4o-property-graph" class="uri">https://github.com/nfdi4objects/n4o-property-graph</a></p></li>
 <li><p><strong><a href="#anreicherung">Anreicherung</a></strong></p></li>
 <li><p><strong>Bereitstellung</strong></p>
@@ -259,6 +260,25 @@ Figure&nbsp;4.1
 <p>LIDO-XML-Daten werden mit Hilfe von <a href="https://github.com/isl/x3ml">X3ML</a> ins Property Graph Format konvertiert.</p>
 <p>Zur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript <code>rdf2cypher.py</code> (wird derzeit überarbeitet).</p>
 </section>
+<section id="einspielung" class="level2">
+<h2 class="anchored" data-anchor-id="einspielung">Einspielung</h2>
+<p>Mit <code>cypher-shell</code> lassen sich Daten in Neo4j einspielen. Dafür wird eine Neo4j Distribution benötigt oder eine <a href="https://neo4j.com/deployment-center/?cypher-shell">seperate Instaltion</a>.<br>
+<code>&lt;Cypher&gt;</code> ist eine Datein mit mehreren Cypher Anfragen, die jeweils auf <code>;</code> enden.<br>
+Der Standard Wert für <code>-a</code> ist <code>neo4j://localhost:7687</code>. Für <code>-u</code> und <code>-p</code> ist der Standard Wert <code>""</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">cypher-shell</span> <span class="at">-f</span> <span class="op">&lt;</span>Cypher<span class="op">&gt;</span> -a <span class="op">&lt;</span>ADDRESSE<span class="op">&gt;</span> -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span> -p <span class="op">&lt;</span>PASSWORT<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>cypher-shell</code> ist auch in der Docker Distribution von Neo4j möglich. Um Cypher in einem Docker Container zu verwenden müssen die Daten in Docker kopiert werden.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> cp <span class="op">&lt;</span>Cypher<span class="op">&gt;</span> neo4j:<span class="op">&lt;</span>Cypher<span class="op">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> exec <span class="at">-it</span> neo4j /bin/bash</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">cypher-shell</span> <span class="at">-f</span> /<span class="op">&lt;</span>Cypher<span class="op">&gt;</span> -a <span class="op">&lt;</span>ADDRESS<span class="op">&gt;</span> -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span> -p <span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ein neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner für Volume muss bereits existieren.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="dt">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--name</span><span class="op">=</span>neo4j <span class="dt">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--publish</span><span class="op">=</span>7474:7474 <span class="at">--publish</span><span class="op">=</span>7687:7687 <span class="dt">\</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--env</span> NEO4J_AUTH=none <span class="dt">\</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">--user</span> <span class="va">$(</span><span class="fu">id</span> <span class="at">-u</span><span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> <span class="at">-g</span><span class="va">)</span> <span class="dt">\</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">--volume</span><span class="op">=</span><span class="va">$cwd</span>/data:/data <span class="dt">\</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    neo4j </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="anreicherung" class="level2">
 <h2 class="anchored" data-anchor-id="anreicherung">Anreicherung</h2>
 <section id="expansion-der-klassenhierarchie" class="level3">
@@ -274,7 +294,7 @@ Figure&nbsp;4.1
 <li><code>E22_Human_Made_Object</code> =&gt; <code>E22</code>, <code>E71</code>, <code>E70</code>, <code>E24</code> <code>E77</code> und <code>E1</code></li>
 </ul>
 <p>Zum Ausführen der Expansion:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./pg-expand-labels.py</span> [Neo4j login file] <span class="op">&lt;</span> crm-expand.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./pg-expand-labels.py</span> [Neo4j login file] <span class="op">&lt;</span> crm-expand.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ohne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.</p>
 <p>Nach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. <code>E22_Human_Made_Object</code> möglich oder nach allen Knoten, die direkt oder indirekt er Klasse <code>E22</code> angehören.</p>
 <p><em>Die Expansion von zusätzlichen Klassen der <a href="https://github.com/nfdi4objects/n4o-core-ontology">NFDI4Objects Core Ontology</a> auf CIDOC-CRM ist auf die gleiche Weise möglich aber noch nicht umgesetzt.</em></p>
