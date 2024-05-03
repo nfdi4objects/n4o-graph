@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NFDI4Objects Knowledge Graph - Beispiel Cypher-Abfragen</title>
+<title>NFDI4Objects Knowledge Graph (TA5) - Beispiel Cypher-Abfragen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">NFDI4Objects Knowledge Graph</a> 
+      <a href="./">NFDI4Objects Knowledge Graph (TA5)</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/nfdi4objects/n4o-property-graph" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -124,12 +124,17 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
+  <a href="./data-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenmodell</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenmodell</span></a>
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Technische Architektur</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -150,11 +155,6 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./triple-store.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Triple Store</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Technische Architektur</span></a>
   </div>
 </li>
     </ul>
@@ -199,34 +199,34 @@ ul.task-list li input[type="checkbox"] {
 <p>Da eine Node mehrere Labels haben kann, nutzen wir “any(label”.<br>
 ~ ‘^[a-zA-Z][0-9].*’ Die Tilde bedeuted, dass das folgende RegEx ist.<br>
 Mit return geben wir den ersten Buchstaben des ersten Labels aus und wieviele erste Labels mit diesem ersten Buchstaben.</p>
-<pre class="{cypher}"><code>MATCH (n)  
+<pre class="cypher"><code>MATCH (n)  
 WHERE any(label IN labels(n) WHERE label =~ '\^[a-zA-Z][0-9].\*')  
 RETURN substring(head(labels(n)), 0, 1) AS entityTypes, count(\*) AS entityCount;</code></pre>
 </section>
 <section id="welche-cidoc-crm-node-labels-existieren-ist-gleich-der-nodes-mit-label-e." class="level4">
 <h4 class="anchored" data-anchor-id="welche-cidoc-crm-node-labels-existieren-ist-gleich-der-nodes-mit-label-e.">Welche CIDOC-CRM Node-Labels existieren? Ist gleich der Nodes mit Label E.</h4>
 <p>LIMIT ist hier um nicht die ganze Seite zu füllen. So werden nur die ersten 10 Treffer ausgegeben.</p>
-<pre class="{cypher}"><code>MATCH (n)  
+<pre class="cypher"><code>MATCH (n)  
 WHERE any(label IN labels(n) WHERE label =~ '^E\\d+.\*')  
 RETURN labels(n) AS entityTypes LIMIT 10;</code></pre>
 </section>
 <section id="zeige-alle-anderen-node-lables-und-wie-viele-von-ihnen-existieren." class="level4">
 <h4 class="anchored" data-anchor-id="zeige-alle-anderen-node-lables-und-wie-viele-von-ihnen-existieren.">Zeige alle anderen Node-Lables und wie viele von ihnen existieren.</h4>
-<pre class="{cypher}"><code>MATCH (n)  
+<pre class="cypher"><code>MATCH (n)  
 WHERE any(label IN labels(n) WHERE label =~ '^.[^0-9].\*')  
 RETURN labels(n) AS entityTypes, count(\*) AS entityCount LIMIT 10</code></pre>
 </section>
 <section id="zeige-alle-relationships-und-wie-viele-von-ihnen-existieren." class="level4">
 <h4 class="anchored" data-anchor-id="zeige-alle-relationships-und-wie-viele-von-ihnen-existieren.">Zeige alle Relationships und wie viele von ihnen existieren.</h4>
 <p>Relationships in Cypher werden sehr direkt mit einem ASCII-Pfeil beschrieben. So haben wir hier zwei Nodes in runden Klammern, die uns für diese Anfrage nicht interessieren. Diese Nodes sind mit einem Pfeil und einer Relationship in eckigen Klammern verknüpft.</p>
-<pre class="{cypher}"><code>MATCH ()-[r]-&gt;()  
+<pre class="cypher"><code>MATCH ()-[r]-&gt;()  
 RETURN DISTINCT type(r) AS relationshipType, count(*) AS relationshipCount LIMIT 10</code></pre>
-<div id="60df996a" class="cell" data-execution_count="4">
+<div id="d0947aea" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-stdout">
 <pre><code>x,2</code></pre>
 </div>
 </div>
-<pre class="{cypher}"><code>MATCH (m)-[r]-&gt;(n) 
+<pre class="cypher"><code>MATCH (m)-[r]-&gt;(n) 
 WHERE any(label IN labels(n) WHERE label =~ 'E53.*') 
 RETURN labels(m),type(r),labels(n)</code></pre>
 <div class="cell" data-fig-width="100%" data-layout-align="default">

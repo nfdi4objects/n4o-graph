@@ -13,7 +13,7 @@ konvertiert. Die Konvertierung von RDF-Daten, nachdem diese mit
 [n4o-rdf-import](https://github.com/nfdi4objects/n4o-rdf-import)
 angenommen wurden, steht noch aus.
 
-![](../data-flow.svg)
+![](img/data-flow.svg)
 
 ## Expansion der Klassenhierarchie
 
@@ -22,7 +22,7 @@ weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im
 Property-Graphen *expandiert*.  Grundlage ist ein eigener Property-Graph mit
 der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich
 umbenannter oder veralteter Klassen in der Datei `crm-classes.pg` (siehe
-[SVG-Diagram](../crm-classes.svg)). Der Graph aller Klassen enthält Informationen
+[SVG-Diagram](img/crm-classes.svg)). Der Graph aller Klassen enthält Informationen
 darüber welche Klassen sich aus einer anderen ergeben, z.B.
 
 - `E22_Man_Made_Object` => `E22_Human_Made_Object` (renamedTo)

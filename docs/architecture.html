@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NFDI4Objects Knowledge Graph - Technische Architektur</title>
+<title>NFDI4Objects Knowledge Graph (TA5) - Technische Architektur</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./triple-store.html" rel="prev">
+<link href="./property-graph.html" rel="next">
+<link href="./data-model.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -129,7 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">NFDI4Objects Knowledge Graph</a> 
+      <a href="./">NFDI4Objects Knowledge Graph (TA5)</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/nfdi4objects/n4o-property-graph" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -154,12 +155,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
+  <a href="./data-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenmodell</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenmodell</span></a>
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Technische Architektur</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -180,11 +186,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./triple-store.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Triple Store</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./architecture.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Technische Architektur</span></a>
   </div>
 </li>
     </ul>
@@ -232,11 +233,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="datenfluss" class="level2">
 <h2 class="anchored" data-anchor-id="datenfluss">Datenfluss</h2>
 <p>LIDO-XML-Daten werden mit Hilfe von <a href="https://github.com/isl/x3ml">X3ML</a> konvertiert. Die Konvertierung von RDF-Daten, nachdem diese mit <a href="https://github.com/nfdi4objects/n4o-rdf-import">n4o-rdf-import</a> angenommen wurden, steht noch aus.</p>
-<p><img src="../data-flow.svg" class="img-fluid"></p>
+<p><img src="img/data-flow.svg" class="img-fluid"></p>
 </section>
 <section id="expansion-der-klassenhierarchie" class="level2">
 <h2 class="anchored" data-anchor-id="expansion-der-klassenhierarchie">Expansion der Klassenhierarchie</h2>
-<p>Da Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen <em>expandiert</em>. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei <code>crm-classes.pg</code> (siehe <a href="../crm-classes.svg">SVG-Diagram</a>). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.</p>
+<p>Da Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen <em>expandiert</em>. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei <code>crm-classes.pg</code> (siehe <a href="img/crm-classes.svg">SVG-Diagram</a>). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.</p>
 <ul>
 <li><code>E22_Man_Made_Object</code> =&gt; <code>E22_Human_Made_Object</code> (renamedTo)</li>
 <li><code>E50_Date</code> =&gt; <code>E41_Appellation</code> (replacedBy)</li>
@@ -669,11 +670,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./triple-store.html" class="pagination-link" aria-label="Triple Store">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Triple Store</span></span>
+      <a href="./data-model.html" class="pagination-link" aria-label="Datenmodell">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Datenmodell</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./property-graph.html" class="pagination-link" aria-label="Property Graph">
+        <span class="nav-page-text"><span class="chapter-title">Property Graph</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

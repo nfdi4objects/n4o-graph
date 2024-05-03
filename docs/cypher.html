@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NFDI4Objects Knowledge Graph - Cypher-Einführung</title>
+<title>NFDI4Objects Knowledge Graph (TA5) - Cypher-Einführung</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./queries.html" rel="next">
-<link href="./data-model.html" rel="prev">
+<link href="./property-graph.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -96,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">NFDI4Objects Knowledge Graph</a> 
+      <a href="./">NFDI4Objects Knowledge Graph (TA5)</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/nfdi4objects/n4o-property-graph" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
@@ -121,12 +121,17 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
+  <a href="./data-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenmodell</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenmodell</span></a>
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Technische Architektur</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -147,11 +152,6 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./triple-store.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Triple Store</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Technische Architektur</span></a>
   </div>
 </li>
     </ul>
@@ -197,13 +197,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="einen-graph-mit-cypher-erstellen" class="level3">
 <h3 class="anchored" data-anchor-id="einen-graph-mit-cypher-erstellen">Einen Graph mit Cypher erstellen</h3>
 <p>Mit CREATE lassen sich neue Kanten (Nodes), Kanten (Relationships) und Eigenschaften (Properties) erstellen. Eine Reihe von CREATE Cypher-Anfragen ist eine Möglichkeit einen Property-Graph in Neo4j zu übertragen. MERGE ist ähnlich, aber erstellt keine Duplikate.</p>
-<pre class="{cypher}"><code>CREATE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]-&gt;(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) 
+<pre class="cypher"><code>CREATE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]-&gt;(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) 
 MERGE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]-&gt;(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) </code></pre>
 </section>
 <section id="nodes" class="level3">
 <h3 class="anchored" data-anchor-id="nodes">Nodes</h3>
 <p>Knoten heißen Nodes und werden in runden Klammern definiert.</p>
-<pre class="{cypher}"><code>MATCH (n:Person {name:'Anna'})
+<pre class="cypher"><code>MATCH (n:Person {name:'Anna'})
 RETURN n.geboren AS geburtsjahr</code></pre>
 <p>Person ist ein Label. Labels sind wie Tags und werden genutzt um die Datenbank zu befragen. Eine Node Kann mehrere Labels haben.<br>
 Name ist eine Property von Anna. Properties werden in geschweiften Klammern definiert and geben nähere Informationen. Nach Properties kann auch gefragt werden.<br>
@@ -214,16 +214,16 @@ N ist eine Variabel. Auf Variabeln kann weiter verwiesen werden.</p>
 <h3 class="anchored" data-anchor-id="relationships">Relationships</h3>
 <p>Nodes können mit Relationships verbunden werden. Eine Relationship braucht eine Start Node, eine Ende Node und genau einen Typ. Relationships haben in Cypher einen Pfeil um die Richting zu zeigen. Die Informationen über eine Relationship sind in eckigen Klammern eingeschlossen.<br>
 Während Nodes mehrere Labels haben können, können Relationships nur einen Typ haben.</p>
-<pre class="{cypher}"><code>MATCH (:Person {name: 'Anna'})-[r:KENNT WHERE r.seit &lt; 2020]-&gt;(freund:Person)
+<pre class="cypher"><code>MATCH (:Person {name: 'Anna'})-[r:KENNT WHERE r.seit &lt; 2020]-&gt;(freund:Person)
 RETURN count(r) As zahlAnFreunden</code></pre>
 <p>In dieser Anfrage findet Match Relationships des Typs KENNT wo die Property seit kleiner als 2020 ist. Außerdem müssen Relationships von einer Person Node mit der Property Anna zu einer anderen Personen Node gehen (wir nennen diese freund). count() wird genutzt um zu zählen wie viele Relationships an die Variabel r in MATCH gebunden wurden somit erhalten wir mit RETURN eine Zahl.</p>
 </section>
 <section id="pfade" class="level3">
 <h3 class="anchored" data-anchor-id="pfade">Pfade</h3>
-<pre class="{cypher}"><code>MATCH (n:Person {name: 'Anna'})-[:KENNT]-{1,5}(freund:Person WHERE n.geboren &lt; freund.geboren)
+<pre class="cypher"><code>MATCH (n:Person {name: 'Anna'})-[:KENNT]-{1,5}(freund:Person WHERE n.geboren &lt; freund.geboren)
 RETURN DISTINCT freund.name AS ältereFreunde</code></pre>
 <p>Dieses Beispiel nutzt eine quantifizierte Relationship um alle Pfade, die bis zu 5 Schritte entfernt sind, zu finden. Dabei werden nur Relationships des Typs KENNT verwendet. Die Start Node ist Anna und Ende Node sind Personen älter als Anna. Durch DISTINCT wird das gleiche Ergebnis nur einmal ausgegeben.</p>
-<pre class="{cypher}"><code>MATCH p=shortestPath((:Person {name: 'Anna'})-[:KENNT*1..10]-(:Person {nationalität: 'Kanadier'}))
+<pre class="cypher"><code>MATCH p=shortestPath((:Person {name: 'Anna'})-[:KENNT*1..10]-(:Person {nationalität: 'Kanadier'}))
 RETURN p</code></pre>
 <p>Auch Pfade können einer Variable zugewiesen werden. Hier wird der vollständige Pfad ausgegeben.</p>
 
@@ -644,8 +644,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./data-model.html" class="pagination-link" aria-label="Datenmodell">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Datenmodell</span></span>
+      <a href="./property-graph.html" class="pagination-link" aria-label="Property Graph">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Property Graph</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

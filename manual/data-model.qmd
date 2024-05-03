@@ -20,9 +20,9 @@ durch die DFI4Objects Core Ontologie (N4O) verwendet.
 
 Die Klassenhierarchien als Diagramm
 
-  - [CIDOC-CRM (alle Versionen)](../crm-classes.svg)
-  - [N4O (bis zur ersten CRM-Klasse)](../n4o-classes.svg)
-  - [beide zusammen](../n4o-all-classes.svg)
+  - [CIDOC-CRM (alle Versionen)](img/crm-classes.svg)
+  - [N4O (bis zur ersten CRM-Klasse)](img/n4o-classes.svg)
+  - [beide zusammen](img/n4o-all-classes.svg)
 
 Das Datenmodell besteht zunächst nur aus einer Klassenhierarchie. Diese muss
 noch erweitert werden um
