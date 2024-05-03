@@ -12,7 +12,7 @@ Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhalte
 
 2. **[Konvertierung](#konvertierung)**
 
-3. **Einspielung**
+3. **[Einspielung](#einspielung)**
 
    Implementierung siehe <https://github.com/nfdi4objects/n4o-property-graph>
 
@@ -33,6 +33,35 @@ ins Property Graph Format konvertiert.
 
 Zur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript
 `rdf2cypher.py` (wird derzeit überarbeitet).
+
+## Einspielung
+
+Mit ```cypher-shell``` lassen sich Daten in Neo4j einspielen. Dafür wird eine Neo4j Distribution benötigt oder eine [seperate Instaltion](https://neo4j.com/deployment-center/?cypher-shell).  
+```<Cypher>``` ist eine Datein mit mehreren Cypher Anfragen, die jeweils auf ```;``` enden.  
+Der Standard Wert für ```-a``` ist ```neo4j://localhost:7687```. Für ```-u``` und ```-p``` ist der Standard Wert ```""```
+
+```bash
+cypher-shell -f <Cypher> -a <ADDRESSE> -u <USERNAME> -p <PASSWORT>
+```
+
+```cypher-shell``` ist auch in der Docker Distribution von Neo4j möglich. Um Cypher in einem Docker Container zu verwenden müssen die Daten in Docker kopiert werden.  
+
+```bash
+docker cp <Cypher> neo4j:<Cypher>
+docker exec -it neo4j /bin/bash
+cypher-shell -f /<Cypher> -a <ADDRESS> -u <USERNAME> -p <PASSWORD>
+```
+
+Ein neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner für Volume muss bereits existieren.
+```bash
+docker run -d \
+    --name=neo4j \
+    --publish=7474:7474 --publish=7687:7687 \
+    --env NEO4J_AUTH=none \
+    --user $(id -u):$(id -g) \
+    --volume=$cwd/data:/data \
+    neo4j 
+```
 
 ## Anreicherung
 
