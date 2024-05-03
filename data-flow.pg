@@ -1,15 +1,17 @@
 # Visualization of data flow
 
 LIDO format:XML
-LIDO -> Converter :n4o-import
-Converter -> KG :pgraphs 
+LIDO -> LIDOConverter :n4o-import
+LIDOConverter -> KG :pgraphs 
 KG format:Cypher model:CRM
-RDF -> TTL :n4o-import :load-rdf
+RDF -> RDFConverter :n4o-import
+RDFConverter -> TTL :load-rdf
+RDFConverter -> KG :pgraphs
 
 KG -> KG :enrich
 
 "LIDOMapping" format:X3ML
-"LIDOMapping" -> Converter
+"LIDOMapping" -> LIDOConverter
 
 TTL name:"Triple-Store"
 
@@ -19,4 +21,6 @@ TTL -> Abfrage :SPARQL
 TTL -> KG :convert
 KG -> TTL :convert
 
-Terminologies -> TTL :load-rdf
+Terminologies -> TerminologyConverter 
+TerminologyConverter -> TTL :load-rdf
+TerminologyConverter -> KG :pgraphs
