@@ -15,9 +15,9 @@ Da eine Node mehrere Labels haben kann, nutzen wir "any(label".
 Mit return geben wir den ersten Buchstaben des ersten Labels aus und wieviele erste Labels mit diesem ersten Buchstaben.
 
 ```cypher
-MATCH (n)  
-WHERE any(label IN labels(n) WHERE label =~ '\^[a-zA-Z][0-9].\*')  
-RETURN substring(head(labels(n)), 0, 1) AS entityTypes, count(\*) AS entityCount;
+MATCH (n) 
+WHERE any(label IN labels(n) WHERE label =~ '^[a-zA-Z][0-9].*') 
+RETURN substring(head(labels(n)), 0, 1) AS entityTypes, count(*) AS entityCount;
 ```
 
 ```{python}
@@ -39,8 +39,8 @@ with driver.session() as session:
 LIMIT ist hier um nicht die ganze Seite zu füllen. So werden nur die ersten 10 Treffer ausgegeben.
 
 ```cypher
-MATCH (n)  
-WHERE any(label IN labels(n) WHERE label =~ '^E\\d+.\*')  
+MATCH (n) 
+WHERE any(label IN labels(n) WHERE label =~ '^E\\d+.*') 
 RETURN labels(n) AS entityTypes LIMIT 10;
 ```
 
@@ -54,9 +54,9 @@ with driver.session() as session:
 #### Zeige alle anderen Node-Lables und wie viele von ihnen existieren.
 
 ```cypher
-MATCH (n)  
-WHERE any(label IN labels(n) WHERE label =~ '^.[^0-9].\*')  
-RETURN labels(n) AS entityTypes, count(\*) AS entityCount LIMIT 10
+MATCH (n) 
+WHERE any(label IN labels(n) WHERE label =~ '^.[^0-9].*') 
+RETURN labels(n) AS entityTypes, count(*) AS entityCount LIMIT 10;
 ```
 
 ```{python}
@@ -71,8 +71,8 @@ with driver.session() as session:
 Relationships in Cypher werden sehr direkt mit einem ASCII-Pfeil beschrieben. So haben wir hier zwei Nodes in runden Klammern, die uns für diese Anfrage nicht interessieren. Diese Nodes sind mit einem Pfeil und einer Relationship in eckigen Klammern verknüpft.
 
 ```cypher
-MATCH ()-[r]->()  
-RETURN DISTINCT type(r) AS relationshipType, count(*) AS relationshipCount LIMIT 10
+MATCH ()-[r]->() 
+RETURN DISTINCT type(r) AS relationshipType, count(*) AS relationshipCount LIMIT 10;
 ```
 
 ```{python}
@@ -85,7 +85,7 @@ with driver.session() as session:
 ```cypher
 MATCH (m)-[r]->(n) 
 WHERE any(label IN labels(n) WHERE label =~ 'E53.*') 
-RETURN labels(m),type(r),labels(n)
+RETURN labels(m),type(r),labels(n);
 ```
 
 ```{python}
