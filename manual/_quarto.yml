@@ -35,3 +35,4 @@ format:
   html:
     theme: cosmo
     link-external-icon: true
+    include-before-body: js/syntax.html
