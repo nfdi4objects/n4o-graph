@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@mermaid-js/mermaid-cli": "^10.8.0",
-    "pgraphs": "^0.6.1"
-  }
-}
