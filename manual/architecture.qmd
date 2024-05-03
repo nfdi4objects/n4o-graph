@@ -2,20 +2,41 @@
 title: Technische Architektur
 ---
 
-## Datenannahme
+## Übersicht
 
-Siehe [n4o-import](https://github.com/nfdi4objects/n4o-import)
+Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus folgenden Schritten:
 
-## Datenfluss
+1. **Annahme**, **Prüfung** und **Bereinigung**
+
+   Siehe <https://github.com/nfdi4objects/n4o-import>
+
+2. **[Konvertierung](#konvertierung)**
+
+3. **Einspielung**
+
+   Implementierung siehe <https://github.com/nfdi4objects/n4o-property-graph>
+
+4. **[Anreicherung](#anreicherung)**
+
+5. **Bereitstellung**
+
+   Noch nicht umgesett
+
+Etwas genauer lässt sich der Prozess etwa wie in @fig-data-flow dargestellt veranschaulichen.
+
+![](img/data-flow.svg){#fig-data-flow}
+
+## Konvertierung
 
 LIDO-XML-Daten werden mit Hilfe von [X3ML](https://github.com/isl/x3ml)
-konvertiert. Die Konvertierung von RDF-Daten, nachdem diese mit
-[n4o-rdf-import](https://github.com/nfdi4objects/n4o-rdf-import)
-angenommen wurden, steht noch aus.
+ins Property Graph Format konvertiert. 
 
-![](img/data-flow.svg)
+Zur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript
+`rdf2cypher.py` (wird derzeit überarbeitet).
 
-## Expansion der Klassenhierarchie
+## Anreicherung
+
+### Expansion der Klassenhierarchie
 
 Da Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und
 weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im
