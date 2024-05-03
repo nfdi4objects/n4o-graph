@@ -3,8 +3,6 @@
 Dieses Repositoriy enthält Skripte und [Dokumentation](#handbuch) zur
 Erstellung, Management und Nutzung des NFDI4Objects Knowledge Graphen von TA5.
 
-*Zur Einführung in Property Graphen [siehe dieser Artikel](https://jakobib.github.io/pgraphen2024/) <https://doi.org/10.5281/zenodo.10971391>.*
-
 ## Installation
 
 Benötigt werden eine Standard-Unix-Tools sowie Docker, Perl (ohne zusätzliche

@@ -3,13 +3,18 @@ title: Property Graph
 ---
 
 Property-Graphen bilden ein flexibles und nicht zu kompliziertes Werkzeug zur
-Strukturierung, Speicherung und Auswertung vernetzter Daten. Im Gegensatz zu
-RDF sind Property Graphen allerdings nicht als allgemeines Austauschformat
-gedacht. 
+Strukturierung, Speicherung und Auswertung vernetzter Daten. Dabei werden Daten
+nicht wie beispielsweise bei SQL in Form von Tabellen, sondern in Form von
+Graphen aus *Knoten* gespeichert, die durch *Kanten* miteinander verbunden
+sind. Sowohl Knoten als auch Kanten können mit *Eigenschaften* versehen werden
+und haben jeweils *Labels* als Angabe ihrer Art. 
 
-Bei Property-Graphen werden Daten nicht wie bei SQL in Form von
-Tabellen sondern in Form von Graphen aus *Knoten* gespeichert, die durch
-*Kanten* miteinander verbunden sind. Sowohl Knoten als auch Kanten haben jeweils *Labels*
-und können mit *Eigenschaften* versehen werden.
+Eine weitergehende, allgemeine Erklärung zu Property-Graphen bietet der Artikel
+[Property-Graphen: eine kurze Einführung](https://jakobib.github.io/pgraphen2024/).
 
-Für weitere Informationen über Property-Graphen: Voß, Jakob. 2024. “Property-Graphen: eine kurze Einführung.” VZG Aktuell. [https://doi.org/10.5281/zenodo.10971391](https://doi.org/10.5281/zenodo.10971391). 
+Im Gegensatz zu RDF sind Property Graphen nicht als allgemeines Format zum
+Austausch und zur Integration von Daten gedacht. Der Property Graph von
+NFDI4Objects benötigt daher eine [Datenmodell](#data-model.qmd) das festlegt,
+welche Arten von Knoten und Kanten wie miteinander verknüpft und mit
+Eigenschaften versehen werden können.
+

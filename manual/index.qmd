@@ -7,11 +7,11 @@ An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des
 Wesentlichen aus zwei Datenbanken, in denen Daten aus [verschiedenene
 Quellen](datenquellen.qmd) zusammengeführt werden:
 
-- ein [Triple-Store](triple-store.qmd) mit Rohdaten in RDF und
-  Abfragemöglichkeit in SPARQL
-
 - ein [Property-Graph](property-graph.qmd) mit aufbereiteten Daten und
   Abfragemöglichkeit in [Cypher](cypher.qmd)
+
+- ein [Triple-Store](triple-store.qmd) mit Rohdaten in RDF und
+  Abfragemöglichkeit in SPARQL
 
 Darüber hinaus ist eine Oberfläche mit Möglichkeiten zur Interaktiven Abfrage
 und Datenvisualisierung geplant. Weitere Details und Hintergründe werden im
