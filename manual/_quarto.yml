@@ -36,6 +36,8 @@ format:
   html:
     theme: cosmo
     link-external-icon: true
+    syntax-definitions:
+     - pg.xml
     include-before-body: js/syntax.html
     filters:
      - include-code-files

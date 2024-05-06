@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language name="pg" alternativeNames="PG format" kateversion="5.0" section="Scripts" extensions="*.pg" casesensitive="1" author="Jakob Voß" license="CC0">
+  <highlighting>
+    <contexts>
+      <context attribute="Normal Text" lineEndContext="#pop" name="Normal Text" >
+        <DetectChar char="&quot;" context="DoubleQuotedString" attribute="StringStyle" />
+        <DetectChar char="&apos;" context="SingleQuotedString" attribute="StringStyle" />
+        <DetectChar char="-" context="Direction" attribute="DirectionStyle" />
+      </context>
+      <context name="Direction" lineEndContext="#stay" attribute="StringStyle">
+        <RegExpr String="[->]" context="#pop"  attribute="DirectionStyle" />
+        <RegExpr String="." context="#pop"  attribute="SyntaxErrorStyle" />
+      </context>
+      <context name="DoubleQuotedString" lineEndContext="#stay" attribute="StringStyle">
+        <DetectChar char="&quot;"  context="#pop" attribute="StringStyle" />
+        <DetectChar char="\"       context="StringEscape" lookAhead="1" />
+      </context>      
+      <context name="SingleQuotedString" lineEndContext="#stay" attribute="StringStyle">
+        <DetectChar char="&apos;"  context="#pop" attribute="StringStyle" />
+        <DetectChar char="\"       context="StringEscape" lookAhead="1" />
+      </context>      
+      <context name="StringEscape" lineEndContext="#stay" attribute="Style_Normal">
+        <RegExpr String="\\(?:[&quot;&apos;\\/bfnrt]|u[0-9a-fA-f]{4})" context="#pop"  attribute="EscapeSequenceStyle" />
+        <RegExpr String="\\(u[0-9a-fA-f]+|.)?" context="#pop" attribute="SyntaxErrorStyle" />
+      </context>
+    </contexts>
+    <itemDatas>
+      <itemData name="Normal Text" defStyleNum="dsNormal" />
+
+      <itemData name="DirectionStyle" defStyleNum="dsFunction" bold="true" />
+      <itemData name="StringStyle"   defStyleNum="dsString" />
+      <itemData name="EscapeSequenceStyle"  defStyleNum="dsSpecialChar" />
+      <itemData name="SyntaxErrorStyle"     defStyleNum="dsError" />
+    </itemDatas>
+  </highlighting>
+  <general>
+    <comments>
+      <comment name="singleLine" start="#"/>
+    </comments>
+    <keywords casesensitive="1"/>
+  </general>
+</language>
