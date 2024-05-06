@@ -28,9 +28,10 @@ npm install mermaid-cli
 jq: `sudo apt-get install jq`
 
 Zur Erstellung der Dokumentation [quarto](https://quarto.org/docs/get-started/)
-und Jupyter Notebook:
+mit Extensions und Jupyter Notebook:
 
 ~~~sh
+quarto add quarto-ext/include-code-files
 sudo apt install jupyter-notebook
 ~~~
 

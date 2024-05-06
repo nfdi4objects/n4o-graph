@@ -1,0 +1,40 @@
+http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d
+  :E16_Measurement
+
+http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d 
+  -> http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  :P40_observed_dimension
+
+http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  :E54_Dimension 
+  P90_has_value: 2.8
+
+http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  -> http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
+  :P2_has_type
+
+http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  -> http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
+  :P91_has_unit
+
+http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
+  :E58_Measurement_Unit
+
+http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
+  -> http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc
+  :P48_has_preferred_identifier 
+
+http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
+  :E55_Type
+
+http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
+  -> http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310
+  :P48_has_preferred_identifier 
+
+http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310
+  :E42_Identifier
+  P3_has_note: "Höhe (Scan)"
+
+http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc
+  :E42_Identifier
+  P3_has_note: "cm"

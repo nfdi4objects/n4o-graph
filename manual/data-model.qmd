@@ -36,82 +36,17 @@ noch erweitert werden um
 
 ## Beispiel
 
-Folgender in CIDOC-CRM modellierter Teilgraph:
+Folgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):
 
-~~~ttl
-@prefix crm: <http://erlangen-crm.org/170309/> .
+```{.ttl include="crm-example.ttl"}
+```
 
-<http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d>
-  a crm:E16_Measurement ;
-  crm:P40_observed_dimension <http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41> .
+wird konvertiert in folgenden Property Graph (in PG Format und als Diagram):
 
-<http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41>
-  a crm:E54_Dimension ;
-  crm:P2_has_type <http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b> ;
-  crm:P91_has_unit <http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480>
-  crm:P90_has_value 2.8 .
+```{.pg include="crm-pg-example.pg"}
+```
 
-<http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480>
-  a crm:E58_Measurement_Unit ;
-  crm:P48_has_preferred_identifier <http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc> .
-
-<http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b>
-  a crm:E55_Type .
-  crm:P48_has_preferred_identifier <http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310> ;
-
-<http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310>
-  a crm:E42_Identifier ;
-  crm:P3_has_note "Höhe (Scan)" .
-
-<http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc>
-  a crm:E42_Identifier ;
-  crm:P3_has_note "cm" .
-~~~
-
-wird konvertiert in folgenden Property Graph:
-
-~~~pg
-http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d
-  :E16_Measurement
-
-http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d 
-  -> http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
-  :P40_observed_dimension
-
-http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
-  :E54_Dimension 
-  P90: 2.8
-
-http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
-  -> http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
-  :P2_has_type
-
-http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
-  -> http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
-  :P91_has_unit
-
-http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
-  :E58_Measurement_Unit
-
-http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
-  -> http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc
-  :P48_has_preferred_identifier 
-
-http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
-  :E55_Type
-
-http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
-  -> http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310
-  :P48
-
-http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310
-  :E42_Identifier
-  P3_has_note: "Höhe (Scan)"
-
-http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc
-  :E42_Identifier
-  P3: "cm"
-~~~
+![](img/crm-pg-example.svg)
 
 ## CIDOC-CRM
 

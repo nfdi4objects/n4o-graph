@@ -37,3 +37,6 @@ format:
     theme: cosmo
     link-external-icon: true
     include-before-body: js/syntax.html
+    filters:
+     - include-code-files
+

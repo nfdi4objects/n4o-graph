@@ -256,7 +256,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <section id="beispiel" class="level2">
 <h2 class="anchored" data-anchor-id="beispiel">Beispiel</h2>
-<p>Folgender in CIDOC-CRM modellierter Teilgraph:</p>
+<p>Folgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):</p>
 <pre class="ttl"><code>@prefix crm: &lt;http://erlangen-crm.org/170309/&gt; .
 
 &lt;http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d&gt;
@@ -283,8 +283,9 @@ ul.task-list li input[type="checkbox"] {
 
 &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt;
   a crm:E42_Identifier ;
-  crm:P3_has_note "cm" .</code></pre>
-<p>wird konvertiert in folgenden Property Graph:</p>
+  crm:P3_has_note "cm" .
+</code></pre>
+<p>wird konvertiert in folgenden Property Graph (in PG Format und als Diagram):</p>
 <pre class="pg"><code>http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d
   :E16_Measurement
 
@@ -294,7 +295,7 @@ http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d
 
 http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
   :E54_Dimension 
-  P90: 2.8
+  P90_has_value: 2.8
 
 http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
   -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
@@ -316,7 +317,7 @@ http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
 
 http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
   -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310
-  :P48
+  :P48_has_preferred_identifier 
 
 http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310
   :E42_Identifier
@@ -324,7 +325,9 @@ http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310
 
 http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc
   :E42_Identifier
-  P3: "cm"</code></pre>
+  P3_has_note: "cm"
+</code></pre>
+<p><img src="img/crm-pg-example.svg" class="img-fluid"></p>
 </section>
 <section id="cidoc-crm" class="level2">
 <h2 class="anchored" data-anchor-id="cidoc-crm">CIDOC-CRM</h2>
