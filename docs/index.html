@@ -97,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">NFDI4Objects Knowledge Graph (TA5)</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/nfdi4objects/n4o-property-graph" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/nfdi4objects/n4o-property-graph/tree/main/manual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
 </div>
     </div>
       </div>
@@ -178,6 +178,7 @@ ul.task-list li input[type="checkbox"] {
 			hljs.highlightElement(child);
 		}
 
+		hljs.registerLanguage('ttl', window.turtle);
 		hljs.registerLanguage('sparql', window.hljsDefineSparql);
 		var elems = document.getElementsByClassName("sparql");
 		for (let i = 0; i < elems.length; i++) {
@@ -186,6 +187,15 @@ ul.task-list li input[type="checkbox"] {
 			child.classList.add("language-sparql");
 			hljs.highlightElement(child);
 		}
+
+		var elems = document.getElementsByClassName("ttl");
+		for (let i = 0; i < elems.length; i++) {
+  			var elem = elems.item(i);
+  			var child = elem.children[0];
+			child.classList.add("language-ttl");
+			hljs.highlightElement(child);
+		}
+
 	}
 	window.onload = hl;
 </script>
@@ -212,10 +222,11 @@ ul.task-list li input[type="checkbox"] {
 
 <p>An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des <strong>Knowledge Graphen von NFDI4Objects</strong> (TA5). Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus <a href="./datenquellen.html">verschiedenene Quellen</a> zusammengeführt werden:</p>
 <ul>
-<li><p>ein <a href="./property-graph.html">Property-Graph</a> mit aufbereiteten Daten und Abfragemöglichkeit in <a href="./cypher.html">Cypher</a></p></li>
-<li><p>ein <a href="./triple-store.html">Triple-Store</a> mit Rohdaten in RDF und Abfragemöglichkeit in SPARQL</p></li>
+<li><p>ein <strong><a href="./property-graph.html">Property-Graph</a></strong> mit aufbereiteten Daten und Abfragemöglichkeit in <a href="./cypher.html">Cypher</a></p></li>
+<li><p>ein <strong><a href="./triple-store.html">Triple-Store</a></strong> mit Rohdaten in RDF und Abfragemöglichkeit in SPARQL</p></li>
 </ul>
-<p>Darüber hinaus ist eine Oberfläche mit Möglichkeiten zur Interaktiven Abfrage und Datenvisualisierung geplant. Weitere Details und Hintergründe werden im Kapitel zur <a href="./architecture.html">technischen Architektur</a> erklärt.</p>
+<p>Darüber sind eine browserbasierte Oberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung sowie die Integration in ein Learning Management System (LMS) geplant. Langfristig soll der Knowledge Graph außerdem mit anderen Knowledge Graphen im Rahmen der NFDI verknüpft werden.</p>
+<p>Weitere Details und Hintergründe werden im Kapitel zur <a href="./architecture.html">technischen Architektur</a> erklärt.</p>
 
 
 
@@ -648,7 +659,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/index.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
@@ -662,7 +673,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link active" href="https://github.com/nfdi4objects/n4o-property-graph" aria-current="page">
+    <a class="nav-link" href="https://github.com/nfdi4objects/n4o-property-graph">
       <i class="bi bi-github" role="img">
 </i> 
     </a>

@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "NFDI4Objects Knowledge Graph (TA5)",
     "section": "",
-    "text": "An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des Knowledge Graphen von NFDI4Objects (TA5). Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus verschiedenene Quellen zusammengeführt werden:\n\nein Property-Graph mit aufbereiteten Daten und Abfragemöglichkeit in Cypher\nein Triple-Store mit Rohdaten in RDF und Abfragemöglichkeit in SPARQL\n\nDarüber hinaus ist eine Oberfläche mit Möglichkeiten zur Interaktiven Abfrage und Datenvisualisierung geplant. Weitere Details und Hintergründe werden im Kapitel zur technischen Architektur erklärt.",
+    "text": "An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des Knowledge Graphen von NFDI4Objects (TA5). Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus verschiedenene Quellen zusammengeführt werden:\n\nein Property-Graph mit aufbereiteten Daten und Abfragemöglichkeit in Cypher\nein Triple-Store mit Rohdaten in RDF und Abfragemöglichkeit in SPARQL\n\nDarüber sind eine browserbasierte Oberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung sowie die Integration in ein Learning Management System (LMS) geplant. Langfristig soll der Knowledge Graph außerdem mit anderen Knowledge Graphen im Rahmen der NFDI verknüpft werden.\nWeitere Details und Hintergründe werden im Kapitel zur technischen Architektur erklärt.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Übersicht</span>"
     ]
