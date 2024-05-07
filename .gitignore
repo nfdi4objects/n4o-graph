@@ -4,3 +4,6 @@ venv/
 
 # temporary files
 *.mmd
+
+# quarto extensions
+manual/_extensions/
