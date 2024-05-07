@@ -1,0 +1,25 @@
+flowchart LR
+    Abfrage["<b>Abfrage</b>"]
+    KG["<b>KG</b><br><tt>format:Cypher</tt><br><tt>model:CRM</tt>"]
+    LIDO["<b>LIDO</b><br><tt>format:XML</tt>"]
+    LIDOConverter["<b>LIDOConverter</b>"]
+    LIDOMapping["<b>LIDOMapping</b><br><tt>format:X3ML</tt>"]
+    RDF["<b>RDF</b>"]
+    RDFConverter["<b>RDFConverter</b>"]
+    TTL["<b>TTL</b><br><tt>name:Triple-Store</tt>"]
+    Terminologies["<b>Terminologies</b>"]
+    TerminologyConverter["<b>TerminologyConverter</b>"]
+    LIDO -- "<i>n4o-import</i>" --> LIDOConverter
+    LIDOConverter -- "<i>pgraphs</i>" --> KG
+    RDF -- "<i>n4o-import</i>" --> RDFConverter
+    RDFConverter -- "<i>load-rdf</i>" --> TTL
+    RDFConverter -- "<i>pgraphs</i>" --> KG
+    KG -- "<i>enrich</i>" --> KG
+    LIDOMapping --> LIDOConverter
+    KG -- "<i>Cypher</i>" --> Abfrage
+    TTL -- "<i>SPARQL</i>" --> Abfrage
+    TTL -- "<i>convert</i>" --> KG
+    KG -- "<i>convert</i>" --> TTL
+    Terminologies --> TerminologyConverter
+    TerminologyConverter -- "<i>load-rdf</i>" --> TTL
+    TerminologyConverter -- "<i>pgraphs</i>" --> KG
