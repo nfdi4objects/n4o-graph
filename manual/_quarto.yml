@@ -19,7 +19,6 @@ book:
     - architecture.qmd
     - usage.qmd
     - cypher.qmd
-    - queries.qmd
     - sparql.qmd
   page-footer: 
     right: 

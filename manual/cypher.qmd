@@ -1,6 +1,8 @@
 ---
-title: Cypher-Einführung
+title: Abfragen mit Cypher
 lang: de
+execute:
+  echo: false
 ---
 
 ### Nodes
@@ -44,3 +46,32 @@ RETURN p
 ```
 
 Auch Pfade können einer Variable zugewiesen werden. Hier wird der vollständige Pfad ausgegeben.
+
+## Beispielabfragen
+
+Finde Wert, Einheit und Notiz aller Messungen.
+
+```cypher
+MATCH (n:E16_Measurement)-[:P40_observed_dimension]->(m:E54_Dimension)-[:P2_has_type]->(:E55_Type)-[:P48_has_preferred_identifier]->(l)
+MATCH (m)-[:P91_has_unit]->(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]->(o)
+RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note
+```
+
+```{python}
+from neo4j import GraphDatabase
+import json
+with open('neo4j.json', 'r') as file:
+  neo4j_login = json.loads(file.read())
+  uri = neo4j_login.get("uri")
+  user = neo4j_login.get("user")
+  password = neo4j_login.get("password")
+cmd = "MATCH (n:E16_Measurement)-[:P40_observed_dimension]->(m:E54_Dimension)-[:P2_has_type]->(:E55_Type)-[:P48_has_preferred_identifier]->(l) MATCH (m)-[:P91_has_unit]->(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]->(o) RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note;"
+driver = GraphDatabase.driver(uri, auth=(user, password))
+with driver.session() as session:
+ for x in session.run(cmd):
+  print(','.join((str(x) for x in x.values())))
+```
+
+## Weitere Informationen
+
+[Das englische Cypher Handbuch](https://neo4j.com/docs/cypher-manual/current/)
