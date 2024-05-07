@@ -102,30 +102,6 @@ with driver.session() as session:
   print(','.join((str(x) for x in x.values())))
 ```
 
-```{mermaid}
-%%| fig-width: 100%
-flowchart LR
-    BNode["<b>BNode</b>"]
-    BNode1["<b>BNode</b>"]
-    BNode2["<b>BNode</b>"]
-    BNode3["<b>BNode</b>"]
-    E53_Place["<b>E53_Place</b>"]
-    N10_falls_within["<b>N10_falls_within</b>"]
-    N10i_contains["<b>N10i_contains</b>"]
-    S39_Location["<b>S39_Location</b>"]
-    S40_Geographical_Place["<b>S40_Geographical_Place</b>"]
-    BNode1 -- "<i>someValuesFrom</i>" --> E53_Place
-    N10i_contains -- "<i>domain</i>" --> E53_Place
-    N10i_contains -- "<i>range</i>" --> E53_Place
-    S39_Location -- "<i>subClassOf</i>" --> E53_Place
-    N10_falls_within -- "<i>domain</i>" --> E53_Place
-    BNode2 -- "<i>someValuesFrom</i>" --> E53_Place
-    S40_Geographical_Place -- "<i>subClassOf</i>" --> E53_Place
-    BNode -- "<i>someValuesFrom</i>" --> E53_Place
-    N10_falls_within -- "<i>range</i>" --> E53_Place
-    BNode3 -- "<i>someValuesFrom</i>" --> E53_Place
-```
-
 ## Weitere Informationen
 
 [Das englische Cypher Handbuch](https://neo4j.com/docs/cypher-manual/current/)  

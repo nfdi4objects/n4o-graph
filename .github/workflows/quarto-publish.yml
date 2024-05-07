@@ -5,10 +5,9 @@ on:
 
 name: Render and Publish Manual
 
-# you need these permissions to publish to GitHub pages
-# permissions: 
-#     contents: write
-#     pages: write
+permissions: 
+    contents: write
+    pages: write
 
 jobs:
   build-deploy:
@@ -57,14 +56,11 @@ jobs:
       - name: Render
         run: quarto render manual
 
-      # To publish to Netlify, RStudio Connect, or GitHub Pages, uncomment
-      # the appropriate block below
-      
-      # NOTE: If Publishing to GitHub Pages, set the permissions correctly (see top of this yaml)
-      # - name: Publish to GitHub Pages (and render) 
-      #   uses: quarto-dev/quarto-actions/publish@v2
-      #   with:
-      #     target: gh-pages
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
+      - name: Publish to GitHub Pages (and render) 
+        uses: quarto-dev/quarto-actions/publish@v2
+        with:
+          path: manual
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
      
