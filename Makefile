@@ -5,7 +5,7 @@ default: images crm-expand.txt
 images: manual/img/data-flow.svg manual/img/crm-classes.svg manual/img/nomisma-classes.svg manual/img/n4o-classes.svg manual/img/n4o-all-classes.svg manual/img/crm-pg-example.svg
 
 docs:
-	cd manual && quarto render
+	quarto render manual
 
 manual/img/crm-pg-example.svg: manual/crm-pg-example.pg
 	pgraph $< --html -t dot |  dot -Tsvg -o $@
