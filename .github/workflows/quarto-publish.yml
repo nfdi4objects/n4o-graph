@@ -49,10 +49,12 @@ jobs:
         uses: actions/setup-node@v4
 
       - name: Install node modules
-        run: npm ci 
+        run: |
+          npm ci
+          echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
 
       - name: Import example graph
-        run: pgraph -r neo4j manual/crm-example.pg neo4j.json
+        run: pgraph -t neo4j manual/crm-pg-example.pg neo4j.json
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
