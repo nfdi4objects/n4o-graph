@@ -192,31 +192,31 @@
   {
     "objectID": "cypher.html",
     "href": "cypher.html",
-    "title": "Cypher-Einführung",
+    "title": "Abfragen mit Cypher",
     "section": "",
-    "text": "Nodes\nKnoten heißen Nodes und werden in runden Klammern definiert.\nMATCH (n:Person {name:'Anna'})\nRETURN n.geboren AS geburtsjahr\nPerson ist ein Label. Labels sind wie Tags und werden genutzt um die Datenbank zu befragen. Eine Node Kann mehrere Labels haben.\nName ist eine Property von Anna. Properties werden in geschweiften Klammern definiert and geben nähere Informationen. Nach Properties kann auch gefragt werden.\nN ist eine Variabel. Auf Variabeln kann weiter verwiesen werden.\nIn diesem Beispiel findet MATCH alle Person Nodes in dem Graph wo die Property name Anna ist und setzt die Variabel n zu dem Ergebnis. n wird dann an RETURN weitergegeben, welche den Wert von einer anderen Property (geboren) dieser Nodes wiedergibt.\n\n\nRelationships\nNodes können mit Relationships verbunden werden. Eine Relationship braucht eine Start Node, eine Ende Node und genau einen Typ. Relationships haben in Cypher einen Pfeil um die Richting zu zeigen. Die Informationen über eine Relationship sind in eckigen Klammern eingeschlossen.\nWährend Nodes mehrere Labels haben können, können Relationships nur einen Typ haben.\nMATCH (:Person {name: 'Anna'})-[r:KENNT WHERE r.seit &lt; 2020]-&gt;(freund:Person)\nRETURN count(r) As zahlAnFreunden\nIn dieser Anfrage findet Match Relationships des Typs KENNT wo die Property seit kleiner als 2020 ist. Außerdem müssen Relationships von einer Person Node mit der Property Anna zu einer anderen Personen Node gehen (wir nennen diese freund). count() wird genutzt um zu zählen wie viele Relationships an die Variabel r in MATCH gebunden wurden somit erhalten wir mit RETURN eine Zahl.\n\n\nPfade\nMATCH (n:Person {name: 'Anna'})-[:KENNT]-{1,5}(freund:Person WHERE n.geboren &lt; freund.geboren)\nRETURN DISTINCT freund.name AS ältereFreunde\nDieses Beispiel nutzt eine quantifizierte Relationship um alle Pfade, die bis zu 5 Schritte entfernt sind, zu finden. Dabei werden nur Relationships des Typs KENNT verwendet. Die Start Node ist Anna und Ende Node sind Personen älter als Anna. Durch DISTINCT wird das gleiche Ergebnis nur einmal ausgegeben.\nMATCH p=shortestPath((:Person {name: 'Anna'})-[:KENNT*1..10]-(:Person {nationalität: 'Kanadier'}))\nRETURN p\nAuch Pfade können einer Variable zugewiesen werden. Hier wird der vollständige Pfad ausgegeben.",
+    "text": "Nodes\nKnoten heißen Nodes und werden in runden Klammern definiert.\nPerson ist ein Label. Labels sind wie Tags und werden genutzt um die Datenbank zu befragen. Eine Node Kann mehrere Labels haben.\nName ist eine Property von Anna. Properties werden in geschweiften Klammern definiert and geben nähere Informationen. Nach Properties kann auch gefragt werden.\nN ist eine Variabel. Auf Variabeln kann weiter verwiesen werden.\nIn diesem Beispiel findet MATCH alle Person Nodes in dem Graph wo die Property name Anna ist und setzt die Variabel n zu dem Ergebnis. n wird dann an RETURN weitergegeben, welche den Wert von einer anderen Property (geboren) dieser Nodes wiedergibt.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Cypher-Einführung</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
     ]
   },
   {
-    "objectID": "queries.html",
-    "href": "queries.html",
-    "title": "Beispiel Cypher-Abfragen",
-    "section": "",
-    "text": "Zeige wie viele Node-Labels jeweils existieren, die einen Buchstaben gefolgt auf eine Zahl am Anfang haben.\nDa eine Node mehrere Labels haben kann, nutzen wir “any(label”.\n~ ‘^[a-zA-Z][0-9].*’ Die Tilde bedeuted, dass das folgende RegEx ist.\nMit return geben wir den ersten Buchstaben des ersten Labels aus und wieviele erste Labels mit diesem ersten Buchstaben.",
+    "objectID": "cypher.html#beispielabfragen",
+    "href": "cypher.html#beispielabfragen",
+    "title": "Abfragen mit Cypher",
+    "section": "Beispielabfragen",
+    "text": "Beispielabfragen\nFinde Wert, Einheit und Notiz aller Messungen.\nMATCH (n:E16_Measurement)-[:P40_observed_dimension]-&gt;(m:E54_Dimension)-[:P2_has_type]-&gt;(:E55_Type)-[:P48_has_preferred_identifier]-&gt;(l)\nMATCH (m)-[:P91_has_unit]-&gt;(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]-&gt;(o)\nRETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note\n\n\n2.8,cm,Höhe (Scan)",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Beispiel Cypher-Abfragen</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
     ]
   },
   {
-    "objectID": "queries.html#weitere-informationen",
-    "href": "queries.html#weitere-informationen",
-    "title": "Beispiel Cypher-Abfragen",
+    "objectID": "cypher.html#weitere-informationen",
+    "href": "cypher.html#weitere-informationen",
+    "title": "Abfragen mit Cypher",
     "section": "Weitere Informationen",
     "text": "Weitere Informationen\nDas englische Cypher Handbuch",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Beispiel Cypher-Abfragen</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
     ]
   },
   {
@@ -226,7 +226,7 @@
     "section": "",
     "text": "Inhalt des Triple Store",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
     ]
   },
   {
@@ -236,7 +236,7 @@
     "section": "",
     "text": "Alle in RDF angelieferten Daten (soweit syntaxktisch korrekt). Es ist also kein einheitliches Datenmodell vorgeschrieben! Aus den RDF-Daten werden lediglich Aussagen über Terminologien und Ontologien herausgefiltert\nJede Lieferung ist ein Named Graph, so dass die Lieferungen sowohl einzeln, als auch in einem RDF-Graphen zusammengefasst abgefragt werden können.\nUnterstützte Ontologien und Terminologien sind ebenfalls als eigene Namend Graphs eingespielt, so dass sie für Abfragen verwendet werden können.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
     ]
   },
   {
@@ -246,7 +246,7 @@
     "section": "Beispielabfragen",
     "text": "Beispielabfragen\n\nStatistik aller Prädikate und ihrer Häufigkeit\nSELECT distinct ?pred WHERE {\n  ?sub ?pred ?obj .\n}\n\n\nStatistik aller Prädikate sortiert nach Anzahl der Prädikate\nSELECT distinct ?pre (COUNT(?pre) AS ?count) WHERE {\n  ?s ?pre ?obj\n} \nGROUP BY ?pre\nORDER BY DESC(?count)\n\n\nStatistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte\nSELECT distinct (COUNT(?s) AS ?count) ?obj WHERE {\n  ?s &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; ?obj\n} \nGROUP BY ?obj\nORDER BY DESC(?count)",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
     ]
   }
 ]
