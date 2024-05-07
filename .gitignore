@@ -1,9 +1,0 @@
-node_modules/
-__pycache__/
-venv/
-
-# temporary files
-*.mmd
-
-# quarto extensions
-manual/_extensions/
