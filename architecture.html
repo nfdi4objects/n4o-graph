@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NFDI4Objects Knowledge Graph (TA5) - Technische Architektur</title>
+<title>NFDI4Objects Knowledge Graph (TA5) - Systemarchitektur</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,7 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./property-graph.html" rel="next">
+<link href="./usage.html" rel="next">
 <link href="./data-model.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -89,17 +89,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
   }
 }</script>
 
@@ -112,11 +112,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./architecture.html"><span class="chapter-title">Technische Architektur</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./architecture.html"><span class="chapter-title">Systemarchitektur</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -138,19 +138,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Suchen"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Übersicht</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Einleitung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datenquellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
+  <a href="./basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Grundlagen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -160,12 +165,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./architecture.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Technische Architektur</span></a>
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
+  <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benutzung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -180,12 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cypher_mit_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cypher mit Python</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./triple-store.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Triple Store</span></a>
+  <a href="./sparql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit SPARQL</span></a>
   </div>
 </li>
     </ul>
@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
   <li><a href="#übersicht" id="toc-übersicht" class="nav-link active" data-scroll-target="#übersicht">Übersicht</a></li>
@@ -210,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#expansion-der-klassenhierarchie" id="toc-expansion-der-klassenhierarchie" class="nav-link" data-scroll-target="#expansion-der-klassenhierarchie">Expansion der Klassenhierarchie</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/architecture.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/architecture.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -255,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Technische Architektur</span></h1>
+<h1 class="title"><span class="chapter-title">Systemarchitektur</span></h1>
 </div>
 
 
@@ -285,14 +285,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Bereitstellung</strong></p>
 <p>Noch nicht umgesett</p></li>
 </ol>
-<p>Etwas genauer lässt sich der Prozess etwa wie in <a href="#fig-data-flow" class="quarto-xref">Figure&nbsp;<span>4.1</span></a> dargestellt veranschaulichen.</p>
+<p>Etwas genauer lässt sich der Prozess etwa wie in <a href="#fig-data-flow" class="quarto-xref">Abbildung&nbsp;<span>5.1</span></a> dargestellt veranschaulichen.</p>
 <div id="fig-data-flow" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/data-flow.svg" id="fig-data-flow" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;4.1
+Abbildung&nbsp;5.1
 </figcaption>
 </figure>
 </div>
@@ -309,7 +309,7 @@ Figure&nbsp;4.1
 <p>Zum Einspielen der Cypher-Datei in eine Neo4J-Datenbank kann das Kommando <code>cypher-shell</code> verwendet werden, das im Neo4J-Docker-Container enthalten ist oder <a href="https://neo4j.com/deployment-center/?cypher-shell">separat installiert</a> werden kann.</p>
 <p>Da Neo4J aus dem Docker-Container nicht auf die Cypher-Datei zugreifen kann, muss ihr Inhalt per Pipe eingelesen werden:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>file.cypher <span class="kw">|</span> <span class="ex">docker</span> exec <span class="at">-t</span> neo4j <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  cypher-shell <span class="at">-a</span> <span class="op">&lt;</span>ADDRESS<span class="op">&gt;</span> -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span> -p <span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  cypher-shell <span class="at">-a</span> <span class="op">&lt;</span>ADDRESS<span class="op">&gt;</span> -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span> -p <span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ein neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner für Volume muss bereits existieren.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="dt">\</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--name</span><span class="op">=</span>neo4j <span class="dt">\</span></span>
@@ -317,7 +317,7 @@ Figure&nbsp;4.1
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--env</span> NEO4J_AUTH=none <span class="dt">\</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">--user</span> <span class="va">$(</span><span class="fu">id</span> <span class="at">-u</span><span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> <span class="at">-g</span><span class="va">)</span> <span class="dt">\</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">--volume</span><span class="op">=</span><span class="va">$cwd</span>/data:/data <span class="dt">\</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    neo4j </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    neo4j </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="rdf-daten" class="level3">
 <h3 class="anchored" data-anchor-id="rdf-daten">RDF-Daten</h3>
@@ -339,7 +339,7 @@ Figure&nbsp;4.1
 <li><code>E22_Human_Made_Object</code> =&gt; <code>E22</code>, <code>E71</code>, <code>E70</code>, <code>E24</code> <code>E77</code> und <code>E1</code></li>
 </ul>
 <p>Zum Ausführen der Expansion:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./pg-expand-labels.py</span> [Neo4j login file] <span class="op">&lt;</span> crm-expand.txt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./pg-expand-labels.py</span> [Neo4j login file] <span class="op">&lt;</span> crm-expand.txt</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ohne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.</p>
 <p>Nach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. <code>E22_Human_Made_Object</code> möglich oder nach allen Knoten, die direkt oder indirekt er Klasse <code>E22</code> angehören.</p>
 <p><em>Die Expansion von zusätzlichen Klassen der <a href="https://github.com/nfdi4objects/n4o-core-ontology">NFDI4Objects Core Ontology</a> auf CIDOC-CRM ist auf die gleiche Weise möglich aber noch nicht umgesetzt.</em></p>
@@ -403,12 +403,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Kopiert");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -767,8 +767,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./property-graph.html" class="pagination-link" aria-label="Property Graph">
-        <span class="nav-page-text"><span class="chapter-title">Property Graph</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./usage.html" class="pagination-link" aria-label="Benutzung">
+        <span class="nav-page-text"><span class="chapter-title">Benutzung</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -780,7 +780,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/architecture.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/architecture.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

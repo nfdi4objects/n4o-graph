@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./queries.html" rel="next">
-<link href="./property-graph.html" rel="prev">
+<link href="./usage.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -111,12 +111,17 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Übersicht</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Einleitung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datenquellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
+  <a href="./basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Grundlagen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -126,12 +131,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Technische Architektur</span></a>
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
+  <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benutzung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -146,12 +151,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cypher_mit_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cypher mit Python</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./triple-store.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Triple Store</span></a>
+  <a href="./sparql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit SPARQL</span></a>
   </div>
 </li>
     </ul>
@@ -164,8 +164,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#einen-graph-mit-cypher-erstellen" id="toc-einen-graph-mit-cypher-erstellen" class="nav-link active" data-scroll-target="#einen-graph-mit-cypher-erstellen">Einen Graph mit Cypher erstellen</a></li>
-  <li><a href="#nodes" id="toc-nodes" class="nav-link" data-scroll-target="#nodes">Nodes</a></li>
+  <li><a href="#nodes" id="toc-nodes" class="nav-link active" data-scroll-target="#nodes">Nodes</a></li>
   <li><a href="#relationships" id="toc-relationships" class="nav-link" data-scroll-target="#relationships">Relationships</a></li>
   <li><a href="#pfade" id="toc-pfade" class="nav-link" data-scroll-target="#pfade">Pfade</a></li>
   </ul>
@@ -231,13 +230,6 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Ein Property-Graph kann mit Cypher-Anfragen nähere Informationen über seinen Inhalt liefern und verändert werden. Dafür muss er in Neo4j oder einer anderen Graphdatenbank, die mit Cypher-Anfragen umgehen kann, übertragen werden. Cypher ist eine SQL-aquivalente Sprache für Graphdatenbanken.</p>
-<section id="einen-graph-mit-cypher-erstellen" class="level3">
-<h3 class="anchored" data-anchor-id="einen-graph-mit-cypher-erstellen">Einen Graph mit Cypher erstellen</h3>
-<p>Mit CREATE lassen sich neue Kanten (Nodes), Kanten (Relationships) und Eigenschaften (Properties) erstellen. Eine Reihe von CREATE Cypher-Anfragen ist eine Möglichkeit einen Property-Graph in Neo4j zu übertragen. MERGE ist ähnlich, aber erstellt keine Duplikate.</p>
-<pre class="cypher"><code>CREATE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]-&gt;(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) 
-MERGE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]-&gt;(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) </code></pre>
-</section>
 <section id="nodes" class="level3">
 <h3 class="anchored" data-anchor-id="nodes">Nodes</h3>
 <p>Knoten heißen Nodes und werden in runden Klammern definiert.</p>
@@ -682,8 +674,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./property-graph.html" class="pagination-link" aria-label="Property Graph">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Property Graph</span></span>
+      <a href="./usage.html" class="pagination-link" aria-label="Benutzung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Benutzung</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NFDI4Objects Knowledge Graph (TA5) - Property Graph</title>
+<title>NFDI4Objects Knowledge Graph (TA5) - Datenquellen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./cypher.html" rel="next">
-<link href="./architecture.html" rel="prev">
+<link href="./data-model.html" rel="next">
+<link href="./basics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -55,17 +55,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
   }
 }</script>
 
@@ -78,11 +78,11 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./property-graph.html"><span class="chapter-title">Property Graph</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-sources.html"><span class="chapter-title">Datenquellen</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -104,19 +104,24 @@ ul.task-list li input[type="checkbox"] {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Suchen"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Übersicht</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Einleitung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datenquellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
+  <a href="./basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Grundlagen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-sources.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Datenquellen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -126,12 +131,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Technische Architektur</span></a>
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./property-graph.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Property Graph</span></a>
+  <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benutzung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -146,12 +151,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cypher_mit_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cypher mit Python</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./triple-store.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Triple Store</span></a>
+  <a href="./sparql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit SPARQL</span></a>
   </div>
 </li>
     </ul>
@@ -205,7 +205,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Property Graph</span></h1>
+<h1 class="title"><span class="chapter-title">Datenquellen</span></h1>
+<p class="subtitle lead">Aus welchen Daten setzt sich der Knowledge Graph zusammen?</p>
 </div>
 
 
@@ -222,9 +223,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Property-Graphen bilden ein flexibles und nicht zu kompliziertes Werkzeug zur Strukturierung, Speicherung und Auswertung vernetzter Daten. Dabei werden Daten nicht wie beispielsweise bei SQL in Form von Tabellen, sondern in Form von Graphen aus <em>Knoten</em> gespeichert, die durch <em>Kanten</em> miteinander verbunden sind. Sowohl Knoten als auch Kanten können mit <em>Eigenschaften</em> versehen werden und haben jeweils <em>Labels</em> als Angabe ihrer Art.</p>
-<p>Eine weitergehende, allgemeine Erklärung zu Property-Graphen bietet der Artikel <a href="https://jakobib.github.io/pgraphen2024/">Property-Graphen: eine kurze Einführung</a>.</p>
-<p>Im Gegensatz zu RDF sind Property Graphen nicht als allgemeines Format zum Austausch und zur Integration von Daten gedacht. Der Property Graph von NFDI4Objects benötigt daher eine <a href="#data-model.qmd">Datenmodell</a> das festlegt, welche Arten von Knoten und Kanten wie miteinander verknüpft und mit Eigenschaften versehen werden können.</p>
+<p>Der Knowledge Graph besteht aus Metadaten von Sammlungen aus <a href="https://nfdi4objects.github.io/n4o-databases/">verschiedenenen Datenbanken</a>, die mit bekannten Vokabularen angereichert werden.</p>
+<p>Eine vorläufige Liste von Sammlungen <a href="https://github.com/nfdi4objects/n4o-import/blob/main/n4o-collections.csv">befindet sich hier</a>.</p>
+<p>Die technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie Update-Verfahren befinden sich noch in Entwicklung.</p>
 
 
 
@@ -283,12 +284,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Kopiert");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -642,13 +643,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./architecture.html" class="pagination-link" aria-label="Technische Architektur">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Technische Architektur</span></span>
+      <a href="./basics.html" class="pagination-link" aria-label="Grundlagen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Grundlagen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./cypher.html" class="pagination-link" aria-label="Cypher-Einführung">
-        <span class="nav-page-text"><span class="chapter-title">Cypher-Einführung</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./data-model.html" class="pagination-link" aria-label="Datenmodell">
+        <span class="nav-page-text"><span class="chapter-title">Datenmodell</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -660,7 +661,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/property-graph.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/data-sources.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

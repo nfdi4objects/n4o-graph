@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.554">
@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./architecture.html" rel="next">
-<link href="./datenquellen.html" rel="prev">
+<link href="./data-sources.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -89,17 +89,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit",
-    "search-label": "Search"
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
   }
 }</script>
 
@@ -112,11 +112,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./data-model.html"><span class="chapter-title">Datenmodell</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -138,19 +138,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Search"></div>
+        <div id="quarto-search" class="" title="Suchen"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Übersicht</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Einleitung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datenquellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
+  <a href="./basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Grundlagen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -160,12 +165,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Technische Architektur</span></a>
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
+  <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benutzung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -180,12 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cypher_mit_python.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cypher mit Python</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./triple-store.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Triple Store</span></a>
+  <a href="./sparql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit SPARQL</span></a>
   </div>
 </li>
     </ul>
@@ -195,7 +195,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
   <li><a href="#beispiel" id="toc-beispiel" class="nav-link active" data-scroll-target="#beispiel">Beispiel</a></li>
@@ -204,7 +204,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#weitere-unterstütze-ontologien" id="toc-weitere-unterstütze-ontologien" class="nav-link" data-scroll-target="#weitere-unterstütze-ontologien">Weitere unterstütze Ontologien</a></li>
   <li><a href="#terminologien" id="toc-terminologien" class="nav-link" data-scroll-target="#terminologien">Terminologien</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/data-model.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/data-model.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -269,7 +269,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Als Sammlungsübergeifendes Datenmodell wird <strong>CIDOC-CRM</strong> mit Erweiterung durch die DFI4Objects Core Ontologie (N4O) verwendet.</p>
 <p><em>Das Datenmodell beschränkt sich im Moment noch auf Klassen ohne Properties!</em></p>
 <ul>
-<li><p>Knoten im <a href="./property-graph.html">Property Graphen</a> erhalten als Knoten-Label die entsprechenden CRM- bzw. N4O Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also z.B.</p>
+<li><p>Knoten im <a href="basics.html#property-graphen">Property Graphen</a> erhalten als Knoten-Label die entsprechenden CRM- bzw. N4O Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also z.B.</p>
 <ul>
 <li><code>E22_Human_Made_Object</code> für <a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22">E22 Human-Made Object</a></li>
 </ul></li>
@@ -359,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="vs">http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc</span></span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="er">  </span><span class="vs">:E42_Identifier</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="er">  </span><span class="vs">P3_has_note:</span><span class="er"> </span><span class="st">"cm"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="er">  </span><span class="vs">P3_has_note:</span><span class="er"> </span><span class="st">"cm"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="img/crm-pg-example.svg" class="img-fluid"></p>
 </section>
 <section id="cidoc-crm" class="level2">
@@ -436,12 +436,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Kopiert");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -795,13 +795,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./datenquellen.html" class="pagination-link" aria-label="Datenquellen">
+      <a href="./data-sources.html" class="pagination-link" aria-label="Datenquellen">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Datenquellen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./architecture.html" class="pagination-link" aria-label="Technische Architektur">
-        <span class="nav-page-text"><span class="chapter-title">Technische Architektur</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./architecture.html" class="pagination-link" aria-label="Systemarchitektur">
+        <span class="nav-page-text"><span class="chapter-title">Systemarchitektur</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -813,7 +813,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/data-model.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/data-model.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

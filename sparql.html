@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NFDI4Objects Knowledge Graph (TA5) - Cypher mit Python</title>
+<title>NFDI4Objects Knowledge Graph (TA5) - Abfragen mit SPARQL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,7 +30,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./triple-store.html" rel="next">
 <link href="./queries.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -115,7 +80,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./cypher_mit_python.html"><span class="chapter-title">Cypher mit Python</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sparql.html"><span class="chapter-title">Abfragen mit SPARQL</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -145,12 +110,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Übersicht</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Einleitung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./datenquellen.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
+  <a href="./basics.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Grundlagen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./data-sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -160,12 +130,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Technische Architektur</span></a>
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./property-graph.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Property Graph</span></a>
+  <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benutzung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -180,12 +150,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cypher_mit_python.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Cypher mit Python</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./triple-store.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Triple Store</span></a>
+  <a href="./sparql.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Abfragen mit SPARQL</span></a>
   </div>
 </li>
     </ul>
@@ -198,9 +163,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#weitere-informationen" id="toc-weitere-informationen" class="nav-link active" data-scroll-target="#weitere-informationen">Weitere Informationen</a></li>
+  <li><a href="#inhalt-des-triple-store" id="toc-inhalt-des-triple-store" class="nav-link active" data-scroll-target="#inhalt-des-triple-store">Inhalt des Triple Store</a></li>
+  <li><a href="#beispielabfragen" id="toc-beispielabfragen" class="nav-link" data-scroll-target="#beispielabfragen">Beispielabfragen</a>
+  <ul class="collapse">
+  <li><a href="#statistik-aller-prädikate-und-ihrer-häufigkeit" id="toc-statistik-aller-prädikate-und-ihrer-häufigkeit" class="nav-link" data-scroll-target="#statistik-aller-prädikate-und-ihrer-häufigkeit">Statistik aller Prädikate und ihrer Häufigkeit</a></li>
+  <li><a href="#statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate" id="toc-statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate" class="nav-link" data-scroll-target="#statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate">Statistik aller Prädikate sortiert nach Anzahl der Prädikate</a></li>
+  <li><a href="#statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte" id="toc-statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte" class="nav-link" data-scroll-target="#statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte">Statistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/cypher_mit_python.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/sparql.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -245,7 +216,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Cypher mit Python</span></h1>
+<h1 class="title"><span class="chapter-title">Abfragen mit SPARQL</span></h1>
 </div>
 
 
@@ -262,25 +233,42 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Um Cypher Anfragen in Python auszuführen muss sich mit einer Datenbank verbunden werden. Für Neo4j wird der <a href="https://pypi.org/project/neo4j/">Neo4j driver</a> benötigt.<br>
-Mit einem Driver Objekt wird eine Verbindung zur Datenbank erstellt. Dafür werden die URL der Datenbank und die Authentifizierungsdaten benötigt.<br>
-Es ist möglichen Daten aus der Datenbank zu lesen oder sie zu verändern, genauso wie mit einem direkten Zugriff.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> neo4j <span class="im">import</span> GraphDatabase</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># URI Beispiele: "neo4j://localhost", "neo4j+s://xxx.databases.neo4j.io"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>URI <span class="op">=</span> <span class="st">"&lt;URI der Neo4j Datenbank&gt;"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>AUTH <span class="op">=</span> (<span class="st">"&lt;Username&gt;"</span>, <span class="st">"&lt;Password&gt;"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"&lt;Cypher Anfrage&gt;"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>driver <span class="op">=</span> GraphDatabase.driver(URI, auth<span class="op">=</span>AUTH)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> driver.session() <span class="im">as</span> session:</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>   result <span class="op">=</span> session.run(query)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>driver.close()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Mit <a href="https://neo4j.com/docs/api/python-driver/current/api.html#result">Result Methoden</a> lassen sich nähere Informationen über die Ergebnis der Anfrage erhalten, zum Beispiel wie viele Nodes verändert wurden.</p>
-<section id="weitere-informationen" class="level2">
-<h2 class="anchored" data-anchor-id="weitere-informationen">Weitere Informationen</h2>
-<p><a href="https://neo4j.com/docs/python-manual/current/">Das englische Neo4j Python Handbuch</a></p>
+<p>Die im Knowledge-Graph zusammengeführten Daten werden zusammen mit weiteren RDF-Daten in einem <strong><a href="basics.html#triple-store">Triple Store</a></strong> zur Verfügung gestellt und können per <strong>SPARQL</strong> abgefragt werden.</p>
+<p><em>Dieser Dienst befindet sich noch im Aufbau</em></p>
+<section id="inhalt-des-triple-store" class="level2">
+<h2 class="anchored" data-anchor-id="inhalt-des-triple-store">Inhalt des Triple Store</h2>
+<ul>
+<li><p>Alle in RDF angelieferten Daten (soweit syntaxktisch korrekt). Es ist also kein einheitliches Datenmodell vorgeschrieben! Aus den RDF-Daten werden lediglich Aussagen über Terminologien und Ontologien herausgefiltert</p></li>
+<li><p>Jede Lieferung ist ein Named Graph, so dass die Lieferungen sowohl einzeln, als auch in einem RDF-Graphen zusammengefasst abgefragt werden können.</p></li>
+<li><p>Unterstützte Ontologien und Terminologien sind ebenfalls als eigene Namend Graphs eingespielt, so dass sie für Abfragen verwendet werden können.</p></li>
+</ul>
+</section>
+<section id="beispielabfragen" class="level2">
+<h2 class="anchored" data-anchor-id="beispielabfragen">Beispielabfragen</h2>
+<section id="statistik-aller-prädikate-und-ihrer-häufigkeit" class="level3">
+<h3 class="anchored" data-anchor-id="statistik-aller-prädikate-und-ihrer-häufigkeit">Statistik aller Prädikate und ihrer Häufigkeit</h3>
+<pre class="sparql"><code>SELECT distinct ?pred WHERE {
+  ?sub ?pred ?obj .
+}</code></pre>
+</section>
+<section id="statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate" class="level3">
+<h3 class="anchored" data-anchor-id="statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate">Statistik aller Prädikate sortiert nach Anzahl der Prädikate</h3>
+<pre class="sparql"><code>SELECT distinct ?pre (COUNT(?pre) AS ?count) WHERE {
+  ?s ?pre ?obj
+} 
+GROUP BY ?pre
+ORDER BY DESC(?count)</code></pre>
+</section>
+<section id="statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte" class="level3">
+<h3 class="anchored" data-anchor-id="statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte">Statistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte</h3>
+<pre class="sparql"><code>SELECT distinct (COUNT(?s) AS ?count) ?obj WHERE {
+  ?s &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; ?obj
+} 
+GROUP BY ?obj
+ORDER BY DESC(?count)</code></pre>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -702,9 +690,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./triple-store.html" class="pagination-link" aria-label="Triple Store">
-        <span class="nav-page-text"><span class="chapter-title">Triple Store</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -715,7 +700,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/cypher_mit_python.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/sparql.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
