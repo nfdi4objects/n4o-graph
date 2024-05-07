@@ -30,7 +30,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('-c', '--config', dest="config")
 args = parser.parse_args()
 # No json file provided. Print out the queries.
-if args.cmd is None:
+if args.config is None:
   print(cypher_queries)
   
 else:
