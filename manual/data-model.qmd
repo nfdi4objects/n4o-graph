@@ -38,12 +38,14 @@ noch erweitert werden um
 
 Folgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):
 
-```{.ttl include="crm-example.ttl"}
+```ttl
+{{< include crm-example.ttl >}}
 ```
 
 wird konvertiert in folgenden Property Graph (in PG Format und als Diagram):
 
-```{.pg include="crm-pg-example.pg"}
+```.pg
+{{< include crm-pg-example.pg >}}
 ```
 
 ![](img/crm-pg-example.svg)

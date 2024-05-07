@@ -39,6 +39,4 @@ format:
     syntax-definitions:
      - pg.xml
     include-before-body: js/syntax.html
-    filters:
-     - include-code-files
 
