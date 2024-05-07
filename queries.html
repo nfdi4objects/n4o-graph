@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.554">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -68,9 +68,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Suchen"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -259,45 +256,9 @@ RETURN labels(n) AS entityTypes, count(*) AS entityCount LIMIT 10;</code></pre>
 <p>Relationships in Cypher werden sehr direkt mit einem ASCII-Pfeil beschrieben. So haben wir hier zwei Nodes in runden Klammern, die uns für diese Anfrage nicht interessieren. Diese Nodes sind mit einem Pfeil und einer Relationship in eckigen Klammern verknüpft.</p>
 <pre class="cypher"><code>MATCH ()-[r]-&gt;() 
 RETURN DISTINCT type(r) AS relationshipType, count(*) AS relationshipCount LIMIT 10;</code></pre>
-<div id="4f212a5f" class="cell" data-execution_count="4">
-<div class="cell-output cell-output-stdout">
-<pre><code>x,2</code></pre>
-</div>
-</div>
 <pre class="cypher"><code>MATCH (m)-[r]-&gt;(n) 
 WHERE any(label IN labels(n) WHERE label =~ 'E53.*') 
 RETURN labels(m),type(r),labels(n);</code></pre>
-<div class="cell" data-fig-width="100%" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<pre class="mermaid mermaid-js">flowchart LR
-    BNode["&lt;b&gt;BNode&lt;/b&gt;"]
-    BNode1["&lt;b&gt;BNode&lt;/b&gt;"]
-    BNode2["&lt;b&gt;BNode&lt;/b&gt;"]
-    BNode3["&lt;b&gt;BNode&lt;/b&gt;"]
-    E53_Place["&lt;b&gt;E53_Place&lt;/b&gt;"]
-    N10_falls_within["&lt;b&gt;N10_falls_within&lt;/b&gt;"]
-    N10i_contains["&lt;b&gt;N10i_contains&lt;/b&gt;"]
-    S39_Location["&lt;b&gt;S39_Location&lt;/b&gt;"]
-    S40_Geographical_Place["&lt;b&gt;S40_Geographical_Place&lt;/b&gt;"]
-    BNode1 -- "&lt;i&gt;someValuesFrom&lt;/i&gt;" --&gt; E53_Place
-    N10i_contains -- "&lt;i&gt;domain&lt;/i&gt;" --&gt; E53_Place
-    N10i_contains -- "&lt;i&gt;range&lt;/i&gt;" --&gt; E53_Place
-    S39_Location -- "&lt;i&gt;subClassOf&lt;/i&gt;" --&gt; E53_Place
-    N10_falls_within -- "&lt;i&gt;domain&lt;/i&gt;" --&gt; E53_Place
-    BNode2 -- "&lt;i&gt;someValuesFrom&lt;/i&gt;" --&gt; E53_Place
-    S40_Geographical_Place -- "&lt;i&gt;subClassOf&lt;/i&gt;" --&gt; E53_Place
-    BNode -- "&lt;i&gt;someValuesFrom&lt;/i&gt;" --&gt; E53_Place
-    N10_falls_within -- "&lt;i&gt;range&lt;/i&gt;" --&gt; E53_Place
-    BNode3 -- "&lt;i&gt;someValuesFrom&lt;/i&gt;" --&gt; E53_Place
-</pre>
-</div>
-<p></p></figure><p></p>
-</div>
-</div>
-</div>
 </section>
 <section id="weitere-informationen" class="level2">
 <h2 class="anchored" data-anchor-id="weitere-informationen">Weitere Informationen</h2>
