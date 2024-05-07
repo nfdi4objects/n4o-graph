@@ -1,6 +1,7 @@
 ---
 title: Datenquellen
 subtitle: Aus welchen Daten setzt sich der Knowledge Graph zusammen?
+lang: de
 ---
 
 Der Knowledge Graph besteht aus Metadaten von Sammlungen aus [verschiedenenen Datenbanken](https://nfdi4objects.github.io/n4o-databases/), die mit bekannten Vokabularen angereichert werden.

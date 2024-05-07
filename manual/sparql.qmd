@@ -1,17 +1,13 @@
 ---
-title: Triple Store
+title: Abfragen mit SPARQL
+lang: de
 ---
 
 Die im Knowledge-Graph zusammengeführten Daten werden zusammen mit weiteren
-RDF-Daten in einem **Triple Store** zur verfügung gestellt und können per
-**SPARQL** abgefragt werden.
+RDF-Daten in einem **[Triple Store](#triple-store)** zur Verfügung gestellt und
+können per **SPARQL** abgefragt werden.
 
 *Dieser Dienst befindet sich noch im Aufbau*
-
-
-## Grundlagen
-Ein **Triple Store** ist eine [Graphendatenbank](https://de.wikipedia.org/wiki/Graphdatenbank), die auf Basis von [RDF](https://de.wikipedia.org/wiki/Resource_Description_Framework) Daten in Subjekt-Prädikat-Objekt Triples speichert. Das Subjekt und Objekt stellen die Knoten dar, die über ein Prädikat verbunden sind.
-
 
 ## Inhalt des Triple Store
 

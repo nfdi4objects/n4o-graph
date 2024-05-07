@@ -1,22 +1,7 @@
 ---
 title: Cypher-Einführung
-execute:
-  echo: false
 lang: de
-toc: true
 ---
-
-Ein Property-Graph kann mit Cypher-Anfragen nähere Informationen über seinen Inhalt liefern und verändert werden. Dafür muss er in Neo4j oder einer anderen Graphdatenbank, die mit Cypher-Anfragen umgehen kann, übertragen werden. Cypher ist eine SQL-aquivalente Sprache für Graphdatenbanken. 
-
-### Einen Graph mit Cypher erstellen
-
-Mit CREATE lassen sich neue Kanten (Nodes), Kanten (Relationships) und Eigenschaften (Properties) erstellen. Eine Reihe von CREATE Cypher-Anfragen ist eine Möglichkeit einen Property-Graph in Neo4j zu übertragen.
-MERGE ist ähnlich, aber erstellt keine Duplikate. 
-
-```cypher
-CREATE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]->(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) 
-MERGE (a:Person {name:'Anna', geboren:1980})-[:KENNT {seit:2019}]->(b:Person {name:'Luke', geboren:1988, nationalität: 'Kanadier'}) 
-```
 
 ### Nodes
 Knoten heißen Nodes und werden in runden Klammern definiert.

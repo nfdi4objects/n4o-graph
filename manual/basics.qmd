@@ -1,6 +1,11 @@
 ---
-title: Property Graph
+title: Grundlagen
+lang: de
 ---
+
+*In diesem Kapitel sollen einige Grundlagen erklärt werden*
+
+## Property Graphen
 
 Property-Graphen bilden ein flexibles und nicht zu kompliziertes Werkzeug zur
 Strukturierung, Speicherung und Auswertung vernetzter Daten. Dabei werden Daten
@@ -17,4 +22,12 @@ Austausch und zur Integration von Daten gedacht. Der Property Graph von
 NFDI4Objects benötigt daher eine [Datenmodell](#data-model.qmd) das festlegt,
 welche Arten von Knoten und Kanten wie miteinander verknüpft und mit
 Eigenschaften versehen werden können.
+
+Ein Property-Graph kann mit [Cypher-Abfragen](cypher.qmd) nähere Informationen über seinen Inhalt liefern und verändert werden. Dafür muss er in Neo4j oder einer anderen Graphdatenbank, die mit Cypher-Anfragen umgehen kann, übertragen werden. Cypher ist eine SQL-aquivalente Sprache für Graphdatenbanken. 
+
+## Triple-Store
+
+Ein **Triple Store** ist eine [Graphendatenbank](https://de.wikipedia.org/wiki/Graphdatenbank), die auf Basis von [RDF](https://de.wikipedia.org/wiki/Resource_Description_Framework) Daten in Subjekt-Prädikat-Objekt Triples speichert. Das Subjekt und Objekt stellen die Knoten dar, die über ein Prädikat verbunden sind.
+
+Der Triple-Store kann mit [SPARQL](sparql.qmd) abgefragt werden.
 

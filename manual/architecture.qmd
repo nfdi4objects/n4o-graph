@@ -1,5 +1,6 @@
 ---
-title: Technische Architektur
+title: Systemarchitektur
+lang: de
 ---
 
 ## Übersicht

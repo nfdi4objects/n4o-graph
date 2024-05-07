@@ -2,23 +2,25 @@ project:
   type: book
   output-dir: ../docs
 
+
 book:
   title: "NFDI4Objects Knowledge Graph (TA5)"
   subtitle: "Technisches Handbuch für Management und Nutzung"
   repo-url: https://github.com/nfdi4objects/n4o-property-graph
+  language: de
   repo-subdir: manual
   repo-actions:
     - source
   chapters:
     - index.qmd
-    - datenquellen.qmd
+    - basics.qmd
+    - data-sources.qmd
     - data-model.qmd
     - architecture.qmd
-    - property-graph.qmd
+    - usage.qmd
     - cypher.qmd
     - queries.qmd
-    - cypher_mit_python.qmd
-    - triple-store.qmd
+    - sparql.qmd
   page-footer: 
     right: 
       - text: Datenschutz

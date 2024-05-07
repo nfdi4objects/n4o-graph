@@ -1,24 +1,15 @@
 ---
-title: Übersicht
+title: Einleitung
+lang: de
 ---
 
-An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des
-**Knowledge Graphen von NFDI4Objects** (TA5). Der Knowledge Graph besteht im
-Wesentlichen aus zwei Datenbanken, in denen Daten aus [verschiedenene
-Quellen](datenquellen.qmd) zusammengeführt werden:
+An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des **Knowledge Graphen von NFDI4Objects** (TA5). Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus [verschiedenene Quellen](data-sources.qmd) zusammengeführt werden:
 
-- ein **[Property-Graph](property-graph.qmd)** mit aufbereiteten Daten und
-  Abfragemöglichkeit in [Cypher](cypher.qmd)
+- ein **[Property-Graph](#property-graphen)** mit aufbereiteten Daten und Abfragemöglichkeit in [Cypher](cypher.qmd)
 
-- ein **[Triple-Store](triple-store.qmd)** mit Rohdaten in RDF und
-  Abfragemöglichkeit in SPARQL
+- ein **[Triple-Store](#triple-store)** mit Rohdaten in RDF und Abfragemöglichkeit in [SPARQL](sparql.qmd)
 
-Darüber sind eine browserbasierte Oberfläche ("Rich Metadata Discovery") mit
-Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung sowie die
-Integration in ein Learning Management System (LMS) geplant. Langfristig soll
-der Knowledge Graph außerdem mit anderen Knowledge Graphen im Rahmen der NFDI
-verknüpft werden.
+Darüber sind eine browserbasierte Oberfläche ("Rich Metadata Discovery") mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung sowie die Integration in ein Learning Management System (LMS) geplant. Langfristig soll der Knowledge Graph außerdem mit anderen Knowledge Graphen im Rahmen der NFDI verknüpft werden.
 
-Weitere Details und Hintergründe werden im Kapitel zur [technischen
-Architektur](architecture.qmd) erklärt.
+Der Zugriff auf die Inhalte des Knowledge Graphen ist unter [Benutzung](usage.qmd) beschrieben. Weitere Details und Hintergründe werden im [Grundlagen-Kapitel](basics.qmd) und in der Beschreibung der [Systemarchitektur](architecture.qmd) erklärt.
 

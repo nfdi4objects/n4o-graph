@@ -1,5 +1,6 @@
 ---
 title: Datenmodell
+lang: de
 ---
 
 Als Sammlungsübergeifendes Datenmodell wird **CIDOC-CRM** mit Erweiterung
@@ -7,7 +8,7 @@ durch die DFI4Objects Core Ontologie (N4O) verwendet.
 
 *Das Datenmodell beschränkt sich im Moment noch auf Klassen ohne Properties!*
 
-- Knoten im [Property Graphen](property-graph.qmd) erhalten als Knoten-Label
+- Knoten im [Property Graphen](#property-graphen) erhalten als Knoten-Label
   die entsprechenden CRM- bzw. N4O Klassen. Dabei werden Leerzeichen und
   Sonderzeichen durch Unterstrich ersetzt, also z.B.
 
