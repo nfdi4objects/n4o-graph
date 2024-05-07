@@ -27,13 +27,6 @@ npm install mermaid-cli
 
 jq: `sudo apt-get install jq`
 
-Zur Erstellung der Dokumentation [quarto](https://quarto.org/docs/get-started/)
-mit Jupyter Notebook:
-
-~~~sh
-sudo apt install jupyter-notebook
-~~~
-
 ## Handbuch
 
 Das Verzeichnis [`manual`](manual) enthält den Quelltext des Handbuchs für den
