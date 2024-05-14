@@ -1,0 +1,305 @@
+# Sources: https://www.cidoc-crm.org/releases_table and https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html
+
+# CRM properties and former names (alias)
+P1_is_identified_by domain:E1_CRM_Entity range:E41_Appellation
+P2_has_type domain:E1_CRM_Entity range:E55_Type
+P3_has_note domain:E1_CRM_Entity range:E62_String
+P4_has_time-span domain:E2_Temporal_Entity range:E52_Time_Span
+P5_consists_of domain:E3_Condition_State range:E3_Condition_State
+P7_took_place_at domain:E4_Period range:E53_Place
+P8_took_place_on_or_within domain:E4_Period range:E18_Physical_Thing
+P9_consists_of domain:E4_Period range:E4_Period
+P10_falls_within domain:E92_Spacetime_Volume range:E92_Spacetime_Volume
+P11_had_participant domain:E5_Event range:E39_Actor
+P12_occurred_in_the_presence_of domain:E5_Event range:E77_Persistent_Item
+P13_destroyed domain:E6_Destruction range:E18_Physical_Thing
+P14_carried_out_by domain:E7_Activity range:E39_Actor
+P15_was_influenced_by domain:E7_Activity range:E1_CRM_Entity
+P16_used_specific_object domain:E7_Activity range:E70_Thing
+P17_was_motivated_by domain:E7_Activity range:E1_CRM_Entity
+P19_was_intended_use_of domain:E7_Activity range:E71_Human_Made_Thing
+P20_had_specific_purpose domain:E7_Activity range:E5_Event
+P21_had_general_purpose domain:E7_Activity range:E55_Type
+P22_transferred_title_to domain:E8_Acquisition range:E39_Actor
+P23_transferred_title_from domain:E8_Acquisition range:E39_Actor
+P24_transferred_title_of domain:E8_Acquisition range:E18_Physical_Thing
+P25_moved domain:E9_Move range:E19_Physical_Object
+P26_moved_to domain:E9_Move range:E53_Place
+P27_moved_from domain:E9_Move range:E53_Place
+P28_custody_surrendered_by domain:E10_Transfer_of_Custody range:E39_Actor
+P29_custody_received_by domain:E10_Transfer_of_Custody range:E39_Actor
+P30_transferred_custody_of domain:E10_Transfer_of_Custody range:E18_Physical_Thing
+P31_has_modified domain:E11_Modification range:E18_Physical_Thing
+P32_used_general_technique domain:E7_Activity range:E55_Type
+P33_used_specific_technique domain:E7_Activity range:E29_Design_or_Procedure
+P34_concerned domain:E14_Condition_Assessment range:E18_Physical_Thing
+P35_has_identified domain:E14_Condition_Assessment range:E3_Condition_State
+P36_registered
+P37_assigned domain:E15_Identifier_Assignment range:E42_Identifier
+P38_deassigned domain:E15_Identifier_Assignment range:E42_Identifier
+P39_measured domain:E16_Measurement range:E18_Physical_Thing
+P40_observed_dimension domain:E16_Measurement range:E54_Dimension
+P41_classified domain:E17_Type_Assignment range:E1_CRM_Entity
+P42_assigned domain:E17_Type_Assignment range:E55_Type
+P43_has_dimension domain:E70_Thing range:E54_Dimension
+P44_has_condition domain:E18_Physical_Thing range:E3_Condition_State
+P45_consists_of domain:E18_Physical_Thing range:E57_Material
+P46_is_composed_of domain:E18_Physical_Thing range:E18_Physical_Thing
+P47_is_identified_by
+P48_has_preferred_identifier domain:E1_CRM_Entity range:E42_Identifier
+P49_has_former_or_current_keeper domain:E18_Physical_Thing range:E39_Actor
+P50_has_current_keeper domain:E18_Physical_Thing range:E39_Actor
+P51_has_former_or_current_owner domain:E18_Physical_Thing range:E39_Actor
+P52_has_current_owner domain:E18_Physical_Thing range:E39_Actor
+P53_has_former_or_current_location domain:E18_Physical_Thing range:E53_Place
+P54_has_current_permanent_location domain:E19_Physical_Object range:E53_Place
+P55_has_current_location domain:E19_Physical_Object range:E53_Place
+P56_bears_feature domain:E19_Physical_Object range:E26_Physical_Feature
+P57_has_number_of_parts domain:E19_Physical_Object range:E60_Number
+P58_has_section_definition
+P59_has_section domain:E18_Physical_Thing range:E53_Place
+P62_depicts domain:E24_Physical_Human_Made_Thing range:E1_CRM_Entity
+P65_shows_visual_item domain:E24_Physical_Human_Made_Thing range:E36_Visual_Item
+P67_refers_to domain:E89_Propositional_Object range:E1_CRM_Entity
+P68_foresees_use_of domain:E29_Design_or_Procedure range:E57_Material
+P69_has_association_with domain:E29_Design_or_Procedure range:E29_Design_or_Procedure
+P70_documents domain:E31_Document range:E1_CRM_Entity
+P71_lists domain:E32_Authority_Document range:E1_CRM_Entity
+P72_has_language domain:E33_Linguistic_Object range:E56_Language
+P73_has_translation domain:E33_Linguistic_Object range:E33_Linguistic_Object
+P74_has_current_or_former_residence domain:E39_Actor range:E53_Place
+P75_possesses domain:E39_Actor range:E30_Right
+P76_has_contact_point domain:E39_Actor range:E41_Appellation
+P78_is_identified_by
+P79_beginning_is_qualified_by domain:E52_Time_Span range:E62_String
+P80_end_is_qualified_by domain:E52_Time_Span range:E62_String
+P81_ongoing_throughout domain:E52_Time_Span range:E61_Time_Primitive
+P82_at_some_time_within domain:E52_Time_Span range:E61_Time_Primitive
+P83_had_at_least_duration
+P84_had_at_most_duration
+P86_falls_within domain:E52_Time_Span range:E52_Time_Span
+P87_is_identified_by
+P88_consists_of
+P89_falls_within domain:E53_Place range:E53_Place
+P90_has_value domain:E54_Dimension range:E60_Number
+P91_has_unit domain:E54_Dimension range:E58_Measurement_Unit
+P92_brought_into_existence domain:E63_Beginning_of_Existence range:E77_Persistent_Item
+P93_took_out_of_existence domain:E64_End_of_Existence range:E77_Persistent_Item
+P94_has_created domain:E65_Creation range:E28_Conceptual_Object
+P95_has_formed domain:E66_Formation range:E74_Group
+P96_by_mother domain:E67_Birth range:E21_Person
+P97_from_father domain:E67_Birth range:E21_Person
+P98_brought_into_life domain:E67_Birth range:E21_Person
+P99_dissolved domain:E68_Dissolution range:E74_Group
+P100_was_death_of domain:E69_Death range:E21_Person
+P101_had_as_general_use domain:E70_Thing range:E55_Type
+P102_has_title domain:E71_Human_Made_Thing range:E35_Title
+P103_was_intended_for domain:E71_Human_Made_Thing range:E55_Type
+P104_is_subject_to domain:E72_Legal_Object range:E30_Right
+P105_right_held_by domain:E72_Legal_Object range:E39_Actor
+P106_is_composed_of domain:E90_Symbolic_Object range:E90_Symbolic_Object
+P107_has_current_or_former_member domain:E74_Group range:E39_Actor
+P108_has_produced domain:E12_Production range:E24_Physical_Human_Made_Thing
+P109_has_current_or_former_curator domain:E78_Curated_Holding range:E39_Actor
+P110_augmented domain:E79_Part_Addition range:E18_Physical_Thing
+P111_added domain:E79_Part_Addition range:E18_Physical_Thing
+P112_diminished domain:E80_Part_Removal range:E18_Physical_Thing
+P113_removed domain:E80_Part_Removal range:E18_Physical_Thing
+P114_is_equal_in_time_to
+P115_finishes
+P116_starts
+P117_occurs_during
+P118_overlaps_in_time_with
+P119_meets_in_time_with
+P120_occurs_before
+P121_overlaps_with domain:E53_Place range:E53_Place
+P122_borders_with domain:E53_Place range:E53_Place
+P123_resulted_in domain:E81_Transformation range:E18_Physical_Thing
+P124_transformed domain:E81_Transformation range:E18_Physical_Thing
+P125_used_object_of_type domain:E7_Activity range:E55_Type
+P126_employed domain:E11_Modification range:E57_Material
+P127_has_broader_term domain:E55_Type range:E55_Type
+P128_carries domain:E18_Physical_Thing range:E90_Symbolic_Object
+P129_is_about domain:E89_Propositional_Object range:E1_CRM_Entity
+P130_shows_features_of domain:E70_Thing range:E70_Thing
+P131_is_identified_by
+P132_spatiotemporally_overlaps_with domain:E92_Spacetime_Volume range:E92_Spacetime_Volume
+P133_is_spatiotemporally_separated_from domain:E92_Spacetime_Volume range:E92_Spacetime_Volume
+P134_continued domain:E7_Activity range:E7_Activity
+P135_created_type domain:E83_Type_Creation range:E55_Type
+P136_was_based_on domain:E83_Type_Creation range:E1_CRM_Entity
+P137_exemplifies domain:E1_CRM_Entity range:E55_Type
+P138_represents domain:E36_Visual_Item range:E1_CRM_Entity
+P139_has_alternative_form domain:E41_Appellation range:E41_Appellation
+P140_assigned_attribute_to domain:E13_Attribute_Assignment range:E1_CRM_Entity
+P141_assigned domain:E13_Attribute_Assignment range:E1_CRM_Entity
+P142_used_constituent domain:E15_Identifier_Assignment range:E90_Symbolic_Object
+P143_joined domain:E85_Joining range:E39_Actor
+P144_joined_with domain:E85_Joining range:E74_Group
+P145_separated domain:E86_Leaving range:E39_Actor
+P146_separated_from domain:E86_Leaving range:E74_Group
+P147_curated domain:E87_Curation_Activity range:E78_Curated_Holding
+P148_has_component domain:E89_Propositional_Object range:E89_Propositional_Object
+P149_is_identified_by
+P150_defines_typical_parts_of domain:E55_Type range:E55_Type
+P151_was_formed_from domain:E66_Formation range:E74_Group
+P152_has_parent domain:E21_Person range:E21_Person
+P153_assigned_co_reference_to
+P154_assigned_non_co_reference_to
+P155_has_co_reference_target
+P156_occupies domain:E18_Physical_Thing range:E53_Place
+P157_is_at_rest_relative_to domain:E53_Place range:E18_Physical_Thing
+P158_occupied
+P159_occupied
+P160_has_temporal_projection domain:E92_Spacetime_Volume range:E52_Time_Span
+P161_has_spatial_projection domain:E92_Spacetime_Volume range:E53_Place
+P162_is_restricted_by
+P163_is_restricted_by 
+P164_is_temporally_specified_by domain:E93_Presence range:E52_Time_Span
+P165_incorporates domain:E73_Information_Object range:E90_Symbolic_Object
+P166_was_a_presence_of domain:E93_Presence range:E92_Spacetime_Volume
+P167_was_within domain:E93_Presence range:E53_Place
+P168_place_is_defined_by domain:E53_Place range:E94_Space_Primitive
+P169_defines_spacetime_volume domain:E95_Spacetime_Primitive range:E92_Spacetime_Volume
+P170_defines_time domain:E61_Time_Primitive range:E52_Time_Span
+P171_at_some_place_within domain:E53_Place range:E94_Space_Primitive
+P172_contains domain:E53_Place range:E94_Space_Primitive
+P173_starts_before_or_with_the_end_of domain:E2_Temporal_Entity range:E2_Temporal_Entity
+P174_starts_before_the_end_of domain:E2_Temporal_Entity range:E2_Temporal_Entity
+P175_starts_before_or_with_the_start_of domain:E2_Temporal_Entity range:E2_Temporal_Entity
+P176_starts_before_the_start_of domain:E2_Temporal_Entity range:E2_Temporal_Entity
+P177_assigned_property_of_type domain:E13_Attribute_Assignment range:E55_Type
+P178_ends_after_or_with
+P179_had_sales_price domain:E96_Purchase range:E97_Monetary_Amount
+P180_has_currency domain:E97_Monetary_Amount range:E98_Currency
+P181_has_amount
+P182_ends_before_or_with_the_start_of domain:E2_Temporal_Entity range:E2_Temporal_Entity
+P183_ends_before_the_start_of domain:E2_Temporal_Entity range:E2_Temporal_Entity
+P184_ends_before_or_with_the_end_of domain:E2_Temporal_Entity range:E2_Temporal_Entity
+P185_ends_before_the_end_of domain:E2_Temporal_Entity range:E2_Temporal_Entity
+P186_produced_thing_of_product_type domain:E12_Production range:E99_Product_Type
+P187_has_production_plan domain:E99_Product_Type range:E29_Design_or_Procedure
+P188_requires_production_tool domain:E99_Product_Type range:E19_Physical_Object
+P189_approximates domain:E53_Place range:E53_Place
+P190_has_symbolic_content domain:E90_Symbolic_Object range:E62_String
+P191_had_duration domain:E52_Time_Span range:E54_Dimension
+P195_was_a_presence_of domain:E93_Presence range:E18_Physical_Thing
+P196_defines domain:E18_Physical_Thing range:E92_Spacetime_Volume
+P197_covered_parts_of domain:E93_Presence range:E53_Place
+P198_holds_or_supports domain:E18_Physical_Thing range:E18_Physical_Thing
+
+# CRM property hierarchy
+# There are relatenships to inverse Properties in Cidoc CRM, that aren't in this graph.
+P48_has_preferred_identifier -> P1_is_identified_by :superProperty since:"4.2.4"
+P102_has_title -> P1_is_identified_by :superProperty since:"4.0"
+P137_exemplifies -> P2_has_type :superProperty since:"4.2.5"
+P177_assigned_property_of_type -> P2_has_type :superProperty since:"6.2.6"
+P79_beginning_is_qualified_by -> P3_has_note :superProperty since:"4.0"
+P80_end_is_qualified_by -> P3_has_note :superProperty since:"4.0"
+P190_has_symbolic_content -> P3_has_note :superProperty since:"6.2.5"
+P166_was_a_presence_of -> P10_falls_within :superProperty since:"6.2.2"
+P14_carried_out_by -> P11_had_participant :superProperty since:"4.0"
+P96_by_mother -> P11_had_participant :superProperty since:"4.0"
+P99_dissolved -> P11_had_participant :superProperty since:"4.0"
+P143_joined -> P11_had_participant :superProperty since:"4.2.4"
+P144_joined_with -> P11_had_participant :superProperty since:"4.2.4"
+P145_separated -> P11_had_participant :superProperty since:"4.2.4"
+P146_separated_from -> P11_had_participant :superProperty since:"4.2.4"
+P151_was_formed_from -> P11_had_participant :superProperty since:"5.1"
+P11_had_participant -> P12_occurred_in_the_presence_of :superProperty since:"4.0"
+P16_used_specific_object -> P12_occurred_in_the_presence_of :superProperty since:"4.0"
+P25_moved -> P12_occurred_in_the_presence_of :superProperty since:"4.0"
+P31_has_modified -> P12_occurred_in_the_presence_of :superProperty since:"4.0"
+P92_brought_into_existence -> P12_occurred_in_the_presence_of :superProperty since:"4.0"
+P93_took_out_of_existence -> P12_occurred_in_the_presence_of :superProperty since:"4.0"
+P113_removed -> P12_occurred_in_the_presence_of :superProperty since:"5.0.3"
+P22_transferred_title_to -> P14_carried_out_by :superProperty since:"4.0"
+P23_transferred_title_from -> P14_carried_out_by :superProperty since:"4.0"
+P28_custody_surrendered_by -> P14_carried_out_by :superProperty since:"4.0"
+P29_custody_received_by -> P14_carried_out_by :superProperty since:"4.0"
+P16_used_specific_object -> P15_was_influenced_by :superProperty since:"4.0"
+P17_was_motivated_by -> P15_was_influenced_by :superProperty since:"4.0"
+P134_continued -> P15_was_influenced_by :superProperty since:"4.0"
+P136_was_based_on -> P15_was_influenced_by :superProperty since:"4.0"
+P33_used_specific_technique -> P16_used_specific_object :superProperty since:"4.2.4"
+P111_added -> P16_used_specific_object :superProperty since:"5.0.4"
+P142_used_constituent -> P16_used_specific_object :superProperty since:"4.2.4"
+P108_has_produced -> P31_has_modified :superProperty since:"4.0"
+P110_augmented -> P31_has_modified :superProperty since:"4.0"
+P112_diminished -> P31_has_modified :superProperty since:"4.0"
+P56_bears_feature -> P46_is_composed_of :superProperty since:"4.2.4"
+P50_has_current_keeper -> P49_has_former_or_current_keeper :superProperty since:"4.0"
+P109_has_current_or_former_curator -> P49_has_former_or_current_keeper :superProperty since:"5.0.4"
+P52_has_current_owner -> P51_has_former_or_current_owner :superProperty since:"4.0"
+P55_has_current_location -> P53_has_former_or_current_location :superProperty since:"4.0"
+P156_occupies -> P53_has_former_or_current_location :superProperty since:"6.2.8"
+P68_foresees_use_of -> P67_refers_to :superProperty since:"5.0.3"
+P70_documents -> P67_refers_to :superProperty since:"4.0"
+P71_lists -> P67_refers_to :superProperty since:"4.0"
+P129_is_about -> P67_refers_to :superProperty since:"4.0"
+P138_represents -> P67_refers_to :superProperty since:"4.0"
+P180_has_currency -> P91_has_unit :superProperty since:"6.2.2"
+P94_has_created -> P92_brought_into_existence :superProperty since:"4.0"
+P95_has_formed -> P92_brought_into_existence :superProperty since:"4.0"
+P98_brought_into_life -> P92_brought_into_existence :superProperty since:"4.0"
+P108_has_produced -> P92_brought_into_existence :superProperty since:"4.0"
+P123_resulted_in -> P92_brought_into_existence :superProperty since:"4.0"
+P13_destroyed -> P93_took_out_of_existence :superProperty since:"4.0"
+P99_dissolved -> P93_took_out_of_existence :superProperty since:"4.0"
+P100_was_death_of -> P93_took_out_of_existence :superProperty since:"4.0"
+P124_transformed -> P93_took_out_of_existence :superProperty since:"4.0"
+P135_created_type -> P94_has_created :superProperty since:"4.0"
+P52_has_current_owner -> P105_right_held_by :superProperty since:"4.2.5a"
+P165_incorporates -> P106_is_composed_of_:superProperty since:"6.0"
+P32_used_general_technique -> P125_used_object_of_type :superProperty since:"4.2.4"
+P65_shows_visual_item -> P128_carries :superProperty since:"4.0"
+P128_carries -> P130_shows_features_of :superProperty since:"5.0.3"
+P10_falls_within -> P132_spatiotemporally_overlaps_with :superProperty since:"6.2.2"
+P34_concerned -> P140_assigned_attribute_to :superProperty since:"4.0"
+P39_measured -> P140_assigned_attribute_to :superProperty since:"4.0"
+P41_classified -> P140_assigned_attribute_to :superProperty since:"4.0"
+P35_has_identified -> P141_assigned :superProperty since:"4.0"
+P37_assigned -> P141_assigned :superProperty since:"4.0"
+P38_deassigned -> P141_assigned :superProperty since:"4.0"
+P40_observed_dimension -> P141_assigned :superProperty since:"4.0"
+P42_assigned -> P141_assigned :superProperty since:"4.0"
+P164_is_temporally_specified_by -> P160_has_temporal_projection :superProperty since:"6.2.1"
+P174_starts_before_the_end_of -> P173_starts_before_or_with_the_end_of :superProperty since:"6.2.2"
+P175_starts_before_or_with_the_start_of -> P174_starts_before_the_end_of :superProperty since:"6.2.2"
+P184_ends_before_or_with_the_end_of -> P174_starts_before_the_end_of :superProperty since:"6.2.2"
+P176_starts_before_the_start_of -> P175_starts_before_or_with_the_start_of :superProperty since:"6.2.2"
+P182_ends_before_or_with_the_start_of -> P176_starts_before_the_start_of :superProperty since:"6.2.2"
+P183_ends_before_the_start_of -> P182_ends_before_or_with_the_start_of :superProperty since:"6.2.2"
+P185_ends_before_the_end_of -> P184_ends_before_or_with_the_end_of :superProperty since:"6.2.2"
+P182_ends_before_or_with_the_start_of -> P185_ends_before_the_end_of :superProperty since:"6.2.2"
+
+# Links from deprecated properties
+P58_has_section_definition -> P1_is_identified_by :replacedBy since:"6.2.8"
+P78_is_identified_by -> P1_is_identified_by :replacedBy since:"6.2.8"
+P83_had_at_least_duration -> P191_had_duration :replacedBy since:"6.2.8"
+P84_had_at_most_duration -> P191_had_duration :replacedBy since:"6.2.8"
+P87_is_identified_by -> P1_is_identified_by :replacedBy since:"6.2.8"
+P131_is_identified_by -> P1_is_identified_by :replacedBy since:"6.2.8"
+P149_is_identified_by -> P1_is_identified_by :replacedBy since:"6.2.8"
+P178_ends_after_or_with -> P184_ends_before_or_with_the_end_of :replacedBy since:"6.2.8" 
+
+# Deleted/withdrawn properties
+P36_registered deletedIn:"4.2.4"
+P47_is_identified_by deletedIn:"4.2.4"
+P88_consists_of deletedIn:"5.1"
+P153_assigned_co_reference_to deletedIn:"6.1"
+P154_assigned_non_co_reference_to deletedIn:"6.1"
+P155_has_co_reference_target deletedIn:"6.1"
+P158_occupied deletedIn:"6.1"
+P159_occupied deletedIn:"6.1"
+P162_is_restricted_by deletedIn:"6.0"
+P163_is_restricted_by deletedIn:"6.0"
+
+# "It has been added to CRMarchaeo" all got deprecated in 7.1
+P114_is_equal_in_time_to deletedIn:"6.2.8"
+P115_finishes deletedIn:"6.2.8"
+P116_starts deletedIn:"6.2.8"
+P117_occurs_during deletedIn:"6.2.8"
+P118_overlaps_in_time_with deletedIn:"6.2.8"
+P119_meets_in_time_with deletedIn:"6.2.8"
+P120_occurs_before deletedIn:"6.2.8"
