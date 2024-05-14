@@ -28,10 +28,6 @@ manual/img/n4o-classes.svg: voc/n4o-classes.pg
 nmanual/img/n4o-all-classes.svg: voc/crm-classes.pg voc/n4o-classes.pg
 	cat $^ | pgraph --html -t mmd | mmdc -i - -o $@
 
-crm-expand.txt: crm-expand.tsv
-	./expansion-list.pl < $< | sort > $@
+crm-expand.txt: voc/*.pg
+	npm run --silent expansion $^ > $@ 
 
-crm-expand.tsv: voc/*.pg
-	cat $^ | pgraph | jq -r 'select(.type=="edge" and any(.labels[]; .=="replacedBy" or .=="superClass" or .=="superProperty"))|[.from,.to]|@tsv' > $@
-	cat $^ | pgraph | jq -r 'select(.type=="node" and .properties.alias)|[.properties.alias[0],.id]|@tsv' >> $@
-	cat $^ | pgraph | jq -r 'select(.type=="node" and (.properties.alias| not))|[.id,.id]|@tsv' >> $@

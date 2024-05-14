@@ -1,205 +1,250 @@
-E10_Transfer_of_Custody E10
-E11_Modification E11 E7
-E11_Modification_Event E11 E7
-E12_Production E12 E63
-E12_Production_Event E12 E63
-E13_Attribute_Assignment E13
-E14_Condition_Assessment E14
-E15_Identifier_Assignment E15
-E16_Measurement E13 E16
-E16_Measurement_Event E13 E16
-E17_Type_Assignment E17
-E18_Physical_Stuff E18 E72
-E18_Physical_Thing E18 E72
-E19_Physical_Object E19
+E10_Transfer_of_Custody E1 E10 E2 E4 E5 E7 E92
+E11_Modification E1 E11 E2 E4 E5 E7 E92
+E11_Modification_Event E1 E11 E2 E4 E5 E7 E92
+E12_Production E1 E11 E12 E2 E4 E5 E63 E7 E92
+E12_Production_Event E1 E11 E12 E2 E4 E5 E63 E7 E92
+E13_Attribute_Assignment E1 E13 E2 E4 E5 E7 E92
+E14_Condition_Assessment E1 E13 E14 E2 E4 E5 E7 E92
+E15_Identifier_Assignment E1 E13 E15 E2 E4 E5 E7 E92
+E16_Measurement E1 E13 E16 E2 E4 E5 E7 E92
+E16_Measurement_Event E1 E13 E16 E2 E4 E5 E7 E92
+E17_Type_Assignment E1 E13 E17 E2 E4 E5 E7 E92
+E18_Physical_Stuff E1 E18 E70 E72 E77
+E18_Physical_Thing E1 E18 E70 E72 E77
+E19_Physical_Object E1 E18 E19 E70 E72 E77
 E1_CRM_Entity E1
-E20_Biological_Object E20
-E21_Person E21
-E22_Human_Made_Object E22 E24 E71
-E22_Man_Made_Object E22 E24 E71
-E24_Physical_Human_Made_Thing E24 E71
-E24_Physical_Man_Made_Thing E24 E71
-E25_Human_Made_Feature E25 E26
-E25_Man_Made_Feature E25 E26
-E26_Physical_Feature E26
-E27_Site E27
-E28_Conceptual_Object E28
-E29_Design_or_Procedure E29
-E2_Temporal_Entity E2
-E30_Right E30
-E31_Document E31
-E32_Authority_Document E32
-E33_Linguistic_Object E33
-E34_Inscription E34
-E35_Title E35
-E36_Visual_Item E36
-E37_Mark E37
-E39_Actor E39
-E3_Condition_State E3
-E40_Legal_Body E40
-E41_Appellation E41
-E42_Identifier E42
-E44_Place_Appellation E44
-E45_Address E45
-E46_Section_Definition E46
-E47_Spatial_Coordinates E47
-E48_Place_Name E48
-E49_Time_Appellation E49
-E4_Period E4
-E50_Date E50
-E51_Contact_Point E51
-E52_Time_Span E52
-E53_Place E53
-E54_Dimension E54
-E55_Type E55
-E56_Language E56
-E57_Material E57
-E58_Measurement_Unit E58
-E59_Primitive_Value E59
-E5_Event E5
-E60_Number E60
-E61_Time_Primitive E61
-E62_String E62
-E63_Beginning_of_Existence E63
-E64_End_of_Existence E64
-E65_Creation E65
-E66_Formation E66
-E67_Birth E67
-E68_Dissolution E68
-E69_Death E69
-E6_Destruction E6
-E70_Thing E70
-E71_Human_Made_Thing E71
-E72_Legal_Object E72
-E73_Information_Object E73
-E74_Group E74
-E75_Conceptual_Object_Appellation E75
-E77_Persistent_Item E77
-E78_Curated_Holding E78
-E79_Part_Addition E79
-E7_Activity E7
-E80_Part_Removal E80
-E81_Transformation E81
-E82_Actor_Appellation E82
-E83_Type_Creation E83
-E84_Information_Carrier E84
-E85_Joining E85
-E86_Leaving E86
-E87_Curation_Activity E87
-E89_Propositional_Object E89
-E8_Acquisition E7 E8
-E8_Acquisition_Event E7 E8
-E90_Symbolic_Object E90
-E91_Co_Reference_Assignment E91
-E92_Spacetime_Volume E92
-E93_Presence E93
-E94_Space_Primitive E94
-E95_Spacetime_Primitive E95
-E96_Purchase E96
-E97_Monetary_Amount E97
-E98_Currency E98
-E99_Product_Type E99
-E9_Move E9
-P100_was_death_of P100
+E20_Biological_Object E1 E18 E19 E20 E70 E72 E77
+E21_Person E1 E18 E19 E20 E21 E39 E70 E72 E77
+E22_Human_Made_Object E1 E18 E19 E22 E24 E70 E71 E72 E77
+E22_Man_Made_Object E1 E18 E19 E22 E24 E70 E71 E72 E77
+E24_Physical_Human_Made_Thing E1 E18 E24 E70 E71 E72 E77
+E24_Physical_Man_Made_Thing E1 E18 E24 E70 E71 E72 E77
+E25_Human_Made_Feature E1 E18 E24 E25 E26 E70 E71 E72 E77
+E25_Man_Made_Feature E1 E18 E24 E25 E26 E70 E71 E72 E77
+E26_Physical_Feature E1 E18 E26 E70 E72 E77
+E27_Site E1 E18 E26 E27 E70 E72 E77
+E28_Conceptual_Object E1 E28 E70 E71 E77
+E29_Design_or_Procedure E1 E28 E29 E70 E71 E72 E73 E77 E89 E90
+E2_Temporal_Entity E1 E2
+E30_Right E1 E28 E30 E70 E71 E77 E89
+E31_Document E1 E28 E31 E70 E71 E72 E73 E77 E89 E90
+E32_Authority_Document E1 E28 E31 E32 E70 E71 E72 E73 E77 E89 E90
+E33_Linguistic_Object E1 E28 E33 E70 E71 E72 E73 E77 E89 E90
+E34_Inscription E1 E28 E33 E34 E36 E37 E70 E71 E72 E73 E77 E89 E90
+E35_Title E1 E28 E33 E35 E41 E70 E71 E72 E73 E77 E89 E90
+E36_Visual_Item E1 E28 E36 E70 E71 E72 E73 E77 E89 E90
+E37_Mark E1 E28 E36 E37 E70 E71 E72 E73 E77 E89 E90
+E39_Actor E1 E39 E77
+E3_Condition_State E1 E2 E3
+E40_Legal_Body E1 E39 E40 E74 E77
+E41_Appellation E1 E28 E41 E70 E71 E72 E77 E90
+E42_Identifier E1 E28 E41 E42 E70 E71 E72 E77 E90
+E44_Place_Appellation E1 E28 E41 E44 E70 E71 E72 E77 E90
+E45_Address E1 E28 E41 E45 E70 E71 E72 E77 E90
+E46_Section_Definition E1 E28 E41 E46 E70 E71 E72 E77 E90
+E47_Spatial_Coordinates E1 E28 E41 E47 E70 E71 E72 E77 E90
+E48_Place_Name E1 E28 E41 E48 E70 E71 E72 E77 E90
+E49_Time_Appellation E1 E28 E41 E49 E70 E71 E72 E77 E90
+E4_Period E1 E2 E4 E92
+E50_Date E1 E28 E41 E50 E70 E71 E72 E77 E90
+E51_Contact_Point E1 E28 E41 E51 E70 E71 E72 E77 E90
+E52_Time_Span E1 E52
+E53_Place E1 E53
+E54_Dimension E1 E54
+E55_Type E1 E28 E55 E70 E71 E77
+E56_Language E1 E28 E55 E56 E70 E71 E77
+E57_Material E1 E28 E55 E57 E70 E71 E77
+E58_Measurement_Unit E1 E28 E55 E58 E70 E71 E77
+E59_Primitive_Value E1 E59
+E5_Event E1 E2 E4 E5 E92
+E60_Number E1 E59 E60
+E61_Time_Primitive E1 E28 E41 E59 E61 E70 E71 E72 E77 E90
+E62_String E1 E59 E62
+E63_Beginning_of_Existence E1 E2 E4 E5 E63 E92
+E64_End_of_Existence E1 E2 E4 E5 E64 E92
+E65_Creation E1 E2 E4 E5 E63 E65 E7 E92
+E66_Formation E1 E2 E4 E5 E63 E66 E7 E92
+E67_Birth E1 E2 E4 E5 E63 E67 E92
+E68_Dissolution E1 E2 E4 E5 E64 E68 E92
+E69_Death E1 E2 E4 E5 E64 E69 E92
+E6_Destruction E1 E2 E4 E5 E6 E64 E92
+E70_Thing E1 E70 E77
+E71_Human_Made_Thing E1 E70 E71 E77
+E72_Legal_Object E1 E70 E72 E77
+E73_Information_Object E1 E28 E70 E71 E72 E73 E77 E89 E90
+E74_Group E1 E39 E74 E77
+E75_Conceptual_Object_Appellation E1 E28 E41 E70 E71 E72 E75 E77 E90
+E77_Persistent_Item E1 E77
+E78_Curated_Holding E1 E18 E24 E70 E71 E72 E77 E78
+E79_Part_Addition E1 E11 E2 E4 E5 E7 E79 E92
+E7_Activity E1 E2 E4 E5 E7 E92
+E80_Part_Removal E1 E11 E2 E4 E5 E7 E80 E92
+E81_Transformation E1 E2 E4 E5 E63 E64 E81 E92
+E82_Actor_Appellation E1 E28 E41 E70 E71 E72 E77 E82 E90
+E83_Type_Creation E1 E2 E4 E5 E63 E65 E7 E83 E92
+E84_Information_Carrier E1 E18 E19 E22 E24 E70 E71 E72 E77 E84
+E85_Joining E1 E2 E4 E5 E7 E85 E92
+E86_Leaving E1 E2 E4 E5 E7 E86 E92
+E87_Curation_Activity E1 E2 E4 E5 E7 E87 E92
+E89_Propositional_Object E1 E28 E70 E71 E77 E89
+E8_Acquisition E1 E2 E4 E5 E7 E8 E92
+E8_Acquisition_Event E1 E2 E4 E5 E7 E8 E92
+E90_Symbolic_Object E1 E28 E70 E71 E72 E77 E90
+E91_Co_Reference_Assignment E1 E13 E2 E4 E5 E7 E91 E92
+E92_Spacetime_Volume E1 E92
+E93_Presence E1 E92 E93
+E94_Space_Primitive E1 E28 E41 E59 E70 E71 E72 E77 E90 E94
+E95_Spacetime_Primitive E1 E28 E41 E59 E70 E71 E72 E77 E90 E95
+E96_Purchase E1 E2 E4 E5 E7 E8 E92 E96
+E97_Monetary_Amount E1 E54 E97
+E98_Currency E1 E28 E55 E58 E70 E71 E77 E98
+E99_Product_Type E1 E28 E55 E70 E71 E77 E99
+E9_Move E1 E2 E4 E5 E7 E9 E92
+P10 P132
+P100 P12 P93
+P100_was_death_of P100 P12 P93
 P101_had_as_general_use P101
-P102_has_title P102
+P102 P1
+P102_has_title P1 P102
 P103_was_intended_for P103
 P104_is_subject_to P104
 P105_right_held_by P105
 P106_is_composed_of P106
 P106_is_composed_of_:superProperty P106
 P107_has_current_or_former_member P107
-P108_has_produced P108
-P109_has_current_or_former_curator P109
-P10_falls_within P10
-P110_augmented P110
-P111_added P111
-P112_diminished P112
-P113_removed P113
+P108 P12 P31 P92
+P108_has_produced P108 P12 P31 P92
+P109 P49
+P109_has_current_or_former_curator P109 P49
+P10_falls_within P10 P132
+P11 P12
+P110 P12 P31
+P110_augmented P110 P12 P31
+P111 P12 P15 P16
+P111_added P111 P12 P15 P16
+P112 P12 P31
+P112_diminished P112 P12 P31
+P113 P12
+P113_removed P113 P12
 P114_is_equal_in_time_to P114
 P115_finishes P115
 P116_starts P116
 P117_occurs_during P117
 P118_overlaps_in_time_with P118
 P119_meets_in_time_with P119
-P11_had_participant P11
+P11_had_participant P11 P12
 P120_occurs_before P120
 P121_overlaps_with P121
 P122_borders_with P122
-P123_resulted_in P123
-P124_transformed P124
+P123 P12 P92
+P123_resulted_in P12 P123 P92
+P124 P12 P93
+P124_transformed P12 P124 P93
 P125_used_object_of_type P125
 P126_employed P126
 P127_has_broader_term P127
-P128_carries P128
-P129_is_about P129
+P128 P130
+P128_carries P128 P130
+P129 P67
+P129_is_about P129 P67
 P12_occurred_in_the_presence_of P12
+P13 P12 P93
 P130_shows_features_of P130
-P131_is_identified_by P131
+P131 P1
+P131_is_identified_by P1 P131
 P132_spatiotemporally_overlaps_with P132
 P133_is_spatiotemporally_separated_from P133
-P134_continued P134
-P135_created_type P135
-P136_was_based_on P136
-P137_exemplifies P137
-P138_represents P138
+P134 P15
+P134_continued P134 P15
+P135 P12 P92 P94
+P135_created_type P12 P135 P92 P94
+P136 P15
+P136_was_based_on P136 P15
+P137 P2
+P137_exemplifies P137 P2
+P138 P67
+P138_represents P138 P67
 P139_has_alternative_form P139
-P13_destroyed P13
+P13_destroyed P12 P13 P93
+P14 P11 P12
 P140_assigned_attribute_to P140
 P141_assigned P141
-P142_used_constituent P142
-P143_joined P143
-P144_joined_with P144
-P145_separated P145
-P146_separated_from P146
+P142 P12 P15 P16
+P142_used_constituent P12 P142 P15 P16
+P143 P11 P12
+P143_joined P11 P12 P143
+P144 P11 P12
+P144_joined_with P11 P12 P144
+P145 P11 P12
+P145_separated P11 P12 P145
+P146 P11 P12
+P146_separated_from P11 P12 P146
 P147_curated P147
 P148_has_component P148
-P149_is_identified_by P149
-P14_carried_out_by P14
+P149 P1
+P149_is_identified_by P1 P149
+P14_carried_out_by P11 P12 P14
 P150_defines_typical_parts_of P150
-P151_was_formed_from P151
+P151 P11 P12
+P151_was_formed_from P11 P12 P151
 P152_has_parent P152
 P153_assigned_co_reference_to P153
 P154_assigned_non_co_reference_to P154
 P155_has_co_reference_target P155
-P156_occupies P156
+P156 P53
+P156_occupies P156 P53
 P157_is_at_rest_relative_to P157
 P158_occupied P158
 P159_occupied P159
 P15_was_influenced_by P15
+P16 P12 P15
 P160_has_temporal_projection P160
 P161_has_spatial_projection P161
 P162_is_restricted_by P162
 P163_is_restricted_by P163
-P164_is_temporally_specified_by P164
+P164 P160
+P164_is_temporally_specified_by P160 P164
 P165_incorporates P165
-P166_was_a_presence_of P166
+P166 P10 P132
+P166_was_a_presence_of P10 P132 P166
 P167_was_within P167
 P168_place_is_defined_by P168
 P169_defines_spacetime_volume P169
-P16_used_specific_object P16
+P16_used_specific_object P12 P15 P16
+P17 P15
 P170_defines_time P170
 P171_at_some_place_within P171
 P172_contains P172
 P173_starts_before_or_with_the_end_of P173
-P174_starts_before_the_end_of P174
-P175_starts_before_or_with_the_start_of P175
-P176_starts_before_the_start_of P176
-P177_assigned_property_of_type P177
-P178_ends_after_or_with P178
+P174 P173
+P174_starts_before_the_end_of P173 P174
+P175 P173 P174
+P175_starts_before_or_with_the_start_of P173 P174 P175
+P176 P173 P174 P175
+P176_starts_before_the_start_of P173 P174 P175 P176
+P177 P2
+P177_assigned_property_of_type P177 P2
+P178 P173 P174 P184
+P178_ends_after_or_with P173 P174 P178 P184
 P179_had_sales_price P179
-P17_was_motivated_by P17
-P180_has_currency P180
+P17_was_motivated_by P15 P17
+P180 P91
+P180_has_currency P180 P91
 P181_has_amount P181
-P182_ends_before_or_with_the_start_of P182
-P183_ends_before_the_start_of P183
-P184_ends_before_or_with_the_end_of P184
-P185_ends_before_the_end_of P185
+P182 P173 P174 P175 P176 P184 P185
+P182_ends_before_or_with_the_start_of P173 P174 P175 P176 P182 P184 P185
+P183 P173 P174 P175 P176 P182 P184 P185
+P183_ends_before_the_start_of P173 P174 P175 P176 P182 P183 P184 P185
+P184 P173 P174
+P184_ends_before_or_with_the_end_of P173 P174 P184
+P185 P173 P174 P184
+P185_ends_before_the_end_of P173 P174 P184 P185
 P186_produced_thing_of_product_type P186
 P187_has_production_plan P187
 P188_requires_production_tool P188
 P189_approximates P189
-P190_has_symbolic_content P190
+P190 P3
+P190_has_symbolic_content P190 P3
 P191_had_duration P191
 P195_was_a_presence_of P195
 P196_defines P196
@@ -209,81 +254,217 @@ P19_was_intended_use_of P19
 P1_is_identified_by P1
 P20_had_specific_purpose P20
 P21_had_general_purpose P21
-P22_transferred_title_to P22
-P23_transferred_title_from P23
+P22 P11 P12 P14
+P22_transferred_title_to P11 P12 P14 P22
+P23 P11 P12 P14
+P23_transferred_title_from P11 P12 P14 P23
 P24_transferred_title_of P24
-P25_moved P25
+P25 P12
+P25_moved P12 P25
 P26_moved_to P26
 P27_moved_from P27
-P28_custody_surrendered_by P28
-P29_custody_received_by P29
+P28 P11 P12 P14
+P28_custody_surrendered_by P11 P12 P14 P28
+P29 P11 P12 P14
+P29_custody_received_by P11 P12 P14 P29
 P2_has_type P2
 P30_transferred_custody_of P30
-P31_has_modified P31
-P32_used_general_technique P32
-P33_used_specific_technique P33
-P34_concerned P34
-P35_has_identified P35
+P31 P12
+P31_has_modified P12 P31
+P32 P125
+P32_used_general_technique P125 P32
+P33 P12 P15 P16
+P33_used_specific_technique P12 P15 P16 P33
+P34 P140
+P34_concerned P140 P34
+P35 P141
+P35_has_identified P141 P35
 P36_registered P36
-P37_assigned P37
-P38_deassigned P38
-P39_measured P39
+P37 P141
+P37_assigned P141 P37
+P38 P141
+P38_deassigned P141 P38
+P39 P140
+P39_measured P140 P39
 P3_has_note P3
-P40_observed_dimension P40
-P41_classified P41
-P42_assigned P42
+P40 P141
+P40_observed_dimension P141 P40
+P41 P140
+P41_classified P140 P41
+P42 P141
+P42_assigned P141 P42
 P43_has_dimension P43
 P44_has_condition P44
 P45_consists_of P45
 P46_is_composed_of P46
 P47_is_identified_by P47
-P48_has_preferred_identifier P48
+P48 P1
+P48_has_preferred_identifier P1 P48
 P49_has_former_or_current_keeper P49
 P4_has_time-span P4
-P50_has_current_keeper P50
+P50 P49
+P50_has_current_keeper P49 P50
 P51_has_former_or_current_owner P51
-P52_has_current_owner P52
+P52 P105 P51
+P52_has_current_owner P105 P51 P52
 P53_has_former_or_current_location P53
 P54_has_current_permanent_location P54
-P55_has_current_location P55
-P56_bears_feature P56
+P55 P53
+P55_has_current_location P53 P55
+P56 P46
+P56_bears_feature P46 P56
 P57_has_number_of_parts P57
-P58_has_section_definition P58
+P58 P1
+P58_has_section_definition P1 P58
 P59_has_section P59
 P5_consists_of P5
 P62_depicts P62
-P65_shows_visual_item P65
+P65 P128 P130
+P65_shows_visual_item P128 P130 P65
 P67_refers_to P67
-P68_foresees_use_of P68
+P68 P67
+P68_foresees_use_of P67 P68
 P69_has_association_with P69
-P70_documents P70
-P71_lists P71
+P70 P67
+P70_documents P67 P70
+P71 P67
+P71_lists P67 P71
 P72_has_language P72
 P73_has_translation P73
 P74_has_current_or_former_residence P74
 P75_possesses P75
 P76_has_contact_point P76
-P78_is_identified_by P78
-P79_beginning_is_qualified_by P79
+P78 P1
+P78_is_identified_by P1 P78
+P79 P3
+P79_beginning_is_qualified_by P3 P79
 P7_took_place_at P7
-P80_end_is_qualified_by P80
+P80 P3
+P80_end_is_qualified_by P3 P80
 P81_ongoing_throughout P81
 P82_at_some_time_within P82
-P83_had_at_least_duration P83
-P84_had_at_most_duration P84
+P83 P191
+P83_had_at_least_duration P191 P83
+P84 P191
+P84_had_at_most_duration P191 P84
 P86_falls_within P86
-P87_is_identified_by P87
+P87 P1
+P87_is_identified_by P1 P87
 P88_consists_of P88
 P89_falls_within P89
 P8_took_place_on_or_within P8
 P90_has_value P90
 P91_has_unit P91
-P92_brought_into_existence P92
-P93_took_out_of_existence P93
-P94_has_created P94
-P95_has_formed P95
-P96_by_mother P96
+P92 P12
+P92_brought_into_existence P12 P92
+P93 P12
+P93_took_out_of_existence P12 P93
+P94 P12 P92
+P94_has_created P12 P92 P94
+P95 P12 P92
+P95_has_formed P12 P92 P95
+P96 P11 P12
+P96_by_mother P11 P12 P96
 P97_from_father P97
-P98_brought_into_life P98
-P99_dissolved P99
+P98 P12 P92
+P98_brought_into_life P12 P92 P98
+P99 P11 P12 P93
+P99_dissolved P11 P12 P93 P99
 P9_consists_of P9
+n4o_3D_Model E1 E28 E70 E71 E72 E73 E77 E89 E90
+n4o_Accession E1 E10 E2 E4 E5 E7 E92
+n4o_AcquisitionType_Assignment E1 E13 E17 E2 E4 E5 E7 E92
+n4o_Acquisition_Type E1 E28 E55 E70 E71 E77
+n4o_Activity_Type E1 E28 E55 E70 E71 E77
+n4o_Actor_Assignment E1 E13 E2 E4 E5 E7 E92
+n4o_Alternative_Title E1 E28 E33 E35 E41 E70 E71 E72 E73 E77 E89 E90
+n4o_Appellation_Assignment E1 E13 E2 E4 E5 E7 E92
+n4o_Appropriation E1 E10 E2 E4 E5 E7 E92
+n4o_Appropriation_Type E1 E28 E55 E70 E71 E77
+n4o_Audiofile E1 E28 E70 E71 E72 E73 E77 E89 E90
+n4o_Authorityfile E1 E28 E31 E32 E70 E71 E72 E73 E77 E89 E90
+n4o_Authorityfile_ID E1 E28 E41 E42 E70 E71 E72 E77 E90
+n4o_Collectionsystematics E1 E28 E55 E70 E71 E77
+n4o_Collectionsystematics_Assignment E1 E13 E17 E2 E4 E5 E7 E92
+n4o_Comment E1 E28 E31 E70 E71 E72 E73 E77 E89 E90
+n4o_Commissioning E1 E2 E4 E5 E7 E92
+n4o_Corporate_Body E1 E39 E74 E77
+n4o_Deaccession E1 E10 E2 E4 E5 E7 E92
+n4o_Description E1 E28 E31 E70 E71 E72 E73 E77 E89 E90
+n4o_Dimension_Type E1 E28 E55 E70 E71 E77
+n4o_Encounter_Event E1 E2 E4 E5 E7 E92
+n4o_Environment E1 E18 E26 E27 E70 E72 E77
+n4o_Environmental_Affiliation E1 E2 E4 E5 E92
+n4o_Excavation E1 E2 E4 E5 E7 E92
+n4o_Exhibition E1 E2 E4 E5 E7 E87 E92
+n4o_Exhibition_Type E1 E28 E55 E70 E71 E77
+n4o_Existence E1 E2 E4 E5 E92
+n4o_Expedition E1 E2 E4 E5 E7 E92
+n4o_Field_Work E1 E2 E4 E5 E7 E92
+n4o_File E1 E28 E70 E71 E72 E73 E77 E89 E90
+n4o_Finding E1 E28 E70 E71 E72 E73 E77 E89 E90
+n4o_Foundation E1 E2 E4 E5 E63 E92
+n4o_Geo_Coordinates E1 E28 E41 E42 E70 E71 E72 E77 E90
+n4o_Geographical_Place E1 E53
+n4o_Global_Stratigraphic_Period E1 E2 E4 E92
+n4o_Iconographic_Motive E1 E28 E36 E70 E71 E72 E73 E77 E89 E90
+n4o_Iconography_Assignment E1 E13 E2 E4 E5 E7 E92
+n4o_Identifier E1 E28 E41 E42 E70 E71 E72 E77 E90
+n4o_Image E1 E28 E36 E70 E71 E72 E73 E77 E89 E90
+n4o_Inventory_Number E1 E28 E41 E42 E70 E71 E72 E77 E90
+n4o_Keyword E1 E28 E55 E70 E71 E77
+n4o_Licence E1 E28 E30 E70 E71 E77 E89
+n4o_Licence_Type E1 E28 E55 E70 E71 E77
+n4o_Literature E1 E28 E31 E70 E71 E72 E73 E77 E89 E90
+n4o_Literature_Section E1 E28 E31 E70 E71 E72 E73 E77 E89 E90
+n4o_Literature_Section_ID E1 E28 E41 E42 E70 E71 E72 E77 E90
+n4o_Literature_Type E1 E28 E55 E70 E71 E77
+n4o_Local_Stratigraphic_Period E1 E2 E4 E92
+n4o_Location E1 E53
+n4o_Location_Type E1 E28 E55 E70 E71 E77
+n4o_Material_Assignment E1 E13 E2 E4 E5 E7 E92
+n4o_Museum_or_Collection_Affiliation E1 E2 E4 E5 E92
+n4o_Object E1 E18 E19 E22 E24 E70 E71 E72 E77
+n4o_ObjectType_Assignment E1 E13 E17 E2 E4 E5 E7 E92
+n4o_Object_Condition_Type E1 E28 E55 E70 E71 E77
+n4o_Object_Documentation E1 E2 E4 E5 E7 E92
+n4o_Object_Transport E1 E2 E4 E5 E7 E9 E92
+n4o_Object_Type E1 E28 E55 E70 E71 E77
+n4o_Occupation E1 E28 E55 E70 E71 E77
+n4o_Photography E1 E2 E4 E5 E63 E65 E7 E92
+n4o_Place_Assignment E1 E13 E2 E4 E5 E7 E92
+n4o_Preparation E1 E11 E2 E4 E5 E7 E92
+n4o_Presentation_Type E1 E28 E55 E70 E71 E77
+n4o_Research_Activity E1 E2 E4 E5 E7 E92
+n4o_Research_Activity_Type E1 E28 E55 E70 E71 E77
+n4o_Restoration E1 E11 E2 E4 E5 E7 E92
+n4o_Rock_Genesis E1 E2 E4 E5 E63 E92
+n4o_Society_of_Origin E1 E39 E74 E77
+n4o_Source E1 E18 E19 E22 E24 E70 E71 E72 E77
+n4o_Source_Content E1 E28 E70 E71 E72 E73 E77 E89 E90
+n4o_Source_Content_Section E1 E28 E70 E71 E72 E73 E77 E89 E90
+n4o_Source_Content_Type E1 E28 E55 E70 E71 E77
+n4o_Stratigraphic_Period_Assignment E1 E13 E2 E4 E5 E7 E92
+n4o_Systematization E1 E2 E4 E5 E7 E87 E92
+n4o_Time_Assignment E1 E13 E2 E4 E5 E7 E92
+n4o_Transcription E1 E28 E31 E70 E71 E72 E73 E77 E89 E90
+n4o_URL E1 E28 E41 E42 E70 E71 E72 E77 E90
+n4o_Usage E1 E2 E4 E5 E7 E92
+n4o_UsageType_Assignment E1 E13 E17 E2 E4 E5 E7 E92
+n4o_Usage_Type E1 E28 E55 E70 E71 E77
+n4o_Videofile E1 E28 E70 E71 E72 E73 E77 E89 E90
+nmo_CoinWear nmo_Wear
+nmo_Countermark nmo_Peculiarity nmo_SecondaryTreatment
+nmo_DepositionType nmo_Context
+nmo_DieWear nmo_Wear
+nmo_DiscoveryType nmo_Context
+nmo_Find nmo_Context
+nmo_Hoard nmo_Context nmo_Find
+nmo_Mintmark nmo_Controlmark
+nmo_PeculiarityOfProduction nmo_Peculiarity
+nmo_ReferenceWork dcterms_BibliographicResource
+nmo_SecondaryTreatment nmo_Peculiarity
+nmo_TypeSeries dcterms_BibliographicResource nmo_ReferenceWork
+nmo_WeightStandard dcterms_Standard
+nmo_hasBearsDate nmo_hasAppearance
+nmo_hasFindType nmo_hasContext

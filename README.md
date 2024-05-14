@@ -5,8 +5,8 @@ Erstellung, Management und Nutzung des NFDI4Objects Knowledge Graphen von TA5.
 
 ## Installation
 
-Benötigt werden eine Standard-Unix-Tools sowie Docker, Perl (ohne zusätzliche
-Libraries), Python3 und Node >= v18. Anschließend die weitere Abhängigkeiten:
+Benötigt werden eine Standard-Unix-Tools sowie Docker, Python3 und Node >= v18.
+Anschließend die weitere Abhängigkeiten:
 
 Python-Umgebung
 
@@ -24,8 +24,6 @@ und  [mermaid-cli](https://www.npmjs.com/package/@mermaid-js/mermaid-cli)
 npm install pgraphs
 npm install mermaid-cli
 ~~~
-
-jq: `sudo apt-get install jq`
 
 ## Handbuch
 
