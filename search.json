@@ -114,7 +114,17 @@
     "href": "architecture.html#übersicht",
     "title": "Systemarchitektur",
     "section": "",
-    "text": "Annahme, Prüfung und Bereinigung\nSiehe https://github.com/nfdi4objects/n4o-import\nKonvertierung\nEinspielung\nImplementierung siehe https://github.com/nfdi4objects/n4o-property-graph\nAnreicherung\nBereitstellung\nNoch nicht umgesett\n\n\n\n\n\n\n\n\nAbbildung 5.1",
+    "text": "Annahme, Prüfung und Bereinigung\nKonvertierung\nEinspielung\nImplementierung siehe https://github.com/nfdi4objects/n4o-property-graph\nAnreicherung\nBereitstellung\nNoch nicht umgesett\n\n\n\n\n\n\n\n\nAbbildung 5.1",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Systemarchitektur</span>"
+    ]
+  },
+  {
+    "objectID": "architecture.html#annahme-prüfung-und-bereinigung",
+    "href": "architecture.html#annahme-prüfung-und-bereinigung",
+    "title": "Systemarchitektur",
+    "section": "Annahme, Prüfung und Bereinigung",
+    "text": "Annahme, Prüfung und Bereinigung\nSiehe https://github.com/nfdi4objects/n4o-import. Dort findet sich unter anderem das offizielle XML-Schema für LIDO-Daten.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
