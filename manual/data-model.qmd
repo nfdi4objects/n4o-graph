@@ -3,37 +3,37 @@ title: Datenmodell
 lang: de
 ---
 
-Als Sammlungsübergeifendes Datenmodell wird **CIDOC-CRM** mit Erweiterung
-durch die DFI4Objects Core Ontologie (N4O) verwendet.
+Als Sammlungsübergeifendes Datenmodell wird **CIDOC-CRM (CRM)** verwendet.
+Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine
+Reihen von etablierten Vokabularen wie IconClass, GND und die
+LIDO-Terminologien unterstützt.
 
-*Das Datenmodell beschränkt sich im Moment noch auf Klassen ohne Properties!*
+## Modellierung im Property Graphen
 
-- Knoten im [Property Graphen](#property-graphen) erhalten als Knoten-Label
-  die entsprechenden CRM- bzw. N4O Klassen. Dabei werden Leerzeichen und
-  Sonderzeichen durch Unterstrich ersetzt, also z.B.
+Knoten im [Property Graphen](#property-graphen) erhalten als Knoten-Label
+die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und
+Sonderzeichen durch Unterstrich ersetzt, also z.B.
 
-  - `E22_Human_Made_Object` für
-  [E22 Human-Made Object](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22)
+`E22_Human_Made_Object` für
+[E22 Human-Made Object](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22)
 
-- Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet
-  werden, allerdings werden diese durch [Expansion](#expansion) auf die neueste
-  Form gemappt.
+Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet
+werden, allerdings werden diese durch [Expansion](#expansion) auf die neueste
+Form gemappt.
 
 Die Klassenhierarchien als Diagramm
 
-  - [CIDOC-CRM (alle Versionen)](img/crm-classes.svg)
-  - [N4O (bis zur ersten CRM-Klasse)](img/n4o-classes.svg)
-  - [beide zusammen](img/n4o-all-classes.svg)
+  - [CIDOC-CRM-Klassen (alle Versionen)](img/crm-classes.svg)
+  - [CIDOC-CRM-Properties (alle Versionen)](img/crm-properties.svg)
+  - [CRM und auf CRM-gemappte Klassen](img/n4o-all-classes.svg)
 
-Das Datenmodell besteht zunächst nur aus einer Klassenhierarchie. Diese muss
-noch erweitert werden um
+Das Datenmodell besteht muss noch erweitert werden um
 
-- Properties
 - Identifier (für Normdaten-Identifier siehe <https://github.com/nfdi4objects/n4o-terminologies>)
 - Informationen über Sammlungen aus denen die Daten und Objekte stammen
   (siehe <https://github.com/nfdi4objects/n4o-databases> und
   <https://github.com/nfdi4objects/n4o-rdf-import>)
-- Ontologien und Vokabulare
+- Informationen *über* Ontologien und Vokabulare
 
 ## Beispiel
 
@@ -55,11 +55,7 @@ wird konvertiert in folgenden Property Graph (in PG Format und als Diagram):
 
 ...
 
-## Die NFDI4Objects Core Ontologie
-
-...
-
-## Weitere unterstütze Ontologien
+## Weitere Ontologien
 
 ...
 

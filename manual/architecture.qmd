@@ -107,8 +107,6 @@ Nach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label
 wie z.B. `E22_Human_Made_Object` möglich oder nach allen Knoten, die direkt
 oder indirekt er Klasse `E22` angehören.
 
-*Die Expansion von zusätzlichen Klassen der [NFDI4Objects Core
-Ontology](https://github.com/nfdi4objects/n4o-core-ontology) auf CIDOC-CRM ist
-auf die gleiche Weise möglich aber noch nicht umgesetzt.*
-
+Die Expansion ist auf gleiche Weise für andere Ontologien möglich, sofern diese
+auf CRM gemappt wurden.
 
