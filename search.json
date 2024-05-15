@@ -44,7 +44,17 @@
     "href": "data-model.html",
     "title": "Datenmodell",
     "section": "",
-    "text": "Beispiel\nFolgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):\nwird konvertiert in folgenden Property Graph (in PG Format und als Diagram):",
+    "text": "Modellierung im Property Graphen\nKnoten im Property Graphen erhalten als Knoten-Label die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also z.B.\nE22_Human_Made_Object für E22 Human-Made Object\nZwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch Expansion auf die neueste Form gemappt.\nDie Klassenhierarchien als Diagramm\nDas Datenmodell besteht muss noch erweitert werden um",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenmodell</span>"
+    ]
+  },
+  {
+    "objectID": "data-model.html#modellierung-im-property-graphen",
+    "href": "data-model.html#modellierung-im-property-graphen",
+    "title": "Datenmodell",
+    "section": "",
+    "text": "CIDOC-CRM-Klassen (alle Versionen)\nCIDOC-CRM-Properties (alle Versionen)\nCRM und auf CRM-gemappte Klassen\n\n\n\nIdentifier (für Normdaten-Identifier siehe https://github.com/nfdi4objects/n4o-terminologies)\nInformationen über Sammlungen aus denen die Daten und Objekte stammen (siehe https://github.com/nfdi4objects/n4o-databases und https://github.com/nfdi4objects/n4o-rdf-import)\nInformationen über Ontologien und Vokabulare",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenmodell</span>"
     ]
@@ -53,8 +63,8 @@
     "objectID": "data-model.html#beispiel",
     "href": "data-model.html#beispiel",
     "title": "Datenmodell",
-    "section": "",
-    "text": "@prefix crm: &lt;http://erlangen-crm.org/170309/&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d&gt;\n  a crm:E16_Measurement ;\n  crm:P40_observed_dimension &lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt;\n  a crm:E54_Dimension ;\n  crm:P2_has_type &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt; ;\n  crm:P91_has_unit &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  crm:P90_has_value 2.8 .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  a crm:E58_Measurement_Unit ;\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt;\n  a crm:E55_Type .\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt; ;\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"Höhe (Scan)\" .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"cm\" .\n\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d\n  :E16_Measurement\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d \n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :P40_observed_dimension\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :E54_Dimension \n  P90_has_value: 2.8\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :P2_has_type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :P91_has_unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :E58_Measurement_Unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :E55_Type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :E42_Identifier\n  P3_has_note: \"Höhe (Scan)\"\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :E42_Identifier\n  P3_has_note: \"cm\"",
+    "section": "Beispiel",
+    "text": "Beispiel\nFolgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):\n@prefix crm: &lt;http://erlangen-crm.org/170309/&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d&gt;\n  a crm:E16_Measurement ;\n  crm:P40_observed_dimension &lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt;\n  a crm:E54_Dimension ;\n  crm:P2_has_type &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt; ;\n  crm:P91_has_unit &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  crm:P90_has_value 2.8 .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  a crm:E58_Measurement_Unit ;\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt;\n  a crm:E55_Type .\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt; ;\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"Höhe (Scan)\" .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"cm\" .\n\nwird konvertiert in folgenden Property Graph (in PG Format und als Diagram):\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d\n  :E16_Measurement\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d \n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :P40_observed_dimension\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :E54_Dimension \n  P90_has_value: 2.8\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :P2_has_type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :P91_has_unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :E58_Measurement_Unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :E55_Type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :E42_Identifier\n  P3_has_note: \"Höhe (Scan)\"\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :E42_Identifier\n  P3_has_note: \"cm\"",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenmodell</span>"
     ]
@@ -70,21 +80,11 @@
     ]
   },
   {
-    "objectID": "data-model.html#die-nfdi4objects-core-ontologie",
-    "href": "data-model.html#die-nfdi4objects-core-ontologie",
+    "objectID": "data-model.html#weitere-ontologien",
+    "href": "data-model.html#weitere-ontologien",
     "title": "Datenmodell",
-    "section": "Die NFDI4Objects Core Ontologie",
-    "text": "Die NFDI4Objects Core Ontologie\n…",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenmodell</span>"
-    ]
-  },
-  {
-    "objectID": "data-model.html#weitere-unterstütze-ontologien",
-    "href": "data-model.html#weitere-unterstütze-ontologien",
-    "title": "Datenmodell",
-    "section": "Weitere unterstütze Ontologien",
-    "text": "Weitere unterstütze Ontologien\n…",
+    "section": "Weitere Ontologien",
+    "text": "Weitere Ontologien\n…",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenmodell</span>"
     ]
@@ -154,7 +154,7 @@
     "href": "architecture.html#anreicherung",
     "title": "Systemarchitektur",
     "section": "Anreicherung",
-    "text": "Anreicherung\n\nExpansion der Klassenhierarchie\nDa Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen expandiert. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei crm-classes.pg (siehe SVG-Diagram). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.\n\nE22_Man_Made_Object =&gt; E22_Human_Made_Object (renamedTo)\nE50_Date =&gt; E41_Appellation (replacedBy)\nE7_Activity=&gt; E5_Event (superClass)\n\nAus diesen Daten wird die Expansionstabelle crm-expand.txt erzeugt, z.B.:\n\nE22_Human_Made_Object =&gt; E22, E71, E70, E24 E77 und E1\n\nZum Ausführen der Expansion:\n./pg-expand-labels.py [Neo4j login file] &lt; crm-expand.txt\nOhne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.\nNach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. E22_Human_Made_Object möglich oder nach allen Knoten, die direkt oder indirekt er Klasse E22 angehören.\nDie Expansion von zusätzlichen Klassen der NFDI4Objects Core Ontology auf CIDOC-CRM ist auf die gleiche Weise möglich aber noch nicht umgesetzt.",
+    "text": "Anreicherung\n\nExpansion der Klassenhierarchie\nDa Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen expandiert. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei crm-classes.pg (siehe SVG-Diagram). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.\n\nE22_Man_Made_Object =&gt; E22_Human_Made_Object (renamedTo)\nE50_Date =&gt; E41_Appellation (replacedBy)\nE7_Activity=&gt; E5_Event (superClass)\n\nAus diesen Daten wird die Expansionstabelle crm-expand.txt erzeugt, z.B.:\n\nE22_Human_Made_Object =&gt; E22, E71, E70, E24 E77 und E1\n\nZum Ausführen der Expansion:\n./pg-expand-labels.py [Neo4j login file] &lt; crm-expand.txt\nOhne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.\nNach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. E22_Human_Made_Object möglich oder nach allen Knoten, die direkt oder indirekt er Klasse E22 angehören.\nDie Expansion ist auf gleiche Weise für andere Ontologien möglich, sofern diese auf CRM gemappt wurden.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]

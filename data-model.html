@@ -193,10 +193,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#beispiel" id="toc-beispiel" class="nav-link active" data-scroll-target="#beispiel">Beispiel</a></li>
+  <li><a href="#modellierung-im-property-graphen" id="toc-modellierung-im-property-graphen" class="nav-link active" data-scroll-target="#modellierung-im-property-graphen">Modellierung im Property Graphen</a></li>
+  <li><a href="#beispiel" id="toc-beispiel" class="nav-link" data-scroll-target="#beispiel">Beispiel</a></li>
   <li><a href="#cidoc-crm" id="toc-cidoc-crm" class="nav-link" data-scroll-target="#cidoc-crm">CIDOC-CRM</a></li>
-  <li><a href="#die-nfdi4objects-core-ontologie" id="toc-die-nfdi4objects-core-ontologie" class="nav-link" data-scroll-target="#die-nfdi4objects-core-ontologie">Die NFDI4Objects Core Ontologie</a></li>
-  <li><a href="#weitere-unterstütze-ontologien" id="toc-weitere-unterstütze-ontologien" class="nav-link" data-scroll-target="#weitere-unterstütze-ontologien">Weitere unterstütze Ontologien</a></li>
+  <li><a href="#weitere-ontologien" id="toc-weitere-ontologien" class="nav-link" data-scroll-target="#weitere-ontologien">Weitere Ontologien</a></li>
   <li><a href="#terminologien" id="toc-terminologien" class="nav-link" data-scroll-target="#terminologien">Terminologien</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-property-graph/blob/main/manual/data-model.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
@@ -261,28 +261,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Als Sammlungsübergeifendes Datenmodell wird <strong>CIDOC-CRM</strong> mit Erweiterung durch die DFI4Objects Core Ontologie (N4O) verwendet.</p>
-<p><em>Das Datenmodell beschränkt sich im Moment noch auf Klassen ohne Properties!</em></p>
-<ul>
-<li><p>Knoten im <a href="basics.html#property-graphen">Property Graphen</a> erhalten als Knoten-Label die entsprechenden CRM- bzw. N4O Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also z.B.</p>
-<ul>
-<li><code>E22_Human_Made_Object</code> für <a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22">E22 Human-Made Object</a></li>
-</ul></li>
-<li><p>Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch <a href="#expansion">Expansion</a> auf die neueste Form gemappt.</p></li>
-</ul>
+<p>Als Sammlungsübergeifendes Datenmodell wird <strong>CIDOC-CRM (CRM)</strong> verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten Vokabularen wie IconClass, GND und die LIDO-Terminologien unterstützt.</p>
+<section id="modellierung-im-property-graphen" class="level2">
+<h2 class="anchored" data-anchor-id="modellierung-im-property-graphen">Modellierung im Property Graphen</h2>
+<p>Knoten im <a href="basics.html#property-graphen">Property Graphen</a> erhalten als Knoten-Label die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also z.B.</p>
+<p><code>E22_Human_Made_Object</code> für <a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22">E22 Human-Made Object</a></p>
+<p>Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch <a href="#expansion">Expansion</a> auf die neueste Form gemappt.</p>
 <p>Die Klassenhierarchien als Diagramm</p>
 <ul>
-<li><a href="img/crm-classes.svg">CIDOC-CRM (alle Versionen)</a></li>
-<li><a href="img/n4o-classes.svg">N4O (bis zur ersten CRM-Klasse)</a></li>
-<li><a href="img/n4o-all-classes.svg">beide zusammen</a></li>
+<li><a href="img/crm-classes.svg">CIDOC-CRM-Klassen (alle Versionen)</a></li>
+<li><a href="img/crm-properties.svg">CIDOC-CRM-Properties (alle Versionen)</a></li>
+<li><a href="img/n4o-all-classes.svg">CRM und auf CRM-gemappte Klassen</a></li>
 </ul>
-<p>Das Datenmodell besteht zunächst nur aus einer Klassenhierarchie. Diese muss noch erweitert werden um</p>
+<p>Das Datenmodell besteht muss noch erweitert werden um</p>
 <ul>
-<li>Properties</li>
 <li>Identifier (für Normdaten-Identifier siehe <a href="https://github.com/nfdi4objects/n4o-terminologies" class="uri">https://github.com/nfdi4objects/n4o-terminologies</a>)</li>
 <li>Informationen über Sammlungen aus denen die Daten und Objekte stammen (siehe <a href="https://github.com/nfdi4objects/n4o-databases" class="uri">https://github.com/nfdi4objects/n4o-databases</a> und <a href="https://github.com/nfdi4objects/n4o-rdf-import" class="uri">https://github.com/nfdi4objects/n4o-rdf-import</a>)</li>
-<li>Ontologien und Vokabulare</li>
+<li>Informationen <em>über</em> Ontologien und Vokabulare</li>
 </ul>
+</section>
 <section id="beispiel" class="level2">
 <h2 class="anchored" data-anchor-id="beispiel">Beispiel</h2>
 <p>Folgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):</p>
@@ -361,12 +358,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="cidoc-crm">CIDOC-CRM</h2>
 <p>…</p>
 </section>
-<section id="die-nfdi4objects-core-ontologie" class="level2">
-<h2 class="anchored" data-anchor-id="die-nfdi4objects-core-ontologie">Die NFDI4Objects Core Ontologie</h2>
-<p>…</p>
-</section>
-<section id="weitere-unterstütze-ontologien" class="level2">
-<h2 class="anchored" data-anchor-id="weitere-unterstütze-ontologien">Weitere unterstütze Ontologien</h2>
+<section id="weitere-ontologien" class="level2">
+<h2 class="anchored" data-anchor-id="weitere-ontologien">Weitere Ontologien</h2>
 <p>…</p>
 </section>
 <section id="terminologien" class="level2">
