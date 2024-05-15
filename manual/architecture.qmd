@@ -9,8 +9,6 @@ Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhalte
 
 1. **Annahme**, **Prüfung** und **Bereinigung**
 
-   Siehe <https://github.com/nfdi4objects/n4o-import>
-
 2. **[Konvertierung](#konvertierung)**
 
 3. **[Einspielung](#einspielung)**
@@ -26,6 +24,10 @@ Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhalte
 Etwas genauer lässt sich der Prozess etwa wie in @fig-data-flow dargestellt veranschaulichen.
 
 ![](img/data-flow.svg){#fig-data-flow}
+
+## Annahme, Prüfung und Bereinigung
+
+Siehe  <https://github.com/nfdi4objects/n4o-import>. Dort findet sich unter anderem das offizielle [XML-Schema für LIDO-Daten](https://github.com/nfdi4objects/n4o-import/tree/main/schemas).
 
 ## Konvertierung
 
