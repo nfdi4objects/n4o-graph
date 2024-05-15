@@ -1,4 +1,4 @@
-# NFDI4Objects Property Graph
+# NFDI4Objects Graph
 
 Dieses Repositoriy enthält Skripte und [Dokumentation](#handbuch) zur
 Erstellung, Management und Nutzung des NFDI4Objects Knowledge Graphen von TA5.
@@ -35,6 +35,6 @@ Code-Beispiele in Cypher, SPARQL und Python.
 Die HTML-Version des Handbuch kann mit `quarto render` im Ordern `manual` (bzw.
 `make docs` im Wurzelverzeichnis) aktualisiert werden. Das aktualisierte
 Handbuch wird ins Verzeichnis [`docs`](docs) geschrieben und von dort unter
-Anderem unter <https://nfdi4objects.github.io/n4o-property-graph/>
+Anderem unter <https://nfdi4objects.github.io/n4o-graph/>
 veröffentlicht.
 
