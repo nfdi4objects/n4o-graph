@@ -102,6 +102,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Suchen"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -193,9 +196,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#übersicht" id="toc-übersicht" class="nav-link active" data-scroll-target="#übersicht">Übersicht</a></li>
-  <li><a href="#annahme-prüfung-und-bereinigung" id="toc-annahme-prüfung-und-bereinigung" class="nav-link" data-scroll-target="#annahme-prüfung-und-bereinigung">Annahme, Prüfung und Bereinigung</a></li>
-  <li><a href="#konvertierung" id="toc-konvertierung" class="nav-link" data-scroll-target="#konvertierung">Konvertierung</a></li>
+  <li><a href="#technik" id="toc-technik" class="nav-link active" data-scroll-target="#technik">Technik</a></li>
+  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a></li>
+  <li><a href="#annahme" id="toc-annahme" class="nav-link" data-scroll-target="#annahme">Annahme</a></li>
+  <li><a href="#konvertierung" id="toc-konvertierung" class="nav-link" data-scroll-target="#konvertierung">Konvertierung</a>
+  <ul class="collapse">
+  <li><a href="#lido" id="toc-lido" class="nav-link" data-scroll-target="#lido">LIDO</a></li>
+  <li><a href="#rdf" id="toc-rdf" class="nav-link" data-scroll-target="#rdf">RDF</a></li>
+  </ul></li>
   <li><a href="#einspielung" id="toc-einspielung" class="nav-link" data-scroll-target="#einspielung">Einspielung</a>
   <ul class="collapse">
   <li><a href="#rdf-daten-in-den-property-graph" id="toc-rdf-daten-in-den-property-graph" class="nav-link" data-scroll-target="#rdf-daten-in-den-property-graph">RDF-Daten in den Property-Graph</a></li>
@@ -268,11 +276,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="übersicht" class="level2">
-<h2 class="anchored" data-anchor-id="übersicht">Übersicht</h2>
+<section id="technik" class="level2">
+<h2 class="anchored" data-anchor-id="technik">Technik</h2>
+<ul>
+<li>Webserver (nginx)</li>
+<li>Property-Graph Datenbanksystem (Neo4J)</li>
+<li>Triple-Store (Fuseki)</li>
+<li>Skripte in Python und NodeJS</li>
+<li>Docker</li>
+</ul>
+</section>
+<section id="workflow" class="level2">
+<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
 <p>Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus folgenden Schritten:</p>
 <ol type="1">
-<li><p><strong>Annahme</strong>, <strong>Prüfung</strong> und <strong>Bereinigung</strong></p></li>
+<li><p><strong><a href="#annahme">Annahme</a></strong>, <strong>Prüfung</strong> und <strong>Bereinigung</strong></p></li>
 <li><p><strong><a href="#konvertierung">Konvertierung</a></strong></p></li>
 <li><p><strong><a href="#einspielung">Einspielung</a></strong></p>
 <p>Implementierung siehe <a href="https://github.com/nfdi4objects/n4o-property-graph" class="uri">https://github.com/nfdi4objects/n4o-property-graph</a></p></li>
@@ -281,25 +299,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Noch nicht umgesett</p></li>
 </ol>
 <p>Etwas genauer lässt sich der Prozess etwa wie in <a href="#fig-data-flow" class="quarto-xref">Abbildung&nbsp;<span>5.1</span></a> dargestellt veranschaulichen.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
 <div id="fig-data-flow" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="img/data-flow.svg" id="fig-data-flow" class="img-fluid figure-img">
+<div>
+<pre class="mermaid mermaid-js" data-label="fig-data-flow">flowchart LR
+    Abfrage["&lt;b&gt;Abfrage&lt;/b&gt;"]
+    KG["&lt;b&gt;KG&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: Cypher&lt;/i&gt;&lt;br/&gt;&lt;i&gt;model: CRM&lt;/i&gt;"]
+    LIDO["&lt;b&gt;LIDO&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: XML&lt;/i&gt;"]
+    LIDOConverter["&lt;b&gt;LIDOConverter&lt;/b&gt;"]
+    LIDOMapping["&lt;b&gt;LIDOMapping&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: X3ML&lt;/i&gt;"]
+    RDF["&lt;b&gt;RDF&lt;/b&gt;"]
+    RDFConverter["&lt;b&gt;RDFConverter&lt;/b&gt;"]
+    TTL["&lt;b&gt;TTL&lt;/b&gt;&lt;br/&gt;&lt;i&gt;name: Triple-Store&lt;/i&gt;"]
+    Terminologies["&lt;b&gt;Terminologies&lt;/b&gt;"]
+    TerminologyConverter["&lt;b&gt;TerminologyConverter&lt;/b&gt;"]
+    LIDO -- "&lt;u&gt;n4o-import&lt;/u&gt;" --&gt; LIDOConverter
+    LIDOConverter -- "&lt;u&gt;pgraphs&lt;/u&gt;" --&gt; KG
+    RDF -- "&lt;u&gt;n4o-import&lt;/u&gt;" --&gt; RDFConverter
+    RDFConverter -- "&lt;u&gt;load-rdf&lt;/u&gt;" --&gt; TTL
+    RDFConverter -- "&lt;u&gt;pgraphs&lt;/u&gt;" --&gt; KG
+    KG -- "&lt;u&gt;enrich&lt;/u&gt;" --&gt; KG
+    LIDOMapping --&gt; LIDOConverter
+    KG -- "&lt;u&gt;Cypher&lt;/u&gt;" --&gt; Abfrage
+    TTL -- "&lt;u&gt;SPARQL&lt;/u&gt;" --&gt; Abfrage
+    TTL -- "&lt;u&gt;convert&lt;/u&gt;" --&gt; KG
+    KG -- "&lt;u&gt;convert&lt;/u&gt;" --&gt; TTL
+    Terminologies --&gt; TerminologyConverter
+    TerminologyConverter -- "&lt;u&gt;load-rdf&lt;/u&gt;" --&gt; TTL
+    TerminologyConverter -- "&lt;u&gt;pgraphs&lt;/u&gt;" --&gt; KG
+
+</pre>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig quarto-uncaptioned" id="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;5.1
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Abbildung&nbsp;5.1: Datenfluss
 </figcaption>
 </figure>
 </div>
+</div>
+</div>
 </section>
-<section id="annahme-prüfung-und-bereinigung" class="level2">
-<h2 class="anchored" data-anchor-id="annahme-prüfung-und-bereinigung">Annahme, Prüfung und Bereinigung</h2>
-<p>Siehe <a href="https://github.com/nfdi4objects/n4o-import" class="uri">https://github.com/nfdi4objects/n4o-import</a>. Dort findet sich unter anderem das offizielle <a href="https://github.com/nfdi4objects/n4o-import/tree/main/schemas">XML-Schema für LIDO-Daten</a>.</p>
+<section id="annahme" class="level2">
+<h2 class="anchored" data-anchor-id="annahme">Annahme</h2>
+<p>Zur Datenannahme, Prüfung und Bereinigung siehe <a href="https://github.com/nfdi4objects/n4o-import" class="uri">https://github.com/nfdi4objects/n4o-import</a>.</p>
+<p>Dort findet sich unter anderem das offizielle <a href="https://github.com/nfdi4objects/n4o-import/tree/main/schemas">XML-Schema für LIDO-Daten</a>.</p>
 </section>
 <section id="konvertierung" class="level2">
 <h2 class="anchored" data-anchor-id="konvertierung">Konvertierung</h2>
+<section id="lido" class="level3">
+<h3 class="anchored" data-anchor-id="lido">LIDO</h3>
 <p>LIDO-XML-Daten werden mit Hilfe von <a href="https://github.com/isl/x3ml">X3ML</a> ins Property Graph Format konvertiert.</p>
+</section>
+<section id="rdf" class="level3">
+<h3 class="anchored" data-anchor-id="rdf">RDF</h3>
 <p>Zur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript <code>rdf2cypher.py</code> (wird derzeit überarbeitet), das eine Cypher-Datei (in Zukunkft CYPHERL und/oder PG-JSONL) ausgibt.</p>
+</section>
 </section>
 <section id="einspielung" class="level2">
 <h2 class="anchored" data-anchor-id="einspielung">Einspielung</h2>
