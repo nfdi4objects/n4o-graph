@@ -1,7 +1,9 @@
 default:
 	quarto render
 
+pgraph=npm run --silent pgraph --
+
 images: img/data-flow.mmd
 
 img/data-flow.mmd: data-flow.pg
-	npm run --silent -- pgraph $< --html -t mmd > $@
+	 $(pgraph) $< --html -t mmd > $@

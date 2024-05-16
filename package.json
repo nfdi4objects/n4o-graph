@@ -2,7 +2,7 @@
   "name": "n4o-graph",
   "type": "module",
   "scripts": {
-    "pgraph": "pgraph",
+    "pgraph": "cd $INIT_CWD; pgraph",
     "expansion": "node expansion-list.js"
   },
   "dependencies": {
