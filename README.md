@@ -11,6 +11,7 @@ Erstellung, Management und Nutzung des NFDI4Objects Knowledge Graphen von TA5.
 - Verzeichnis [manual](manual) enthält den Quelltext des Handbuchs, das
   lokal mit `make docs` oder auf GitHub nach jedem Commit auf dem `main` Branch
   gebaut und unter <https://nfdi4objects.github.io/n4o-graph/> publiziert wird.
+  [![Status](https://github.com/nfdi4objects/n4o-graph/actions/workflows/quarto-publish.yml/badge.svg)](https://nfdi4objects.github.io/n4o-graph/)
 
 - ...
 

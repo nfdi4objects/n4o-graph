@@ -1,6 +1,4 @@
-## Handbuch
-
-![Status](https://github.com/nfdi4objects/n4o-graph/actions/workflows/quarto-publish.yml/badge.svg)
+## Handbuch [![Status](https://github.com/nfdi4objects/n4o-graph/actions/workflows/quarto-publish.yml/badge.svg)](https://github.com/nfdi4objects/n4o-graph/actions/workflows/quarto-publish.yml)
 
 Das Handbuch zum Knowledge Graphen ist mit [quarto](https://quarto.org/)
 erstellt. Die Konfiguration liegt in [`_quarto.yml`](_quarto.yml) und die
