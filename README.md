@@ -3,6 +3,17 @@
 Dieses Repositoriy enthält Skripte und [Dokumentation](#handbuch) zur
 Erstellung, Management und Nutzung des NFDI4Objects Knowledge Graphen von TA5.
 
+## Übersicht
+
+- Verzeichnis [voc](voc) enthält Informationen zu unterstützen Ontologien und
+  Normdateien.
+
+- Verzeichnis [manual](manual) enthält den Quelltext des Handbuchs, das
+  lokal mit `make docs` oder auf GitHub nach jedem Commit auf dem `main` Branch
+  gebaut und unter <https://nfdi4objects.github.io/n4o-graph/> publiziert wird.
+
+- ...
+
 ## Installation
 
 Benötigt werden eine Standard-Unix-Tools sowie Docker, Python3 und Node >= v18.
@@ -25,16 +36,7 @@ npm install pgraphs
 npm install mermaid-cli
 ~~~
 
-## Handbuch
+## Lizenz
 
-Das Verzeichnis [`manual`](manual) enthält den Quelltext des Handbuchs für den
-NFDI4Objects Knowledge Graphen (Quarto Markdown-Dateien mit der Endung `.qmd`).
-Das Handbuch ist mit [quarto](https://quarto.org/) erstellt und enthält
-Code-Beispiele in Cypher, SPARQL und Python.
-
-Die HTML-Version des Handbuch kann mit `quarto render` im Ordern `manual` (bzw.
-`make docs` im Wurzelverzeichnis) aktualisiert werden. Das aktualisierte
-Handbuch wird ins Verzeichnis [`docs`](docs) geschrieben und von dort unter
-Anderem unter <https://nfdi4objects.github.io/n4o-graph/>
-veröffentlicht.
-
+Alle Inhalte und Beiträge in diesem Repository können als *Public Domain* frei
+verwendet werden ([CC Zero](https://creativecommons.org/publicdomain/zero/1.0/)).

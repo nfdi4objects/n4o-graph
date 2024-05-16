@@ -1,7 +1,8 @@
 project:
   type: book
   output-dir: ../docs
-
+  render:
+    - "!*.md"
 
 book:
   title: "NFDI4Objects Knowledge Graph (TA5)"

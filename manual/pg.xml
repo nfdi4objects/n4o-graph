@@ -1,43 +1,173 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE language SYSTEM "language.dtd">
-<language name="pg" alternativeNames="PG format" kateversion="5.0" section="Scripts" extensions="*.pg" casesensitive="1" author="Jakob Voß" license="CC0">
+<!DOCTYPE language
+[
+  <!ENTITY space "[ \t]">
+  <!ENTITY nonSpace "[^ \t]">
+  <!ENTITY ignoredLine "^&space;*(?:#.*)?$">
+  <!ENTITY reserved "\x00-\x20&lt;&gt;&quot;{}\\^`|">
+  <!ENTITY unquotedStart "[^&reserved;#:',]">
+  <!ENTITY unquoted "&unquotedStart;[^&reserved;]*">
+  <!ENTITY idStart "&unquotedStart;|&quot;|&apos;">
+  <!ENTITY escapeSequence "\\(?:[&quot;'\\/bfnrt]|u[0-9a-fA-f]{4})">
+  <!-- This does not cover control codes, including line breaks: -->
+  <!ENTITY singleQuotedString "&apos;(?:[^&apos;\\]*(?:&escapeSequence;)?)*&apos;">
+  <!ENTITY doubleQuotedString "&quot;(?:[^&quot;\\]*(?:&escapeSequence;)?)*&quot;">
+]>
+<language name="pg" kateversion="5.0" section="Scripts" extensions="*.pg" casesensitive="1" author="Jakob Voß" license="CC0" version="0">
   <highlighting>
+    <list name="Boolean">
+      <item>true</item>
+      <item>false</item>
+    </list>
+
     <contexts>
-      <context attribute="Normal Text" lineEndContext="#pop" name="Normal Text" >
-        <RegExpr attribute="DirectionStyle" contex="#stay" String="--" />
-        <RegExpr attribute="DirectionStyle" contex="#stay" String="-&gt;" />
-        <DetectChar char="&quot;" context="DoubleQuotedString" attribute="StringStyle" />
-        <DetectChar char="&apos;" context="SingleQuotedString" attribute="StringStyle" />
-        <RegExpr String="#.*" context="#stay" attribute="CommentStyle" />
-        <RegExpr attribute="Identifier" contex="#stay" String="[^{}&lt;&gt;\\\s&quot;`|^][^{}&lt;&gt;\\\s&quot;`|^]*" />
+      <context name="Start" lineEndContext="#stay" attribute="Error">
+        <RegExpr String="&ignoredLine;" attribute="Comment" column="0"/>
+        <RegExpr String="^&nonSpace;" column="0" lookAhead="true" context="Statement"/>
+        <RegExpr String=".+" attribute="Error"/> <!-- continuation line not allowed here -->
       </context>
-      <context name="DoubleQuotedString" lineEndContext="#stay" attribute="StringStyle">
-        <DetectChar char="&quot;"  context="#pop" attribute="StringStyle" />
-        <DetectChar char="\"       context="StringEscape" lookAhead="1" />
-      </context>      
-      <context name="SingleQuotedString" lineEndContext="#stay" attribute="StringStyle">
-        <DetectChar char="&apos;"  context="#pop" attribute="StringStyle" />
-        <DetectChar char="\"       context="StringEscape" lookAhead="1" />
-      </context>      
-      <context name="StringEscape" lineEndContext="#stay" attribute="Style_Normal">
-        <RegExpr String="\\(?:[&quot;&apos;\\/bfnrt]|u[0-9a-fA-f]{4})" context="#pop"  attribute="EscapeSequenceStyle" />
-        <RegExpr String="\\(u[0-9a-fA-f]+|.)?" context="#pop" attribute="SyntaxErrorStyle" />
+
+      <context name="Statement" lineEndContext="#stay" fallthroughContext="Error" fallthrough="true" attribute="Error">
+        <RegExpr String="&idStart;" context="StatementStart" lookAhead="true" />
       </context>
+
+      <context name="StatementStart" lineEndContext="StartLine" fallthroughContext="Elements" fallthrough="true">
+        <!--RegExpr String="&idStart;" context="Identifier" /-->
+        <RegExpr String="&idStart;" context="Identifier" lookAhead="true" />
+      </context>
+
+      <context name="Error">
+        <RegExpr String="." attribute="Error" context="#pop" />
+      </context>
+
+      <context name="Elements" lineEndContext="StartLine" fallthroughContext="Error" fallthrough="true">
+
+        <Detect2Chars char="-" char1="-" attribute="Direction" context="Identifier" />
+        <Detect2Chars char="-" char1="&gt;" attribute="Direction" context="Identifier" />
+
+        <RegExpr String="&idStart;" context="Identifier" lookAhead="true" />
+
+        <RegExpr String="&space;*#.*" attribute="Comment" context="StartLine" />
+
+        <!-- Labels -->
+        <RegExpr String="&space;+:&space;*(?:&unquoted;|&quot;|&apos;)" context="Labels" lookAhead="true" />
+
+        <RegExpr String="&space;+" attribute="Space" context="#stay" />
+
+        <DetectChar char="," attribute="Comma" context="PropertyValue" />
+        <DetectChar char=":" attribute="Colon" context="PropertyValue" />
+      </context>
+
+      <!-- TODO: lineEndContext back to label -->
+      <context name="Labels" attribute="Label" lineEndContext="StartLine" fallthroughContext="Properties" fallthrough="true">
+        <RegExpr String="&space;+:&space;*&unquoted;" attribute="Label" />
+        <RegExpr String="&space;+:&space;*&quot;" attribute="Label" context="DoubleQuotedLabel" />
+        <RegExpr String="&space;+:&space;*&apos;" attribute="Label" context="SingleQuotedLabel" />
+        <RegExpr String="&space;*#.*" attribute="Comment" context="StartLine" />
+        <RegExpr String="&space;+" attribute="Space" />
+      </context>
+
+      <!-- TODO: fallthough to Error instead? -->
+      <context name="Properties" attribute="Property" lineEndContext="StartLine" fallthroughContext="Error" fallthrough="true">
+        <RegExpr String="([^&reserved;:]*:)+" attribute="PropertyKey" context="PropertyValue" />
+        <RegExpr String="&doubleQuotedString;:" attribute="PropertyKey" context="PropertyValue" />
+        <RegExpr String="&singleQuotedString;:" attribute="PropertyKey" context="PropertyValue" />
+        <RegExpr String="&space;*#.*" attribute="Comment" />
+        <RegExpr String="&space;+" attribute="Space" />
+        <DetectChar char="," attribute="Comma" context="PropertyValue" />
+      </context>
+
+      <context name="StartLine" lineEndContext="#stay" fallthroughContext="Error" fallthrough="true">
+        <RegExpr String="&ignoredLine;" attribute="Comment" column="0"/>
+        <!-- continuation line -->
+        <RegExpr String="&space;+" attribute="Space" context="#pop" lookAhead="true"/>
+        <!-- start of the first statement -->
+        <RegExpr String="^&nonSpace;" column="0" lookAhead="true" context="#pop!Statement"/>
+      </context>
+
+      <context name="Identifier" fallthroughContext="Elements" fallthrough="true">
+        <DetectChar char="&quot;" context="DoubleQuotedIdentifier" attribute="Identifier" />
+        <DetectChar char="&apos;" context="SingleQuotedIdentifier" attribute="Identifier" />
+        <RegExpr String="&unquoted;" attribute="Identifier" context="#stay" />
+      </context>
+
+      <context name="DoubleQuotedLabel" lineEndContext="#stay" attribute="Label" noIndentationBasedFolding="1">
+        <DetectChar char="&quot;"  context="#pop" attribute="Label" />
+        <DetectChar char="\"       context="StringEscape" lookAhead="1" />
+      </context>
+      <context name="SingleQuotedLabel" lineEndContext="#stay" attribute="Label" noIndentationBasedFolding="1">
+        <DetectChar char="&apos;"  context="#pop" attribute="Label" />
+        <DetectChar char="\"       context="StringEscape" lookAhead="1" />
+      </context>    
+
+      <context name="DoubleQuotedValue" lineEndContext="#stay" attribute="Value" noIndentationBasedFolding="1">
+        <DetectChar char="&quot;"  context="#pop#pop" attribute="Value" />
+        <DetectChar char="\"       context="StringEscape" lookAhead="1" />
+      </context>
+      <context name="SingleQuotedValue" lineEndContext="#stay" attribute="Value" noIndentationBasedFolding="1">
+        <DetectChar char="&apos;"  context="#pop#pop" attribute="Value" />
+        <DetectChar char="\"       context="StringEscape" lookAhead="1" />
+      </context>    
+
+      <context name="DoubleQuotedIdentifier" lineEndContext="#stay" attribute="Identifier" noIndentationBasedFolding="1">
+        <DetectChar char="&quot;"  context="#pop" attribute="Identifier" />
+        <DetectChar char="\"       context="StringEscape" lookAhead="1" />
+      </context>
+      <context name="SingleQuotedIdentifier" lineEndContext="#stay" attribute="Identifier" noIndentationBasedFolding="1">
+        <DetectChar char="&apos;"  context="#pop" attribute="Identifier" />
+        <DetectChar char="\"       context="StringEscape" lookAhead="1" />
+      </context>  
+      <context name="StringEscape" lineEndContext="#stay">
+        <RegExpr String="&escapeSequence;" context="#pop" attribute="EscapeSequence" />
+        <RegExpr String="\\(u[0-9a-fA-f]+|.)?" context="#pop" attribute="Error" />
+      </context>
+
+      <context name="OptionalDelimitingSpace" lineEndContext="#stay">
+        <RegExpr String="#.*$" attribute="Comment" />
+        <RegExpr String="&ignoredLine;" attribute="Comment" column="0"/>
+        <RegExpr String="^&nonSpace;" column="0" lookAhead="true" context="Error"/>
+        <RegExpr String="&space;+" attribute="Space" />
+      </context>
+
+      <context name="PropertyValue" lineEndContext="#stay" attribute="Error">
+        <IncludeRules context="OptionalDelimitingSpace" />
+
+        <RegExpr String="&quot;" attribute="Value" context="DoubleQuotedValue" />
+        <RegExpr String="&apos;" attribute="Value" context="SingleQuotedValue" />
+
+        <keyword String="Boolean" context="#pop" attribute="Boolean" />
+        <RegExpr String="-?\b([1-9][0-9]*\.[0-9]+(?:[eE][+-]?[0-9]+)?)" context="#pop" attribute="Number" />
+        <RegExpr String="-?\b(0\b|[1-9][0-9]*(?:[eE][+-]?[0-9]+)?)" context="#pop" attribute="Number" />
+
+        <RegExpr attribute="UnquotedValue" attribute="Value" context="#pop" String="&unquotedStart;[^&reserved;,]*" />
+      </context>
+
     </contexts>
     <itemDatas>
-      <itemData name="Normal Text" defStyleNum="dsError" />
-      <itemData name="Identifier" defStyleNum="dsVerbatimString" />
-      <itemData name="DirectionStyle" defStyleNum="dsOperator" bold="true" />
-      <itemData name="StringStyle"   defStyleNum="dsString" />
-      <itemData name="CommentStyle"   defStyleNum="dsComment" />
-      <itemData name="EscapeSequenceStyle"  defStyleNum="dsSpecialChar" />
-      <itemData name="SyntaxErrorStyle"     defStyleNum="dsError" />
+      <itemData name="Error"            defStyleNum="dsError" />
+      <itemData name="Space"            defStyleNum="dsNormal" />
+      <itemData name="Identifier"       defStyleNum="dsString" />
+      <itemData name="Label"            defStyleNum="dsAttribute" />
+      <itemData name="PropertyKey"      defStyleNum="dsFunction" />
+      <itemData name="Direction"        defStyleNum="dsOperator" />
+      <itemData name="Comma"            defStyleNum="dsOperator" />
+      <itemData name="Value"            defStyleNum="dsSpecialString" />
+      <itemData name="UnquotedValue"    defStyleNum="dsString" />
+      <itemData name="EscapeSequence"   defStyleNum="dsSpecialChar" />
+      <itemData name="Number"           defStyleNum="dsDecVal" />
+      <itemData name="Boolean"          defStyleNum="dsKeyword" />
+      <itemData name="Comment"          defStyleNum="dsComment" />
     </itemDatas>
   </highlighting>
   <general>
     <comments>
-      <comment name="singleLine" start="#"/>
+      <comment name="singleLine" start="#" position="afterwhitespace"/>
     </comments>
-    <keywords casesensitive="1"/>
+    <emptyLines>
+      <emptyLine regexpr="\s+"/>
+      <emptyLine regexpr="\s*#.*"/>
+    </emptyLines>
+    <keywords casesensitive="true"/>
+    <folding indentationsensitive="true"/>
   </general>
 </language>
