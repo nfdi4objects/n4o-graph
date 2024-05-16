@@ -3,11 +3,19 @@ title: Systemarchitektur
 lang: de
 ---
 
-## Übersicht
+## Technik
+
+- Webserver (nginx)
+- Property-Graph Datenbanksystem (Neo4J)
+- Triple-Store (Fuseki)
+- Skripte in Python und NodeJS
+- Docker
+
+## Workflow
 
 Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus folgenden Schritten:
 
-1. **Annahme**, **Prüfung** und **Bereinigung**
+1. **[Annahme]**, **Prüfung** und **Bereinigung**
 
 2. **[Konvertierung](#konvertierung)**
 
@@ -23,16 +31,26 @@ Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhalte
 
 Etwas genauer lässt sich der Prozess etwa wie in @fig-data-flow dargestellt veranschaulichen.
 
-![](img/data-flow.svg){#fig-data-flow}
+```{mermaid}
+%%| label: fig-data-flow
+%%| fig-cap: Datenfluss
+{{< include img/data-flow.mmd >}}
+```
 
-## Annahme, Prüfung und Bereinigung
+## Annahme
 
-Siehe  <https://github.com/nfdi4objects/n4o-import>. Dort findet sich unter anderem das offizielle [XML-Schema für LIDO-Daten](https://github.com/nfdi4objects/n4o-import/tree/main/schemas).
+Zur Datenannahme, Prüfung und Bereinigung siehe  <https://github.com/nfdi4objects/n4o-import>.
+
+Dort findet sich unter anderem das offizielle [XML-Schema für LIDO-Daten](https://github.com/nfdi4objects/n4o-import/tree/main/schemas).
 
 ## Konvertierung
 
+### LIDO
+
 LIDO-XML-Daten werden mit Hilfe von [X3ML](https://github.com/isl/x3ml)
 ins Property Graph Format konvertiert. 
+
+### RDF
 
 Zur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript
 `rdf2cypher.py` (wird derzeit überarbeitet), das eine Cypher-Datei (in Zukunkft

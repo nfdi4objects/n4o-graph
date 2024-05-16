@@ -13,9 +13,6 @@ manual/img/crm-pg-example.svg: manual/crm-pg-example.pg
 manual/img/crm-properties.svg: voc/crm-properties.pg
 	pgraph $< --html -t mmd | mmdc -i - -o $@
 
-manual/img/data-flow.svg: data-flow.pg
-	pgraph $< --html -t mmd | mmdc -i - -o $@
-
 manual/img/crm-classes.svg: voc/crm-classes.pg
 	pgraph $< --html -t mmd | mmdc -i - -o $@
 

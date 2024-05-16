@@ -2,6 +2,7 @@
   "name": "n4o-graph",
   "type": "module",
   "scripts": {
+    "pgraph": "pgraph",
     "expansion": "node expansion-list.js"
   },
   "dependencies": {

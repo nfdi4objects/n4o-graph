@@ -1,6 +1,8 @@
 project:
   type: book
   output-dir: ../docs
+  pre-render:
+    - make images
   render:
     - "!*.md"
 
