@@ -1,0 +1,125 @@
+# Sources: https://cidoc-crm.org/extensions/crmarchaeo/html/CRMarchaeo_v2.0.html and https://cidoc-crm.org/extensions/crmsci/html/CRMsci_v2.0.html and https://cidoc-crm.org/extensions/lrmoo/html/LRMoo_v0.9.6.html
+
+# CRM extension classes
+"S1 Matter Removal"
+"S2 Sample Taking"
+"S3 Measurement by Sampling"
+"S4 Observation"
+"S5 Inference Making"
+"S6 Data Evaluation"
+"S7 Simulation or Prediction"
+"S8 Categorical Hypothesis Building"
+"S9 Property Type"
+"S10 Material Substantial"
+"S11 Amount of Matter"
+"S12 Amount of Fluid"
+"S13 Sample"
+"S14 Fluid Body"
+"S15 Observable Entity"
+"S17 Physical Genesis"
+"S18 Alteration"
+"S19 Encounter Event"
+"S20 Rigid Physical Feature"
+"S21 Measurement"
+"S22 Segment of Matter"
+"S23 Position Determination"
+"S24 Sample Splitting"
+"A1 Excavation Processing Unit"
+"A2 Stratigraphic Volume Unit"
+"A3 Stratigraphic Interface"
+"A4 Stratigraphic Genesis"
+"A5 Stratigraphic Modification"
+"A6 Group Declaration Event"
+"A7 Embedding"
+"A8 Stratigraphic Unit"
+"A9 Archaeological Excavation"
+"A10 Excavation Interface"
+"F1 Work"
+"F2 Expression"
+"F3 Manifestation"
+"F5 Item"
+"F11 Corporate Body"
+"F12 Nomen"
+"F18 Serial Work"
+"F27 Work Creation"
+"F28 Expression Creation"
+"F30 Manifestation Creation"
+"F31 Performance"
+"F32 Item Production Event"
+"F33 Reproduction Event"
+"F36 Script Conversion"
+"F39 Family"
+"F55 Collective Agent"
+
+# CRMsci class hierarchy
+"E80 Part Removal" -> "S1 Matter Removal" :superClass
+"S2 Sample Taking" -> "S1 Matter Removal" :superClass
+"S3 Measurement by Sampling" -> "S2 Sample Taking" :superClass
+"S24 Sample Splitting" -> "S2 Sample Taking" :superClass
+"S19 Encounter Event" -> "S4 Observation" :superClass
+"S21 Measurement" -> "S4 Observation" :superClass
+"S23 Position Determination" -> "S4 Observation" :superClass
+"S6 Data Evaluation" -> "S5 Inference Making" :superClass
+"S7 Simulation or Prediction" -> "S5 Inference Making" :superClass
+"S8 Categorical Hypothesis Building" -> "S5 Inference Making" :superClass
+"S11 Amount of Matter" -> "S10 Material Substantial" :superClass
+"S14 Fluid Body" -> "S10 Material Substantial" :superClass
+"E18 Physical Thing" -> "S10 Material Substantial" :superClass
+"S12 Amount of Fluid" -> "S11 Amount of Matter" :superClass
+"S13 Sample" -> "S11 Amount of Matter" :superClass
+"S12 Amount of Fluid" -> "S14 Fluid Body" :superClass
+"S10 Material Substantial" -> "S15 Observable Entity" :superClass
+"E5 Event" -> "S15 Observable Entity" :superClass
+"E12 Production" -> "S17 Physical Genesis" :superClass
+"E11 Modification" -> "S18 Alteration" :superClass
+"S17 Physical Genesis" -> "S18 Alteration" :superClass
+"S22 Segment of Matter" -> "S20 Rigid Physical Feature" :superClass
+"E27 Site" -> "S20 Rigid Physical Feature" :superClass
+"S3 Measurement by Sampling" -> "S21 Measurement" :superClass
+"E16 Measurement" -> "S21 Measurement" :superClass
+"S1 Matter Removal" -> "E7 Activity" :superClass
+"S4 Observation" -> "E13 Attribute Assignment" :superClass
+"S5 Inference Making" -> "E13 Attribute Assignment" :superClass
+"S9 Property Type" -> "E55 Type" :superClass
+"S10 Material Substantial" -> "E70 Thing" :superClass
+"S15 Observable Entity" -> "E1 CRM Entity" :superClass
+"S17 Physical Genesis" -> "E63 Beginning of Existence" :superClass
+"S18 Alteration" -> "E5 Event" :superClass
+"S20 Rigid Physical Feature" -> "E26 Physical Feature" :superClass
+"S20 Rigid Physical Feature" -> "E53 Place" :superClass
+
+# CRMarchaeo class hierarchy
+"A2 Stratigraphic Volume Unit" -> "A8 Stratigraphic Unit" :superClass
+"A3 Stratigraphic Interface" -> "A8 Stratigraphic Unit" :superClass
+"A1 Excavation Processing Unit" -> "S1 Matter Removal" :superClass
+"A1 Excavation Processing Unit" -> "S4 Observation" :superClass
+"A1 Excavation Processing Unit" -> "E12 Production" :superClass
+"A1 Excavation Processing Unit" -> "E64 End of Existence" :superClass
+"A4 Stratigraphic Genesis" -> "S17 Physical Genesis" :superClass
+"A5 Stratigraphic Modification" -> "S18 Alteration" :superClass
+"A6 Group Declaration Event" -> "E13 Attribute Assignment" :superClass
+"A8 Stratigraphic Unit" -> "S20 Rigid Physical Feature" :superClass
+"A9 Archaeological Excavation" -> "S4 Observation" :superClass
+"A10 Excavation Interface" -> "S20 Rigid Physical Feature" :superClass
+"A10 Excavation Interface" -> "E25 Human Made Feature" :superClass
+
+# LRMoo class hierarchy
+"F18 Serial Work" -> "F1 Work" :superClass
+"F33 Reproduction Event" -> "F30 Manifestation Creation" :superClass
+"F11 Corporate Body" -> "F55 Collective Agent" :superClass
+"F39 Family" -> "F55 Collective Agent" :superClass
+"F1 Work" -> "E89 Propositional Object" :superClass
+"F2 Expression" -> "E73 Information Object" :superClass
+"F3 Manifestation" -> "E73 Information Object" :superClass
+"F5 Item" -> "E24 Physical Human Made Thing" :superClass
+"F12 Nomen" -> "E89 Propositional Object" :superClass
+"F27 Work Creation" -> "E65 Creation" :superClass
+"F28 Expression Creation" -> "E12 Production" :superClass
+"F28 Expression Creation" -> "E65 Creation" :superClass
+"F30 Manifestation Creation" -> "E12 Production" :superClass
+"F30 Manifestation Creation" -> "E65 Creation" :superClass
+"F31 Performance" -> "E7 Activity" :superClass
+"F32 Item Production Event" -> "E12 Production" :superClass
+"F33 Reproduction Event" -> "E12 Production" :superClass
+"F36 Script Conversion" -> "E29 Design or Procedure" :superClass
+"F55 Collective Agent" -> "E74 Group" :superClass
