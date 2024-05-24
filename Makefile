@@ -2,12 +2,12 @@
 
 default: images crm-expand.txt
 
-images: manual/img/crm-extensions-and-classes.svg manual/img/crm-extension-classes.svg manual/img/data-flow.svg manual/img/crm-classes.svg manual/img/nomisma-classes.svg manual/img/n4o-classes.svg manual/img/n4o-all-classes.svg manual/img/crm-pg-example.svg manual/img/crm-properties.svg
+images: manual/img/crm-all-classes.svg manual/img/crm-extension-classes.svg manual/img/data-flow.svg manual/img/crm-classes.svg manual/img/nomisma-classes.svg manual/img/n4o-classes.svg manual/img/n4o-all-classes.svg manual/img/crm-pg-example.svg manual/img/crm-properties.svg
 
 docs:
 	quarto render manual
 
-manual/img/crm-extensions-and-classes.svg: voc/crm-extensions-and-classes.pg
+manual/img/crm-all-classes.svg: voc/crm-all-classes.pg
 	pgraph $< --html -t mmd | mmdc -i - -o $@
 
 manual/img/crm-extensions+classes.svg: voc/crm-extension-classes.pg
