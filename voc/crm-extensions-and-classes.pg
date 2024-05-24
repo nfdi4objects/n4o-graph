@@ -1,0 +1,341 @@
+# Sources: https://www.cidoc-crm.org/releases_table and https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html
+
+# CRM classes and former names (alias)
+E1_CRM_Entity since:"4.0" 
+E2_Temporal_Entity since:"4.0" 
+E3_Condition_State since:"4.0" 
+E4_Period since:"4.0" 
+E5_Event since:"4.0" 
+E6_Destruction since:"4.0" 
+E7_Activity since:"4.0"
+E8_Acquisition since:"4.0" alias:E8_Acquisition_Event
+E9_Move since:"4.0"
+E10_Transfer_of_Custody since:"4.0"
+E11_Modification since:"4.0" alias:E11_Modification_Event
+E12_Production since:"4.0" alias:E12_Production_Event
+E13_Attribute_Assignment since:"4.0"
+E14_Condition_Assessment since:"4.0"
+E15_Identifier_Assignment since:"4.0"
+E16_Measurement since:"4.0" alias:E16_Measurement_Event
+E17_Type_Assignment since:"4.0"
+E18_Physical_Thing since:"4.0" alias:E18_Physical_Stuff
+E19_Physical_Object since:"4.0"
+E20_Biological_Object since:"4.0"
+E21_Person since:"4.0"
+E22_Human_Made_Object since:"4.0" alias:E22_Man_Made_Object
+E24_Physical_Human_Made_Thing since:"4.0" alias:E24_Physical_Man_Made_Thing
+E25_Human_Made_Feature since:"4.0" alias:E25_Man_Made_Feature
+E26_Physical_Feature since:"4.0"
+E27_Site since:"4.0"
+E28_Conceptual_Object since:"4.0"
+E29_Design_or_Procedure since:"4.0"
+E30_Right since:"4.0"
+E31_Document since:"4.0"
+E32_Authority_Document since:"4.0"
+E33_Linguistic_Object since:"4.0"
+E34_Inscription since:"4.0"
+E35_Title since:"4.0"
+E36_Visual_Item since:"4.0"
+E37_Mark since:"4.0"
+E39_Actor since:"4.0"
+E40_Legal_Body since:"4.0"
+E41_Appellation since:"4.0"
+E42_Identifier since:"4.0"
+E44_Place_Appellation since:"4.0"
+E45_Address since:"4.0"
+E46_Section_Definition since:"4.0"
+E47_Spatial_Coordinates since:"4.0"
+E48_Place_Name since:"4.0"
+E49_Time_Appellation since:"4.0"
+E50_Date since:"4.0"
+E51_Contact_Point since:"4.0"
+E52_Time_Span since:"4.0"
+E53_Place since:"4.0"
+E54_Dimension since:"4.0"
+E55_Type since:"4.0"
+E56_Language since:"4.0"
+E57_Material since:"4.0"
+E58_Measurement_Unit since:"4.0"
+E59_Primitive_Value since:"4.0"
+E60_Number since:"4.0"
+E61_Time_Primitive since:"4.0"
+E62_String since:"4.0"
+E63_Beginning_of_Existence since:"4.0"
+E64_End_of_Existence since:"4.0"
+E65_Creation since:"4.0"
+E66_Formation since:"4.0"
+E67_Birth since:"4.0"
+E68_Dissolution since:"4.0"
+E69_Death since:"4.0"
+E70_Thing since:"4.0"
+E71_Human_Made_Thing since:"4.0"
+E72_Legal_Object since:"4.0"
+E73_Information_Object since:"4.0"
+E74_Group since:"4.0"
+E75_Conceptual_Object_Appellation since:"4.0"
+E77_Persistent_Item since:"4.0"
+E78_Curated_Holding since:"4.0"
+E79_Part_Addition since:"4.0"
+E80_Part_Removal since:"4.0"
+E81_Transformation since:"4.0"
+E82_Actor_Appellation since:"4.0"
+E83_Type_Creation since:"4.0"
+E84_Information_Carrier since:"4.0"
+E85_Joining since:"4.2.4"
+E86_Leaving since:"4.2.4"
+E87_Curation_Activity since:"4.2.4"
+E89_Propositional_Object since:"4.2.5"
+E90_Symbolic_Object since:"4.2.5"
+E91_Co_Reference_Assignment since:"5.1.2"
+E92_Spacetime_Volume since:"5.1.2"
+E93_Presence since:"5.1.2"
+E94_Space_Primitive since:"6.2"
+E95_Spacetime_Primitive since:"6.2.2"
+E96_Purchase since:"6.2.2"
+E97_Monetary_Amount since:"6.2.2"
+E98_Currency since:"6.2.2"
+E99_Product_Type since:"6.2.2"
+
+# CRM class hierarchy
+E2_Temporal_Entity -> E1_CRM_Entity :superClass since:"4.0"
+E52_Time_Span -> E1_CRM_Entity :superClass since:"4.0"
+E53_Place -> E1_CRM_Entity :superClass since:"4.0"
+E54_Dimension -> E1_CRM_Entity :superClass since:"4.0"
+E59_Primitive_Value -> E1_CRM_Entity :superClass since:"6.2.9"
+E77_Persistent_Item -> E1_CRM_Entity :superClass since:"4.0"
+E92_Spacetime_Volume -> E1_CRM_Entity :superClass since:"5.1.2"
+E3_Condition_State -> E2_Temporal_Entity :superClass since:"4.0"
+E4_Period -> E2_Temporal_Entity :superClass since:"4.0"
+E5_Event -> E4_Period :superClass since:"4.0"
+E7_Activity -> E5_Event :superClass since:"4.0"
+E63_Beginning_of_Existence -> E5_Event :superClass since:"4.0"
+E64_End_of_Existence -> E5_Event :superClass since:"4.0"
+E8_Acquisition -> E7_Activity :superClass since:"4.0"
+E9_Move -> E7_Activity :superClass since:"4.0"
+E10_Transfer_of_Custody -> E7_Activity :superClass since:"4.0"
+E11_Modification -> E7_Activity :superClass since:"4.0"
+E13_Attribute_Assignment -> E7_Activity :superClass since:"4.0"
+E65_Creation -> E7_Activity :superClass since:"4.0"
+E66_Formation -> E7_Activity :superClass since:"4.0"
+E85_Joining -> E7_Activity :superClass since:"4.2.4"
+E86_Leaving -> E7_Activity :superClass since:"4.2.4"
+E87_Curation_Activity -> E7_Activity :superClass since:"4.2.4"
+E96_Purchase -> E8_Acquisition :superClass since:"6.2.2"
+E12_Production -> E11_Modification :superClass since:"4.0"
+E79_Part_Addition -> E11_Modification :superClass since:"4.0"
+E80_Part_Removal -> E11_Modification :superClass since:"4.0"
+E14_Condition_Assessment -> E13_Attribute_Assignment :superClass since:"4.0"
+E15_Identifier_Assignment -> E13_Attribute_Assignment :superClass since:"4.0"
+E16_Measurement -> E13_Attribute_Assignment :superClass since:"4.0"
+E17_Type_Assignment -> E13_Attribute_Assignment :superClass since:"4.0"
+E19_Physical_Object -> E18_Physical_Thing :superClass since:"4.0"
+E24_Physical_Human_Made_Thing -> E18_Physical_Thing :superClass since:"4.0"
+E26_Physical_Feature -> E18_Physical_Thing :superClass since:"4.0"
+E20_Biological_Object -> E19_Physical_Object :superClass since:"4.0"
+E22_Human_Made_Object -> E19_Physical_Object :superClass since:"4.0"
+E21_Person -> E20_Biological_Object :superClass since:"4.0"
+E22_Human_Made_Object -> E24_Physical_Human_Made_Thing :superClass since:"4.0"
+E25_Human_Made_Feature -> E24_Physical_Human_Made_Thing :superClass since:"4.0"
+E78_Curated_Holding -> E24_Physical_Human_Made_Thing :superClass since:"4.0"
+E25_Human_Made_Feature -> E26_Physical_Feature :superClass since:"4.0"
+E27_Site -> E26_Physical_Feature :superClass since:"4.0"
+E55_Type -> E28_Conceptual_Object :superClass since:"4.0"
+E89_Propositional_Object -> E28_Conceptual_Object :superClass since:"4.2.5"
+E90_Symbolic_Object -> E28_Conceptual_Object :superClass since:"4.2.5"
+E32_Authority_Document -> E31_Document :superClass since:"4.0"
+E34_Inscription -> E33_Linguistic_Object :superClass since:"4.0"
+E35_Title -> E33_Linguistic_Object :superClass since:"4.0"
+E37_Mark -> E36_Visual_Item :superClass since:"4.0"
+E34_Inscription -> E37_Mark :superClass since:"4.0"
+E21_Person -> E39_Actor :superClass since:"4.0"
+E74_Group -> E39_Actor :superClass since:"4.0"
+E35_Title -> E41_Appellation :superClass since:"4.0"
+E42_Identifier -> E41_Appellation :superClass since:"4.0"
+E61_Time_Primitive -> E41_Appellation :superClass since:"6.2.9"
+E94_Space_Primitive -> E41_Appellation :superClass since:"6.2.9"
+E95_Spacetime_Primitive -> E41_Appellation :superClass since:"6.2.9"
+E97_Monetary_Amount -> E54_Dimension :superClass since:"6.2.2"
+E56_Language -> E55_Type :superClass since:"4.0"
+E57_Material -> E55_Type :superClass since:"4.0"
+E58_Measurement_Unit -> E55_Type :superClass since:"4.0"
+E99_Product_Type -> E55_Type :superClass since:"6.2.2"
+E98_Currency -> E58_Measurement_Unit :superClass since:"6.2.4"
+E60_Number -> E59_Primitive_Value :superClass since:"4.0"
+E61_Time_Primitive -> E59_Primitive_Value :superClass since:"4.0"
+E62_String -> E59_Primitive_Value :superClass since:"4.0"
+E94_Space_Primitive -> E59_Primitive_Value :superClass since:"6.2"
+E95_Spacetime_Primitive -> E59_Primitive_Value :superClass since:"6.2.2"
+E12_Production -> E63_Beginning_of_Existence :superClass since:"4.0"
+E65_Creation -> E63_Beginning_of_Existence :superClass since:"4.0"
+E66_Formation -> E63_Beginning_of_Existence :superClass since:"4.0"
+E67_Birth -> E63_Beginning_of_Existence :superClass since:"4.0"
+E81_Transformation -> E63_Beginning_of_Existence :superClass since:"4.0"
+E6_Destruction -> E64_End_of_Existence :superClass since:"4.0"
+E68_Dissolution -> E64_End_of_Existence :superClass since:"4.0"
+E69_Death -> E64_End_of_Existence :superClass since:"4.0"
+E81_Transformation -> E64_End_of_Existence :superClass since:"4.0"
+E83_Type_Creation -> E65_Creation :superClass since:"4.0"
+E71_Human_Made_Thing -> E70_Thing :superClass since:"4.0"
+E72_Legal_Object -> E70_Thing :superClass since:"4.0"
+E24_Physical_Human_Made_Thing -> E71_Human_Made_Thing :superClass since:"4.0"
+E28_Conceptual_Object -> E71_Human_Made_Thing :superClass since:"4.0"
+E18_Physical_Thing -> E72_Legal_Object :superClass since:"4.0"
+E90_Symbolic_Object -> E72_Legal_Object :superClass since:"4.2.5"
+E29_Design_or_Procedure -> E73_Information_Object :superClass since:"4.0"
+E31_Document -> E73_Information_Object :superClass since:"4.0"
+E33_Linguistic_Object -> E73_Information_Object :superClass since:"4.0"
+E36_Visual_Item -> E73_Information_Object :superClass since:"4.0"
+E39_Actor -> E77_Persistent_Item :superClass since:"4.0"
+E70_Thing -> E77_Persistent_Item :superClass since:"4.0"
+E30_Right -> E89_Propositional_Object :superClass since:"4.2.5"
+E73_Information_Object -> E89_Propositional_Object :superClass since:"4.2.5"
+E41_Appellation -> E90_Symbolic_Object :superClass since:"4.2.5"
+E73_Information_Object -> E90_Symbolic_Object :superClass since:"4.2.5"
+E4_Period -> E92_Spacetime_Volume :superClass since:"6.2"
+E93_Presence -> E92_Spacetime_Volume :superClass since:"5.1.2"
+
+# Links from deprecated classes
+
+E40_Legal_Body -> E74_Group :replacedBy since:"6.2.8"
+E44_Place_Appellation -> E41_Appellation :replacedBy since:"6.2.8"
+E45_Address -> E41_Appellation :replacedBy since:"6.2.8"
+E46_Section_Definition -> E41_Appellation :replacedBy since:"6.2.8"
+E47_Spatial_Coordinates -> E41_Appellation :replacedBy since:"6.2.8"
+E48_Place_Name -> E41_Appellation :replacedBy since:"6.2.8"
+E49_Time_Appellation -> E41_Appellation :replacedBy since:"6.2.8"
+E50_Date -> E41_Appellation :replacedBy since:"6.2.8"
+E51_Contact_Point -> E41_Appellation :replacedBy since:"6.2.8"
+E75_Conceptual_Object_Appellation -> E41_Appellation :replacedBy since:"6.2.8"
+E82_Actor_Appellation -> E41_Appellation :replacedBy since:"6.2.8"
+E84_Information_Carrier -> E22_Human_Made_Object :replacedBy since:"6.2.8"
+
+# E91 seems to be withdrawn without explicit note. It can be linked to its former superClass.
+E91_Co_Reference_Assignment -> E13_Attribute_Assignment :replacedBy since:"6.1"
+
+# Sources: https://cidoc-crm.org/extensions/crmarchaeo/html/CRMarchaeo_v2.0.html and https://cidoc-crm.org/extensions/crmsci/html/CRMsci_v2.0.html and https://cidoc-crm.org/extensions/lrmoo/html/LRMoo_v0.9.6.html
+
+# CRM extension classes
+"S1_Matter_Removal" extension:sci
+"S2_Sample_Taking" extension:sci
+"S3_Measurement_by_Sampling" extension:sci
+"S4_Observation" extension:sci
+"S5_Inference_Making" extension:sci
+"S6_Data_Evaluation" extension:sci
+"S7_Simulation_or_Prediction" extension:sci
+"S8_Categorical_Hypothesis_Building" extension:sci
+"S9_Property_Type" extension:sci
+"S10_Material_Substantial" extension:sci
+"S11_Amount_of_Matter" extension:sci
+"S12_Amount_of_Fluid" extension:sci
+"S13_Sample" extension:sci
+"S14_Fluid_Body" extension:sci
+"S15_Observable_Entity" extension:sci
+"S17_Physical_Genesis" extension:sci
+"S18_Alteration" extension:sci
+"S19_Encounter_Event" extension:sci
+"S20_Rigid_Physical_Feature" extension:sci
+"S21_Measurement" extension:sci
+"S22_Segment_of_Matter" extension:sci
+"S23_Position_Determination" extension:sci
+"S24_Sample_Splitting" extension:sci
+"A1_Excavation_Processing_Unit" extension:archaeo
+"A2_Stratigraphic_Volume_Unit" extension:archaeo
+"A3_Stratigraphic_Interface" extension:archaeo
+"A4_Stratigraphic_Genesis" extension:archaeo
+"A5_Stratigraphic_Modification" extension:archaeo
+"A6_Group_Declaration_Event" extension:archaeo
+"A7_Embedding" extension:archaeo
+"A8_Stratigraphic_Unit" extension:archaeo
+"A9_Archaeological_Excavation" extension:archaeo
+"A10_Excavation_Interface" extension:archaeo
+"F1_Work" extension:LRMoo
+"F2_Expression" extension:LRMoo
+"F3_Manifestation" extension:LRMoo
+"F5_Item" extension:LRMoo
+"F11_Corporate_Body" extension:LRMoo
+"F12_Nomen" extension:LRMoo
+"F18_Serial_Work" extension:LRMoo
+"F27_Work_Creation" extension:LRMoo
+"F28_Expression_Creation" extension:LRMoo
+"F30_Manifestation_Creation" extension:LRMoo
+"F31_Performance" extension:LRMoo
+"F32_Item_Production_Event" extension:LRMoo
+"F33_Reproduction_Event" extension:LRMoo
+"F36_Script_Conversion" extension:LRMoo
+"F39_Family" extension:LRMoo
+"F55_Collective_Agent" extension:LRMoo
+
+# CRMsci class hierarchy
+"E80_Part_Removal" -> "S1_Matter_Removal" :superClass
+"S2_Sample_Taking" -> "S1_Matter_Removal" :superClass
+"S3_Measurement_by_Sampling" -> "S2_Sample_Taking" :superClass
+"S24_Sample_Splitting" -> "S2_Sample_Taking" :superClass
+"S19_Encounter_Event" -> "S4_Observation" :superClass
+"S21_Measurement" -> "S4_Observation" :superClass
+"S23_Position_Determination" -> "S4_Observation" :superClass
+"S6_Data_Evaluation" -> "S5_Inference_Making" :superClass
+"S7_Simulation_or_Prediction" -> "S5_Inference_Making" :superClass
+"S8_Categorical_Hypothesis_Building" -> "S5_Inference_Making" :superClass
+"S11_Amount_of_Matter" -> "S10_Material_Substantial" :superClass
+"S14_Fluid_Body" -> "S10_Material_Substantial" :superClass
+"E18_Physical_Thing" -> "S10_Material_Substantial" :superClass
+"S12_Amount_of_Fluid" -> "S11_Amount_of_Matter" :superClass
+"S13_Sample" -> "S11_Amount_of_Matter" :superClass
+"S12_Amount_of_Fluid" -> "S14_Fluid_Body" :superClass
+"S10_Material_Substantial" -> "S15_Observable_Entity" :superClass
+"E5_Event" -> "S15_Observable_Entity" :superClass
+"E12_Production" -> "S17_Physical_Genesis" :superClass
+"E11_Modification" -> "S18_Alteration" :superClass
+"S17_Physical_Genesis" -> "S18_Alteration" :superClass
+"S22_Segment_of_Matter" -> "S20_Rigid_Physical_Feature" :superClass
+"E27_Site" -> "S20_Rigid_Physical_Feature" :superClass
+"S3_Measurement_by_Sampling" -> "S21_Measurement" :superClass
+"E16_Measurement" -> "S21_Measurement" :superClass
+"S1_Matter_Removal" -> "E7_Activity" :superClass
+"S4_Observation" -> "E13_Attribute_Assignment" :superClass
+"S5_Inference_Making" -> "E13_Attribute_Assignment" :superClass
+"S9_Property_Type" -> "E55_Type" :superClass
+"S10_Material_Substantial" -> "E70_Thing" :superClass
+"S15_Observable_Entity" -> "E1_CRM_Entity" :superClass
+"S17_Physical_Genesis" -> "E63_Beginning_of_Existence" :superClass
+"S18_Alteration" -> "E5_Event" :superClass
+"S20_Rigid_Physical_Feature" -> "E26_Physical_Feature" :superClass
+"S20_Rigid_Physical_Feature" -> "E53_Place" :superClass
+
+# CRMarchaeo class hierarchy
+"A2_Stratigraphic_Volume_Unit" -> "A8_Stratigraphic_Unit" :superClass
+"A3_Stratigraphic_Interface" -> "A8_Stratigraphic_Unit" :superClass
+"A7_Embedding" -> "A8_Stratigraphic_Unit" :superClass
+"A4_Stratigraphic_Genesis" -> "A5_Stratigraphic_Modification" :superClass
+"A1_Excavation_Processing_Unit" -> "S1_Matter_Removal" :superClass
+"A1_Excavation_Processing_Unit" -> "S4_Observation" :superClass
+"A1_Excavation_Processing_Unit" -> "E12_Production" :superClass
+"A1_Excavation_Processing_Unit" -> "E64_End_of_Existence" :superClass
+"A4_Stratigraphic_Genesis" -> "S17_Physical_Genesis" :superClass
+"A5_Stratigraphic_Modification" -> "S18_Alteration" :superClass
+"A6_Group_Declaration_Event" -> "E13_Attribute_Assignment" :superClass
+"A8_Stratigraphic_Unit" -> "S20_Rigid_Physical_Feature" :superClass
+"A9_Archaeological_Excavation" -> "S4_Observation" :superClass
+"A10_Excavation_Interface" -> "S20_Rigid_Physical_Feature" :superClass
+"A10_Excavation_Interface" -> "E25_Human_Made_Feature" :superClass
+
+# LRMoo class hierarchy
+"F18_Serial_Work" -> "F1_Work" :superClass
+"F33_Reproduction_Event" -> "F30_Manifestation_Creation" :superClass
+"F11_Corporate_Body" -> "F55_Collective_Agent" :superClass
+"F39_Family" -> "F55_Collective_Agent" :superClass
+"F1_Work" -> "E89_Propositional_Object" :superClass
+"F2_Expression" -> "E73_Information_Object" :superClass
+"F3_Manifestation" -> "E73_Information_Object" :superClass
+"F5_Item" -> "E24_Physical_Human_Made_Thing" :superClass
+"F12_Nomen" -> "E89_Propositional_Object" :superClass
+"F27_Work_Creation" -> "E65_Creation" :superClass
+"F28_Expression_Creation" -> "E12_Production" :superClass
+"F28_Expression_Creation" -> "E65_Creation" :superClass
+"F30_Manifestation_Creation" -> "E12_Production" :superClass
+"F30_Manifestation_Creation" -> "E65_Creation" :superClass
+"F31_Performance" -> "E7_Activity" :superClass
+"F32_Item_Production_Event" -> "E12_Production" :superClass
+"F33_Reproduction_Event" -> "E12_Production" :superClass
+"F36_Script_Conversion" -> "E29_Design_or_Procedure" :superClass
+"F55_Collective_Agent" -> "E74_Group" :superClass
