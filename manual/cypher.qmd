@@ -9,6 +9,42 @@ execute:
 
 Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher abgefragt werden.
 
+### Demo
+
+```{ojs}
+runQuery = async (cypher) => {
+return "TODO: " + cypher
+}
+viewof cypherRunner = {
+  const mainDiv = html`<div><div>`
+  const editorDiv = html`<div style="border: 1px solid rgb(0, 0, 0);height: 200px;"></div>`
+  const runButton = html`<button>Query</button>`
+
+  mainDiv.append(editorDiv)
+  mainDiv.append(runButton)
+
+  mainDiv.value = []
+  yield mainDiv
+
+  let editor = CodeMirror(editorDiv, { mode: "application/x-cypher-query" })
+
+  console.log(editor)
+  editor.setValue(
+    "MATCH (n:`E22_Man-Made_Object`) RETURN n.cID LIMIT 20"
+  )
+  editor.setSize(width - 20, 200)
+
+  runButton.onclick = async (e) => {
+    mainDiv.value = await runQuery(editor.getValue())
+    mainDiv.dispatchEvent(new CustomEvent("input"))
+  };
+
+  return mainDiv
+}
+
+cypherRunner
+```
+
 ### Abfrage mit curl
 
 Die Cypher-Query muss URL-kodiert werden, dabei werden unter anderem

@@ -47,4 +47,6 @@ format:
     syntax-definitions:
      - pg.xml
     include-before-body: js/syntax.html
+    css:
+      - codemirror.css
 
