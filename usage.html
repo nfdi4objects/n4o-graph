@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NFDI4Objects Knowledge Graph (TA5) - Benutzung</title>
+<title>Benutzung – NFDI4Objects Knowledge Graph (TA5)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,7 +31,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./cypher.html" rel="next">
-<link href="./architecture.html" rel="prev">
+<link href="./basics.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -112,13 +78,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./usage.html"><span class="chapter-title">Benutzung</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -155,21 +121,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenmodell</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./usage.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Benutzung</span></a>
   </div>
 </li>
@@ -183,6 +134,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <a href="./sparql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit SPARQL</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schema.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenbankschema</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -193,9 +159,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#api-endpunkte" id="toc-api-endpunkte" class="nav-link active" data-scroll-target="#api-endpunkte">API-Endpunkte</a></li>
-  <li><a href="#zugriff-mit-python" id="toc-zugriff-mit-python" class="nav-link" data-scroll-target="#zugriff-mit-python">Zugriff mit Python</a></li>
-  <li><a href="#weitere-informationen" id="toc-weitere-informationen" class="nav-link" data-scroll-target="#weitere-informationen">Weitere Informationen</a></li>
+  <li><a href="#zugriff-per-api" id="toc-zugriff-per-api" class="nav-link active" data-scroll-target="#zugriff-per-api">Zugriff per API</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
@@ -259,35 +223,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Der Zugriff auf den Knowledge Graphen ist bislang nur per API möglich.</p>
-<section id="api-endpunkte" class="level2">
-<h2 class="anchored" data-anchor-id="api-endpunkte">API-Endpunkte</h2>
-<p>Die API-Endpunkte sind bislang noch nicht öffentlich.</p>
+<p>Der Zugriff auf den Knowledge Graphen ist bislang nur per API möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche und die Integration in andere Anwendungen geplant.</p>
+<section id="zugriff-per-api" class="level2">
+<h2 class="anchored" data-anchor-id="zugriff-per-api">Zugriff per API</h2>
+<p>Voraussetzung ist ein Verständnis der <a href="./basics.html">Grundlagen</a> und des <a href="./schema.html">Datenbankschema</a>.</p>
 <ul>
-<li><a href="./sparql.html">SPARQL-Abfragen</a></li>
-<li><a href="./cypher.html">Cypher-Abfragen</a></li>
+<li><a href="./cypher.html">Cypher-Abfragen</a> (öffentliche Testversion)</li>
+<li><a href="./sparql.html">SPARQL-Abfragen</a> (noch nicht umgesetzt)</li>
 </ul>
-</section>
-<section id="zugriff-mit-python" class="level2">
-<h2 class="anchored" data-anchor-id="zugriff-mit-python">Zugriff mit Python</h2>
-<p>Um Cypher Anfragen in Python auszuführen muss sich mit einer Datenbank verbunden werden. Für Neo4j wird der <a href="https://pypi.org/project/neo4j/">Neo4j driver</a> benötigt. Mit einem Driver Objekt wird eine Verbindung zur Datenbank erstellt. Dafür werden die URL der Datenbank und die Authentifizierungsdaten benötigt.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> neo4j <span class="im">import</span> GraphDatabase</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># URI Beispiele: "neo4j://localhost", "neo4j+s://xxx.databases.neo4j.io"</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>URI <span class="op">=</span> <span class="st">"&lt;URI der Neo4j Datenbank&gt;"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>AUTH <span class="op">=</span> (<span class="st">"&lt;Username&gt;"</span>, <span class="st">"&lt;Password&gt;"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"&lt;Cypher Anfrage&gt;"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>driver <span class="op">=</span> GraphDatabase.driver(URI, auth<span class="op">=</span>AUTH)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> driver.session() <span class="im">as</span> session:</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>   result <span class="op">=</span> session.run(query)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>driver.close()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Mit <a href="https://neo4j.com/docs/api/python-driver/current/api.html#result">result Methoden</a> lassen sich nähere Informationen über die Ergebnis der Anfrage erhalten, zum Beispiel die Anzahl von Nodes.</p>
-</section>
-<section id="weitere-informationen" class="level2">
-<h2 class="anchored" data-anchor-id="weitere-informationen">Weitere Informationen</h2>
-<ul>
-<li><a href="https://neo4j.com/docs/python-manual/current/">Neo4j Python Handbuch</a> (Englisch)</li>
-</ul>
+<!--
+
+## Interner Zugriff mit Python
+
+Um Cypher Anfragen in Python auszuführen muss sich mit einer Datenbank verbunden werden. Für Neo4j wird der [Neo4j driver](https://pypi.org/project/neo4j/) benötigt.  Mit einem Driver Objekt wird eine Verbindung zur Datenbank erstellt. Dafür werden die URL der Datenbank und die Authentifizierungsdaten benötigt.
+
+```python
+from neo4j import GraphDatabase
+
+# URI Beispiele: "neo4j://localhost", "neo4j+s://xxx.databases.neo4j.io"
+URI = "<URI der Neo4j Datenbank>"
+AUTH = ("<Username>", "<Password>")
+query = "<Cypher Anfrage>"
+driver = GraphDatabase.driver(URI, auth=AUTH)
+with driver.session() as session:
+   result = session.run(query)
+driver.close()
+```
+
+Mit [result Methoden](https://neo4j.com/docs/api/python-driver/current/api.html#result) lassen sich nähere Informationen über die Ergebnis der Anfrage erhalten, zum Beispiel die Anzahl von Nodes.
+
+## Weitere Informationen
+
+- [Neo4j Python Handbuch](https://neo4j.com/docs/python-manual/current/) (Englisch)
+
+-->
 
 
 </section>
@@ -328,18 +297,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -371,7 +329,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -379,7 +359,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -706,8 +686,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./architecture.html" class="pagination-link" aria-label="Systemarchitektur">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Systemarchitektur</span></span>
+      <a href="./basics.html" class="pagination-link" aria-label="Grundlagen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Grundlagen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.554">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NFDI4Objects Knowledge Graph (TA5) - Grundlagen</title>
+<title>Grundlagen – NFDI4Objects Knowledge Graph (TA5)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./data-sources.html" rel="next">
+<link href="./usage.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -78,13 +78,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./basics.html"><span class="chapter-title">Grundlagen</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -121,21 +121,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./data-sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./data-model.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenmodell</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benutzung</span></a>
   </div>
 </li>
@@ -149,6 +134,21 @@ ul.task-list li input[type="checkbox"] {
   <a href="./sparql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit SPARQL</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schema.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenbankschema</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -159,8 +159,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#property-graphen" id="toc-property-graphen" class="nav-link active" data-scroll-target="#property-graphen">Property Graphen</a></li>
+  <li><a href="#knowledge-graph" id="toc-knowledge-graph" class="nav-link active" data-scroll-target="#knowledge-graph">Knowledge Graph</a></li>
+  <li><a href="#datenbankmodelle" id="toc-datenbankmodelle" class="nav-link" data-scroll-target="#datenbankmodelle">Datenbankmodelle</a>
+  <ul class="collapse">
+  <li><a href="#property-graphen" id="toc-property-graphen" class="nav-link" data-scroll-target="#property-graphen">Property Graphen</a></li>
   <li><a href="#triple-store" id="toc-triple-store" class="nav-link" data-scroll-target="#triple-store">Triple-Store</a></li>
+  </ul></li>
+  <li><a href="#datenbankinhalt" id="toc-datenbankinhalt" class="nav-link" data-scroll-target="#datenbankinhalt">Datenbankinhalt</a>
+  <ul class="collapse">
+  <li><a href="#schema" id="toc-schema" class="nav-link" data-scroll-target="#schema">Schema</a></li>
+  <li><a href="#vokabular" id="toc-vokabular" class="nav-link" data-scroll-target="#vokabular">Vokabular</a></li>
+  <li><a href="#datenbestand" id="toc-datenbestand" class="nav-link" data-scroll-target="#datenbestand">Datenbestand</a></li>
+  <li><a href="#sammlung" id="toc-sammlung" class="nav-link" data-scroll-target="#sammlung">Sammlung</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/basics.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
@@ -224,20 +235,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>In diesem Kapitel sollen einige Grundlagen erklärt werden</em></p>
-<section id="property-graphen" class="level2">
-<h2 class="anchored" data-anchor-id="property-graphen">Property Graphen</h2>
-<p>Property-Graphen bilden ein flexibles und nicht zu kompliziertes Werkzeug zur Strukturierung, Speicherung und Auswertung vernetzter Daten. Dabei werden Daten nicht wie beispielsweise bei SQL in Form von Tabellen, sondern in Form von Graphen aus <em>Knoten</em> gespeichert, die durch <em>Kanten</em> miteinander verbunden sind. Sowohl Knoten als auch Kanten können mit <em>Eigenschaften</em> versehen werden und haben jeweils <em>Labels</em> als Angabe ihrer Art.</p>
-<p>Eine weitergehende, allgemeine Erklärung zu Property-Graphen bietet der Artikel <a href="https://jakobib.github.io/pgraphen2024/">Property-Graphen: eine kurze Einführung</a>.</p>
-<p>Im Gegensatz zu RDF sind Property Graphen nicht als allgemeines Format zum Austausch und zur Integration von Daten gedacht. Der Property Graph von NFDI4Objects benötigt daher eine <a href="#data-model.qmd">Datenmodell</a> das festlegt, welche Arten von Knoten und Kanten wie miteinander verknüpft und mit Eigenschaften versehen werden können.</p>
-<p>Ein Property-Graph kann mit <a href="./cypher.html">Cypher-Abfragen</a> nähere Informationen über seinen Inhalt liefern und verändert werden. Dafür muss er in Neo4j oder einer anderen Graphdatenbank, die mit Cypher-Anfragen umgehen kann, übertragen werden. Cypher ist eine SQL-aquivalente Sprache für Graphdatenbanken.</p>
+<p>Zur Nutzung des Knowledge Graphen ist das Verständnis einiger Grundbegriffe notwendig. An dieser Stelle folgt eine kurze, allgemeine Einführung. Technische Details und Hintergründe finden sich im Kapitel zur <a href="./architecture.html">Systemarchitektur</a>.</p>
+<section id="knowledge-graph" class="level2">
+<h2 class="anchored" data-anchor-id="knowledge-graph">Knowledge Graph</h2>
+<p>In einem <strong>Knowledge Graph</strong> (auch <strong>Wissensgraph</strong>) sind Informationen strukturiert und stark miteinander vernetzt gespeichert. Ein Beispiel hierfür ist ein Netzwerk aus Personen, die durch Verwandschaft und andere Beziehungen miteinander verknüpft sind. Jeder Graph besteht aus <strong>Knoten</strong> und <strong>Kanten</strong>. So lassen sich beispielsweise Personen durch Knoten und Beziehungen durch Kanten repräsentieren.</p>
+<p>Weitere Details hängen von der technischen Umsetzung des Knowledge Graphen ab. Die beiden am häufigsten verwendeten Datenbankmodelle sind <a href="#property-graphen"><strong>Property-Graphen</strong></a> und das RDF-Datenmodell mit <a href="#triple-stores"><strong>Triple-Stores</strong></a>. Darüber hinaus gibt es einige Knowledge Graphen mit eigenem Datenbankmodell, beispielsweise <a href="https://www.wikidata.org/">Wikidata</a> auf Grundlage von des Wikibase-Modells.</p>
+<p>Die Inhalte eines Knowledge Graphen besteht aus einem <a href="#schema"><strong>Schema</strong></a>, optional einigen <a href="#vokabular"><strong>Vokabularen</strong></a> und dem <a href="#datenbestand"><strong>Datenbestand</strong></a> als eigentlichem Datenbankinhalt. Einzelne “Datensätze” gibt es aufgrund der Graphstruktur nicht.</p>
 </section>
-<section id="triple-store" class="level2">
-<h2 class="anchored" data-anchor-id="triple-store">Triple-Store</h2>
-<p>Ein <strong>Triple Store</strong> ist eine <a href="https://de.wikipedia.org/wiki/Graphdatenbank">Graphendatenbank</a>, die auf Basis von <a href="https://de.wikipedia.org/wiki/Resource_Description_Framework">RDF</a> Daten in Subjekt-Prädikat-Objekt Triples speichert. Das Subjekt und Objekt stellen die Knoten dar, die über ein Prädikat verbunden sind.</p>
-<p>Der Triple-Store kann mit <a href="./sparql.html">SPARQL</a> abgefragt werden.</p>
+<section id="datenbankmodelle" class="level2">
+<h2 class="anchored" data-anchor-id="datenbankmodelle">Datenbankmodelle</h2>
+<section id="property-graphen" class="level3">
+<h3 class="anchored" data-anchor-id="property-graphen">Property Graphen</h3>
+<p>Property-Graphen dienen der Strukturierung, Speicherung und Auswertung vernetzter Daten. Die Daten werden dabei nicht in tabellarischer Form (wie bei einer Tabellenkalkulation oder bei SQL) oder in hierarchischer Form (wie bei XML) sondern in Form eines <strong>Graphen</strong> gespeichert. Die Knoten und Kanten des Graphen können jeweils <strong>Labels</strong> (Typen) haben und mit <strong>Eigenschaften</strong> versehen sein. Zur Abfrage von Property-Graphen dient die Sprache <a href="./cypher.html">Cypher</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Eine weitergehende Erklärung zu Property-Graphen liefert der Artikel <a href="https://jakobib.github.io/pgraphen2024/">Property-Graphen: eine kurze Einführung</a>.</p>
+</div>
+</div>
+<!--
+Im Gegensatz zu RDF sind Property Graphen nicht als allgemeines Format zum
+Austausch und zur Integration von Daten gedacht. Der Property Graph von
+NFDI4Objects benötigt daher eine [Schema](#schema.qmd) das festlegt,
+welche Arten von Knoten und Kanten wie miteinander verknüpft und mit
+Eigenschaften versehen werden können.
+-->
+</section>
+<section id="triple-store" class="level3">
+<h3 class="anchored" data-anchor-id="triple-store">Triple-Store</h3>
+<p>Ein Triple Store ist eine <a href="https://de.wikipedia.org/wiki/Graphdatenbank">Graphendatenbank</a> in der Daten dem RDF-Modell nach in Form von so genannten Triplen gespeichert werden. Jedes <strong>Tripel</strong> entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple-Stores dient <a href="./sparql.html">SPARQL</a>.</p>
+</section>
+</section>
+<section id="datenbankinhalt" class="level2">
+<h2 class="anchored" data-anchor-id="datenbankinhalt">Datenbankinhalt</h2>
+<section id="schema" class="level3">
+<h3 class="anchored" data-anchor-id="schema">Schema</h3>
+<p>Das (Datenbank)Schema oder <strong>Datenmodell</strong> eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen.</p>
+<p>Da sich die Datenbankmodelle von Property-Graphen und Triple-Store unterscheiden, gibt es für beide ein jeweils eigenes Schema. Beide basieren jedoch auf einem gemeinsamen abstrakten Datenmodell.</p>
+<p><em>Details hierzu unter <a href="./schema.html">Datenbankschema</a>.</em></p>
+</section>
+<section id="vokabular" class="level3">
+<h3 class="anchored" data-anchor-id="vokabular">Vokabular</h3>
+<p>Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Bei RDF-Daten ist das Datenbankschema</p>
+<p><em>Details hierzu unter <a href="./sources.html">Datenquellen</a>.</em></p>
+</section>
+<section id="datenbestand" class="level3">
+<h3 class="anchored" data-anchor-id="datenbestand">Datenbestand</h3>
+<p>Der wesentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts. Er wird im Gegensatz zu Schema und Vokabularen laufend aktualisiert.</p>
+<p><em>Details hierzu unter <a href="./sources.html">Datenquellen</a>.</em></p>
+</section>
+<section id="sammlung" class="level3">
+<h3 class="anchored" data-anchor-id="sammlung">Sammlung</h3>
+<p>Der eigentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts ist in so genannte <strong>Sammlungen</strong> unterteilt. Einige Sammlungbestehen aus einzelnen Datensätzen, andere aus einer zusammengefassten Lieferung von Daten.</p>
+<p><em>Details hierzu unter <a href="./sources.html">Datenquellen</a>.</em></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -276,18 +336,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -319,7 +368,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -327,7 +398,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -659,8 +730,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./data-sources.html" class="pagination-link" aria-label="Datenquellen">
-        <span class="nav-page-text"><span class="chapter-title">Datenquellen</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./usage.html" class="pagination-link" aria-label="Benutzung">
+        <span class="nav-page-text"><span class="chapter-title">Benutzung</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
