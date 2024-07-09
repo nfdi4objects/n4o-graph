@@ -1,5 +1,5 @@
 ---
-title: Datenmodell
+title: Datenbankschema
 lang: de
 ---
 
@@ -59,7 +59,7 @@ wird konvertiert in folgenden Property Graph (in PG Format und als Diagram):
 
 ...
 
-## Terminologien
+## Vokabulare
 
 ...
 

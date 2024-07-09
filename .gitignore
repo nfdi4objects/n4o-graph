@@ -8,3 +8,6 @@ venv/
 # quarto output
 docs/
 
+# neo4j
+import/
+data/

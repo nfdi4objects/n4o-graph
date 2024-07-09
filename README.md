@@ -13,14 +13,19 @@ Erstellung, Management und Nutzung des NFDI4Objects Knowledge Graphen von TA5.
   gebaut und unter <https://nfdi4objects.github.io/n4o-graph/> publiziert wird.
   [![Status](https://github.com/nfdi4objects/n4o-graph/actions/workflows/quarto-publish.yml/badge.svg)](https://nfdi4objects.github.io/n4o-graph/)
 
-- ...
+- Verzeichnis [import](import) wird temporär für Importe in den Graphen verwendet.
 
 ## Installation
 
-Benötigt werden eine Standard-Unix-Tools sowie Docker, Python3 und Node >= v18.
-Anschließend die weitere Abhängigkeiten:
+Benötigt werden eine Standard-Unix-Tools (incl. curl und jq):
 
-Python-Umgebung
+~~~sh
+sudo apt install curl jq
+~~~
+
+Sowie Docker, Python3, Node >= v18 (deren Installation hier nicht erklärt).
+
+Anschließend müssen weitere Python- und Node-Bibliotheken installiert werden:
 
 ~~~sh
 sudo apt install python3-venv
@@ -35,6 +40,20 @@ und  [mermaid-cli](https://www.npmjs.com/package/@mermaid-js/mermaid-cli)
 ~~~sh
 npm install pgraphs
 npm install mermaid-cli
+~~~
+
+## Konfiguration und Starten der Datenbank
+
+Die Datei [neo4j.json](neo4j.json) enthält die interne und externe
+Konfiguration für eine oder zwei Neo4j-Datenbanken:
+
+- `uri`, `url`, `user`, `password`: Interne Zugangsdaten für temporäre Datenbank
+- `public`: Öffentliche API (Lese-Zugriff)
+
+Zum Starten eines Docker-Containers mit der internen Neo4j-Datenbank:
+
+~~~sh
+./neo4j.sh start neo4j.json
 ~~~
 
 ## Lizenz

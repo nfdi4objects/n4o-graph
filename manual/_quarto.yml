@@ -2,9 +2,13 @@ project:
   type: book
   output-dir: ../docs
   pre-render:
+    - ../neo4j.sh status neo4j.json
     - make images
   render:
     - "!*.md"
+
+metadata-files:
+  - neo4j.json
 
 book:
   title: "NFDI4Objects Knowledge Graph (TA5)"
@@ -17,12 +21,12 @@ book:
   chapters:
     - index.qmd
     - basics.qmd
-    - data-sources.qmd
-    - data-model.qmd
-    - architecture.qmd
     - usage.qmd
     - cypher.qmd
     - sparql.qmd
+    - sources.qmd
+    - schema.qmd
+    - architecture.qmd
   page-footer: 
     right: 
       - text: Datenschutz

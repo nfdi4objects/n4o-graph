@@ -3,16 +3,18 @@ title: Benutzung
 lang: de
 ---
 
-Der Zugriff auf den Knowledge Graphen ist bislang nur per API möglich.
+Der Zugriff auf den Knowledge Graphen ist bislang nur per API möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche und die Integration in andere Anwendungen geplant.
 
-## API-Endpunkte
+## Zugriff per API
 
-Die API-Endpunkte sind bislang noch nicht öffentlich.
+Voraussetzung ist ein Verständnis der [Grundlagen](basics.qmd) und des [Datenbankschema](schema.qmd).
 
-- [SPARQL-Abfragen](sparql.qmd)
-- [Cypher-Abfragen](cypher.qmd)
+- [Cypher-Abfragen](cypher.qmd) (öffentliche Testversion)
+- [SPARQL-Abfragen](sparql.qmd) (noch nicht umgesetzt)
 
-## Zugriff mit Python
+<!--
+
+## Interner Zugriff mit Python
 
 Um Cypher Anfragen in Python auszuführen muss sich mit einer Datenbank verbunden werden. Für Neo4j wird der [Neo4j driver](https://pypi.org/project/neo4j/) benötigt.  Mit einem Driver Objekt wird eine Verbindung zur Datenbank erstellt. Dafür werden die URL der Datenbank und die Authentifizierungsdaten benötigt.
 
@@ -35,3 +37,4 @@ Mit [result Methoden](https://neo4j.com/docs/api/python-driver/current/api.html#
 
 - [Neo4j Python Handbuch](https://neo4j.com/docs/python-manual/current/) (Englisch)
 
+-->

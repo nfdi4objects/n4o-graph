@@ -5,7 +5,37 @@ execute:
   echo: false
 ---
 
+## Öffentliche API
+
+Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher abgefragt werden.
+
+### Abfrage mit curl
+
+Die Cypher-Query muss URL-kodiert werden, dabei werden unter anderem
+Leerzeichen durch `%20` ersetzt. Der Parameter
+[--data-urlencode](https://curl.se/docs/manpage.html#--data-urlencode) sorgt
+automatisch dafür:
+
+```sh
+curl -G {{< meta public >}} --data-urlencode 'cypher=MATCH (n:`E22_Man-Made_Object`) RETURN n.cID LIMIT 20'
+```
+
+Die Cypher-Query kann auch per Datei übergeben werden:
+
+```sh
+curl -G {{< meta public >}} --data-urlencode 'cypher@queryfile.cypher'
+```
+
+## Einführung in Cypher
+
+Eine vollständige Einführung in die Abfragesprache Cypher liefert [das
+englische Cypher Handbuch](https://neo4j.com/docs/cypher-manual/current/).
+
+Die folgende Kurzeinführung bezieht sich noch nicht auf das [Schema](schema.qmd) des Property Graphen sondern verwendet ein
+ausgedachtes Beispiel mit Personendaten.
+
 ### Nodes
+
 Knoten heißen Nodes und werden in runden Klammern definiert.
 ```cypher
 MATCH (n:Person {name:'Anna'})
@@ -47,7 +77,7 @@ RETURN p
 
 Auch Pfade können einer Variable zugewiesen werden. Hier wird der vollständige Pfad ausgegeben.
 
-## Beispielabfragen
+### Beispielabfragen
 
 Finde Wert, Einheit und Notiz aller Messungen.
 
@@ -72,6 +102,3 @@ with driver.session() as session:
   print(','.join((str(x) for x in x.values())))
 ```
 
-## Weitere Informationen
-
-[Das englische Cypher Handbuch](https://neo4j.com/docs/cypher-manual/current/)
