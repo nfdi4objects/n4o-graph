@@ -58,13 +58,13 @@ jobs:
           npm ci
           echo "$(pwd)/node_modules/.bin" >> $GITHUB_PATH
 
-      - name: Import example graph
-        run: pgraph -t neo4j manual/crm-pg-example.pg neo4j.json
-
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Import example graph
+        run: pgraph -t neo4j manual/crm-pg-example.pg neo4j.json
 
       - name: Publish to GitHub Pages (and render) 
         uses: quarto-dev/quarto-actions/publish@v2
