@@ -277,41 +277,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="öffentliche-api" class="level2">
 <h2 class="anchored" data-anchor-id="öffentliche-api">Öffentliche API</h2>
-<p>Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher abgefragt werden.</p>
+<p>Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL &lt;https://graph.gbv.de/api&gt; abgefragt werden. Die Cypher-Abfrage wird mit dem Query-Parameter <code>cypher</code> übergeben.</p>
 <section id="demo" class="level3">
 <h3 class="anchored" data-anchor-id="demo">Demo</h3>
 <div class="cell">
 <div class="sourceCode cell-code hidden" id="cb1" data-startfrom="15" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 14;"><span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>runQuery <span class="op">=</span> <span class="kw">async</span> (cypher) <span class="kw">=&gt;</span> {</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> <span class="st">"TODO: "</span> <span class="op">+</span> cypher</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>viewof cypherRunner <span class="op">=</span> {</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> mainDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;&lt;div&gt;`</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> editorDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div style="border: 1px solid rgb(0, 0, 0);height: 200px;"&gt;&lt;/div&gt;`</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> runButton <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;button&gt;Query&lt;/button&gt;`</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(editorDiv)</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(runButton)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">// </span><span class="al">TODO</span><span class="co">: pass via variable</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> url <span class="op">=</span> <span class="st">"https://graph.gbv.de/api?"</span> <span class="op">+</span> <span class="kw">new</span> <span class="fu">URLSearchParams</span>({cypher})</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="co">// </span><span class="al">TODO</span><span class="co">: detect errors and show message</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="fu">fetch</span>(url)<span class="op">.</span><span class="fu">then</span>(res <span class="kw">=&gt;</span> res<span class="op">.</span><span class="fu">json</span>())</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>viewof cypherRunner <span class="op">=</span> {</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> mainDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;&lt;div&gt;`</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> editorDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div style="border: 1px solid rgb(0, 0, 0);"&gt;&lt;/div&gt;`</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> runButton <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;button&gt;Query&lt;/button&gt;`</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> []</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">yield</span> mainDiv</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(editorDiv)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(runButton)</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> editor <span class="op">=</span> <span class="fu">CodeMirror</span>(editorDiv<span class="op">,</span> { <span class="dt">mode</span><span class="op">:</span> <span class="st">"application/x-cypher-query"</span> })</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(editor)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  editor<span class="op">.</span><span class="fu">setValue</span>(</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MATCH (n:`E22_Man-Made_Object`) RETURN n.cID LIMIT 20"</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  editor<span class="op">.</span><span class="fu">setSize</span>(width <span class="op">-</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">200</span>)</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  runButton<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> <span class="kw">async</span> (e) <span class="kw">=&gt;</span> {</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="cf">await</span> <span class="fu">runQuery</span>(editor<span class="op">.</span><span class="fu">getValue</span>())</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="fu">dispatchEvent</span>(<span class="kw">new</span> <span class="bu">CustomEvent</span>(<span class="st">"input"</span>))</span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mainDiv</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>cypherRunner</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> []</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">yield</span> mainDiv</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> editor <span class="op">=</span> <span class="fu">CodeMirror</span>(editorDiv<span class="op">,</span> { <span class="dt">mode</span><span class="op">:</span> <span class="st">"application/x-cypher-query"</span> })</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  editor<span class="op">.</span><span class="fu">setValue</span>(</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"MATCH (n:`E22_Man-Made_Object`) RETURN n.cID LIMIT 20"</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  editor<span class="op">.</span><span class="fu">setSize</span>(width <span class="op">-</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">200</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>  runButton<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> <span class="kw">async</span> (e) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="cf">await</span> <span class="fu">runQuery</span>(editor<span class="op">.</span><span class="fu">getValue</span>())</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="fu">dispatchEvent</span>(<span class="kw">new</span> <span class="bu">CustomEvent</span>(<span class="st">"input"</span>))</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>  }<span class="op">;</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mainDiv</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>cypherRunner</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -380,7 +382,7 @@ RETURN p</code></pre>
 <pre class="cypher"><code>MATCH (n:E16_Measurement)-[:P40_observed_dimension]-&gt;(m:E54_Dimension)-[:P2_has_type]-&gt;(:E55_Type)-[:P48_has_preferred_identifier]-&gt;(l)
 MATCH (m)-[:P91_has_unit]-&gt;(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]-&gt;(o)
 RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note</code></pre>
-<div id="953b51f1" class="cell" data-execution_count="1">
+<div id="77944fbf" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>2.8,cm,Höhe (Scan)</code></pre>
 </div>
@@ -392,7 +394,7 @@ RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note</c
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InJ1blF1ZXJ5ID0gYXN5bmMgKGN5cGhlcikgPT4ge1xucmV0dXJuIFwiVE9ETzogXCIgKyBjeXBoZXJcbn1cbnZpZXdvZiBjeXBoZXJSdW5uZXIgPSB7XG4gIGNvbnN0IG1haW5EaXYgPSBodG1sYDxkaXY+PGRpdj5gXG4gIGNvbnN0IGVkaXRvckRpdiA9IGh0bWxgPGRpdiBzdHlsZT1cImJvcmRlcjogMXB4IHNvbGlkIHJnYigwLCAwLCAwKTtoZWlnaHQ6IDIwMHB4O1wiPjwvZGl2PmBcbiAgY29uc3QgcnVuQnV0dG9uID0gaHRtbGA8YnV0dG9uPlF1ZXJ5PC9idXR0b24+YFxuXG4gIG1haW5EaXYuYXBwZW5kKGVkaXRvckRpdilcbiAgbWFpbkRpdi5hcHBlbmQocnVuQnV0dG9uKVxuXG4gIG1haW5EaXYudmFsdWUgPSBbXVxuICB5aWVsZCBtYWluRGl2XG5cbiAgbGV0IGVkaXRvciA9IENvZGVNaXJyb3IoZWRpdG9yRGl2LCB7IG1vZGU6IFwiYXBwbGljYXRpb24veC1jeXBoZXItcXVlcnlcIiB9KVxuXG4gIGNvbnNvbGUubG9nKGVkaXRvcilcbiAgZWRpdG9yLnNldFZhbHVlKFxuICAgIFwiTUFUQ0ggKG46YEUyMl9NYW4tTWFkZV9PYmplY3RgKSBSRVRVUk4gbi5jSUQgTElNSVQgMjBcIlxuICApXG4gIGVkaXRvci5zZXRTaXplKHdpZHRoIC0gMjAsIDIwMClcblxuICBydW5CdXR0b24ub25jbGljayA9IGFzeW5jIChlKSA9PiB7XG4gICAgbWFpbkRpdi52YWx1ZSA9IGF3YWl0IHJ1blF1ZXJ5KGVkaXRvci5nZXRWYWx1ZSgpKVxuICAgIG1haW5EaXYuZGlzcGF0Y2hFdmVudChuZXcgQ3VzdG9tRXZlbnQoXCJpbnB1dFwiKSlcbiAgfTtcblxuICByZXR1cm4gbWFpbkRpdlxufVxuXG5jeXBoZXJSdW5uZXJcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnY3lwaGVyUnVubmVyJykifV19
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InJ1blF1ZXJ5ID0gYXN5bmMgKGN5cGhlcikgPT4ge1xuICAvLyBUT0RPOiBwYXNzIHZpYSB2YXJpYWJsZVxuICBjb25zdCB1cmwgPSBcImh0dHBzOi8vZ3JhcGguZ2J2LmRlL2FwaT9cIiArIG5ldyBVUkxTZWFyY2hQYXJhbXMoe2N5cGhlcn0pXG4gIC8vIFRPRE86IGRldGVjdCBlcnJvcnMgYW5kIHNob3cgbWVzc2FnZVxuICByZXR1cm4gZmV0Y2godXJsKS50aGVuKHJlcyA9PiByZXMuanNvbigpKVxufVxudmlld29mIGN5cGhlclJ1bm5lciA9IHtcbiAgY29uc3QgbWFpbkRpdiA9IGh0bWxgPGRpdj48ZGl2PmBcbiAgY29uc3QgZWRpdG9yRGl2ID0gaHRtbGA8ZGl2IHN0eWxlPVwiYm9yZGVyOiAxcHggc29saWQgcmdiKDAsIDAsIDApO1wiPjwvZGl2PmBcbiAgY29uc3QgcnVuQnV0dG9uID0gaHRtbGA8YnV0dG9uPlF1ZXJ5PC9idXR0b24+YFxuXG4gIG1haW5EaXYuYXBwZW5kKGVkaXRvckRpdilcbiAgbWFpbkRpdi5hcHBlbmQocnVuQnV0dG9uKVxuXG4gIG1haW5EaXYudmFsdWUgPSBbXVxuICB5aWVsZCBtYWluRGl2XG5cbiAgbGV0IGVkaXRvciA9IENvZGVNaXJyb3IoZWRpdG9yRGl2LCB7IG1vZGU6IFwiYXBwbGljYXRpb24veC1jeXBoZXItcXVlcnlcIiB9KVxuXG4gIGVkaXRvci5zZXRWYWx1ZShcbiAgICBcIk1BVENIIChuOmBFMjJfTWFuLU1hZGVfT2JqZWN0YCkgUkVUVVJOIG4uY0lEIExJTUlUIDIwXCJcbiAgKVxuICBlZGl0b3Iuc2V0U2l6ZSh3aWR0aCAtIDIwLCAyMDApXG5cbiAgcnVuQnV0dG9uLm9uY2xpY2sgPSBhc3luYyAoZSkgPT4ge1xuICAgIG1haW5EaXYudmFsdWUgPSBhd2FpdCBydW5RdWVyeShlZGl0b3IuZ2V0VmFsdWUoKSlcbiAgICBtYWluRGl2LmRpc3BhdGNoRXZlbnQobmV3IEN1c3RvbUV2ZW50KFwiaW5wdXRcIikpXG4gIH07XG5cbiAgcmV0dXJuIG1haW5EaXZcbn1cblxuY3lwaGVyUnVubmVyXG4ifSx7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXRRdWlldCIsInNvdXJjZSI6InNoaW55SW5wdXQoJ2N5cGhlclJ1bm5lcicpIn1dfQ==
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
