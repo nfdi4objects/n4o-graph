@@ -35,6 +35,10 @@ Das Datenmodell besteht muss noch erweitert werden um
   <https://github.com/nfdi4objects/n4o-rdf-import>)
 - Informationen *über* Ontologien und Vokabulare
 
+### Expansion
+
+...
+
 ## Beispiel
 
 Folgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):

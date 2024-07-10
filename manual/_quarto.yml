@@ -7,6 +7,9 @@ project:
   render:
     - "!*.md"
 
+filters:
+ - include-code-files
+
 metadata-files:
   - neo4j.json
 
