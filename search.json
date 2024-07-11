@@ -174,7 +174,7 @@
     "href": "schema.html#modellierung-im-property-graphen",
     "title": "Datenbankschema",
     "section": "",
-    "text": "CIDOC-CRM-Klassen (alle Versionen)\nCIDOC-CRM-Properties (alle Versionen)\nCRM und auf CRM-gemappte Klassen\n\n\n\nIdentifier (für Normdaten-Identifier siehe https://github.com/nfdi4objects/n4o-terminologies)\nInformationen über Sammlungen aus denen die Daten und Objekte stammen (siehe https://github.com/nfdi4objects/n4o-databases und https://github.com/nfdi4objects/n4o-rdf-import)\nInformationen über Ontologien und Vokabulare\n\n\nExpansion\n…",
+    "text": "CIDOC-CRM-Klassen (alle Versionen)\nCIDOC-CRM-Properties (alle Versionen)\nCRM und auf CRM-gemappte Klassen\n\n\n\nIdentifier (für Normdaten-Identifier siehe https://github.com/nfdi4objects/n4o-terminologies)\nInformationen über Sammlungen aus denen die Daten und Objekte stammen (siehe https://github.com/nfdi4objects/n4o-databases und https://github.com/nfdi4objects/n4o-rdf-import)\nInformationen über Ontologien und Vokabulare\n\n\nExpansion\nEntsprechend der CRM-Klassenhierarchie erhalten alle Knoten ausgehend von ihren Labels jeweils zusätzlich als Label die CRM-Kürzel der eigenen und aller übergeordneten Klassen. So wird beispielsweise jeder Knoten des Labels E18_Physical_Thing mit den Labels E77, E72, E70, E18 und E1 angereichert.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenbankschema</span>"
     ]
