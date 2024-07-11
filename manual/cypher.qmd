@@ -7,7 +7,7 @@ execute:
 
 ## Öffentliche API
 
-Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <{{< meta public >}}> abgefragt werden. Die Cypher-Abfrage wird mit dem Query-Parameter `cypher` übergeben.
+Dieses Kapitel veranschaulicht die Nutzung der [Cypher-API](#cypher-api) zur Abfrage des Property Graphen.
 
 ### Demo
 
