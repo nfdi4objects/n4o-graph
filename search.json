@@ -44,7 +44,7 @@
     "href": "usage.html",
     "title": "Benutzung",
     "section": "",
-    "text": "Zugriff per API\nVoraussetzung ist ein Verständnis der Grundlagen und des Datenbankschema.",
+    "text": "Zugriff per API\nVoraussetzung für die Nutzung ist ein Verständnis der Grundlagen und des Datenbankschema sowie Kenntnis der jeweiligen Abfragesprache Cypher bzw. SPARQL.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Benutzung</span>"
     ]
@@ -54,7 +54,27 @@
     "href": "usage.html#zugriff-per-api",
     "title": "Benutzung",
     "section": "",
-    "text": "Cypher-Abfragen (öffentliche Testversion)\nSPARQL-Abfragen (noch nicht umgesetzt)",
+    "text": "Cypher-API\nEine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL https://graph.gbv.de/ abgefragt werden. Eine Einführung in Cypher mit Beispielen gibt es im Kapitel Cypher-Abfragen.\nDer vorläufige API-Endpunkt ist https://graph.gbv.de/api. Die Cypher-Abfrage wird mit einer HTTP GET Anfrage im Query-Parameter cypher übergeben. Das Rückgabeformat ist ein JSON-Array von Objekten, deren Felder den Abfragefeldern entsprechen. Die Feldwerte werden folgendermaßen von Cypher nach JSON gemappt:\n\n\n\nCypher Datentyp\nJSON Datentyp\nBeispiel\n\n\n\n\nNULL\nnull\nnull\n\n\nBOOLEAN\nboolean\ntrue\n\n\nINTEGER\nnumber\n123\n\n\nFLOAT\nnumber\n3.14\n\n\nSTRING\nstring\n\"äbć\"\n\n\nByteArray\nstring\n\"A2+/\" (Base64)\n\n\nLIST\narray\n[0,8,15]\n\n\nMAP\nstring\n{\"x\":\"?\",\"y\":42}\n\n\nTemporal (DATE, LOCAL TIME, DURATION…)\nstring (ISO-8601)\n\"2015-03-26\"\n\"12:50:35.556\"\n\"P14DT16H12M\"\n\n\nPOINT\nstring (WKT)\n\"SRID=7203;POINT(1.2 3.4)\"\n\n\nNODE\nobject\n{\n  \"type\": \"node\",\n  \"id\": \"4b55-98f8\",\n  \"labels\": [\"E22\"],\n  \"properties\": {\n    \"P3_has_note\": \"?!\"\n  }\n}\n\n\nRELATIONSHIP\nobject\n{\n  \"type\": \"edge\",\n  \"id\": \"37a9-72df\",\n  \"labels\": [\"P40\"],\n  \"properties\": {\"x\": 1},\n  \"from\": \"98f8-6888\",\n  \"to\": \"164b-c83a\"\n}\n\n\nPATH\narray\nArray aus NODE und RELATIONSHIP Objekten.\n\n\n\nDie Kodierung von NODE und RELATIONSHIP Objekten entspricht der Kodierung von Knoten und Kanten im Format PG-JSONL mit dem Unterschied, dass Property-Werte nicht zwingend vom Type array sind, sondern auch null, boolean, number und string sein können.\n\n\nSPARQL-API\nSiehe SPARQL-Abfragen (noch nicht umgesetzt)",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Benutzung</span>"
+    ]
+  },
+  {
+    "objectID": "usage.html#datenbankdumps",
+    "href": "usage.html#datenbankdumps",
+    "title": "Benutzung",
+    "section": "Datenbankdumps",
+    "text": "Datenbankdumps\nDie Bereitstellung von Datenbankdumps zur lokalen Nutzung von Teilen des Knowledge Graphen ist noch nicht umgesetzt.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Benutzung</span>"
+    ]
+  },
+  {
+    "objectID": "usage.html#suchoberfläche",
+    "href": "usage.html#suchoberfläche",
+    "title": "Benutzung",
+    "section": "Suchoberfläche",
+    "text": "Suchoberfläche\nEine browserbasierte Suchoberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung ist noch nicht umgesetzt.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Benutzung</span>"
     ]
@@ -64,7 +84,7 @@
     "href": "cypher.html",
     "title": "Abfragen mit Cypher",
     "section": "",
-    "text": "Öffentliche API\nEine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL &lt;https://graph.gbv.de/api&gt; abgefragt werden. Die Cypher-Abfrage wird mit dem Query-Parameter cypher übergeben.",
+    "text": "Öffentliche API\nDieses Kapitel veranschaulicht die Nutzung der Cypher-API zur Abfrage des Property Graphen.",
     "crumbs": [
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
     ]
