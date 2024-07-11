@@ -37,7 +37,11 @@ Das Datenmodell besteht muss noch erweitert werden um
 
 ### Expansion
 
-...
+Entsprechend der CRM-Klassenhierarchie erhalten alle Knoten ausgehend von ihren
+Labels jeweils zusätzlich als Label die CRM-Kürzel der eigenen und aller
+übergeordneten Klassen. So wird beispielsweise jeder Knoten des Labels
+`E18_Physical_Thing` mit den Labels `E77`, `E72`, `E70`, `E18` und `E1`
+angereichert.
 
 ## Beispiel
 
