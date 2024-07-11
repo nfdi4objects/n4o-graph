@@ -49,7 +49,14 @@ format:
     link-external-icon: true
     syntax-definitions:
      - pg.xml
-    include-before-body: js/syntax.html
+    include-before-body:
+      text: |
+        <script src="./js/codemirror.js"></script>
+        <script src="./js/cypher.js"></script>
+        <script src="./js/sparql.js"></script>
+        <script src="./js/turtle.js"></script>
+        <script src="./js/runmode.js"></script>
+        <script src="./js/highlight.js"></script>
     css:
       - codemirror.css
 
