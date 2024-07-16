@@ -170,6 +170,16 @@
     ]
   },
   {
+    "objectID": "sources.html#datenlieferung-der-klassik-stiftung-weimar",
+    "href": "sources.html#datenlieferung-der-klassik-stiftung-weimar",
+    "title": "Datenquellen",
+    "section": "Datenlieferung der Klassik Stiftung Weimar",
+    "text": "Datenlieferung der Klassik Stiftung Weimar\n\nLIDO 1.1, orientiert an der Deutschen Digitalen Bibliothek\nAuszug aus der Museumsdatenbank, einer Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet\nca. 21.000 Datensätze, die auch im Online-Katalog “Digitale Sammlungen der Museen” der Klassik Stiftung Weimar veröffentlicht sind, verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Datenquellen</span>"
+    ]
+  },
+  {
     "objectID": "schema.html",
     "href": "schema.html",
     "title": "Datenbankschema",
