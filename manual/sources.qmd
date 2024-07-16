@@ -30,3 +30,10 @@ Werden nur unregelmäßig und zentral aktualisiert. Dürfen nicht durch Lieferun
 * Verwendung von Normdaten und etablierten Vokabularen, insbesondere von URI statt händisch einkopierten Begriffen.
 * Versionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG
 * Angaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung
+
+
+## Datenlieferung der Klassik Stiftung Weimar
+
+* LIDO 1.1, orientiert an der Deutschen Digitalen Bibliothek
+* Auszug aus der Museumsdatenbank, einer Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet
+* ca. 21.000 Datensätze, die auch im Online-Katalog "Digitale Sammlungen der Museen" der Klassik Stiftung Weimar veröffentlicht sind, verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte) 
