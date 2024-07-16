@@ -160,6 +160,16 @@
     ]
   },
   {
+    "objectID": "sources.html#anforderungen-an-die-datengebenden",
+    "href": "sources.html#anforderungen-an-die-datengebenden",
+    "title": "Datenquellen",
+    "section": "Anforderungen an die Datengebenden",
+    "text": "Anforderungen an die Datengebenden\n\nVerwendung von bereits etablierten Metadatenstandards und Ontologien, hier insbesondere LIDO und CIDOC CRM\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von Normdaten und Vokabularen, insbesondere von URI statt händisch einkopierten Begriffen.\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechten und Lizenzen für eine Nachnutzung",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Datenquellen</span>"
+    ]
+  },
+  {
     "objectID": "schema.html",
     "href": "schema.html",
     "title": "Datenbankschema",
