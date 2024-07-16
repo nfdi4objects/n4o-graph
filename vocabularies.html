@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.54">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NFDI4Objects Knowledge Graph (TA5)</title>
+<title>Vokabulare – NFDI4Objects Knowledge Graph (TA5)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./basics.html" rel="next">
+<link href="./cypher.html" rel="next">
+<link href="./usage.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -54,17 +55,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Keine Treffer",
-    "search-matching-documents-text": "Treffer",
-    "search-copy-link-title": "Link in die Suche kopieren",
-    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
-    "search-more-match-text": "weitere Treffer in diesem Dokument",
-    "search-more-matches-text": "weitere Treffer in diesem Dokument",
-    "search-clear-button-title": "Zurücksetzen",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Abbrechen",
-    "search-submit-button-title": "Abschicken",
-    "search-label": "Suchen"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -72,19 +73,19 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="codemirror.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Einleitung</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./vocabularies.html"><span class="chapter-title">Vokabulare</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -104,14 +105,14 @@ ul.task-list li input[type="checkbox"] {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Suchen"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Einleitung</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Einleitung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -126,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./vocabularies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vokabulare</span></a>
+  <a href="./vocabularies.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Vokabulare</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -159,7 +160,9 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <script src="./js/codemirror.js"></script>
@@ -171,8 +174,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">NFDI4Objects Knowledge Graph (TA5)</h1>
-<p class="subtitle lead">Technisches Handbuch für Management und Nutzung</p>
+<h1 class="title"><span class="chapter-title">Vokabulare</span></h1>
+<p class="subtitle lead">Listen gemeinsamer Entitäten</p>
 </div>
 
 
@@ -189,26 +192,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die <a href="./cypher.html">API des Property-Graphen</a> ist jetzt verfügbar!</p>
-</div>
-</div>
-<p>An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des <strong>Knowledge Graphen von NFDI4Objects</strong> (TA5). Der Zugriff auf die Inhalte des Knowledge Graphen ist <a href="./usage.html">Kapitel Benutzung</a> beschrieben. Hintergründe und Details finden sich im <a href="./basics.html">Grundlagen-Kapitel</a> und in der Beschreibung der <a href="./architecture.html">Systemarchitektur</a>.</p>
-<p>Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus <a href="./sources.html">verschiedenene Quellen</a> zusammengeführt werden:</p>
-<ul>
-<li><p>ein <strong><a href="basics.html#property-graphen">Property-Graph</a></strong> mit aufbereiteten Daten und Abfragemöglichkeit in <a href="./cypher.html">Cypher</a></p></li>
-<li><p>ein <strong><a href="basics.html#triple-store">Triple-Store</a></strong> mit Rohdaten in RDF und Abfragemöglichkeit in <a href="./sparql.html">SPARQL</a></p></li>
-</ul>
-<p>Darüber sind eine browserbasierte Oberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung sowie die Integration in ein Learning Management System (LMS) geplant. Langfristig soll der Knowledge Graph außerdem mit anderen Knowledge Graphen im Rahmen der NFDI verknüpft werden.</p>
+<p>Vokabulare (auch bekannt als Terminologien oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten. Sie sind Teil des Knowledge Graphen, stammen aber nicht aus Datenlieferungen von <a href="./basics.html#sammlungen">Sammlungen</a> sondern zentral verwaltet.</p>
+<p>Beispiele für Vokabulare sind GND, GeoNames und Wikidata.</p>
+<p>Grundlage für die kontrollierte Verwendung von Vokabularen im Knowledge Graph ist ein Eintrag in <a href="https://bartoc.org">BARTOC</a>.</p>
 
 
 
@@ -256,12 +242,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Kopiert");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Kopiert");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -637,10 +623,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./usage.html" class="pagination-link" aria-label="Benutzung">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Benutzung</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./basics.html" class="pagination-link" aria-label="Grundlagen">
-        <span class="nav-page-text"><span class="chapter-title">Grundlagen</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./cypher.html" class="pagination-link" aria-label="Abfragen mit Cypher">
+        <span class="nav-page-text"><span class="chapter-title">Abfragen mit Cypher</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -652,7 +641,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/index.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/vocabularies.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

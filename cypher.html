@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./sparql.html" rel="next">
-<link href="./usage.html" rel="prev">
+<link href="./vocabularies.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -159,6 +159,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benutzung</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vocabularies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vokabulare</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -346,7 +351,7 @@ RETURN p</code></pre>
 <pre class="cypher"><code>MATCH (n:E16_Measurement)-[:P40_observed_dimension]-&gt;(m:E54_Dimension)-[:P2_has_type]-&gt;(:E55_Type)-[:P48_has_preferred_identifier]-&gt;(l)
 MATCH (m)-[:P91_has_unit]-&gt;(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]-&gt;(o)
 RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note</code></pre>
-<div id="83ac89b8" class="cell" data-execution_count="1">
+<div id="61fe6801" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>2.8,cm,Höhe (Scan)</code></pre>
 </div>
@@ -792,8 +797,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./usage.html" class="pagination-link" aria-label="Benutzung">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Benutzung</span></span>
+      <a href="./vocabularies.html" class="pagination-link" aria-label="Vokabulare">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Vokabulare</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
