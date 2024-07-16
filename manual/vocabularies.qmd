@@ -1,0 +1,10 @@
+---
+title: Vokabulare
+subtitle: Listen gemeinsamer Entitäten
+---
+
+Vokabulare (auch bekannt als Terminologien oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten. Sie sind Teil des Knowledge Graphen, stammen aber nicht aus Datenlieferungen von [Sammlungen](basics.qmd#sammlungen) sondern zentral verwaltet.
+
+Beispiele für Vokabulare sind GND, GeoNames und Wikidata.
+
+Grundlage für die kontrollierte Verwendung von Vokabularen im Knowledge Graph ist ein Eintrag in [BARTOC](https://bartoc.org).

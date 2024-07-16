@@ -70,7 +70,9 @@ Da sich die Datenbankmodelle von Property-Graphen und Triple-Store unterscheiden
 
 ### Vokabular
 
-Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Bei RDF-Daten ist das Datenbankschema ebenfalls als Vokabular vorhanden. Vokabulare werden nur in unegelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von [Sammlungen](#sammlungen) überschrieben werden.
+Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von [Sammlungen](#sammlungen) überschrieben werden.
+
+*Details hierzu unter [Vokabulare](vocabularies.qmd).*
 
 ### Datenbestand
 

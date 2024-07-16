@@ -4,7 +4,7 @@ subtitle: Aus welchen Daten setzt sich der Knowledge Graph zusammen?
 lang: de
 ---
 
-Der Knowledge Graph besteht aus Daten verschiedener [Sammlungen](#sammlungen) aus [verschiedenenen Quelldatenbanken](https://nfdi4objects.github.io/n4o-databases/), die mit bekannten [Vokabularen](#vokabulare) angereichert werden.
+Der Knowledge Graph besteht aus Daten verschiedener [Sammlungen](#sammlung) aus [verschiedenenen Quelldatenbanken](https://nfdi4objects.github.io/n4o-databases/), die mit bekannten [Vokabularen](vocabularies.qmd) angereichert werden.
 
 Eine vorläufige Liste von Sammlungen [befindet sich hier](https://github.com/nfdi4objects/n4o-import/blob/main/n4o-collections.csv).
 

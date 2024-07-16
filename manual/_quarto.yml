@@ -25,6 +25,7 @@ book:
     - index.qmd
     - basics.qmd
     - usage.qmd
+    - vocabularies.qmd
     - cypher.qmd
     - sparql.qmd
     - sources.qmd
