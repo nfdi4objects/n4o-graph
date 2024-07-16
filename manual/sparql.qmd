@@ -1,5 +1,6 @@
 ---
 title: Abfragen mit SPARQL
+subtitle: Zugriff auf den Knowledge Graphen per SPARQL
 lang: de
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: Abfragen mit Cypher
+subtitle: Zugriff auf den Knowledge Graphen per Cypher-API
 lang: de
 execute:
   echo: false

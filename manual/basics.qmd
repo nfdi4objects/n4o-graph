@@ -1,5 +1,6 @@
 ---
 title: Grundlagen
+subtitle: Wesentliche Grundbegriffe zum Verständnis des Knowledge Graphen
 lang: de
 ---
 

@@ -10,18 +10,19 @@ Eine vorläufige Liste von Sammlungen [befindet sich hier](https://github.com/nf
 
 Die technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie Update-Verfahren befinden sich noch in Entwicklung.
 
-## Anforderungen an die Datengebenden
+## Anforderungen an Datenlieferungen
 
-* Verwendung von bereits etablierten Metadatenstandards und Ontologien, hier insbesondere Lightweight Information Describing Objects (LIDO) und das CIDOC Concepta Reference Modell (CRM)
-* Beschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.
-* Verwendung von Normdaten und etablierten Vokabularen, insbesondere von URI statt händisch einkopierten Begriffen.
-* Versionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG
-* Angaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung
+- Lieferung ausschließlich in RDF oder im XML-Format Lightweight Information Describing Objects (LIDO)
+- Zur Integration von RDF-Daten in den Property Graphen muss das CIDOC Concepta Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein
+- Beschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.
+- Verwendung von etablierten [Vokabularen](vokabulare.qmd) oder zumindest URIs statt Freitextfeldern
+- Versionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG
+- Angaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung
 
 ## Beispiele
 
 ### Datenlieferung der Klassik Stiftung Weimar
 
-* LIDO 1.1, orientiert an der Deutschen Digitalen Bibliothek
-* Auszug aus der Museumsdatenbank, einer Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet
-* ca. 21.000 Datensätze, die auch im Online-Katalog "Digitale Sammlungen der Museen" der Klassik Stiftung Weimar veröffentlicht sind, verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte) 
+- LIDO 1.1, orientiert an der Deutschen Digitalen Bibliothek
+- Auszug aus der Museumsdatenbank, einer Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet
+- ca. 21.000 Datensätze, die auch im Online-Katalog "Digitale Sammlungen der Museen" der Klassik Stiftung Weimar veröffentlicht sind, verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte) 
