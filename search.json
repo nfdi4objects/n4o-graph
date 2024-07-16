@@ -154,17 +154,17 @@
     "href": "sources.html",
     "title": "Datenquellen",
     "section": "",
-    "text": "Anforderungen an die Datengebenden",
+    "text": "Anforderungen an Datenlieferungen",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
   },
   {
-    "objectID": "sources.html#anforderungen-an-die-datengebenden",
-    "href": "sources.html#anforderungen-an-die-datengebenden",
+    "objectID": "sources.html#anforderungen-an-datenlieferungen",
+    "href": "sources.html#anforderungen-an-datenlieferungen",
     "title": "Datenquellen",
     "section": "",
-    "text": "Verwendung von bereits etablierten Metadatenstandards und Ontologien, hier insbesondere Lightweight Information Describing Objects (LIDO) und das CIDOC Concepta Reference Modell (CRM)\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von Normdaten und etablierten Vokabularen, insbesondere von URI statt händisch einkopierten Begriffen.\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung",
+    "text": "Lieferung ausschließlich in RDF oder im XML-Format Lightweight Information Describing Objects (LIDO)\nZur Integration von RDF-Daten in den Property Graphen muss das CIDOC Concepta Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von etablierten Vokabularen oder zumindest URIs statt Freitextfeldern\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
