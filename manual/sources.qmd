@@ -25,8 +25,8 @@ Werden nur unregelmäßig und zentral aktualisiert. Dürfen nicht durch Lieferun
 
 ## Anforderungen an die Datengebenden
 
-* Verwendung von bereits etablierten Metadatenstandards und Ontologien, hier insbesondere LIDO und CIDOC CRM
+* Verwendung von bereits etablierten Metadatenstandards und Ontologien, hier insbesondere Lightweight Information Describing Objects (LIDO) und das CIDOC Concepta Reference Modell (CRM)
 * Beschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.
-* Verwendung von Normdaten und Vokabularen, insbesondere von URI statt händisch einkopierten Begriffen.
+* Verwendung von Normdaten und etablierten Vokabularen, insbesondere von URI statt händisch einkopierten Begriffen.
 * Versionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG
-* Angaben von Rechten und Lizenzen für eine Nachnutzung
+* Angaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung
