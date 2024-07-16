@@ -34,7 +34,7 @@
     "href": "basics.html#datenbankinhalt",
     "title": "Grundlagen",
     "section": "Datenbankinhalt",
-    "text": "Datenbankinhalt\n\nSchema\nDas (Datenbank)Schema oder Datenmodell eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen.\nDa sich die Datenbankmodelle von Property-Graphen und Triple-Store unterscheiden, gibt es für beide ein jeweils eigenes Schema. Beide basieren jedoch auf einem gemeinsamen abstrakten Datenmodell.\nDetails hierzu unter Datenbankschema.\n\n\nVokabular\nVokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Bei RDF-Daten ist das Datenbankschema\nDetails hierzu unter Datenquellen.\n\n\nDatenbestand\nDer wesentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts. Er wird im Gegensatz zu Schema und Vokabularen laufend aktualisiert.\nDetails hierzu unter Datenquellen.\n\n\nSammlung\nDer eigentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts ist in so genannte Sammlungen unterteilt. Einige Sammlungbestehen aus einzelnen Datensätzen, andere aus einer zusammengefassten Lieferung von Daten.\nDetails hierzu unter Datenquellen.",
+    "text": "Datenbankinhalt\n\nSchema\nDas (Datenbank)Schema oder Datenmodell eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen.\nDa sich die Datenbankmodelle von Property-Graphen und Triple-Store unterscheiden, gibt es für beide ein jeweils eigenes Schema. Beide basieren jedoch auf einem gemeinsamen abstrakten Datenmodell.\nDetails hierzu unter Datenbankschema.\n\n\nVokabular\nVokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Bei RDF-Daten ist das Datenbankschema ebenfalls als Vokabular vorhanden. Vokabulare werden nur in unegelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von Sammlungen überschrieben werden.\n\n\nDatenbestand\nDer wesentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts. Er wird im Gegensatz zu Schema und Vokabularen laufend aktualisiert.\nDetails hierzu unter Datenquellen.\n\n\nSammlung\nDer eigentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts ist in so genannte Sammlungen unterteilt. Einige Sammlungbestehen aus einzelnen Datensätzen, andere aus einer zusammengefassten Lieferung von Daten.\nDetails hierzu unter Datenquellen.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grundlagen</span>"
     ]
@@ -144,17 +144,7 @@
     "href": "sources.html",
     "title": "Datenquellen",
     "section": "",
-    "text": "Sammlungen\nBilden den Datenbestand des Knowledge Graphen. Können laufend aktualisiert werden.\n…",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Datenquellen</span>"
-    ]
-  },
-  {
-    "objectID": "sources.html#vokabulare",
-    "href": "sources.html#vokabulare",
-    "title": "Datenquellen",
-    "section": "Vokabulare",
-    "text": "Vokabulare\nWerden nur unregelmäßig und zentral aktualisiert. Dürfen nicht durch Lieferungen von Sammlungen überschrieben werden.\n…",
+    "text": "Anforderungen an die Datengebenden",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
@@ -163,18 +153,18 @@
     "objectID": "sources.html#anforderungen-an-die-datengebenden",
     "href": "sources.html#anforderungen-an-die-datengebenden",
     "title": "Datenquellen",
-    "section": "Anforderungen an die Datengebenden",
-    "text": "Anforderungen an die Datengebenden\n\nVerwendung von bereits etablierten Metadatenstandards und Ontologien, hier insbesondere Lightweight Information Describing Objects (LIDO) und das CIDOC Concepta Reference Modell (CRM)\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von Normdaten und etablierten Vokabularen, insbesondere von URI statt händisch einkopierten Begriffen.\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung",
+    "section": "",
+    "text": "Verwendung von bereits etablierten Metadatenstandards und Ontologien, hier insbesondere Lightweight Information Describing Objects (LIDO) und das CIDOC Concepta Reference Modell (CRM)\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von Normdaten und etablierten Vokabularen, insbesondere von URI statt händisch einkopierten Begriffen.\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
   },
   {
-    "objectID": "sources.html#datenlieferung-der-klassik-stiftung-weimar",
-    "href": "sources.html#datenlieferung-der-klassik-stiftung-weimar",
+    "objectID": "sources.html#beispiele",
+    "href": "sources.html#beispiele",
     "title": "Datenquellen",
-    "section": "Datenlieferung der Klassik Stiftung Weimar",
-    "text": "Datenlieferung der Klassik Stiftung Weimar\n\nLIDO 1.1, orientiert an der Deutschen Digitalen Bibliothek\nAuszug aus der Museumsdatenbank, einer Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet\nca. 21.000 Datensätze, die auch im Online-Katalog “Digitale Sammlungen der Museen” der Klassik Stiftung Weimar veröffentlicht sind, verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte)",
+    "section": "Beispiele",
+    "text": "Beispiele\n\nDatenlieferung der Klassik Stiftung Weimar\n\nLIDO 1.1, orientiert an der Deutschen Digitalen Bibliothek\nAuszug aus der Museumsdatenbank, einer Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet\nca. 21.000 Datensätze, die auch im Online-Katalog “Digitale Sammlungen der Museen” der Klassik Stiftung Weimar veröffentlicht sind, verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte)",
     "crumbs": [
       "<span class='chapter-number'>6</span>  <span class='chapter-title'>Datenquellen</span>"
     ]

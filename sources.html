@@ -160,10 +160,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#sammlungen" id="toc-sammlungen" class="nav-link active" data-scroll-target="#sammlungen">Sammlungen</a></li>
-  <li><a href="#vokabulare" id="toc-vokabulare" class="nav-link" data-scroll-target="#vokabulare">Vokabulare</a></li>
-  <li><a href="#anforderungen-an-die-datengebenden" id="toc-anforderungen-an-die-datengebenden" class="nav-link" data-scroll-target="#anforderungen-an-die-datengebenden">Anforderungen an die Datengebenden</a></li>
+  <li><a href="#anforderungen-an-die-datengebenden" id="toc-anforderungen-an-die-datengebenden" class="nav-link active" data-scroll-target="#anforderungen-an-die-datengebenden">Anforderungen an die Datengebenden</a></li>
+  <li><a href="#beispiele" id="toc-beispiele" class="nav-link" data-scroll-target="#beispiele">Beispiele</a>
+  <ul class="collapse">
   <li><a href="#datenlieferung-der-klassik-stiftung-weimar" id="toc-datenlieferung-der-klassik-stiftung-weimar" class="nav-link" data-scroll-target="#datenlieferung-der-klassik-stiftung-weimar">Datenlieferung der Klassik Stiftung Weimar</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/sources.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
@@ -196,19 +197,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Der Knowledge Graph besteht aus Daten verschiedener <a href="#sammlungen">Sammlungen</a> aus <a href="https://nfdi4objects.github.io/n4o-databases/">verschiedenenen Quelldatenbanken</a>, die mit bekannten <a href="#vokabulare">Vokabularen</a> angereichert werden.</p>
+<p>Der Knowledge Graph besteht aus Daten verschiedener <a href="#sammlungen">Sammlungen</a> aus <a href="https://nfdi4objects.github.io/n4o-databases/">verschiedenenen Quelldatenbanken</a>, die mit bekannten <a href="schema.html#vokabulare">Vokabularen</a> angereichert werden.</p>
 <p>Eine vorläufige Liste von Sammlungen <a href="https://github.com/nfdi4objects/n4o-import/blob/main/n4o-collections.csv">befindet sich hier</a>.</p>
 <p>Die technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie Update-Verfahren befinden sich noch in Entwicklung.</p>
-<section id="sammlungen" class="level2">
-<h2 class="anchored" data-anchor-id="sammlungen">Sammlungen</h2>
-<p>Bilden den Datenbestand des Knowledge Graphen. Können laufend aktualisiert werden.</p>
-<p>…</p>
-</section>
-<section id="vokabulare" class="level2">
-<h2 class="anchored" data-anchor-id="vokabulare">Vokabulare</h2>
-<p>Werden nur unregelmäßig und zentral aktualisiert. Dürfen nicht durch Lieferungen von Sammlungen überschrieben werden.</p>
-<p>…</p>
-</section>
 <section id="anforderungen-an-die-datengebenden" class="level2">
 <h2 class="anchored" data-anchor-id="anforderungen-an-die-datengebenden">Anforderungen an die Datengebenden</h2>
 <ul>
@@ -219,8 +210,10 @@ ul.task-list li input[type="checkbox"] {
 <li>Angaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung</li>
 </ul>
 </section>
-<section id="datenlieferung-der-klassik-stiftung-weimar" class="level2">
-<h2 class="anchored" data-anchor-id="datenlieferung-der-klassik-stiftung-weimar">Datenlieferung der Klassik Stiftung Weimar</h2>
+<section id="beispiele" class="level2">
+<h2 class="anchored" data-anchor-id="beispiele">Beispiele</h2>
+<section id="datenlieferung-der-klassik-stiftung-weimar" class="level3">
+<h3 class="anchored" data-anchor-id="datenlieferung-der-klassik-stiftung-weimar">Datenlieferung der Klassik Stiftung Weimar</h3>
 <ul>
 <li>LIDO 1.1, orientiert an der Deutschen Digitalen Bibliothek</li>
 <li>Auszug aus der Museumsdatenbank, einer Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet</li>
@@ -228,6 +221,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
