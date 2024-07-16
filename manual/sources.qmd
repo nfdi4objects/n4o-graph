@@ -10,19 +10,6 @@ Eine vorläufige Liste von Sammlungen [befindet sich hier](https://github.com/nf
 
 Die technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie Update-Verfahren befinden sich noch in Entwicklung.
 
-## Sammlungen
-
-Bilden den Datenbestand des Knowledge Graphen. Können laufend aktualisiert werden.
-
-...
-
-## Vokabulare
-
-Werden nur unregelmäßig und zentral aktualisiert. Dürfen nicht durch Lieferungen von Sammlungen überschrieben werden.
-
-...
-
-
 ## Anforderungen an die Datengebenden
 
 * Verwendung von bereits etablierten Metadatenstandards und Ontologien, hier insbesondere Lightweight Information Describing Objects (LIDO) und das CIDOC Concepta Reference Modell (CRM)
@@ -31,8 +18,9 @@ Werden nur unregelmäßig und zentral aktualisiert. Dürfen nicht durch Lieferun
 * Versionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG
 * Angaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung
 
+## Beispiele
 
-## Datenlieferung der Klassik Stiftung Weimar
+### Datenlieferung der Klassik Stiftung Weimar
 
 * LIDO 1.1, orientiert an der Deutschen Digitalen Bibliothek
 * Auszug aus der Museumsdatenbank, einer Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet
