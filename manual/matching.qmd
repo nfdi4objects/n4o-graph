@@ -1,0 +1,8 @@
+---
+title: Matching
+---
+
+Zur besseren Integration von Daten sollen spezialisierte Ontologien und Metadaten-Schema auf ein [einheitliches Datenbankschema](schema.qmd) und ausgewählte Werte per Named-Entity-Recognition auf [Vokabulare](vocabularies.qmd) gemappt werden.
+
+
+

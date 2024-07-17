@@ -8,8 +8,9 @@ Zur Nutzung des Knowledge Graphen ist das Verständnis einiger Grundbegriffe not
 
 - Ein [Knowledge Graph] enthält Informationen in Form eines Graphen aus Knoten und Kanten
 - Der [Datenbestand] ist der eigentliche Inhalt des Knowledge Graphen
-- [Property Graph] und [Triple Store] sind zwei unterschiedliche Techniken zur Speicherung von Graphen
 - Ein [Schema] definiert welche Art von Knoten und Kanten erlaubt sind
+- [Vokabulare](#vokabular) sind vorgegebene Listen von Entitäten
+- [Property Graph] und [Triple Store] sind zwei unterschiedliche Techniken zur Speicherung von Graphen
 
 Weitere technischen Details und Hintergründe finden sich im Kapitel zur [Systemarchitektur](architecture.qmd).
 
@@ -75,9 +76,9 @@ Der Datenbestand ist der eigentliche Inhalt des gemeinsamen Knowledge Graphen vo
 
 ### Vokabular
 
-Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von [Sammlungen](#sammlungen) überschrieben werden. Weitere Informationen finden sich im [Kapitel Vokabulare](vocabularies.qmd).
+Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von [Sammlungen](#sammlungen) überschrieben werden. Weitere Informationen finden sich im [Kapitel Vokabulare](vocabularies.qmd) und [Matching](matching.qmd).
 
-<!-- TODO: Beispiel PeriodO -->
+<!-- TODO: Beispiel PeriodO, cm -->
 
 ### Sammlung
 
