@@ -168,14 +168,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#knowledge-graph" id="toc-knowledge-graph" class="nav-link active" data-scroll-target="#knowledge-graph">Knowledge Graph</a></li>
   <li><a href="#datenbankmodelle" id="toc-datenbankmodelle" class="nav-link" data-scroll-target="#datenbankmodelle">Datenbankmodelle</a>
   <ul class="collapse">
-  <li><a href="#property-graphen" id="toc-property-graphen" class="nav-link" data-scroll-target="#property-graphen">Property Graphen</a></li>
-  <li><a href="#triple-store" id="toc-triple-store" class="nav-link" data-scroll-target="#triple-store">Triple-Store</a></li>
+  <li><a href="#property-graph" id="toc-property-graph" class="nav-link" data-scroll-target="#property-graph">Property Graph</a></li>
+  <li><a href="#triple-store" id="toc-triple-store" class="nav-link" data-scroll-target="#triple-store">Triple Store</a></li>
   </ul></li>
   <li><a href="#datenbankinhalt" id="toc-datenbankinhalt" class="nav-link" data-scroll-target="#datenbankinhalt">Datenbankinhalt</a>
   <ul class="collapse">
   <li><a href="#schema" id="toc-schema" class="nav-link" data-scroll-target="#schema">Schema</a></li>
-  <li><a href="#vokabular" id="toc-vokabular" class="nav-link" data-scroll-target="#vokabular">Vokabular</a></li>
   <li><a href="#datenbestand" id="toc-datenbestand" class="nav-link" data-scroll-target="#datenbestand">Datenbestand</a></li>
+  <li><a href="#vokabular" id="toc-vokabular" class="nav-link" data-scroll-target="#vokabular">Vokabular</a></li>
   <li><a href="#sammlung" id="toc-sammlung" class="nav-link" data-scroll-target="#sammlung">Sammlung</a></li>
   </ul></li>
   </ul>
@@ -210,31 +210,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Zur Nutzung des Knowledge Graphen ist das Verständnis einiger Grundbegriffe notwendig. An dieser Stelle folgt eine kurze, allgemeine Einführung. Technische Details und Hintergründe finden sich im Kapitel zur <a href="./architecture.html">Systemarchitektur</a>.</p>
+<p>Zur Nutzung des Knowledge Graphen ist das Verständnis einiger Grundbegriffe notwendig:</p>
+<ul>
+<li>Ein <a href="#knowledge-graph">Knowledge Graph</a> enthält Informationen in Form eines Graphen aus Knoten und Kanten</li>
+<li>Der <a href="#datenbestand">Datenbestand</a> ist der eigentliche Inhalt des Knowledge Graphen</li>
+<li><a href="#property-graph">Property Graph</a> und <a href="#triple-store">Triple Store</a> sind zwei unterschiedliche Techniken zur Speicherung von Graphen</li>
+<li>Ein <a href="#schema">Schema</a> definiert welche Art von Knoten und Kanten erlaubt sind</li>
+</ul>
+<p>Weitere technischen Details und Hintergründe finden sich im Kapitel zur <a href="./architecture.html">Systemarchitektur</a>.</p>
 <section id="knowledge-graph" class="level2">
 <h2 class="anchored" data-anchor-id="knowledge-graph">Knowledge Graph</h2>
 <p>In einem <strong>Knowledge Graph</strong> (auch <strong>Wissensgraph</strong>) sind Informationen strukturiert und stark miteinander vernetzt gespeichert. Ein Beispiel hierfür ist ein Netzwerk aus Personen, die durch Verwandschaft und andere Beziehungen miteinander verknüpft sind. Jeder Graph besteht aus <strong>Knoten</strong> und <strong>Kanten</strong>. So lassen sich beispielsweise Personen durch Knoten und Beziehungen durch Kanten repräsentieren.</p>
-<p>Weitere Details hängen von der technischen Umsetzung des Knowledge Graphen ab. Die beiden am häufigsten verwendeten Datenbankmodelle sind <a href="#property-graphen"><strong>Property-Graphen</strong></a> und das RDF-Datenmodell mit <a href="#triple-stores"><strong>Triple-Stores</strong></a>. Darüber hinaus gibt es einige Knowledge Graphen mit eigenem Datenbankmodell, beispielsweise <a href="https://www.wikidata.org/">Wikidata</a> auf Grundlage von des Wikibase-Modells.</p>
-<p>Die Inhalte eines Knowledge Graphen besteht aus einem <a href="#schema"><strong>Schema</strong></a>, optional einigen <a href="#vokabular"><strong>Vokabularen</strong></a> und dem <a href="#datenbestand"><strong>Datenbestand</strong></a> als eigentlichem Datenbankinhalt. Einzelne “Datensätze” gibt es aufgrund der Graphstruktur nicht.</p>
+<p>Weitere Details hängen von der technischen Umsetzung des Knowledge Graphen ab. Die beiden am häufigsten verwendeten Datenbankmodelle sind <a href="#property-graphen"><strong>Property-Graphen</strong></a> und das RDF-Datenmodell mit <strong><a href="#triple-store">Triple Stores</a></strong>. Darüber hinaus gibt es einige Knowledge Graphen mit eigenem Datenbankmodell, beispielsweise <a href="https://www.wikidata.org/">Wikidata</a> auf Grundlage von des Wikibase-Modells.</p>
+<p>Die Inhalte eines Knowledge Graphen besteht aus einem <a href="#schema">Schema</a>, optional einigen <a href="#vokabular"><strong>Vokabularen</strong></a> und dem <strong><a href="#datenbestand">Datenbestand</a></strong> als eigentlichem Datenbankinhalt. Einzelne “Datensätze” gibt es aufgrund der Graphstruktur nicht.</p>
 </section>
 <section id="datenbankmodelle" class="level2">
 <h2 class="anchored" data-anchor-id="datenbankmodelle">Datenbankmodelle</h2>
-<section id="property-graphen" class="level3">
-<h3 class="anchored" data-anchor-id="property-graphen">Property Graphen</h3>
-<p>Property-Graphen dienen der Strukturierung, Speicherung und Auswertung vernetzter Daten. Die Daten werden dabei nicht in tabellarischer Form (wie bei einer Tabellenkalkulation oder bei SQL) oder in hierarchischer Form (wie bei XML) sondern in Form eines <strong>Graphen</strong> gespeichert. Die Knoten und Kanten des Graphen können jeweils <strong>Labels</strong> (Typen) haben und mit <strong>Eigenschaften</strong> versehen sein. Zur Abfrage von Property-Graphen dient die Sprache <a href="./cypher.html">Cypher</a>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Eine weitergehende Erklärung zu Property-Graphen liefert der Artikel <a href="https://jakobib.github.io/pgraphen2024/">Property-Graphen: eine kurze Einführung</a>.</p>
-</div>
-</div>
+<section id="property-graph" class="level3">
+<h3 class="anchored" data-anchor-id="property-graph">Property Graph</h3>
+<p>Property-Graphen dienen der Strukturierung, Speicherung und Auswertung vernetzter Daten. Die Daten werden dabei nicht in tabellarischer Form (wie bei einer Tabellenkalkulation oder bei SQL) oder in hierarchischer Form (wie bei XML) sondern in Form eines <strong>Graphen</strong> gespeichert. Die Knoten und Kanten des Graphen können jeweils <strong>Labels</strong> (Typen) haben und mit <strong>Eigenschaften</strong> versehen sein. Zur Abfrage von Property-Graphen dient die Sprache <a href="./cypher.html">Cypher</a>. Eine genauere Erklärung liefert der Artikel <a href="https://jakobib.github.io/pgraphen2024/">Property-Graphen: eine kurze Einführung</a>.</p>
 <!--
 Im Gegensatz zu RDF sind Property Graphen nicht als allgemeines Format zum
 Austausch und zur Integration von Daten gedacht. Der Property Graph von
@@ -244,7 +238,7 @@ Eigenschaften versehen werden können.
 -->
 </section>
 <section id="triple-store" class="level3">
-<h3 class="anchored" data-anchor-id="triple-store">Triple-Store</h3>
+<h3 class="anchored" data-anchor-id="triple-store">Triple Store</h3>
 <p>Ein Triple Store ist eine <a href="https://de.wikipedia.org/wiki/Graphdatenbank">Graphendatenbank</a> in der Daten dem RDF-Modell nach in Form von so genannten Triplen gespeichert werden. Jedes <strong>Tripel</strong> entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple-Stores dient <a href="./sparql.html">SPARQL</a>.</p>
 </section>
 </section>
@@ -252,24 +246,34 @@ Eigenschaften versehen werden können.
 <h2 class="anchored" data-anchor-id="datenbankinhalt">Datenbankinhalt</h2>
 <section id="schema" class="level3">
 <h3 class="anchored" data-anchor-id="schema">Schema</h3>
-<p>Das (Datenbank)Schema oder <strong>Datenmodell</strong> eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen.</p>
-<p>Da sich die Datenbankmodelle von Property-Graphen und Triple-Store unterscheiden, gibt es für beide ein jeweils eigenes Schema. Beide basieren jedoch auf einem gemeinsamen abstrakten Datenmodell.</p>
-<p><em>Details hierzu unter <a href="./schema.html">Datenbankschema</a>.</em></p>
-</section>
-<section id="vokabular" class="level3">
-<h3 class="anchored" data-anchor-id="vokabular">Vokabular</h3>
-<p>Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von <a href="#sammlungen">Sammlungen</a> überschrieben werden.</p>
-<p><em>Details hierzu unter <a href="./vocabularies.html">Vokabulare</a>.</em></p>
+<p>Das (Datenbank)Schema oder <strong>Datenmodell</strong> eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von <a href="#property-graph">Property Graph</a> und [Triple-Store] unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell CIDOC-CRM. Details zu den Schemas finden sich im <a href="./schema.html">Kapitel Datenbankschema</a>.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Beispiel">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beispiel
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Im Schema ist beispielsweise vorgegeben, dass es für Messungen Knoten der Klasse <code>E16_Measurement</code> und für Zeiträume Knoten der Klasse <code>E52_Time_Span</code> gibt.</p>
+</div>
+</div>
 </section>
 <section id="datenbestand" class="level3">
 <h3 class="anchored" data-anchor-id="datenbestand">Datenbestand</h3>
-<p>Der wesentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts. Er wird im Gegensatz zu Schema und Vokabularen laufend aktualisiert.</p>
-<p><em>Details hierzu unter <a href="./sources.html">Datenquellen</a>.</em></p>
+<p>Der Datenbestand ist der eigentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts. Er wird im Gegensatz zu <a href="#schema">Schema</a> und <a href="#vokabular">Vokabularen</a> laufend durch Lieferungen von <a href="#sammlung">Sammlungen</a> Forschungsdaten aktualisiert, die in den Graphen integriert werden.</p>
+</section>
+<section id="vokabular" class="level3">
+<h3 class="anchored" data-anchor-id="vokabular">Vokabular</h3>
+<p>Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von <a href="#sammlungen">Sammlungen</a> überschrieben werden. Weitere Informationen finden sich im <a href="./vocabularies.html">Kapitel Vokabulare</a>.</p>
+<!-- TODO: Beispiel PeriodO -->
 </section>
 <section id="sammlung" class="level3">
 <h3 class="anchored" data-anchor-id="sammlung">Sammlung</h3>
-<p>Der eigentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts ist in so genannte <strong>Sammlungen</strong> unterteilt. Einige Sammlungbestehen aus einzelnen Datensätzen, andere aus einer zusammengefassten Lieferung von Daten.</p>
-<p><em>Details hierzu unter <a href="./sources.html">Datenquellen</a>.</em></p>
+<p>Der <a href="#datenbestand">Datenbestand</a> des Knowledge Graphen von NFDI4IObjekts ist in so genannte Sammlungen unterteilt. Einige Sammlungen bestehen aus einzelnen Datensätzen, andere aus einer zusammengefassten Lieferung von Daten. Weitere Informationen zu Sammlungen und Lieferungen finden sich im <a href="./sources.html">Kapitel Datenquellen</a>.</p>
+<!-- TODO: Beispiel -->
 
 
 </section>
