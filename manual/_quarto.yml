@@ -24,12 +24,12 @@ book:
   chapters:
     - index.qmd
     - basics.qmd
-    - usage.qmd
-    - vocabularies.qmd
-    - cypher.qmd
-    - sparql.qmd
     - sources.qmd
     - schema.qmd
+    - vocabularies.qmd
+    - usage.qmd
+    - cypher.qmd
+    - sparql.qmd
     - architecture.qmd
     - mappings.qmd
     - status.qmd

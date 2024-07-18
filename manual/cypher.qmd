@@ -13,7 +13,7 @@ Dieses Kapitel veranschaulicht die Nutzung der [Cypher-API](#cypher-api) zur Abf
 ### Demo
 
 ```{ojs}
-viewof cypherRunner = {
+viewof cypherEditor = {
   const mainDiv = html`<div><div>`
   const editorDiv = html`<div style="border: 1px solid rgb(0, 0, 0);"></div>`
   const runButton = html`<button>Query</button>`
@@ -26,20 +26,18 @@ viewof cypherRunner = {
 
   let editor = CodeMirror(editorDiv, { mode: "application/x-cypher-query" })
 
-  editor.setValue(
-    "MATCH (n:`E22_Man-Made_Object`) RETURN n.cID LIMIT 20"
-  )
-  editor.setSize(width - 20, 200)
+  editor.setValue("MATCH (m:E16_Measurement) RETURN m LIMIT 20")
+  editor.setSize(width-20, 200)
 
   runButton.onclick = async (e) => {
     mainDiv.value = await cypherQuery(editor.getValue())
     mainDiv.dispatchEvent(new CustomEvent("input"))
-  };
+  }
 
   return mainDiv
 }
 
-cypherRunner
+cypherEditor
 ```
 
 ### Abfrage mit curl
