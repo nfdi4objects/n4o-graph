@@ -11,9 +11,10 @@ An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des **Kno
 
 Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus [verschiedenene Quellen](sources.qmd) zusammengeführt werden:
 
-- ein **[Property-Graph](#property-graphen)** mit aufbereiteten Daten und Abfragemöglichkeit in [Cypher](cypher.qmd)
+- ein **[Property-Graph](#property-graph)** mit aufbereiteten Daten und Abfragemöglichkeit in [Cypher](cypher.qmd)
 
 - ein **[Triple-Store](#triple-store)** mit Rohdaten in RDF und Abfragemöglichkeit in [SPARQL](sparql.qmd)
 
 Darüber sind eine browserbasierte Oberfläche ("Rich Metadata Discovery") mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung sowie die Integration in ein Learning Management System (LMS) geplant. Langfristig soll der Knowledge Graph außerdem mit anderen Knowledge Graphen im Rahmen der NFDI verknüpft werden.
 
+Der aktuelle Stand des Property Graphen ist [über ein Dashboard](status.qmd) einsehbar. 

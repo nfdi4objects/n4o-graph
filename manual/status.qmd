@@ -1,0 +1,27 @@
+---
+title: Status
+subtitle: Dashboard zum Stand der Property Graphen
+format: dashboard
+---
+
+## Property Graph
+
+Folgende Übersicht wird live per [Cypher API](cypher.qmd) erstellt.
+
+- Anzahl von Knoten: `{ojs} cypherNodesCount[0]?.count?.toLocaleString()`
+- Anzahl von Kanten: `{ojs} cypherEdgesCount[0]?.count?.toLocaleString()`
+
+```{ojs}
+//| output: false
+cypherNodesCount = await cypherQuery("MATCH () RETURN count(*) as count")
+cypherEdgesCount = await cypherQuery("MATCH ()-[]->() RETURN count(*) as count")
+```
+
+## Triple Store
+
+*noch nicht umgesetzt*
+
+## Datenquellen
+
+Der Status des Import aus [Datenquellen](sources.qmd) ist noch nicht öffentlich zugänglich.
+

@@ -13,12 +13,6 @@ Dieses Kapitel veranschaulicht die Nutzung der [Cypher-API](#cypher-api) zur Abf
 ### Demo
 
 ```{ojs}
-runQuery = async (cypher) => {
-  // TODO: pass via variable
-  const url = "https://graph.gbv.de/api?" + new URLSearchParams({cypher})
-  // TODO: detect errors and show message
-  return fetch(url).then(res => res.json())
-}
 viewof cypherRunner = {
   const mainDiv = html`<div><div>`
   const editorDiv = html`<div style="border: 1px solid rgb(0, 0, 0);"></div>`
@@ -38,7 +32,7 @@ viewof cypherRunner = {
   editor.setSize(width - 20, 200)
 
   runButton.onclick = async (e) => {
-    mainDiv.value = await runQuery(editor.getValue())
+    mainDiv.value = await cypherQuery(editor.getValue())
     mainDiv.dispatchEvent(new CustomEvent("input"))
   };
 

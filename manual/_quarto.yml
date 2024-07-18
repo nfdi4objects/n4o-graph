@@ -32,6 +32,7 @@ book:
     - schema.qmd
     - architecture.qmd
     - mappings.qmd
+    - status.qmd
   page-footer: 
     right: 
       - text: Datenschutz
@@ -53,6 +54,7 @@ format:
      - pg.xml
     include-before-body:
       text: |
+        <script src="./js/common.js"></script>
         <script src="./js/codemirror.js"></script>
         <script src="./js/cypher.js"></script>
         <script src="./js/sparql.js"></script>
