@@ -31,7 +31,7 @@ book:
     - sources.qmd
     - schema.qmd
     - architecture.qmd
-    - matching.qmd
+    - mappings.qmd
   page-footer: 
     right: 
       - text: Datenschutz

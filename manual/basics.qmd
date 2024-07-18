@@ -6,11 +6,14 @@ lang: de
 
 Zur Nutzung des Knowledge Graphen ist das Verständnis einiger Grundbegriffe notwendig:
 
-- Ein [Knowledge Graph] enthält Informationen in Form eines Graphen aus Knoten und Kanten
-- Der [Datenbestand] ist der eigentliche Inhalt des Knowledge Graphen
-- Ein [Schema] definiert welche Art von Knoten und Kanten erlaubt sind
-- [Vokabulare](#vokabular) sind vorgegebene Listen von Entitäten
-- [Property Graph] und [Triple Store] sind zwei unterschiedliche Techniken zur Speicherung von Graphen
+- Ein [Knowledge Graph] enthält Informationen in Form eines Graphen aus Knoten und Kanten.
+  [Property Graph] und [Triple Store] sind zwei unterschiedliche Datenbanktechniken zur
+  Verwaltung von Knowledge Graphen.
+- Ein [Schema] definiert welche Art von Daten in einer Datenbank oder einem Datenformat erlaubt sind.
+- [Vokabulare](#vokabular) sind vorgegebene Listen von Entitäten.
+- Der [Datenbestand] ist der eigentliche Inhalt des Knowledge Graphen. Er stammt aus
+  regelmäßig aktualisierten Lieferungen verschiedener [Sammlungen] von Forschungsdaten
+  in festgelegten [Formaten](#datenformate).
 
 Weitere technischen Details und Hintergründe finden sich im Kapitel zur [Systemarchitektur](architecture.qmd).
 
@@ -48,27 +51,21 @@ versehen sein. Zur Abfrage von Property-Graphen dient die Sprache
 [Cypher](cypher.qmd). Eine genauere Erklärung liefert der Artikel
 [Property-Graphen: eine kurze Einführung](https://jakobib.github.io/pgraphen2024/).
 
-<!--
-Im Gegensatz zu RDF sind Property Graphen nicht als allgemeines Format zum
-Austausch und zur Integration von Daten gedacht. Der Property Graph von
-NFDI4Objects benötigt daher eine [Schema](#schema.qmd) das festlegt,
-welche Arten von Knoten und Kanten wie miteinander verknüpft und mit
-Eigenschaften versehen werden können.
--->
-
 ### Triple Store
 
-Ein Triple Store ist eine [Graphendatenbank](https://de.wikipedia.org/wiki/Graphdatenbank) in der Daten dem RDF-Modell nach in Form von so genannten Triplen gespeichert werden. Jedes **Tripel** entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple-Stores dient [SPARQL](sparql.qmd).
+Ein Triple Store ist eine [Graphendatenbank](https://de.wikipedia.org/wiki/Graphdatenbank) in der Daten dem [RDF-Modell](#rdf) nach in Form von so genannten Triplen gespeichert werden. Jedes **Tripel** entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple-Stores dient [SPARQL](sparql.qmd).
 
 ## Datenbankinhalt
 
 ### Schema
 
-Das (Datenbank)Schema oder **Datenmodell** eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von [Property Graph] und [Triple-Store] unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell CIDOC-CRM. Details zu den Schemas finden sich im [Kapitel Datenbankschema](schema.qmd).
+Das Datenbankschema oder **Datenmodell** eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von [Property Graph] und [Triple-Store] unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell CIDOC-CRM. Details zu den Schemas finden sich im [Kapitel Datenbankschema](schema.qmd).
 
 ::: {.callout-tip title="Beispiel" appearance="minimal"}
 Im Schema ist beispielsweise vorgegeben, dass es für Messungen Knoten der Klasse `E16_Measurement` und für Zeiträume Knoten der Klasse `E52_Time_Span` gibt.
 :::
+
+Neben dem Schema von Graphdatenbanken gibt Schemas zur Validierung der [Datenformate] gelieferter Daten.
 
 ### Datenbestand
 
@@ -76,13 +73,26 @@ Der Datenbestand ist der eigentliche Inhalt des gemeinsamen Knowledge Graphen vo
 
 ### Vokabular
 
-Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von [Sammlungen](#sammlungen) überschrieben werden. Weitere Informationen finden sich im [Kapitel Vokabulare](vocabularies.qmd) und [Matching](matching.qmd).
+Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von [Sammlungen](#sammlungen) überschrieben werden. Weitere Informationen finden sich in den Kapiteln zu [Vokabularen](vocabularies.qmd) und zu [Mappings](mappings.qmd).
 
-<!-- TODO: Beispiel PeriodO, cm -->
+::: {.callout-tip title="Beispiel" appearance="minimal"}
+Häufig verwendete Vokabulare sind die Gemeinsame Normdatei (GND), das Klassifizierungssystem Iconclass und die Normdateien des Getty Research Institute.
+Darüber hinaus gibt es zahlreiche Spezial-Vokabulare wie zum Beispiel die Hornbostel-Sachs-Klassifikation der Musikinstrumente.
+:::
 
 ### Sammlung
 
 Der [Datenbestand] des Knowledge Graphen von NFDI4IObjekts ist in so genannte Sammlungen unterteilt. Einige Sammlungen bestehen aus einzelnen Datensätzen, andere aus einer zusammengefassten Lieferung von Daten. Weitere Informationen zu Sammlungen und Lieferungen finden sich im [Kapitel Datenquellen](sources.qmd).
 
-<!-- TODO: Beispiel -->
+## Datenformate
+
+Zur Integration in den [Datenbestand] des Knowledge Graphen können Daten grundsätzlich in [LIDO] oder in [RDF] geliefert werden. Darüber hinaus gibt es spezielle Formate für [Vokabulare](vocabularies.qmd) und [Mappings](mappings.qmd).
+
+#### LIDO
+
+Lightweight Information Describing Objects (LIDO) ist ein XML-Format aus dem Museumsbereich (siehe [LIDO in der Formatdatenbank](http://format.gbv.de/lido)).
+
+#### RDF
+
+RDF-Daten können in verschiedenen Serialisierungen vorkommen, die sich verlustfrei ineinander überführen lassen (siehe [RDF in der Formatdatenbank](http://format.gbv.de/rdf)). Im Gegensatz zum allgemeinen Graph-Daten eines [Property Graphen](#knowledge-graph) enthalten RDF-Daten global eindeutige URIs als Identifikatoren. Außerdem lassen sich RDF-Daten aus unterschiedlichen Quellen immer zusammenführen. Sofern kein einheitliches [Schema] verwendet wird, ist das Ergebnis allerdings uneinheitlich.
 

@@ -1,21 +1,23 @@
 ---
-title: Matching
+title: Mappings
 ---
 
-Zur besseren Integration von Daten sollen spezialisierte Ontologien und Metadaten-Schema auf ein [einheitliches Datenbankschema](schema.qmd) und ausgewählte Werte per Named-Entity-Recognition auf [Vokabulare](vocabularies.qmd) gemappt werden. Im Detail lassen sich folgende Matching-Bereiche unterscheiden:
+Zur besseren Integration von Daten sollen spezialisierte Ontologien und Metadaten-Schema auf ein [einheitliches Datenbankschema](schema.qmd) und ausgewählte Werte per Named-Entity-Recognition auf [Vokabulare](vocabularies.qmd) gemappt werden. Im Detail lassen sich folgende Mapping-Bereiche unterscheiden:
 
-- [Matching von Schemas]
-- [Matching von Vokabularen]
+- [Mapping von Schemas]
+- [Mapping von Vokabularen]
 - [Reconciliation]
-- [Matching von Werten]
+- [Mapping von Werten]
 
-## Matching von Schemas
+Ein Teil der Mappings für den NFDI4Objects Knowledge Graphen kann mit Hilfe der Webanwendung [Cocoda] erstellt und gepflegt werden. Eine vorläufige Instanz der Software ist unter <https://coli-conc.gbv.de/cocoda/nfdi4objects/> erreichbar.
+
+## Mapping von Schemas
 
 Das einheitliche Datenmodell des Knowledge Graphen basiert auf CIDOC-CRM (siehe [Datenbankschema](schema.qmd)). Werden in den gelieferten Daten andere Ontologien verwendet, so müssen diese auf CRM abgebildet werden. Die Abbildung geschieht bislang per Hand in Konfigurationsdateien. In Zukunft soll als Werkzeug hierfür auch [Cocoda] eingesetzt werden.
 
 Neben der Abbildung von verschiedenen Ontologien auf CRM ist es auch notwendig, unterschiedliche Modellierungsmöglichkeiten innerhalb von CRM auf ein Schema zu vereinheitlichen.
 
-## Matching von Vokabularen
+## Mapping von Vokabularen
 
 In den gelieferten Daten werden Entäten wie Personen, Orte, Zeiträume, Materialien etc. auf unterschiedliche Art und Weise referenziert. Im Idealfall wird per Identifiern auf Normdateien verwiesen. Wenn unterschiedliche Normdateien für die gleichen Entitäten verwendet werden, sollten diese aufeinander gemappt werden. Als Werkzeug hierfür dient die Webanwendung [Cocoda].
 
@@ -23,7 +25,7 @@ In den gelieferten Daten werden Entäten wie Personen, Orte, Zeiträume, Materia
 
 Werden Entitäten lediglich durch Zeichenketten referenziert (z.B. "Gold" zur Angabe des chemischen Elements [Gold](https://de.wikipedia.org/wiki/Gold)), so müssen diese Angaben möglichst auf kontrollierte Vokabulare mit entsprechenden Identifiern gemappt werden. Als technische Schnittstelle hierfür dient dazu die [Reconciliation Service API](https://reconciliation-api.github.io/specs/draft/). Wie weit die Erkennung von Entitäten aus Zeichenketten automatisiert ablaufen kann, hängt allerdings stark vom Kontext der Daten ab.
 
-## Matching von Werten
+## Mapping von Werten
 
 In den gelieferten Daten kommen Werte mit unterschiedlichen Einheiten (Datumsangaben, Ortsangaben, Mengen, Gewichte und andere physische Maße...) vor. Diese sollten möglichst vereinheitlicht werden, damit Abfragen über den gesamten Datenbestand möglich sind.
 
