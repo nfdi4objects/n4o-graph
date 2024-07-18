@@ -301,7 +301,7 @@ P47_is_identified_by P47
 P48 P1
 P48_has_preferred_identifier P1 P48
 P49_has_former_or_current_keeper P49
-P4_has_time-span P4
+P4_has_time_span P4
 P50 P49
 P50_has_current_keeper P49 P50
 P51_has_former_or_current_owner P51
