@@ -8,3 +8,5 @@ Vokabulare (auch bekannt als Terminologien oder Normdaten) sind vorgegebene List
 Beispiele für Vokabulare sind GND, GeoNames und Wikidata.
 
 Grundlage für die kontrollierte Verwendung von Vokabularen im Knowledge Graph ist ein Eintrag in [BARTOC](https://bartoc.org).
+
+Zur Vereinheitlichung von gelieferten Daten müssen verschiedene Vokabulare aufeinander abgebildet werden (siehe [Matching](matching.qmd)).
