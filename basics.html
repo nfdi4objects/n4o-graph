@@ -157,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./matching.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Matching</span></a>
+  <a href="./mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mappings</span></a>
   </div>
 </li>
     </ul>
@@ -183,6 +183,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#vokabular" id="toc-vokabular" class="nav-link" data-scroll-target="#vokabular">Vokabular</a></li>
   <li><a href="#sammlung" id="toc-sammlung" class="nav-link" data-scroll-target="#sammlung">Sammlung</a></li>
   </ul></li>
+  <li><a href="#datenformate" id="toc-datenformate" class="nav-link" data-scroll-target="#datenformate">Datenformate</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/basics.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
@@ -217,11 +218,10 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Zur Nutzung des Knowledge Graphen ist das Verständnis einiger Grundbegriffe notwendig:</p>
 <ul>
-<li>Ein <a href="#knowledge-graph">Knowledge Graph</a> enthält Informationen in Form eines Graphen aus Knoten und Kanten</li>
-<li>Der <a href="#datenbestand">Datenbestand</a> ist der eigentliche Inhalt des Knowledge Graphen</li>
-<li>Ein <a href="#schema">Schema</a> definiert welche Art von Knoten und Kanten erlaubt sind</li>
-<li><a href="#vokabular">Vokabulare</a> sind vorgegebene Listen von Entitäten</li>
-<li><a href="#property-graph">Property Graph</a> und <a href="#triple-store">Triple Store</a> sind zwei unterschiedliche Techniken zur Speicherung von Graphen</li>
+<li>Ein <a href="#knowledge-graph">Knowledge Graph</a> enthält Informationen in Form eines Graphen aus Knoten und Kanten. <a href="#property-graph">Property Graph</a> und <a href="#triple-store">Triple Store</a> sind zwei unterschiedliche Datenbanktechniken zur Verwaltung von Knowledge Graphen.</li>
+<li>Ein <a href="#schema">Schema</a> definiert welche Art von Daten in einer Datenbank oder einem Datenformat erlaubt sind.</li>
+<li><a href="#vokabular">Vokabulare</a> sind vorgegebene Listen von Entitäten.</li>
+<li>Der <a href="#datenbestand">Datenbestand</a> ist der eigentliche Inhalt des Knowledge Graphen. Er stammt aus regelmäßig aktualisierten Lieferungen verschiedener [Sammlungen] von Forschungsdaten in festgelegten <a href="#datenformate">Formaten</a>.</li>
 </ul>
 <p>Weitere technischen Details und Hintergründe finden sich im Kapitel zur <a href="./architecture.html">Systemarchitektur</a>.</p>
 <section id="knowledge-graph" class="level2">
@@ -235,24 +235,17 @@ ul.task-list li input[type="checkbox"] {
 <section id="property-graph" class="level3">
 <h3 class="anchored" data-anchor-id="property-graph">Property Graph</h3>
 <p>Property-Graphen dienen der Strukturierung, Speicherung und Auswertung vernetzter Daten. Die Daten werden dabei nicht in tabellarischer Form (wie bei einer Tabellenkalkulation oder bei SQL) oder in hierarchischer Form (wie bei XML) sondern in Form eines <strong>Graphen</strong> gespeichert. Die Knoten und Kanten des Graphen können jeweils <strong>Labels</strong> (Typen) haben und mit <strong>Eigenschaften</strong> versehen sein. Zur Abfrage von Property-Graphen dient die Sprache <a href="./cypher.html">Cypher</a>. Eine genauere Erklärung liefert der Artikel <a href="https://jakobib.github.io/pgraphen2024/">Property-Graphen: eine kurze Einführung</a>.</p>
-<!--
-Im Gegensatz zu RDF sind Property Graphen nicht als allgemeines Format zum
-Austausch und zur Integration von Daten gedacht. Der Property Graph von
-NFDI4Objects benötigt daher eine [Schema](#schema.qmd) das festlegt,
-welche Arten von Knoten und Kanten wie miteinander verknüpft und mit
-Eigenschaften versehen werden können.
--->
 </section>
 <section id="triple-store" class="level3">
 <h3 class="anchored" data-anchor-id="triple-store">Triple Store</h3>
-<p>Ein Triple Store ist eine <a href="https://de.wikipedia.org/wiki/Graphdatenbank">Graphendatenbank</a> in der Daten dem RDF-Modell nach in Form von so genannten Triplen gespeichert werden. Jedes <strong>Tripel</strong> entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple-Stores dient <a href="./sparql.html">SPARQL</a>.</p>
+<p>Ein Triple Store ist eine <a href="https://de.wikipedia.org/wiki/Graphdatenbank">Graphendatenbank</a> in der Daten dem <a href="#rdf">RDF-Modell</a> nach in Form von so genannten Triplen gespeichert werden. Jedes <strong>Tripel</strong> entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple-Stores dient <a href="./sparql.html">SPARQL</a>.</p>
 </section>
 </section>
 <section id="datenbankinhalt" class="level2">
 <h2 class="anchored" data-anchor-id="datenbankinhalt">Datenbankinhalt</h2>
 <section id="schema" class="level3">
 <h3 class="anchored" data-anchor-id="schema">Schema</h3>
-<p>Das (Datenbank)Schema oder <strong>Datenmodell</strong> eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von <a href="#property-graph">Property Graph</a> und [Triple-Store] unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell CIDOC-CRM. Details zu den Schemas finden sich im <a href="./schema.html">Kapitel Datenbankschema</a>.</p>
+<p>Das Datenbankschema oder <strong>Datenmodell</strong> eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von <a href="#property-graph">Property Graph</a> und [Triple-Store] unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell CIDOC-CRM. Details zu den Schemas finden sich im <a href="./schema.html">Kapitel Datenbankschema</a>.</p>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Beispiel">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -266,6 +259,7 @@ Beispiel
 <p>Im Schema ist beispielsweise vorgegeben, dass es für Messungen Knoten der Klasse <code>E16_Measurement</code> und für Zeiträume Knoten der Klasse <code>E52_Time_Span</code> gibt.</p>
 </div>
 </div>
+<p>Neben dem Schema von Graphdatenbanken gibt Schemas zur Validierung der <a href="#datenformate">Datenformate</a> gelieferter Daten.</p>
 </section>
 <section id="datenbestand" class="level3">
 <h3 class="anchored" data-anchor-id="datenbestand">Datenbestand</h3>
@@ -273,13 +267,36 @@ Beispiel
 </section>
 <section id="vokabular" class="level3">
 <h3 class="anchored" data-anchor-id="vokabular">Vokabular</h3>
-<p>Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von <a href="#sammlungen">Sammlungen</a> überschrieben werden. Weitere Informationen finden sich im <a href="./vocabularies.html">Kapitel Vokabulare</a> und <a href="./matching.html">Matching</a>.</p>
-<!-- TODO: Beispiel PeriodO, cm -->
+<p>Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von <a href="#sammlungen">Sammlungen</a> überschrieben werden. Weitere Informationen finden sich in den Kapiteln zu <a href="./vocabularies.html">Vokabularen</a> und zu <a href="./mappings.html">Mappings</a>.</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Beispiel">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beispiel
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Häufig verwendete Vokabulare sind die Gemeinsame Normdatei (GND), das Klassifizierungssystem Iconclass und die Normdateien des Getty Research Institute. Darüber hinaus gibt es zahlreiche Spezial-Vokabulare wie zum Beispiel die Hornbostel-Sachs-Klassifikation der Musikinstrumente.</p>
+</div>
+</div>
 </section>
 <section id="sammlung" class="level3">
 <h3 class="anchored" data-anchor-id="sammlung">Sammlung</h3>
 <p>Der <a href="#datenbestand">Datenbestand</a> des Knowledge Graphen von NFDI4IObjekts ist in so genannte Sammlungen unterteilt. Einige Sammlungen bestehen aus einzelnen Datensätzen, andere aus einer zusammengefassten Lieferung von Daten. Weitere Informationen zu Sammlungen und Lieferungen finden sich im <a href="./sources.html">Kapitel Datenquellen</a>.</p>
-<!-- TODO: Beispiel -->
+</section>
+</section>
+<section id="datenformate" class="level2">
+<h2 class="anchored" data-anchor-id="datenformate">Datenformate</h2>
+<p>Zur Integration in den <a href="#datenbestand">Datenbestand</a> des Knowledge Graphen können Daten grundsätzlich in <a href="#lido">LIDO</a> oder in <a href="#rdf">RDF</a> geliefert werden. Darüber hinaus gibt es spezielle Formate für <a href="./vocabularies.html">Vokabulare</a> und <a href="./mappings.html">Mappings</a>.</p>
+<section id="lido" class="level4">
+<h4 class="anchored" data-anchor-id="lido">LIDO</h4>
+<p>Lightweight Information Describing Objects (LIDO) ist ein XML-Format aus dem Museumsbereich (siehe <a href="http://format.gbv.de/lido">LIDO in der Formatdatenbank</a>).</p>
+</section>
+<section id="rdf" class="level4">
+<h4 class="anchored" data-anchor-id="rdf">RDF</h4>
+<p>RDF-Daten können in verschiedenen Serialisierungen vorkommen, die sich verlustfrei ineinander überführen lassen (siehe <a href="http://format.gbv.de/rdf">RDF in der Formatdatenbank</a>). Im Gegensatz zum allgemeinen Graph-Daten eines <a href="#knowledge-graph">Property Graphen</a> enthalten RDF-Daten global eindeutige URIs als Identifikatoren. Außerdem lassen sich RDF-Daten aus unterschiedlichen Quellen immer zusammenführen. Sofern kein einheitliches <a href="#schema">Schema</a> verwendet wird, ist das Ergebnis allerdings uneinheitlich.</p>
 
 
 </section>
