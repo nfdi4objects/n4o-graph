@@ -56,6 +56,20 @@ Zum Starten eines Docker-Containers mit der internen Neo4j-Datenbank:
 ./neo4j.sh start neo4j.json
 ~~~
 
+## Import von Daten
+
+*Muss noch dokumentiert werden*
+
+## Expansion der Klassenhierarchie
+
+Aufruf via
+
+~~~sh
+./venv/bin/python ./pg-expand-labels.py -c neo4j.json < crm-expand.txt
+~~~
+
+Wobei in `neo4j.json` (bzw. einer anderen Konfigurationsdatei) die Verbindungsdaten zur jeweiligen Neo4J-Datenbank stehen müssen.
+
 ## Lizenz
 
 Alle Inhalte und Beiträge in diesem Repository können als *Public Domain* frei

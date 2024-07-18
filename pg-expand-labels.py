@@ -32,7 +32,6 @@ args = parser.parse_args()
 # No json file provided. Print out the queries.
 if args.config is None:
   print(cypher_queries)
-  
 else:
   with open(args.config, 'r') as file:
     neo4j_login = json.loads(file.read())
