@@ -155,6 +155,11 @@ ul.task-list li input[type="checkbox"] {
   <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./matching.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Matching</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -214,8 +219,9 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Ein <a href="#knowledge-graph">Knowledge Graph</a> enthält Informationen in Form eines Graphen aus Knoten und Kanten</li>
 <li>Der <a href="#datenbestand">Datenbestand</a> ist der eigentliche Inhalt des Knowledge Graphen</li>
-<li><a href="#property-graph">Property Graph</a> und <a href="#triple-store">Triple Store</a> sind zwei unterschiedliche Techniken zur Speicherung von Graphen</li>
 <li>Ein <a href="#schema">Schema</a> definiert welche Art von Knoten und Kanten erlaubt sind</li>
+<li><a href="#vokabular">Vokabulare</a> sind vorgegebene Listen von Entitäten</li>
+<li><a href="#property-graph">Property Graph</a> und <a href="#triple-store">Triple Store</a> sind zwei unterschiedliche Techniken zur Speicherung von Graphen</li>
 </ul>
 <p>Weitere technischen Details und Hintergründe finden sich im Kapitel zur <a href="./architecture.html">Systemarchitektur</a>.</p>
 <section id="knowledge-graph" class="level2">
@@ -267,8 +273,8 @@ Beispiel
 </section>
 <section id="vokabular" class="level3">
 <h3 class="anchored" data-anchor-id="vokabular">Vokabular</h3>
-<p>Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von <a href="#sammlungen">Sammlungen</a> überschrieben werden. Weitere Informationen finden sich im <a href="./vocabularies.html">Kapitel Vokabulare</a>.</p>
-<!-- TODO: Beispiel PeriodO -->
+<p>Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von <a href="#sammlungen">Sammlungen</a> überschrieben werden. Weitere Informationen finden sich im <a href="./vocabularies.html">Kapitel Vokabulare</a> und <a href="./matching.html">Matching</a>.</p>
+<!-- TODO: Beispiel PeriodO, cm -->
 </section>
 <section id="sammlung" class="level3">
 <h3 class="anchored" data-anchor-id="sammlung">Sammlung</h3>

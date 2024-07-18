@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.54">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>NFDI4Objects Knowledge Graph (TA5)</title>
+<title>Matching – NFDI4Objects Knowledge Graph (TA5)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./basics.html" rel="next">
+<link href="./architecture.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -54,17 +54,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Keine Treffer",
-    "search-matching-documents-text": "Treffer",
-    "search-copy-link-title": "Link in die Suche kopieren",
-    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
-    "search-more-match-text": "weitere Treffer in diesem Dokument",
-    "search-more-matches-text": "weitere Treffer in diesem Dokument",
-    "search-clear-button-title": "Zurücksetzen",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Abbrechen",
-    "search-submit-button-title": "Abschicken",
-    "search-label": "Suchen"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -72,19 +72,19 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="codemirror.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Einleitung</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./matching.html"><span class="chapter-title">Matching</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -104,14 +104,14 @@ ul.task-list li input[type="checkbox"] {
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Suchen"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Einleitung</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Einleitung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -156,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./matching.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Matching</span></a>
+  <a href="./matching.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Matching</span></a>
   </div>
 </li>
     </ul>
@@ -164,7 +164,18 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#matching-von-schemas" id="toc-matching-von-schemas" class="nav-link active" data-scroll-target="#matching-von-schemas">Matching von Schemas</a></li>
+  <li><a href="#matching-von-vokabularen" id="toc-matching-von-vokabularen" class="nav-link" data-scroll-target="#matching-von-vokabularen">Matching von Vokabularen</a></li>
+  <li><a href="#reconciliation" id="toc-reconciliation" class="nav-link" data-scroll-target="#reconciliation">Reconciliation</a></li>
+  <li><a href="#matching-von-werten" id="toc-matching-von-werten" class="nav-link" data-scroll-target="#matching-von-werten">Matching von Werten</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/matching.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <script src="./js/codemirror.js"></script>
@@ -176,8 +187,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">NFDI4Objects Knowledge Graph (TA5)</h1>
-<p class="subtitle lead">Technisches Handbuch für Management und Nutzung</p>
+<h1 class="title"><span class="chapter-title">Matching</span></h1>
 </div>
 
 
@@ -194,28 +204,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Eine vorläufige Version der <a href="./cypher.html">API des Property-Graphen</a> ist jetzt verfügbar!</p>
-</div>
-</div>
-<p>An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des <strong>Knowledge Graphen von NFDI4Objects</strong> (TA5). Der Zugriff auf die Inhalte des Knowledge Graphen ist <a href="./usage.html">Kapitel Benutzung</a> beschrieben. Hintergründe und Details finden sich im <a href="./basics.html">Grundlagen-Kapitel</a> und in der Beschreibung der <a href="./architecture.html">Systemarchitektur</a>.</p>
-<p>Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus <a href="./sources.html">verschiedenene Quellen</a> zusammengeführt werden:</p>
+<p>Zur besseren Integration von Daten sollen spezialisierte Ontologien und Metadaten-Schema auf ein <a href="./schema.html">einheitliches Datenbankschema</a> und ausgewählte Werte per Named-Entity-Recognition auf <a href="./vocabularies.html">Vokabulare</a> gemappt werden. Im Detail lassen sich folgende Matching-Bereiche unterscheiden:</p>
 <ul>
-<li><p>ein <strong><a href="#property-graphen">Property-Graph</a></strong> mit aufbereiteten Daten und Abfragemöglichkeit in <a href="./cypher.html">Cypher</a></p></li>
-<li><p>ein <strong><a href="basics.html#triple-store">Triple-Store</a></strong> mit Rohdaten in RDF und Abfragemöglichkeit in <a href="./sparql.html">SPARQL</a></p></li>
+<li><a href="#matching-von-schemas">Matching von Schemas</a></li>
+<li><a href="#matching-von-vokabularen">Matching von Vokabularen</a></li>
+<li><a href="#reconciliation">Reconciliation</a></li>
+<li><a href="#matching-von-werten">Matching von Werten</a></li>
 </ul>
-<p>Darüber sind eine browserbasierte Oberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung sowie die Integration in ein Learning Management System (LMS) geplant. Langfristig soll der Knowledge Graph außerdem mit anderen Knowledge Graphen im Rahmen der NFDI verknüpft werden.</p>
+<section id="matching-von-schemas" class="level2">
+<h2 class="anchored" data-anchor-id="matching-von-schemas">Matching von Schemas</h2>
+<p>Das einheitliche Datenmodell des Knowledge Graphen basiert auf CIDOC-CRM (siehe <a href="./schema.html">Datenbankschema</a>). Werden in den gelieferten Daten andere Ontologien verwendet, so müssen diese auf CRM abgebildet werden. Die Abbildung geschieht bislang per Hand in Konfigurationsdateien. In Zukunft soll als Werkzeug hierfür auch <a href="https://coli-conc.gbv.de/cocoda/">Cocoda</a> eingesetzt werden.</p>
+<p>Neben der Abbildung von verschiedenen Ontologien auf CRM ist es auch notwendig, unterschiedliche Modellierungsmöglichkeiten innerhalb von CRM auf ein Schema zu vereinheitlichen.</p>
+</section>
+<section id="matching-von-vokabularen" class="level2">
+<h2 class="anchored" data-anchor-id="matching-von-vokabularen">Matching von Vokabularen</h2>
+<p>In den gelieferten Daten werden Entäten wie Personen, Orte, Zeiträume, Materialien etc. auf unterschiedliche Art und Weise referenziert. Im Idealfall wird per Identifiern auf Normdateien verwiesen. Wenn unterschiedliche Normdateien für die gleichen Entitäten verwendet werden, sollten diese aufeinander gemappt werden. Als Werkzeug hierfür dient die Webanwendung <a href="https://coli-conc.gbv.de/cocoda/">Cocoda</a>.</p>
+</section>
+<section id="reconciliation" class="level2">
+<h2 class="anchored" data-anchor-id="reconciliation">Reconciliation</h2>
+<p>Werden Entitäten lediglich durch Zeichenketten referenziert (z.B. “Gold” zur Angabe des chemischen Elements <a href="https://de.wikipedia.org/wiki/Gold">Gold</a>), so müssen diese Angaben möglichst auf kontrollierte Vokabulare mit entsprechenden Identifiern gemappt werden. Als technische Schnittstelle hierfür dient dazu die <a href="https://reconciliation-api.github.io/specs/draft/">Reconciliation Service API</a>. Wie weit die Erkennung von Entitäten aus Zeichenketten automatisiert ablaufen kann, hängt allerdings stark vom Kontext der Daten ab.</p>
+</section>
+<section id="matching-von-werten" class="level2">
+<h2 class="anchored" data-anchor-id="matching-von-werten">Matching von Werten</h2>
+<p>In den gelieferten Daten kommen Werte mit unterschiedlichen Einheiten (Datumsangaben, Ortsangaben, Mengen, Gewichte und andere physische Maße…) vor. Diese sollten möglichst vereinheitlicht werden, damit Abfragen über den gesamten Datenbestand möglich sind.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -261,12 +275,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Kopiert");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Kopiert");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -642,11 +656,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./architecture.html" class="pagination-link" aria-label="Systemarchitektur">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Systemarchitektur</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./basics.html" class="pagination-link" aria-label="Grundlagen">
-        <span class="nav-page-text"><span class="chapter-title">Grundlagen</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -657,7 +671,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/index.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/matching.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
