@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.5.54">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Benutzung – NFDI4Objects Knowledge Graph (TA5)</title>
+<title>Status – NFDI4Objects Knowledge Graph (TA5)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,8 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./cypher.html" rel="next">
-<link href="./vocabularies.html" rel="prev">
+<link href="./mappings.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -89,19 +88,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Keine Treffer",
-    "search-matching-documents-text": "Treffer",
-    "search-copy-link-title": "Link in die Suche kopieren",
-    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
-    "search-more-match-text": "weitere Treffer in diesem Dokument",
-    "search-more-matches-text": "weitere Treffer in diesem Dokument",
-    "search-clear-button-title": "Zurücksetzen",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Abbrechen",
-    "search-submit-button-title": "Abschicken",
-    "search-label": "Suchen"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
+<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="codemirror.css">
@@ -113,13 +114,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./usage.html"><span class="chapter-title">Benutzung</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./status.html"><span class="chapter-title">Status</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -139,7 +140,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Suchen"></div>
+        <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
@@ -171,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./usage.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Benutzung</span></a>
+  <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benutzung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -196,7 +197,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Status</span></a>
+  <a href="./status.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Status</span></a>
   </div>
 </li>
     </ul>
@@ -206,18 +207,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#zugriff-per-api" id="toc-zugriff-per-api" class="nav-link active" data-scroll-target="#zugriff-per-api">Zugriff per API</a>
-  <ul class="collapse">
-  <li><a href="#cypher-api" id="toc-cypher-api" class="nav-link" data-scroll-target="#cypher-api">Cypher-API</a></li>
-  <li><a href="#sparql-api" id="toc-sparql-api" class="nav-link" data-scroll-target="#sparql-api">SPARQL-API</a></li>
-  </ul></li>
-  <li><a href="#datenbankdumps" id="toc-datenbankdumps" class="nav-link" data-scroll-target="#datenbankdumps">Datenbankdumps</a></li>
-  <li><a href="#suchoberfläche" id="toc-suchoberfläche" class="nav-link" data-scroll-target="#suchoberfläche">Suchoberfläche</a></li>
+  <li><a href="#property-graph" id="toc-property-graph" class="nav-link active" data-scroll-target="#property-graph">Property Graph</a></li>
+  <li><a href="#triple-store" id="toc-triple-store" class="nav-link" data-scroll-target="#triple-store">Triple Store</a></li>
+  <li><a href="#datenquellen" id="toc-datenquellen" class="nav-link" data-scroll-target="#datenquellen">Datenquellen</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/status.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -231,8 +228,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Benutzung</span></h1>
-<p class="subtitle lead">Zugriff auf den Inhalt des Knowledge Graphen</p>
+<h1 class="title"><span class="chapter-title">Status</span></h1>
+<p class="subtitle lead">Dashboard zum Stand der Property Graphen</p>
 </div>
 
 
@@ -249,125 +246,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Der Zugriff auf den Knowledge Graphen ist bislang nur <a href="#zugriff-per-api">per API</a> möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.</p>
-<section id="zugriff-per-api" class="level2">
-<h2 class="anchored" data-anchor-id="zugriff-per-api">Zugriff per API</h2>
-<p>Voraussetzung für die Nutzung ist ein Verständnis der <a href="./basics.html">Grundlagen</a> und des <a href="./schema.html">Datenbankschema</a> sowie Kenntnis der jeweiligen Abfragesprache Cypher bzw. SPARQL.</p>
-<section id="cypher-api" class="level3">
-<h3 class="anchored" data-anchor-id="cypher-api">Cypher-API</h3>
-<p>Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <a href="https://graph.gbv.de/" class="uri">https://graph.gbv.de/</a> abgefragt werden. Eine Einführung in Cypher mit Beispielen gibt es im Kapitel <a href="./cypher.html">Cypher-Abfragen</a>.</p>
-<p>Der vorläufige API-Endpunkt ist <a href="https://graph.gbv.de/api" class="uri">https://graph.gbv.de/api</a>. Die Cypher-Abfrage wird mit einer <strong>HTTP GET</strong> Anfrage im Query-Parameter <code>cypher</code> übergeben. Das Rückgabeformat ist ein JSON-Array von Objekten, deren Felder den Abfragefeldern entsprechen. Die Feldwerte werden folgendermaßen von Cypher nach JSON gemappt:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Cypher Datentyp</th>
-<th>JSON Datentyp</th>
-<th>Beispiel</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>NULL</code></td>
-<td><code>null</code></td>
-<td><code class="sourceCode json"><span class="er">null</span></code></td>
-</tr>
-<tr class="even">
-<td><code>BOOLEAN</code></td>
-<td><code>boolean</code></td>
-<td><code class="sourceCode json"><span class="er">true</span></code></td>
-</tr>
-<tr class="odd">
-<td><code>INTEGER</code></td>
-<td><code>number</code></td>
-<td><code class="sourceCode json"><span class="er">123</span></code></td>
-</tr>
-<tr class="even">
-<td><code>FLOAT</code></td>
-<td><code>number</code></td>
-<td><code class="sourceCode json"><span class="er">3.14</span></code></td>
-</tr>
-<tr class="odd">
-<td><code>STRING</code></td>
-<td><code>string</code></td>
-<td><code class="sourceCode json"><span class="er">"äbć"</span></code></td>
-</tr>
-<tr class="even">
-<td><code>ByteArray</code></td>
-<td><code>string</code></td>
-<td><code class="sourceCode json"><span class="er">"A2+/"</span></code> (Base64)</td>
-</tr>
-<tr class="odd">
-<td><code>LIST</code></td>
-<td><code>array</code></td>
-<td><code class="sourceCode json"><span class="ot">[</span><span class="dv">0</span><span class="ot">,</span><span class="dv">8</span><span class="ot">,</span><span class="dv">15</span><span class="ot">]</span></code></td>
-</tr>
-<tr class="even">
-<td><code>MAP</code></td>
-<td><code>string</code></td>
-<td><code class="sourceCode json"><span class="fu">{</span><span class="dt">"x"</span><span class="fu">:</span><span class="st">"?"</span><span class="fu">,</span><span class="dt">"y"</span><span class="fu">:</span><span class="dv">42</span><span class="fu">}</span></code></td>
-</tr>
-<tr class="odd">
-<td>Temporal (<code>DATE</code>, <code>LOCAL TIME</code>, <code>DURATION</code>…)</td>
-<td><code>string</code> (ISO-8601)</td>
-<td><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">"2015-03-26"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">"12:50:35.556"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">"P14DT16H12M"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
-</tr>
-<tr class="even">
-<td><code>POINT</code></td>
-<td><code>string</code> (<a href="http://giswiki.org/wiki/Well_Known_Text">WKT</a>)</td>
-<td><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">"SRID=7203;POINT(1.2</span> <span class="er">3.4)"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
-</tr>
-<tr class="odd">
-<td><code>NODE</code></td>
-<td><code>object</code></td>
-<td><div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"node"</span><span class="fu">,</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"4b55-98f8"</span><span class="fu">,</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"labels"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"E22"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"properties"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"P3_has_note"</span><span class="fu">:</span> <span class="st">"?!"</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
-</tr>
-<tr class="even">
-<td><code>RELATIONSHIP</code></td>
-<td><code>object</code></td>
-<td><div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"edge"</span><span class="fu">,</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"37a9-72df"</span><span class="fu">,</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"labels"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"P40"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"properties"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"x"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">},</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"from"</span><span class="fu">:</span> <span class="st">"98f8-6888"</span><span class="fu">,</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"to"</span><span class="fu">:</span> <span class="st">"164b-c83a"</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
-</tr>
-<tr class="odd">
-<td><code>PATH</code></td>
-<td><code>array</code></td>
-<td>Array aus <code>NODE</code> und <code>RELATIONSHIP</code> Objekten.</td>
-</tr>
-</tbody>
-</table>
-<p>Die Kodierung von <code>NODE</code> und <code>RELATIONSHIP</code> Objekten entspricht der Kodierung von Knoten und Kanten im <a href="https://pg-format.github.io/specification/#pg-jsonl">Format PG-JSONL</a> mit dem Unterschied, dass Property-Werte nicht zwingend vom Type <code>array</code> sind, sondern auch <code>null</code>, <code>boolean</code>, <code>number</code> und <code>string</code> sein können.</p>
+<section id="property-graph" class="level2">
+<h2 class="anchored" data-anchor-id="property-graph">Property Graph</h2>
+<p>Folgende Übersicht wird live per <a href="./cypher.html">Cypher API</a> erstellt.</p>
+<ul>
+<li>Anzahl von Knoten: <span><span id="ojs-element-id-1"></span></span></li>
+<li>Anzahl von Kanten: <span><span id="ojs-element-id-2"></span></span></li>
+</ul>
+<div class="cell hidden">
+<div class="sourceCode cell-code" id="cb1" data-startfrom="16" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 15;"><span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>cypherNodesCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">cypherQuery</span>(<span class="st">"MATCH () RETURN count(*) as count"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>cypherEdgesCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">cypherQuery</span>(<span class="st">"MATCH ()-[]-&gt;() RETURN count(*) as count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-1" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-2" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
+</div>
 </section>
-<section id="sparql-api" class="level3">
-<h3 class="anchored" data-anchor-id="sparql-api">SPARQL-API</h3>
-<p>Siehe <a href="./sparql.html">SPARQL-Abfragen</a> (noch nicht umgesetzt)</p>
+<section id="triple-store" class="level2">
+<h2 class="anchored" data-anchor-id="triple-store">Triple Store</h2>
+<p><em>noch nicht umgesetzt</em></p>
 </section>
-</section>
-<section id="datenbankdumps" class="level2">
-<h2 class="anchored" data-anchor-id="datenbankdumps">Datenbankdumps</h2>
-<p>Die Bereitstellung von Datenbankdumps zur lokalen Nutzung von Teilen des Knowledge Graphen ist noch nicht umgesetzt.</p>
-</section>
-<section id="suchoberfläche" class="level2">
-<h2 class="anchored" data-anchor-id="suchoberfläche">Suchoberfläche</h2>
-<p>Eine browserbasierte Suchoberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung ist noch nicht umgesetzt.</p>
+<section id="datenquellen" class="level2">
+<h2 class="anchored" data-anchor-id="datenquellen">Datenquellen</h2>
+<p>Der Status des Import aus <a href="./sources.html">Datenquellen</a> ist noch nicht öffentlich zugänglich.</p>
 
 
+<div class="ojs-auto-generated hidden">
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6WyAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7Y3lwaGVyTm9kZXNDb3VudFswXT8uY291bnQ/LnRvTG9jYWxlU3RyaW5nKCl9PC9zcGFuPmAiLCAiY2VsbE5hbWUiOiJvanMtZWxlbWVudC1pZC0xIn0sICB7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJpbmxpbmUiOiJ0cnVlIiwic291cmNlIjoiaHRsLmh0bWxgPHNwYW4+JHtjeXBoZXJFZGdlc0NvdW50WzBdPy5jb3VudD8udG9Mb2NhbGVTdHJpbmcoKX08L3NwYW4+YCIsICJjZWxsTmFtZSI6Im9qcy1lbGVtZW50LWlkLTIifV19
+</script>
+</div>
 </section>
 
 </main> <!-- /main -->
+<script type="ojs-module-contents">
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImN5cGhlck5vZGVzQ291bnQgPSBhd2FpdCBjeXBoZXJRdWVyeShcIk1BVENIICgpIFJFVFVSTiBjb3VudCgqKSBhcyBjb3VudFwiKVxuY3lwaGVyRWRnZXNDb3VudCA9IGF3YWl0IGN5cGhlclF1ZXJ5KFwiTUFUQ0ggKCktW10tPigpIFJFVFVSTiBjb3VudCgqKSBhcyBjb3VudFwiKVxuIn1dfQ==
+</script>
+<script type="module">
+if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+window._ojs.paths.runtimeToDoc = "../..";
+window._ojs.paths.runtimeToRoot = "../..";
+window._ojs.paths.docToRoot = "";
+window._ojs.selfContained = false;
+window._ojs.runtime.interpretFromScriptTags();
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -411,12 +343,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Kopiert");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Kopiert");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -792,14 +724,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./vocabularies.html" class="pagination-link" aria-label="Vokabulare">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Vokabulare</span></span>
+      <a href="./mappings.html" class="pagination-link" aria-label="Mappings">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Mappings</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./cypher.html" class="pagination-link" aria-label="Abfragen mit Cypher">
-        <span class="nav-page-text"><span class="chapter-title">Abfragen mit Cypher</span></span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -810,7 +739,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/status.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

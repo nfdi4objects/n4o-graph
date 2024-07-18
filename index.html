@@ -121,12 +121,22 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benutzung</span></a>
+  <a href="./sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schema.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenbankschema</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./vocabularies.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Vokabulare</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benutzung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -141,22 +151,17 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./schema.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenbankschema</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mappings</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Status</span></a>
   </div>
 </li>
     </ul>
@@ -167,6 +172,7 @@ ul.task-list li input[type="checkbox"] {
     
 <!-- main -->
 <main class="content" id="quarto-document-content">
+<script src="./js/common.js"></script>
 <script src="./js/codemirror.js"></script>
 <script src="./js/cypher.js"></script>
 <script src="./js/sparql.js"></script>
@@ -210,10 +216,11 @@ Tipp
 <p>An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des <strong>Knowledge Graphen von NFDI4Objects</strong> (TA5). Der Zugriff auf die Inhalte des Knowledge Graphen ist <a href="./usage.html">Kapitel Benutzung</a> beschrieben. Hintergründe und Details finden sich im <a href="./basics.html">Grundlagen-Kapitel</a> und in der Beschreibung der <a href="./architecture.html">Systemarchitektur</a>.</p>
 <p>Der Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus <a href="./sources.html">verschiedenene Quellen</a> zusammengeführt werden:</p>
 <ul>
-<li><p>ein <strong><a href="#property-graphen">Property-Graph</a></strong> mit aufbereiteten Daten und Abfragemöglichkeit in <a href="./cypher.html">Cypher</a></p></li>
+<li><p>ein <strong><a href="basics.html#property-graph">Property-Graph</a></strong> mit aufbereiteten Daten und Abfragemöglichkeit in <a href="./cypher.html">Cypher</a></p></li>
 <li><p>ein <strong><a href="basics.html#triple-store">Triple-Store</a></strong> mit Rohdaten in RDF und Abfragemöglichkeit in <a href="./sparql.html">SPARQL</a></p></li>
 </ul>
 <p>Darüber sind eine browserbasierte Oberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung sowie die Integration in ein Learning Management System (LMS) geplant. Langfristig soll der Knowledge Graph außerdem mit anderen Knowledge Graphen im Rahmen der NFDI verknüpft werden.</p>
+<p>Der aktuelle Stand des Property Graphen ist <a href="./status.html">über ein Dashboard</a> einsehbar.</p>
 
 
 

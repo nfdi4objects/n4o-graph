@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "NFDI4Objects Knowledge Graph (TA5)",
     "section": "",
-    "text": "Tipp\n\n\n\nEine vorläufige Version der API des Property-Graphen ist jetzt verfügbar!\n\n\nAn dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des Knowledge Graphen von NFDI4Objects (TA5). Der Zugriff auf die Inhalte des Knowledge Graphen ist Kapitel Benutzung beschrieben. Hintergründe und Details finden sich im Grundlagen-Kapitel und in der Beschreibung der Systemarchitektur.\nDer Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus verschiedenene Quellen zusammengeführt werden:\n\nein Property-Graph mit aufbereiteten Daten und Abfragemöglichkeit in Cypher\nein Triple-Store mit Rohdaten in RDF und Abfragemöglichkeit in SPARQL\n\nDarüber sind eine browserbasierte Oberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung sowie die Integration in ein Learning Management System (LMS) geplant. Langfristig soll der Knowledge Graph außerdem mit anderen Knowledge Graphen im Rahmen der NFDI verknüpft werden.",
+    "text": "Tipp\n\n\n\nEine vorläufige Version der API des Property-Graphen ist jetzt verfügbar!\n\n\nAn dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des Knowledge Graphen von NFDI4Objects (TA5). Der Zugriff auf die Inhalte des Knowledge Graphen ist Kapitel Benutzung beschrieben. Hintergründe und Details finden sich im Grundlagen-Kapitel und in der Beschreibung der Systemarchitektur.\nDer Knowledge Graph besteht im Wesentlichen aus zwei Datenbanken, in denen Daten aus verschiedenene Quellen zusammengeführt werden:\n\nein Property-Graph mit aufbereiteten Daten und Abfragemöglichkeit in Cypher\nein Triple-Store mit Rohdaten in RDF und Abfragemöglichkeit in SPARQL\n\nDarüber sind eine browserbasierte Oberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung sowie die Integration in ein Learning Management System (LMS) geplant. Langfristig soll der Knowledge Graph außerdem mit anderen Knowledge Graphen im Rahmen der NFDI verknüpft werden.\nDer aktuelle Stand des Property Graphen ist über ein Dashboard einsehbar.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einleitung</span>"
     ]
@@ -50,123 +50,13 @@
     ]
   },
   {
-    "objectID": "usage.html",
-    "href": "usage.html",
-    "title": "Benutzung",
-    "section": "",
-    "text": "Zugriff per API\nVoraussetzung für die Nutzung ist ein Verständnis der Grundlagen und des Datenbankschema sowie Kenntnis der jeweiligen Abfragesprache Cypher bzw. SPARQL.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Benutzung</span>"
-    ]
-  },
-  {
-    "objectID": "usage.html#zugriff-per-api",
-    "href": "usage.html#zugriff-per-api",
-    "title": "Benutzung",
-    "section": "",
-    "text": "Cypher-API\nEine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL https://graph.gbv.de/ abgefragt werden. Eine Einführung in Cypher mit Beispielen gibt es im Kapitel Cypher-Abfragen.\nDer vorläufige API-Endpunkt ist https://graph.gbv.de/api. Die Cypher-Abfrage wird mit einer HTTP GET Anfrage im Query-Parameter cypher übergeben. Das Rückgabeformat ist ein JSON-Array von Objekten, deren Felder den Abfragefeldern entsprechen. Die Feldwerte werden folgendermaßen von Cypher nach JSON gemappt:\n\n\n\nCypher Datentyp\nJSON Datentyp\nBeispiel\n\n\n\n\nNULL\nnull\nnull\n\n\nBOOLEAN\nboolean\ntrue\n\n\nINTEGER\nnumber\n123\n\n\nFLOAT\nnumber\n3.14\n\n\nSTRING\nstring\n\"äbć\"\n\n\nByteArray\nstring\n\"A2+/\" (Base64)\n\n\nLIST\narray\n[0,8,15]\n\n\nMAP\nstring\n{\"x\":\"?\",\"y\":42}\n\n\nTemporal (DATE, LOCAL TIME, DURATION…)\nstring (ISO-8601)\n\"2015-03-26\"\n\"12:50:35.556\"\n\"P14DT16H12M\"\n\n\nPOINT\nstring (WKT)\n\"SRID=7203;POINT(1.2 3.4)\"\n\n\nNODE\nobject\n{\n  \"type\": \"node\",\n  \"id\": \"4b55-98f8\",\n  \"labels\": [\"E22\"],\n  \"properties\": {\n    \"P3_has_note\": \"?!\"\n  }\n}\n\n\nRELATIONSHIP\nobject\n{\n  \"type\": \"edge\",\n  \"id\": \"37a9-72df\",\n  \"labels\": [\"P40\"],\n  \"properties\": {\"x\": 1},\n  \"from\": \"98f8-6888\",\n  \"to\": \"164b-c83a\"\n}\n\n\nPATH\narray\nArray aus NODE und RELATIONSHIP Objekten.\n\n\n\nDie Kodierung von NODE und RELATIONSHIP Objekten entspricht der Kodierung von Knoten und Kanten im Format PG-JSONL mit dem Unterschied, dass Property-Werte nicht zwingend vom Type array sind, sondern auch null, boolean, number und string sein können.\n\n\nSPARQL-API\nSiehe SPARQL-Abfragen (noch nicht umgesetzt)",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Benutzung</span>"
-    ]
-  },
-  {
-    "objectID": "usage.html#datenbankdumps",
-    "href": "usage.html#datenbankdumps",
-    "title": "Benutzung",
-    "section": "Datenbankdumps",
-    "text": "Datenbankdumps\nDie Bereitstellung von Datenbankdumps zur lokalen Nutzung von Teilen des Knowledge Graphen ist noch nicht umgesetzt.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Benutzung</span>"
-    ]
-  },
-  {
-    "objectID": "usage.html#suchoberfläche",
-    "href": "usage.html#suchoberfläche",
-    "title": "Benutzung",
-    "section": "Suchoberfläche",
-    "text": "Suchoberfläche\nEine browserbasierte Suchoberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung ist noch nicht umgesetzt.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Benutzung</span>"
-    ]
-  },
-  {
-    "objectID": "vocabularies.html",
-    "href": "vocabularies.html",
-    "title": "Vokabulare",
-    "section": "",
-    "text": "Vokabulare (auch bekannt als Terminologien oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten, auf die in anderen Daten verwiesen werden kann. Sie sind Teil des Knowledge Graphen, stammen aber nicht aus Datenlieferungen von Sammlungen sondern werden zentral verwaltet.Grundlage für die kontrollierte Verwendung von Vokabularen im Knowledge Graph ist ein Eintrag in BARTOC. Eine Liste von unterstützen oder anderweitig relevanten Vokabularen in NFDI4Objects ist als Teilmenge von BARTOC in einer Übersicht verfügbar.\nAuch wenn sich Vokabulare und Ontologien in der Regel bei genauerer Betrachtung unterscheiden lassen, sind die Grenzen mitunter nicht ganz klar.\nZur Vereinheitlichung von gelieferten Daten müssen verschiedene Vokabulare aufeinander abgebildet werden (siehe Mappings). Dafür steht unter https://coli-conc.gbv.de/cocoda/nfdi4objects/ eine Instanz der Mapping-Anwendung Cocoda zur Verfügung.",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Vokabulare</span>"
-    ]
-  },
-  {
-    "objectID": "cypher.html",
-    "href": "cypher.html",
-    "title": "Abfragen mit Cypher",
-    "section": "",
-    "text": "Öffentliche API\nDieses Kapitel veranschaulicht die Nutzung der Cypher-API zur Abfrage des Property Graphen.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
-    ]
-  },
-  {
-    "objectID": "cypher.html#öffentliche-api",
-    "href": "cypher.html#öffentliche-api",
-    "title": "Abfragen mit Cypher",
-    "section": "",
-    "text": "Demo\n\nrunQuery = async (cypher) =&gt; {\n  // TODO: pass via variable\n  const url = \"https://graph.gbv.de/api?\" + new URLSearchParams({cypher})\n  // TODO: detect errors and show message\n  return fetch(url).then(res =&gt; res.json())\n}\nviewof cypherRunner = {\n  const mainDiv = html`&lt;div&gt;&lt;div&gt;`\n  const editorDiv = html`&lt;div style=\"border: 1px solid rgb(0, 0, 0);\"&gt;&lt;/div&gt;`\n  const runButton = html`&lt;button&gt;Query&lt;/button&gt;`\n\n  mainDiv.append(editorDiv)\n  mainDiv.append(runButton)\n\n  mainDiv.value = []\n  yield mainDiv\n\n  let editor = CodeMirror(editorDiv, { mode: \"application/x-cypher-query\" })\n\n  editor.setValue(\n    \"MATCH (n:`E22_Man-Made_Object`) RETURN n.cID LIMIT 20\"\n  )\n  editor.setSize(width - 20, 200)\n\n  runButton.onclick = async (e) =&gt; {\n    mainDiv.value = await runQuery(editor.getValue())\n    mainDiv.dispatchEvent(new CustomEvent(\"input\"))\n  };\n\n  return mainDiv\n}\n\ncypherRunner\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAbfrage mit curl\nDie Cypher-Query muss URL-kodiert werden, dabei werden unter anderem Leerzeichen durch %20 ersetzt. Der Parameter –data-urlencode sorgt automatisch dafür:\ncurl -G https://graph.gbv.de/api --data-urlencode 'cypher=MATCH (n:`E22_Man-Made_Object`) RETURN n.cID LIMIT 20'\nDie Cypher-Query kann auch per Datei übergeben werden:\ncurl -G https://graph.gbv.de/api --data-urlencode 'cypher@queryfile.cypher'",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
-    ]
-  },
-  {
-    "objectID": "cypher.html#einführung-in-cypher",
-    "href": "cypher.html#einführung-in-cypher",
-    "title": "Abfragen mit Cypher",
-    "section": "Einführung in Cypher",
-    "text": "Einführung in Cypher\nEine vollständige Einführung in die Abfragesprache Cypher liefert das englische Cypher Handbuch.\nDie folgende Kurzeinführung bezieht sich noch nicht auf das Schema des Property Graphen sondern verwendet ein ausgedachtes Beispiel mit Personendaten.\n\nNodes\nKnoten heißen Nodes und werden in runden Klammern definiert.\nMATCH (n:Person {name:'Anna'})\nRETURN n.geboren AS geburtsjahr\nPerson ist ein Label. Labels sind wie Tags und werden genutzt um die Datenbank zu befragen. Eine Node Kann mehrere Labels haben.\nName ist eine Property von Anna. Properties werden in geschweiften Klammern definiert and geben nähere Informationen. Nach Properties kann auch gefragt werden.\nN ist eine Variabel. Auf Variabeln kann weiter verwiesen werden.\nIn diesem Beispiel findet MATCH alle Person Nodes in dem Graph wo die Property name Anna ist und setzt die Variabel n zu dem Ergebnis. n wird dann an RETURN weitergegeben, welche den Wert von einer anderen Property (geboren) dieser Nodes wiedergibt.\n\n\nRelationships\nNodes können mit Relationships verbunden werden. Eine Relationship braucht eine Start Node, eine Ende Node und genau einen Typ. Relationships haben in Cypher einen Pfeil um die Richting zu zeigen. Die Informationen über eine Relationship sind in eckigen Klammern eingeschlossen.\nWährend Nodes mehrere Labels haben können, können Relationships nur einen Typ haben.\nMATCH (:Person {name: 'Anna'})-[r:KENNT WHERE r.seit &lt; 2020]-&gt;(freund:Person)\nRETURN count(r) As zahlAnFreunden\nIn dieser Anfrage findet Match Relationships des Typs KENNT wo die Property seit kleiner als 2020 ist. Außerdem müssen Relationships von einer Person Node mit der Property Anna zu einer anderen Personen Node gehen (wir nennen diese freund). count() wird genutzt um zu zählen wie viele Relationships an die Variabel r in MATCH gebunden wurden somit erhalten wir mit RETURN eine Zahl.\n\n\nPfade\nMATCH (n:Person {name: 'Anna'})-[:KENNT]-{1,5}(freund:Person WHERE n.geboren &lt; freund.geboren)\nRETURN DISTINCT freund.name AS ältereFreunde\nDieses Beispiel nutzt eine quantifizierte Relationship um alle Pfade, die bis zu 5 Schritte entfernt sind, zu finden. Dabei werden nur Relationships des Typs KENNT verwendet. Die Start Node ist Anna und Ende Node sind Personen älter als Anna. Durch DISTINCT wird das gleiche Ergebnis nur einmal ausgegeben.\nMATCH p=shortestPath((:Person {name: 'Anna'})-[:KENNT*1..10]-(:Person {nationalität: 'Kanadier'}))\nRETURN p\nAuch Pfade können einer Variable zugewiesen werden. Hier wird der vollständige Pfad ausgegeben.\n\n\nBeispielabfragen\nFinde Wert, Einheit und Notiz aller Messungen.\nMATCH (n:E16_Measurement)-[:P40_observed_dimension]-&gt;(m:E54_Dimension)-[:P2_has_type]-&gt;(:E55_Type)-[:P48_has_preferred_identifier]-&gt;(l)\nMATCH (m)-[:P91_has_unit]-&gt;(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]-&gt;(o)\nRETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note\n\n\n2.8,cm,Höhe (Scan)",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
-    ]
-  },
-  {
-    "objectID": "sparql.html",
-    "href": "sparql.html",
-    "title": "Abfragen mit SPARQL",
-    "section": "",
-    "text": "Inhalt des Triple Store",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
-    ]
-  },
-  {
-    "objectID": "sparql.html#inhalt-des-triple-store",
-    "href": "sparql.html#inhalt-des-triple-store",
-    "title": "Abfragen mit SPARQL",
-    "section": "",
-    "text": "Alle in RDF angelieferten Daten (soweit syntaxktisch korrekt). Es ist also kein einheitliches Datenmodell vorgeschrieben! Aus den RDF-Daten werden lediglich Aussagen über Terminologien und Ontologien herausgefiltert\nJede Lieferung ist ein Named Graph, so dass die Lieferungen sowohl einzeln, als auch in einem RDF-Graphen zusammengefasst abgefragt werden können.\nUnterstützte Ontologien und Terminologien sind ebenfalls als eigene Namend Graphs eingespielt, so dass sie für Abfragen verwendet werden können.",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
-    ]
-  },
-  {
-    "objectID": "sparql.html#beispielabfragen",
-    "href": "sparql.html#beispielabfragen",
-    "title": "Abfragen mit SPARQL",
-    "section": "Beispielabfragen",
-    "text": "Beispielabfragen\n\nStatistik aller Prädikate und ihrer Häufigkeit\nSELECT distinct ?pred WHERE {\n  ?sub ?pred ?obj .\n}\n\n\nStatistik aller Prädikate sortiert nach Anzahl der Prädikate\nSELECT distinct ?pre (COUNT(?pre) AS ?count) WHERE {\n  ?s ?pre ?obj\n} \nGROUP BY ?pre\nORDER BY DESC(?count)\n\n\nStatistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte\nSELECT distinct (COUNT(?s) AS ?count) ?obj WHERE {\n  ?s &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; ?obj\n} \nGROUP BY ?obj\nORDER BY DESC(?count)",
-    "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
-    ]
-  },
-  {
     "objectID": "sources.html",
     "href": "sources.html",
     "title": "Datenquellen",
     "section": "",
     "text": "Anforderungen an Datenlieferungen",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenquellen</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
   },
   {
@@ -176,7 +66,7 @@
     "section": "",
     "text": "Lieferung ausschließlich in RDF oder im XML-Format Lightweight Information Describing Objects (LIDO)\nZur Integration von RDF-Daten in den Property Graphen muss das CIDOC Concepta Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von etablierten Vokabularen oder zumindest URIs statt Freitextfeldern\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenquellen</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
   },
   {
@@ -186,7 +76,7 @@
     "section": "Beispiele",
     "text": "Beispiele\n\nDatenlieferung der Klassik Stiftung Weimar\n\nLIDO 1.1, orientiert an der Deutschen Digitalen Bibliothek\nAuszug aus der Museumsdatenbank, einer Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet\nca. 21.000 Datensätze, die auch im Online-Katalog “Digitale Sammlungen der Museen” der Klassik Stiftung Weimar veröffentlicht sind, verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte)",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenquellen</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
   },
   {
@@ -196,7 +86,7 @@
     "section": "",
     "text": "Modellierung im Property Graphen\nKnoten im Property Graphen erhalten als Knoten-Label die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also z.B.\nE22_Human_Made_Object für E22 Human-Made Object\nZwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch Expansion auf die neueste Form gemappt.\nDie Klassenhierarchien als Diagramm\nDas Datenmodell besteht muss noch erweitert werden um",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Datenbankschema</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenbankschema</span>"
     ]
   },
   {
@@ -206,7 +96,7 @@
     "section": "",
     "text": "CIDOC-CRM-Klassen (alle Versionen)\nCIDOC-CRM-Properties (alle Versionen)\nCRM und auf CRM-gemappte Klassen\n\n\n\nIdentifier (für Normdaten-Identifier siehe https://github.com/nfdi4objects/n4o-terminologies)\nInformationen über Sammlungen aus denen die Daten und Objekte stammen (siehe https://github.com/nfdi4objects/n4o-databases und https://github.com/nfdi4objects/n4o-rdf-import)\nInformationen über Ontologien und Vokabulare\n\n\nExpansion\nEntsprechend der CRM-Klassenhierarchie erhalten alle Knoten ausgehend von ihren Labels jeweils zusätzlich als Label die CRM-Kürzel der eigenen und aller übergeordneten Klassen. So wird beispielsweise jeder Knoten des Labels E18_Physical_Thing mit den Labels E77, E72, E70, E18 und E1 angereichert.",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Datenbankschema</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenbankschema</span>"
     ]
   },
   {
@@ -216,7 +106,7 @@
     "section": "Beispiel",
     "text": "Beispiel\nFolgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):\n@prefix crm: &lt;http://erlangen-crm.org/170309/&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d&gt;\n  a crm:E16_Measurement ;\n  crm:P40_observed_dimension &lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt;\n  a crm:E54_Dimension ;\n  crm:P2_has_type &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt; ;\n  crm:P91_has_unit &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  crm:P90_has_value 2.8 .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  a crm:E58_Measurement_Unit ;\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt;\n  a crm:E55_Type .\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt; ;\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"Höhe (Scan)\" .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"cm\" .\n\nwird konvertiert in folgenden Property Graph (in PG Format und als Diagram):\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d\n  :E16_Measurement\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d \n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :P40_observed_dimension\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :E54_Dimension \n  P90_has_value: 2.8\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :P2_has_type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :P91_has_unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :E58_Measurement_Unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :E55_Type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :E42_Identifier\n  P3_has_note: \"Höhe (Scan)\"\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :E42_Identifier\n  P3_has_note: \"cm\"",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Datenbankschema</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenbankschema</span>"
     ]
   },
   {
@@ -226,7 +116,7 @@
     "section": "CIDOC-CRM",
     "text": "CIDOC-CRM\n…",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Datenbankschema</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenbankschema</span>"
     ]
   },
   {
@@ -236,7 +126,7 @@
     "section": "Weitere Ontologien",
     "text": "Weitere Ontologien\n…",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Datenbankschema</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenbankschema</span>"
     ]
   },
   {
@@ -246,7 +136,117 @@
     "section": "Vokabulare",
     "text": "Vokabulare\n…",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Datenbankschema</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenbankschema</span>"
+    ]
+  },
+  {
+    "objectID": "vocabularies.html",
+    "href": "vocabularies.html",
+    "title": "Vokabulare",
+    "section": "",
+    "text": "Vokabulare (auch bekannt als Terminologien oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten, auf die in anderen Daten verwiesen werden kann. Sie sind Teil des Knowledge Graphen, stammen aber nicht aus Datenlieferungen von Sammlungen sondern werden zentral verwaltet.Grundlage für die kontrollierte Verwendung von Vokabularen im Knowledge Graph ist ein Eintrag in BARTOC. Eine Liste von unterstützen oder anderweitig relevanten Vokabularen in NFDI4Objects ist als Teilmenge von BARTOC in einer Übersicht verfügbar.\nAuch wenn sich Vokabulare und Ontologien in der Regel bei genauerer Betrachtung unterscheiden lassen, sind die Grenzen mitunter nicht ganz klar.\nZur Vereinheitlichung von gelieferten Daten müssen verschiedene Vokabulare aufeinander abgebildet werden (siehe Mappings). Dafür steht unter https://coli-conc.gbv.de/cocoda/nfdi4objects/ eine Instanz der Mapping-Anwendung Cocoda zur Verfügung.",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Vokabulare</span>"
+    ]
+  },
+  {
+    "objectID": "usage.html",
+    "href": "usage.html",
+    "title": "Benutzung",
+    "section": "",
+    "text": "Zugriff per API\nVoraussetzung für die Nutzung ist ein Verständnis der Grundlagen und des Datenbankschema sowie Kenntnis der jeweiligen Abfragesprache Cypher bzw. SPARQL.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Benutzung</span>"
+    ]
+  },
+  {
+    "objectID": "usage.html#zugriff-per-api",
+    "href": "usage.html#zugriff-per-api",
+    "title": "Benutzung",
+    "section": "",
+    "text": "Cypher-API\nEine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL https://graph.gbv.de/ abgefragt werden. Eine Einführung in Cypher mit Beispielen gibt es im Kapitel Cypher-Abfragen.\nDer vorläufige API-Endpunkt ist https://graph.gbv.de/api. Die Cypher-Abfrage wird mit einer HTTP GET Anfrage im Query-Parameter cypher übergeben. Das Rückgabeformat ist ein JSON-Array von Objekten, deren Felder den Abfragefeldern entsprechen. Die Feldwerte werden folgendermaßen von Cypher nach JSON gemappt:\n\n\n\nCypher Datentyp\nJSON Datentyp\nBeispiel\n\n\n\n\nNULL\nnull\nnull\n\n\nBOOLEAN\nboolean\ntrue\n\n\nINTEGER\nnumber\n123\n\n\nFLOAT\nnumber\n3.14\n\n\nSTRING\nstring\n\"äbć\"\n\n\nByteArray\nstring\n\"A2+/\" (Base64)\n\n\nLIST\narray\n[0,8,15]\n\n\nMAP\nstring\n{\"x\":\"?\",\"y\":42}\n\n\nTemporal (DATE, LOCAL TIME, DURATION…)\nstring (ISO-8601)\n\"2015-03-26\"\n\"12:50:35.556\"\n\"P14DT16H12M\"\n\n\nPOINT\nstring (WKT)\n\"SRID=7203;POINT(1.2 3.4)\"\n\n\nNODE\nobject\n{\n  \"type\": \"node\",\n  \"id\": \"4b55-98f8\",\n  \"labels\": [\"E22\"],\n  \"properties\": {\n    \"P3_has_note\": \"?!\"\n  }\n}\n\n\nRELATIONSHIP\nobject\n{\n  \"type\": \"edge\",\n  \"id\": \"37a9-72df\",\n  \"labels\": [\"P40\"],\n  \"properties\": {\"x\": 1},\n  \"from\": \"98f8-6888\",\n  \"to\": \"164b-c83a\"\n}\n\n\nPATH\narray\nArray aus NODE und RELATIONSHIP Objekten.\n\n\n\nDie Kodierung von NODE und RELATIONSHIP Objekten entspricht der Kodierung von Knoten und Kanten im Format PG-JSONL mit dem Unterschied, dass Property-Werte nicht zwingend vom Type array sind, sondern auch null, boolean, number und string sein können.\n\n\nSPARQL-API\nSiehe SPARQL-Abfragen (noch nicht umgesetzt)",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Benutzung</span>"
+    ]
+  },
+  {
+    "objectID": "usage.html#datenbankdumps",
+    "href": "usage.html#datenbankdumps",
+    "title": "Benutzung",
+    "section": "Datenbankdumps",
+    "text": "Datenbankdumps\nDie Bereitstellung von Datenbankdumps zur lokalen Nutzung von Teilen des Knowledge Graphen ist noch nicht umgesetzt.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Benutzung</span>"
+    ]
+  },
+  {
+    "objectID": "usage.html#suchoberfläche",
+    "href": "usage.html#suchoberfläche",
+    "title": "Benutzung",
+    "section": "Suchoberfläche",
+    "text": "Suchoberfläche\nEine browserbasierte Suchoberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung ist noch nicht umgesetzt.",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Benutzung</span>"
+    ]
+  },
+  {
+    "objectID": "cypher.html",
+    "href": "cypher.html",
+    "title": "Abfragen mit Cypher",
+    "section": "",
+    "text": "Öffentliche API\nDieses Kapitel veranschaulicht die Nutzung der Cypher-API zur Abfrage des Property Graphen.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
+    ]
+  },
+  {
+    "objectID": "cypher.html#öffentliche-api",
+    "href": "cypher.html#öffentliche-api",
+    "title": "Abfragen mit Cypher",
+    "section": "",
+    "text": "Demo\n\nviewof cypherEditor = {\n  const mainDiv = html`&lt;div&gt;&lt;div&gt;`\n  const editorDiv = html`&lt;div style=\"border: 1px solid rgb(0, 0, 0);\"&gt;&lt;/div&gt;`\n  const runButton = html`&lt;button&gt;Query&lt;/button&gt;`\n\n  mainDiv.append(editorDiv)\n  mainDiv.append(runButton)\n\n  mainDiv.value = []\n  yield mainDiv\n\n  let editor = CodeMirror(editorDiv, { mode: \"application/x-cypher-query\" })\n\n  editor.setValue(\"MATCH (m:E16_Measurement) RETURN m LIMIT 20\")\n  editor.setSize(width-20, 200)\n\n  runButton.onclick = async (e) =&gt; {\n    mainDiv.value = await cypherQuery(editor.getValue())\n    mainDiv.dispatchEvent(new CustomEvent(\"input\"))\n  }\n\n  return mainDiv\n}\n\ncypherEditor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAbfrage mit curl\nDie Cypher-Query muss URL-kodiert werden, dabei werden unter anderem Leerzeichen durch %20 ersetzt. Der Parameter –data-urlencode sorgt automatisch dafür:\ncurl -G https://graph.gbv.de/api --data-urlencode 'cypher=MATCH (n:`E22_Man-Made_Object`) RETURN n.cID LIMIT 20'\nDie Cypher-Query kann auch per Datei übergeben werden:\ncurl -G https://graph.gbv.de/api --data-urlencode 'cypher@queryfile.cypher'",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
+    ]
+  },
+  {
+    "objectID": "cypher.html#einführung-in-cypher",
+    "href": "cypher.html#einführung-in-cypher",
+    "title": "Abfragen mit Cypher",
+    "section": "Einführung in Cypher",
+    "text": "Einführung in Cypher\nEine vollständige Einführung in die Abfragesprache Cypher liefert das englische Cypher Handbuch.\nDie folgende Kurzeinführung bezieht sich noch nicht auf das Schema des Property Graphen sondern verwendet ein ausgedachtes Beispiel mit Personendaten.\n\nNodes\nKnoten heißen Nodes und werden in runden Klammern definiert.\nMATCH (n:Person {name:'Anna'})\nRETURN n.geboren AS geburtsjahr\nPerson ist ein Label. Labels sind wie Tags und werden genutzt um die Datenbank zu befragen. Eine Node Kann mehrere Labels haben.\nName ist eine Property von Anna. Properties werden in geschweiften Klammern definiert and geben nähere Informationen. Nach Properties kann auch gefragt werden.\nN ist eine Variabel. Auf Variabeln kann weiter verwiesen werden.\nIn diesem Beispiel findet MATCH alle Person Nodes in dem Graph wo die Property name Anna ist und setzt die Variabel n zu dem Ergebnis. n wird dann an RETURN weitergegeben, welche den Wert von einer anderen Property (geboren) dieser Nodes wiedergibt.\n\n\nRelationships\nNodes können mit Relationships verbunden werden. Eine Relationship braucht eine Start Node, eine Ende Node und genau einen Typ. Relationships haben in Cypher einen Pfeil um die Richting zu zeigen. Die Informationen über eine Relationship sind in eckigen Klammern eingeschlossen.\nWährend Nodes mehrere Labels haben können, können Relationships nur einen Typ haben.\nMATCH (:Person {name: 'Anna'})-[r:KENNT WHERE r.seit &lt; 2020]-&gt;(freund:Person)\nRETURN count(r) As zahlAnFreunden\nIn dieser Anfrage findet Match Relationships des Typs KENNT wo die Property seit kleiner als 2020 ist. Außerdem müssen Relationships von einer Person Node mit der Property Anna zu einer anderen Personen Node gehen (wir nennen diese freund). count() wird genutzt um zu zählen wie viele Relationships an die Variabel r in MATCH gebunden wurden somit erhalten wir mit RETURN eine Zahl.\n\n\nPfade\nMATCH (n:Person {name: 'Anna'})-[:KENNT]-{1,5}(freund:Person WHERE n.geboren &lt; freund.geboren)\nRETURN DISTINCT freund.name AS ältereFreunde\nDieses Beispiel nutzt eine quantifizierte Relationship um alle Pfade, die bis zu 5 Schritte entfernt sind, zu finden. Dabei werden nur Relationships des Typs KENNT verwendet. Die Start Node ist Anna und Ende Node sind Personen älter als Anna. Durch DISTINCT wird das gleiche Ergebnis nur einmal ausgegeben.\nMATCH p=shortestPath((:Person {name: 'Anna'})-[:KENNT*1..10]-(:Person {nationalität: 'Kanadier'}))\nRETURN p\nAuch Pfade können einer Variable zugewiesen werden. Hier wird der vollständige Pfad ausgegeben.\n\n\nBeispielabfragen\nFinde Wert, Einheit und Notiz aller Messungen.\nMATCH (n:E16_Measurement)-[:P40_observed_dimension]-&gt;(m:E54_Dimension)-[:P2_has_type]-&gt;(:E55_Type)-[:P48_has_preferred_identifier]-&gt;(l)\nMATCH (m)-[:P91_has_unit]-&gt;(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]-&gt;(o)\nRETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note\n\n\n2.8,cm,Höhe (Scan)",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
+    ]
+  },
+  {
+    "objectID": "sparql.html",
+    "href": "sparql.html",
+    "title": "Abfragen mit SPARQL",
+    "section": "",
+    "text": "Inhalt des Triple Store",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
+    ]
+  },
+  {
+    "objectID": "sparql.html#inhalt-des-triple-store",
+    "href": "sparql.html#inhalt-des-triple-store",
+    "title": "Abfragen mit SPARQL",
+    "section": "",
+    "text": "Alle in RDF angelieferten Daten (soweit syntaxktisch korrekt). Es ist also kein einheitliches Datenmodell vorgeschrieben! Aus den RDF-Daten werden lediglich Aussagen über Terminologien und Ontologien herausgefiltert\nJede Lieferung ist ein Named Graph, so dass die Lieferungen sowohl einzeln, als auch in einem RDF-Graphen zusammengefasst abgefragt werden können.\nUnterstützte Ontologien und Terminologien sind ebenfalls als eigene Namend Graphs eingespielt, so dass sie für Abfragen verwendet werden können.",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
+    ]
+  },
+  {
+    "objectID": "sparql.html#beispielabfragen",
+    "href": "sparql.html#beispielabfragen",
+    "title": "Abfragen mit SPARQL",
+    "section": "Beispielabfragen",
+    "text": "Beispielabfragen\n\nStatistik aller Prädikate und ihrer Häufigkeit\nSELECT distinct ?pred WHERE {\n  ?sub ?pred ?obj .\n}\n\n\nStatistik aller Prädikate sortiert nach Anzahl der Prädikate\nSELECT distinct ?pre (COUNT(?pre) AS ?count) WHERE {\n  ?s ?pre ?obj\n} \nGROUP BY ?pre\nORDER BY DESC(?count)\n\n\nStatistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte\nSELECT distinct (COUNT(?s) AS ?count) ?obj WHERE {\n  ?s &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; ?obj\n} \nGROUP BY ?obj\nORDER BY DESC(?count)",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
     ]
   },
   {
@@ -357,6 +357,46 @@
     "text": "Mapping von Werten\nIn den gelieferten Daten kommen Werte mit unterschiedlichen Einheiten (Datumsangaben, Ortsangaben, Mengen, Gewichte und andere physische Maße…) vor. Diese sollten möglichst vereinheitlicht werden, damit Abfragen über den gesamten Datenbestand möglich sind.",
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Mappings</span>"
+    ]
+  },
+  {
+    "objectID": "status.html",
+    "href": "status.html",
+    "title": "Status",
+    "section": "",
+    "text": "Property Graph\nFolgende Übersicht wird live per Cypher API erstellt.\ncypherNodesCount = await cypherQuery(\"MATCH () RETURN count(*) as count\")\ncypherEdgesCount = await cypherQuery(\"MATCH ()-[]-&gt;() RETURN count(*) as count\")",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
+    ]
+  },
+  {
+    "objectID": "status.html#property-graph",
+    "href": "status.html#property-graph",
+    "title": "Status",
+    "section": "",
+    "text": "Anzahl von Knoten: \nAnzahl von Kanten:",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
+    ]
+  },
+  {
+    "objectID": "status.html#triple-store",
+    "href": "status.html#triple-store",
+    "title": "Status",
+    "section": "Triple Store",
+    "text": "Triple Store\nnoch nicht umgesetzt",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
+    ]
+  },
+  {
+    "objectID": "status.html#datenquellen",
+    "href": "status.html#datenquellen",
+    "title": "Status",
+    "section": "Datenquellen",
+    "text": "Datenquellen\nDer Status des Import aus Datenquellen ist noch nicht öffentlich zugänglich.",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
     ]
   }
 ]
