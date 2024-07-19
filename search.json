@@ -64,7 +64,7 @@
     "href": "sources.html#anforderungen-an-datenlieferungen",
     "title": "Datenquellen",
     "section": "",
-    "text": "Lieferung ausschließlich in RDF oder im XML-Format Lightweight Information Describing Objects (LIDO)\nZur Integration von RDF-Daten in den Property Graphen muss das CIDOC Concepta Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von etablierten Vokabularen oder zumindest URIs statt Freitextfeldern\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung",
+    "text": "Lieferung ausschließlich in RDF oder als XML Lightweight Information Describing Objects (LIDO)\nZur Integration von RDF-Daten in den Property Graphen muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von etablierten Vokabularen oder zumindest URIs statt Freitextfeldern\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung\nVerwendung von Normdaten-URI zur eindeutigen Zuweisung von Personen, Geografika u. s. w. (bspw. GND, VIAF, Wikidata, Geonames, historischen Gazeteers, …)",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
@@ -74,7 +74,7 @@
     "href": "sources.html#beispiele",
     "title": "Datenquellen",
     "section": "Beispiele",
-    "text": "Beispiele\n\nDatenlieferung der Klassik Stiftung Weimar\n\nLIDO 1.1, orientiert an der Deutschen Digitalen Bibliothek\nAuszug aus der Museumsdatenbank, einer Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet\nca. 21.000 Datensätze, die auch im Online-Katalog “Digitale Sammlungen der Museen” der Klassik Stiftung Weimar veröffentlicht sind, verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte)",
+    "text": "Beispiele\n\nDatenlieferung der Klassik Stiftung Weimar\n\naktuell noch LIDO 1.0, Export orientiert an LIDO für die Deutsche Digitale Bibliothek\nAuszug aus der Museumsdatenbank, einer KSW-eigenentwickelten Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet\nca. 30.000 Datensätze, die auch im Online-Katalog “Digitale Sammlungen der Museen” der Klassik Stiftung Weimar veröffentlicht sind, werden verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte)\ntestweise nach Sprint im Juli ca. 30 Datensätze der grafischen Sammlung gesendet, im für den August terminierten Sprint 2 wird die ereignisbasierte Ausgabe angepasst",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenquellen</span>"
     ]

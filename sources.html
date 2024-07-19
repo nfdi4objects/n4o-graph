@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.55">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -219,12 +219,13 @@ ul.task-list li input[type="checkbox"] {
 <section id="anforderungen-an-datenlieferungen" class="level2">
 <h2 class="anchored" data-anchor-id="anforderungen-an-datenlieferungen">Anforderungen an Datenlieferungen</h2>
 <ul>
-<li>Lieferung ausschließlich in RDF oder im XML-Format Lightweight Information Describing Objects (LIDO)</li>
-<li>Zur Integration von RDF-Daten in den Property Graphen muss das CIDOC Concepta Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein</li>
+<li>Lieferung ausschließlich in RDF oder als XML Lightweight Information Describing Objects (LIDO)</li>
+<li>Zur Integration von RDF-Daten in den Property Graphen muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein</li>
 <li>Beschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.</li>
 <li>Verwendung von etablierten <a href="./vocabularies.html">Vokabularen</a> oder zumindest URIs statt Freitextfeldern</li>
 <li>Versionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG</li>
 <li>Angaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung</li>
+<li>Verwendung von Normdaten-URI zur eindeutigen Zuweisung von Personen, Geografika u. s. w. (bspw. GND, VIAF, Wikidata, Geonames, historischen Gazeteers, …)</li>
 </ul>
 </section>
 <section id="beispiele" class="level2">
@@ -232,9 +233,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="datenlieferung-der-klassik-stiftung-weimar" class="level3">
 <h3 class="anchored" data-anchor-id="datenlieferung-der-klassik-stiftung-weimar">Datenlieferung der Klassik Stiftung Weimar</h3>
 <ul>
-<li>LIDO 1.1, orientiert an der Deutschen Digitalen Bibliothek</li>
-<li>Auszug aus der Museumsdatenbank, einer Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet</li>
-<li>ca. 21.000 Datensätze, die auch im Online-Katalog “Digitale Sammlungen der Museen” der Klassik Stiftung Weimar veröffentlicht sind, verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte)</li>
+<li>aktuell noch LIDO 1.0, Export orientiert an LIDO für die Deutsche Digitale Bibliothek</li>
+<li>Auszug aus der Museumsdatenbank, einer KSW-eigenentwickelten Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet</li>
+<li>ca. 30.000 Datensätze, die auch im Online-Katalog “Digitale Sammlungen der Museen” der Klassik Stiftung Weimar veröffentlicht sind, werden verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte)</li>
+<li>testweise nach Sprint im Juli ca. 30 Datensätze der grafischen Sammlung gesendet, im für den August terminierten Sprint 2 wird die ereignisbasierte Ausgabe angepasst</li>
 </ul>
 
 
