@@ -209,12 +209,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#modellierung-im-property-graphen" id="toc-modellierung-im-property-graphen" class="nav-link active" data-scroll-target="#modellierung-im-property-graphen">Modellierung im Property Graphen</a>
+  <li><a href="#modellierung" id="toc-modellierung" class="nav-link active" data-scroll-target="#modellierung">Modellierung</a>
   <ul class="collapse">
+  <li><a href="#entitäten-und-knoten" id="toc-entitäten-und-knoten" class="nav-link" data-scroll-target="#entitäten-und-knoten">Entitäten und Knoten</a></li>
+  <li><a href="#elementare-datentypen" id="toc-elementare-datentypen" class="nav-link" data-scroll-target="#elementare-datentypen">Elementare Datentypen</a></li>
+  <li><a href="#relationen-und-kanten" id="toc-relationen-und-kanten" class="nav-link" data-scroll-target="#relationen-und-kanten">Relationen und Kanten</a></li>
+  <li><a href="#properties" id="toc-properties" class="nav-link" data-scroll-target="#properties">Properties</a></li>
   <li><a href="#expansion" id="toc-expansion" class="nav-link" data-scroll-target="#expansion">Expansion</a></li>
+  <li><a href="#offene-punkte" id="toc-offene-punkte" class="nav-link" data-scroll-target="#offene-punkte">Offene Punkte</a></li>
   </ul></li>
   <li><a href="#beispiel" id="toc-beispiel" class="nav-link" data-scroll-target="#beispiel">Beispiel</a></li>
-  <li><a href="#cidoc-crm" id="toc-cidoc-crm" class="nav-link" data-scroll-target="#cidoc-crm">CIDOC-CRM</a></li>
   <li><a href="#weitere-ontologien" id="toc-weitere-ontologien" class="nav-link" data-scroll-target="#weitere-ontologien">Weitere Ontologien</a></li>
   <li><a href="#vokabulare" id="toc-vokabulare" class="nav-link" data-scroll-target="#vokabulare">Vokabulare</a></li>
   </ul>
@@ -249,27 +253,201 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Als Sammlungsübergeifendes Datenmodell wird <strong>CIDOC-CRM (CRM)</strong> verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten Vokabularen wie IconClass, GND und die LIDO-Terminologien unterstützt.</p>
-<section id="modellierung-im-property-graphen" class="level2">
-<h2 class="anchored" data-anchor-id="modellierung-im-property-graphen">Modellierung im Property Graphen</h2>
-<p>Knoten im <a href="#property-graphen">Property Graphen</a> erhalten als Knoten-Label die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt, also z.B.</p>
-<p><code>E22_Human_Made_Object</code> für <a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22">E22 Human-Made Object</a></p>
+<p>Als Sammlungsübergeifendes Datenmodell wird <strong>CIDOC-CRM (CRM)</strong> verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten Vokabularen wie ICONCLASS, GND und die LIDO-Terminologien unterstützt.</p>
+<p>Im Folgenden das Datenbankschema des Property Graphen beschrieben. Die RDF-Daten im Triple-Store folgend dagegen bislang keinen Schema sondern werden so eingespielt wie sie geliefert werden.</p>
+<section id="modellierung" class="level2">
+<h2 class="anchored" data-anchor-id="modellierung">Modellierung</h2>
+<section id="entitäten-und-knoten" class="level3">
+<h3 class="anchored" data-anchor-id="entitäten-und-knoten">Entitäten und Knoten</h3>
+<p>Knoten im <a href="#property-graphen">Property Graphen</a> erhalten als Knoten-Label die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Beispiele">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beispiele
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Entitäten der CRM-Klasse <a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E16">E16 Measurement</a> werden Knoten mit dem Label <code>E16_Measurement</code>. Entitäten der CRM-Klasse <a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22">E22 Human-Made Object</a> werden Knoten mit dem Label <code>E22_Human_Made_Object</code></p>
+</div>
+</div>
 <p>Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch <a href="#expansion">Expansion</a> auf die neueste Form gemappt.</p>
-<p>Die Klassenhierarchien als Diagramm</p>
+</section>
+<section id="elementare-datentypen" class="level3">
+<h3 class="anchored" data-anchor-id="elementare-datentypen">Elementare Datentypen</h3>
+<p>Die folgende CRM-Klassen für elementare Datentypen werden <em>nicht</em> als Knoten-Label verwendet. Ihre Instanzen werden im Datenmodell stattdessen als Property-Werte abgebildet:</p>
+<ul>
+<li><a href="http://www.cidoc-crm.org/cidoc-crm/E59">E59 Primitive Value</a></li>
+<li><a href="http://www.cidoc-crm.org/cidoc-crm/E60">E60 Number</a> für Zahlen</li>
+<li><a href="http://www.cidoc-crm.org/cidoc-crm/E62">E62 String</a> für Zeichenketten</li>
+</ul>
+<p>Instanzen der folgenden CRM-Klassen werden ebenfalls <em>wenn möglich</em> nicht als Knoten sondern als Property-Werte abgebildet. Anderenfalls erfolgt die Expansion nur über die übergeordnete Klasse <a href="http://www.cidoc-crm.org/cidoc-crm/E41">E41 Appellation</a>:</p>
+<ul>
+<li><a href="http://www.cidoc-crm.org/cidoc-crm/E61">E61 Time Primitive</a> für Datums- und Zeitangaben</li>
+<li><a href="http://www.cidoc-crm.org/cidoc-crm/E94">E94 Space Primitive</a> für Koordinaten</li>
+</ul>
+</section>
+<section id="relationen-und-kanten" class="level3">
+<h3 class="anchored" data-anchor-id="relationen-und-kanten">Relationen und Kanten</h3>
+<p>CRM-Properties (nicht zu verwechseln mit Eigenschaften im <a href="basics.html#property-graph">Property-Graph Datenbankmodell</a>) werden im Property-Graphen durch Kanten-Label modelliert.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><a href="#expansion">Expansion</a> von Kanten-Label ist noch nicht umgesetzt!</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Inverse CRM-Properties sind noch nicht berücksichtigt!</p>
+</div>
+</div>
+</div>
+<p>Eine Ausnahme bilden die folgenden CRM-Properties für <a href="#elementare-datentypen">elementare Datentypen</a>, die stattdessen zu Property-Keys werden (siehe folgender Abschnitt).</p>
+</section>
+<section id="properties" class="level3">
+<h3 class="anchored" data-anchor-id="properties">Properties</h3>
+<p>Folgende CRM-Properties werden im Property-Graphen durch Knoten-Properties modelliert:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>CRM-Property</th>
+<th>Property-Key</th>
+<th>Datentyp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><a href="http://www.cidoc-crm.org/cidoc-crm/P3">P3 has note</a></td>
+<td><code>P3_has_note</code></td>
+<td>Zeichenkette</td>
+</tr>
+<tr class="even">
+<td><a href="http://www.cidoc-crm.org/cidoc-crm/P57">P57 has number of parts</a></td>
+<td><code>P57_has_number_of_parts</code></td>
+<td>Zahl</td>
+</tr>
+<tr class="odd">
+<td><a href="http://www.cidoc-crm.org/cidoc-crm/P79">P79 beginning is qualified by</a></td>
+<td><code>P79_beginning_is_qualified_by</code></td>
+<td>Zeichenkette</td>
+</tr>
+<tr class="even">
+<td><a href="http://www.cidoc-crm.org/cidoc-crm/P80">P80 end is qualified by</a></td>
+<td><code>P80_end_is_qualified_by</code></td>
+<td>Zeichenkette</td>
+</tr>
+<tr class="odd">
+<td><a href="http://www.cidoc-crm.org/cidoc-crm/P90">P90 has value</a></td>
+<td><code>P90_has_value</code></td>
+<td>Zahl)</td>
+</tr>
+<tr class="even">
+<td><a href="http://www.cidoc-crm.org/cidoc-crm/P168">P168 place is defined by (defines place)</a></td>
+<td><code>P168_place_is_defined_by</code></td>
+<td>Koordinate</td>
+</tr>
+<tr class="odd">
+<td><a href="http://www.cidoc-crm.org/cidoc-crm/P170">P170 defines time (time is defined by)</a></td>
+<td><code>P170i_time_is_defined_by</code> (inverse Relation!)</td>
+<td>Datums-/Zeitangabe</td>
+</tr>
+<tr class="even">
+<td><a href="http://www.cidoc-crm.org/cidoc-crm/P171">P171 at some place within</a></td>
+<td><code>P171_at_some_place_within</code></td>
+<td>Koordinate</td>
+</tr>
+<tr class="odd">
+<td><a href="http://www.cidoc-crm.org/cidoc-crm/P172">P172 contains</a></td>
+<td><code>P172_contains</code></td>
+<td>Koordinate</td>
+</tr>
+<tr class="even">
+<td><a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.2_with_translations.html#P190">P190 has_symbolic_content</a></td>
+<td><code>P190_has_symbolic_content</code></td>
+<td>Zeichenkette</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Die Property-Keys werden möglicherweise noch umbenannt, um zu lange Namen zu vermeiden!</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Beispiel">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beispiel
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span><span class="at"> :E54_Dimension</span> <span class="fu">P90_has_value:</span><span class="dv">12</span><span class="co">      # Wert 12 als Property mit Key `P90_has_value`</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span> <span class="op">-&gt;</span> <span class="st">u1</span><span class="at"> :P90_has_unit</span><span class="co">                  # Einheit u1 (hier nicht weiter definiert) </span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<p>Darüber hinaus gibt es einige besondere Property-Keys, deren möglicher Einsatz noch diskutiert wird:</p>
+<ul>
+<li><code>cID</code></li>
+<li><code>collection</code></li>
+<li><code>value</code></li>
+<li><code>lang</code></li>
+<li><code>type</code></li>
+<li><code>pref</code></li>
+<li><code>formatResource</code></li>
+<li><code>sortorder</code></li>
+<li><code>source</code></li>
+</ul>
+</section>
+<section id="expansion" class="level3">
+<h3 class="anchored" data-anchor-id="expansion">Expansion</h3>
+<p>Entsprechend der CRM-Klassenhierarchie erhalten alle Knoten ausgehend von ihren Labels jeweils zusätzlich als Label die CRM-Kürzel der eigenen und aller übergeordneten Klassen.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Beispiele">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beispiele
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Knoten mit dem Label <code>E16_Measurement</code> erhalten zusätzlich die Label <code>E16</code> sowie die übergeordneten Klassen <code>E13</code> (Attribute Assignment), <code>E7</code> (Activity), <code>E5</code> (Event), <code>E4</code> (Period), <code>E2</code> (Temporal Entity) und <code>E92</code> (Spacetime Volume) sowie <code>E1</code> (CRM Entity).</p>
+<p>Entitäten der CRM-Klasse <a href="https://cidoc-crm.org/html/cidoc_crm_v6.2.6_with_translations.html#E22">E22 Man-Made_Object</a> (mit CRM-Version 6.2.7 umbenannt in “E22 Human-Made Object”) werden Knoten mit dem Label <code>E22_Man_Made_Object</code> und erhalten die selben Überklassen wie <code>E22_Human_Made_Object</code>.</p>
+<p>Entitäte der CRM-Klasse <a href="https://cidoc-crm.org/html/cidoc_crm_v6.2.7_with_translations.html#E40">E40 Legal-Body</a> werden Knoten mit dem Label <code>E40_Legal_Body</code> aber da die Klasse veraltet ist und stattdessen <a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E74">E74 Group</a> verwendet werden soll, erhalten sie zusätzlich die Label <code>E74</code> und die selben Überklassen wie <code>E74_Group</code>.</p>
+</div>
+</div>
+<p>Die Anreicherung ergibt sich aus der CRM-Klassenhierarchie:</p>
 <ul>
 <li><a href="img/crm-classes.svg">CIDOC-CRM-Klassen (alle Versionen)</a></li>
 <li><a href="img/crm-properties.svg">CIDOC-CRM-Properties (alle Versionen)</a></li>
 <li><a href="img/n4o-all-classes.svg">CRM und auf CRM-gemappte Klassen</a></li>
 </ul>
-<p>Das Datenmodell besteht muss noch erweitert werden um</p>
+</section>
+<section id="offene-punkte" class="level3">
+<h3 class="anchored" data-anchor-id="offene-punkte">Offene Punkte</h3>
+<p>Das Datenmodell muss noch erweitert werden um:</p>
 <ul>
 <li>Identifier (für Normdaten-Identifier siehe <a href="https://github.com/nfdi4objects/n4o-terminologies" class="uri">https://github.com/nfdi4objects/n4o-terminologies</a>)</li>
 <li>Informationen über Sammlungen aus denen die Daten und Objekte stammen (siehe <a href="https://github.com/nfdi4objects/n4o-databases" class="uri">https://github.com/nfdi4objects/n4o-databases</a> und <a href="https://github.com/nfdi4objects/n4o-rdf-import" class="uri">https://github.com/nfdi4objects/n4o-rdf-import</a>)</li>
 <li>Informationen <em>über</em> Ontologien und Vokabulare</li>
 </ul>
-<section id="expansion" class="level3">
-<h3 class="anchored" data-anchor-id="expansion">Expansion</h3>
-<p>Entsprechend der CRM-Klassenhierarchie erhalten alle Knoten ausgehend von ihren Labels jeweils zusätzlich als Label die CRM-Kürzel der eigenen und aller übergeordneten Klassen. So wird beispielsweise jeder Knoten des Labels <code>E18_Physical_Thing</code> mit den Labels <code>E77</code>, <code>E72</code>, <code>E70</code>, <code>E18</code> und <code>E1</code> angereichert.</p>
 </section>
 </section>
 <section id="beispiel" class="level2">
@@ -304,51 +482,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   crm:P3_has_note "cm" .
 </code></pre>
 <p>wird konvertiert in folgenden Property Graph (in PG Format und als Diagram):</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode .pg code-with-copy"><code class="sourceCode pg"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  :E16_Measurement</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d</span> </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">  :P40_observed_dimension</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">  :E54_Dimension</span> </span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P90_has_value:</span> <span class="dv">2.8</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="at">  :P2_has_type</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="at">  :P91_has_unit</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="at">  :E58_Measurement_Unit</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="at">  :P48_has_preferred_identifier</span> </span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="at">  :E55_Type</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b</span></span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="at">  :P48_has_preferred_identifier</span> </span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="at">  :E42_Identifier</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P3_has_note:</span> <span class="ss">"Höhe (Scan)"</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="at">  :E42_Identifier</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P3_has_note:</span> <span class="ss">"cm"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode .pg code-with-copy"><code class="sourceCode pg"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  :E16_Measurement</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">  :P40_observed_dimension</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">  :E54_Dimension</span> </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P90_has_value:</span> <span class="dv">2.8</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="at">  :P2_has_type</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="at">  :P91_has_unit</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="at">  :E58_Measurement_Unit</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="at">  :P48_has_preferred_identifier</span> </span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="at">  :E55_Type</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="at">  :P48_has_preferred_identifier</span> </span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="at">  :E42_Identifier</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P3_has_note:</span> <span class="ss">"Höhe (Scan)"</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="at">  :E42_Identifier</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P3_has_note:</span> <span class="ss">"cm"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="img/crm-pg-example.svg" class="img-fluid"></p>
-</section>
-<section id="cidoc-crm" class="level2">
-<h2 class="anchored" data-anchor-id="cidoc-crm">CIDOC-CRM</h2>
-<p>…</p>
 </section>
 <section id="weitere-ontologien" class="level2">
 <h2 class="anchored" data-anchor-id="weitere-ontologien">Weitere Ontologien</h2>

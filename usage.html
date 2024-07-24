@@ -220,7 +220,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 <script src="./js/common.js"></script>
 <script src="./js/codemirror.js"></script>
 <script src="./js/cypher.js"></script>
@@ -250,119 +250,62 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>Der Zugriff auf den Knowledge Graphen ist bislang nur <a href="#zugriff-per-api">per API</a> möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.</p>
-<section id="zugriff-per-api" class="level2">
+<section id="zugriff-per-api" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="zugriff-per-api">Zugriff per API</h2>
-<p>Voraussetzung für die Nutzung ist ein Verständnis der <a href="./basics.html">Grundlagen</a> und des <a href="./schema.html">Datenbankschema</a> sowie Kenntnis der jeweiligen Abfragesprache Cypher bzw. SPARQL.</p>
-<section id="cypher-api" class="level3">
+<p>Voraussetzung für die Nutzung ist ein Verständnis der <a href="./basics.html">Grundlagen</a> und des <a href="./schema.html">Datenbankschema</a> sowie Kenntnis der jeweiligen Abfragesprache (Cypher bzw. SPARQL).</p>
+<section id="cypher-api" class="level3 page-columns page-full">
 <h3 class="anchored" data-anchor-id="cypher-api">Cypher-API</h3>
-<p>Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <a href="https://graph.gbv.de/" class="uri">https://graph.gbv.de/</a> abgefragt werden. Eine Einführung in Cypher mit Beispielen gibt es im Kapitel <a href="./cypher.html">Cypher-Abfragen</a>.</p>
-<p>Der vorläufige API-Endpunkt ist <a href="https://graph.gbv.de/api" class="uri">https://graph.gbv.de/api</a>. Die Cypher-Abfrage wird mit einer <strong>HTTP GET</strong> Anfrage im Query-Parameter <code>cypher</code> übergeben. Das Rückgabeformat ist ein JSON-Array von Objekten, deren Felder den Abfragefeldern entsprechen. Die Feldwerte werden folgendermaßen von Cypher nach JSON gemappt:</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th>Cypher Datentyp</th>
-<th>JSON Datentyp</th>
-<th>Beispiel</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>NULL</code></td>
-<td><code>null</code></td>
-<td><code class="sourceCode json"><span class="er">null</span></code></td>
-</tr>
-<tr class="even">
-<td><code>BOOLEAN</code></td>
-<td><code>boolean</code></td>
-<td><code class="sourceCode json"><span class="er">true</span></code></td>
-</tr>
-<tr class="odd">
-<td><code>INTEGER</code></td>
-<td><code>number</code></td>
-<td><code class="sourceCode json"><span class="er">123</span></code></td>
-</tr>
-<tr class="even">
-<td><code>FLOAT</code></td>
-<td><code>number</code></td>
-<td><code class="sourceCode json"><span class="er">3.14</span></code></td>
-</tr>
-<tr class="odd">
-<td><code>STRING</code></td>
-<td><code>string</code></td>
-<td><code class="sourceCode json"><span class="er">"äbć"</span></code></td>
-</tr>
-<tr class="even">
-<td><code>ByteArray</code></td>
-<td><code>string</code></td>
-<td><code class="sourceCode json"><span class="er">"A2+/"</span></code> (Base64)</td>
-</tr>
-<tr class="odd">
-<td><code>LIST</code></td>
-<td><code>array</code></td>
-<td><code class="sourceCode json"><span class="ot">[</span><span class="dv">0</span><span class="ot">,</span><span class="dv">8</span><span class="ot">,</span><span class="dv">15</span><span class="ot">]</span></code></td>
-</tr>
-<tr class="even">
-<td><code>MAP</code></td>
-<td><code>string</code></td>
-<td><code class="sourceCode json"><span class="fu">{</span><span class="dt">"x"</span><span class="fu">:</span><span class="st">"?"</span><span class="fu">,</span><span class="dt">"y"</span><span class="fu">:</span><span class="dv">42</span><span class="fu">}</span></code></td>
-</tr>
-<tr class="odd">
-<td>Temporal (<code>DATE</code>, <code>LOCAL TIME</code>, <code>DURATION</code>…)</td>
-<td><code>string</code> (ISO-8601)</td>
-<td><div class="sourceCode" id="cb1"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="er">"2015-03-26"</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="er">"12:50:35.556"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">"P14DT16H12M"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
-</tr>
-<tr class="even">
-<td><code>POINT</code></td>
-<td><code>string</code> (<a href="http://giswiki.org/wiki/Well_Known_Text">WKT</a>)</td>
-<td><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">"SRID=7203;POINT(1.2</span> <span class="er">3.4)"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
-</tr>
-<tr class="odd">
-<td><code>NODE</code></td>
-<td><code>object</code></td>
-<td><div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"node"</span><span class="fu">,</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"4b55-98f8"</span><span class="fu">,</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"labels"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"E22"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"properties"</span><span class="fu">:</span> <span class="fu">{</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"P3_has_note"</span><span class="fu">:</span> <span class="st">"?!"</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
-</tr>
-<tr class="even">
-<td><code>RELATIONSHIP</code></td>
-<td><code>object</code></td>
-<td><div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"edge"</span><span class="fu">,</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"37a9-72df"</span><span class="fu">,</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"labels"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"P40"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"properties"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"x"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">},</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"from"</span><span class="fu">:</span> <span class="st">"98f8-6888"</span><span class="fu">,</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"to"</span><span class="fu">:</span> <span class="st">"164b-c83a"</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
-</tr>
-<tr class="odd">
-<td><code>PATH</code></td>
-<td><code>array</code></td>
-<td>Array aus <code>NODE</code> und <code>RELATIONSHIP</code> Objekten.</td>
-</tr>
-</tbody>
-</table>
-<p>Die Kodierung von <code>NODE</code> und <code>RELATIONSHIP</code> Objekten entspricht der Kodierung von Knoten und Kanten im <a href="https://pg-format.github.io/specification/#pg-jsonl">Format PG-JSONL</a> mit dem Unterschied, dass Property-Werte nicht zwingend vom Type <code>array</code> sind, sondern auch <code>null</code>, <code>boolean</code>, <code>number</code> und <code>string</code> sein können.</p>
+<p>Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <a href="https://graph.gbv.de/" class="uri">https://graph.gbv.de/</a> abgefragt werden. Eine Einführung mit Beispielen gibt es im Kapitel <a href="./cypher.html">Cypher-Abfragen</a>.</p>
+<section id="abfrage-mit-curl" class="level4 page-columns page-full">
+<h4 class="anchored" data-anchor-id="abfrage-mit-curl">Abfrage mit curl</h4>
+<p>Die Cypher-Query muss URL-kodiert werden, dabei werden unter anderem Leerzeichen durch <code>%20</code> ersetzt. Der Parameter <a href="https://curl.se/docs/manpage.html#--data-urlencode">–data-urlencode</a> sorgt automatisch dafür:</p>
+<div class="column-screen-inset-right">
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-G</span> https://graph.gbv.de/api <span class="at">--data-urlencode</span> <span class="st">'cypher=MATCH (m:E16_Measurement) RETURN m LIMIT 10'</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Die Cypher-Query kann auch per Datei übergeben werden:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-G</span> https://graph.gbv.de/api <span class="at">--data-urlencode</span> <span class="st">'cypher@queryfile.cypher'</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 <section id="sparql-api" class="level3">
 <h3 class="anchored" data-anchor-id="sparql-api">SPARQL-API</h3>
-<p>Siehe <a href="./sparql.html">SPARQL-Abfragen</a> (noch nicht umgesetzt)</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Noch nicht öffentlich zugänglich!</p>
+</div>
+</div>
+</div>
+<p>Der Triple-Store des Knowledge Graphen kann mittels SPARQL abgefragt werden. Eine Einführung mit Beispielen gibt es im Kapitel <a href="./sparql.html">SPARQL-Abfragen</a>.</p>
 </section>
 </section>
 <section id="datenbankdumps" class="level2">
 <h2 class="anchored" data-anchor-id="datenbankdumps">Datenbankdumps</h2>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>Die Bereitstellung von Datenbankdumps zur lokalen Nutzung von Teilen des Knowledge Graphen ist noch nicht umgesetzt.</p>
+</div>
+</div>
+</div>
 </section>
 <section id="suchoberfläche" class="level2">
 <h2 class="anchored" data-anchor-id="suchoberfläche">Suchoberfläche</h2>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>Eine browserbasierte Suchoberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung ist noch nicht umgesetzt.</p>
+</div>
+</div>
+</div>
 
 
 </section>

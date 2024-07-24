@@ -211,12 +211,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#öffentliche-api" id="toc-öffentliche-api" class="nav-link active" data-scroll-target="#öffentliche-api">Öffentliche API</a>
-  <ul class="collapse">
-  <li><a href="#demo" id="toc-demo" class="nav-link" data-scroll-target="#demo">Demo</a></li>
-  <li><a href="#abfrage-mit-curl" id="toc-abfrage-mit-curl" class="nav-link" data-scroll-target="#abfrage-mit-curl">Abfrage mit curl</a></li>
-  </ul></li>
-  <li><a href="#einführung-in-cypher" id="toc-einführung-in-cypher" class="nav-link" data-scroll-target="#einführung-in-cypher">Einführung in Cypher</a>
+  <li><a href="#abfrage-editor" id="toc-abfrage-editor" class="nav-link active" data-scroll-target="#abfrage-editor">Abfrage-Editor</a></li>
+  <li><a href="#anfrageformat" id="toc-anfrageformat" class="nav-link" data-scroll-target="#anfrageformat">Anfrageformat</a></li>
+  <li><a href="#rückgabeformat" id="toc-rückgabeformat" class="nav-link" data-scroll-target="#rückgabeformat">Rückgabeformat</a></li>
+  <li><a href="#cypher-grundlagen" id="toc-cypher-grundlagen" class="nav-link" data-scroll-target="#cypher-grundlagen">Kurzeinführung in Cypher</a>
   <ul class="collapse">
   <li><a href="#nodes" id="toc-nodes" class="nav-link" data-scroll-target="#nodes">Nodes</a></li>
   <li><a href="#relationships" id="toc-relationships" class="nav-link" data-scroll-target="#relationships">Relationships</a></li>
@@ -256,37 +254,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="öffentliche-api" class="level2">
-<h2 class="anchored" data-anchor-id="öffentliche-api">Öffentliche API</h2>
-<p>Dieses Kapitel veranschaulicht die Nutzung der <a href="usage.html#cypher-api">Cypher-API</a> zur Abfrage des Property Graphen.</p>
-<section id="demo" class="level3">
-<h3 class="anchored" data-anchor-id="demo">Demo</h3>
+<p>Vorausgesetzt wird ein Grundverständnis der <a href="#cypher-grundlagen">Abfragesprache Cypher</a> und des <a href="./schema.html">Datenbankschemas</a>.</p>
+<section id="abfrage-editor" class="level3">
+<h3 class="anchored" data-anchor-id="abfrage-editor">Abfrage-Editor</h3>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="16" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 15;"><span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>viewof cypherEditor <span class="op">=</span> {</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> mainDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;&lt;div&gt;`</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> editorDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div style="border: 1px solid rgb(0, 0, 0);"&gt;&lt;/div&gt;`</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> runButton <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;button&gt;Query&lt;/button&gt;`</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(editorDiv)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(runButton)</span>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="14" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 13;"><span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>viewof cypherEditor <span class="op">=</span> {</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> mainDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;&lt;div&gt;`</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> editorDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div style="border: 1px solid rgb(0, 0, 0);"&gt;&lt;/div&gt;`</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> runButton <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;button&gt;Query&lt;/button&gt;`</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> errorStatus <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;span style="color: red; margin-left: 1em;"&gt;&lt;/span&gt;`</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(editorDiv)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(runButton)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(errorStatus)</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> []</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="kw">undefined</span></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">yield</span> mainDiv</span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> editor <span class="op">=</span> <span class="fu">CodeMirror</span>(editorDiv<span class="op">,</span> { <span class="dt">mode</span><span class="op">:</span> <span class="st">"application/x-cypher-query"</span> })</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  editor<span class="op">.</span><span class="fu">setValue</span>(<span class="st">"MATCH (m:E16_Measurement) RETURN m LIMIT 20"</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  editor<span class="op">.</span><span class="fu">setValue</span>(<span class="st">"MATCH (m:E16_Measurement) RETURN m LIMIT 10"</span>)</span>
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  editor<span class="op">.</span><span class="fu">setSize</span>(width<span class="op">-</span><span class="dv">20</span><span class="op">,</span> <span class="dv">200</span>)</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  runButton<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> <span class="kw">async</span> (e) <span class="kw">=&gt;</span> {</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="cf">await</span> <span class="fu">cypherQuery</span>(editor<span class="op">.</span><span class="fu">getValue</span>())</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="fu">dispatchEvent</span>(<span class="kw">new</span> <span class="bu">CustomEvent</span>(<span class="st">"input"</span>))</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mainDiv</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>cypherEditor</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    errorStatus<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> </span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cypherQuery</span>(editor<span class="op">.</span><span class="fu">getValue</span>())</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">then</span>(value <span class="kw">=&gt;</span> mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> value)</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">catch</span>(e <span class="kw">=&gt;</span> { </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        errorStatus<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> e</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="kw">undefined</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>      })</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="fu">dispatchEvent</span>(<span class="kw">new</span> <span class="bu">CustomEvent</span>(<span class="st">"input"</span>))</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mainDiv</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>cypherEditor</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -303,18 +309,120 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="abfrage-mit-curl" class="level3">
-<h3 class="anchored" data-anchor-id="abfrage-mit-curl">Abfrage mit curl</h3>
-<p>Die Cypher-Query muss URL-kodiert werden, dabei werden unter anderem Leerzeichen durch <code>%20</code> ersetzt. Der Parameter <a href="https://curl.se/docs/manpage.html#--data-urlencode">–data-urlencode</a> sorgt automatisch dafür:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-G</span> https://graph.gbv.de/api <span class="at">--data-urlencode</span> <span class="st">'cypher=MATCH (n:`E22_Man-Made_Object`) RETURN n.cID LIMIT 20'</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Die Cypher-Query kann auch per Datei übergeben werden:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-G</span> https://graph.gbv.de/api <span class="at">--data-urlencode</span> <span class="st">'cypher@queryfile.cypher'</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="anfrageformat" class="level3">
+<h3 class="anchored" data-anchor-id="anfrageformat">Anfrageformat</h3>
+<p>Der vorläufige API-Endpunkt ist <a href="https://graph.gbv.de/api" class="uri">https://graph.gbv.de/api</a>. Die Cypher-Abfrage wird mit einer <strong>HTTP GET</strong> Anfrage im Query-Parameter <code>cypher</code> übergeben.</p>
 </section>
+<section id="rückgabeformat" class="level3">
+<h3 class="anchored" data-anchor-id="rückgabeformat">Rückgabeformat</h3>
+<p>Das Rückgabeformat ist ein JSON-Array von Objekten, deren Felder den Abfragefeldern entsprechen. Die Feldwerte werden folgendermaßen von Cypher nach JSON gemappt:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Cypher Datentyp</th>
+<th>JSON Datentyp</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>NULL</code></td>
+<td><code>null</code></td>
+<td><code class="sourceCode json"><span class="er">null</span></code></td>
+</tr>
+<tr class="even">
+<td><code>BOOLEAN</code></td>
+<td><code>boolean</code></td>
+<td><code class="sourceCode json"><span class="er">true</span></code></td>
+</tr>
+<tr class="odd">
+<td><code>INTEGER</code></td>
+<td><code>number</code></td>
+<td><code class="sourceCode json"><span class="er">123</span></code></td>
+</tr>
+<tr class="even">
+<td><code>FLOAT</code></td>
+<td><code>number</code></td>
+<td><code class="sourceCode json"><span class="er">3.14</span></code></td>
+</tr>
+<tr class="odd">
+<td><code>STRING</code></td>
+<td><code>string</code></td>
+<td><code class="sourceCode json"><span class="er">"äbć"</span></code></td>
+</tr>
+<tr class="even">
+<td><code>ByteArray</code></td>
+<td><code>string</code></td>
+<td><code class="sourceCode json"><span class="er">"A2+/"</span></code> (Base64)</td>
+</tr>
+<tr class="odd">
+<td><code>LIST</code></td>
+<td><code>array</code></td>
+<td><code class="sourceCode json"><span class="ot">[</span><span class="dv">0</span><span class="ot">,</span><span class="dv">8</span><span class="ot">,</span><span class="dv">15</span><span class="ot">]</span></code></td>
+</tr>
+<tr class="even">
+<td><code>MAP</code></td>
+<td><code>string</code></td>
+<td><code class="sourceCode json"><span class="fu">{</span><span class="dt">"x"</span><span class="fu">:</span><span class="st">"?"</span><span class="fu">,</span><span class="dt">"y"</span><span class="fu">:</span><span class="dv">42</span><span class="fu">}</span></code></td>
+</tr>
+<tr class="odd">
+<td>Temporal (<code>DATE</code>, <code>LOCAL TIME</code>, <code>DURATION</code>…)</td>
+<td><code>string</code> (ISO-8601)</td>
+<td><div class="sourceCode" id="cb2"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="er">"2015-03-26"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="er">"12:50:35.556"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="er">"P14DT16H12M"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+</tr>
+<tr class="even">
+<td><code>POINT</code></td>
+<td><code>string</code> (<a href="http://giswiki.org/wiki/Well_Known_Text">WKT</a>)</td>
+<td><div class="sourceCode" id="cb3"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="er">"SRID=7203;POINT(1.2</span> <span class="er">3.4)"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+</tr>
+<tr class="odd">
+<td><code>NODE</code></td>
+<td><code>object</code></td>
+<td><div class="sourceCode" id="cb4"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"node"</span><span class="fu">,</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"4b55-98f8"</span><span class="fu">,</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"labels"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"E22"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"properties"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"P3_has_note"</span><span class="fu">:</span> <span class="st">"?!"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+</tr>
+<tr class="even">
+<td><code>RELATIONSHIP</code></td>
+<td><code>object</code></td>
+<td><div class="sourceCode" id="cb5"><pre class="sourceCode json code-with-copy"><code class="sourceCode json"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"edge"</span><span class="fu">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"id"</span><span class="fu">:</span> <span class="st">"37a9-72df"</span><span class="fu">,</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"labels"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"P40"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"properties"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"x"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">},</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"from"</span><span class="fu">:</span> <span class="st">"98f8-6888"</span><span class="fu">,</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="dt">"to"</span><span class="fu">:</span> <span class="st">"164b-c83a"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+</tr>
+<tr class="odd">
+<td><code>PATH</code></td>
+<td><code>array</code></td>
+<td>Array aus <code>NODE</code> und <code>RELATIONSHIP</code> Objekten.</td>
+</tr>
+</tbody>
+</table>
+<p>Die Kodierung von <code>NODE</code> und <code>RELATIONSHIP</code> Objekten entspricht der Kodierung von Knoten und Kanten im <a href="https://pg-format.github.io/specification/#pg-jsonl">Format PG-JSONL</a> mit dem Unterschied, dass Property-Werte nicht zwingend vom Type <code>array</code> sind, sondern auch <code>null</code>, <code>boolean</code>, <code>number</code> und <code>string</code> sein können.</p>
 </section>
-<section id="einführung-in-cypher" class="level2">
-<h2 class="anchored" data-anchor-id="einführung-in-cypher">Einführung in Cypher</h2>
+<section id="cypher-grundlagen" class="level2">
+<h2 class="anchored" data-anchor-id="cypher-grundlagen">Kurzeinführung in Cypher</h2>
 <p>Eine vollständige Einführung in die Abfragesprache Cypher liefert <a href="https://neo4j.com/docs/cypher-manual/current/">das englische Cypher Handbuch</a>.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>Die folgende Kurzeinführung bezieht sich noch nicht auf das <a href="./schema.html">Schema</a> des Property Graphen sondern verwendet ein ausgedachtes Beispiel mit Personendaten.</p>
+</div>
+</div>
+</div>
 <section id="nodes" class="level3">
 <h3 class="anchored" data-anchor-id="nodes">Nodes</h3>
 <p>Knoten heißen Nodes und werden in runden Klammern definiert.</p>
@@ -348,7 +456,7 @@ RETURN p</code></pre>
 <pre class="cypher"><code>MATCH (n:E16_Measurement)-[:P40_observed_dimension]-&gt;(m:E54_Dimension)-[:P2_has_type]-&gt;(:E55_Type)-[:P48_has_preferred_identifier]-&gt;(l)
 MATCH (m)-[:P91_has_unit]-&gt;(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]-&gt;(o)
 RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note</code></pre>
-<div id="194bd34a" class="cell" data-execution_count="1">
+<div id="22aa1838" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>2.8,cm,Höhe (Scan)</code></pre>
 </div>
@@ -360,7 +468,7 @@ RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note</c
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBjeXBoZXJFZGl0b3IgPSB7XG4gIGNvbnN0IG1haW5EaXYgPSBodG1sYDxkaXY+PGRpdj5gXG4gIGNvbnN0IGVkaXRvckRpdiA9IGh0bWxgPGRpdiBzdHlsZT1cImJvcmRlcjogMXB4IHNvbGlkIHJnYigwLCAwLCAwKTtcIj48L2Rpdj5gXG4gIGNvbnN0IHJ1bkJ1dHRvbiA9IGh0bWxgPGJ1dHRvbj5RdWVyeTwvYnV0dG9uPmBcblxuICBtYWluRGl2LmFwcGVuZChlZGl0b3JEaXYpXG4gIG1haW5EaXYuYXBwZW5kKHJ1bkJ1dHRvbilcblxuICBtYWluRGl2LnZhbHVlID0gW11cbiAgeWllbGQgbWFpbkRpdlxuXG4gIGxldCBlZGl0b3IgPSBDb2RlTWlycm9yKGVkaXRvckRpdiwgeyBtb2RlOiBcImFwcGxpY2F0aW9uL3gtY3lwaGVyLXF1ZXJ5XCIgfSlcblxuICBlZGl0b3Iuc2V0VmFsdWUoXCJNQVRDSCAobTpFMTZfTWVhc3VyZW1lbnQpIFJFVFVSTiBtIExJTUlUIDIwXCIpXG4gIGVkaXRvci5zZXRTaXplKHdpZHRoLTIwLCAyMDApXG5cbiAgcnVuQnV0dG9uLm9uY2xpY2sgPSBhc3luYyAoZSkgPT4ge1xuICAgIG1haW5EaXYudmFsdWUgPSBhd2FpdCBjeXBoZXJRdWVyeShlZGl0b3IuZ2V0VmFsdWUoKSlcbiAgICBtYWluRGl2LmRpc3BhdGNoRXZlbnQobmV3IEN1c3RvbUV2ZW50KFwiaW5wdXRcIikpXG4gIH1cblxuICByZXR1cm4gbWFpbkRpdlxufVxuXG5jeXBoZXJFZGl0b3JcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldFF1aWV0Iiwic291cmNlIjoic2hpbnlJbnB1dCgnY3lwaGVyRWRpdG9yJykifV19
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InZpZXdvZiBjeXBoZXJFZGl0b3IgPSB7XG4gIGNvbnN0IG1haW5EaXYgPSBodG1sYDxkaXY+PGRpdj5gXG4gIGNvbnN0IGVkaXRvckRpdiA9IGh0bWxgPGRpdiBzdHlsZT1cImJvcmRlcjogMXB4IHNvbGlkIHJnYigwLCAwLCAwKTtcIj48L2Rpdj5gXG4gIGNvbnN0IHJ1bkJ1dHRvbiA9IGh0bWxgPGJ1dHRvbj5RdWVyeTwvYnV0dG9uPmBcbiAgY29uc3QgZXJyb3JTdGF0dXMgPSBodG1sYDxzcGFuIHN0eWxlPVwiY29sb3I6IHJlZDsgbWFyZ2luLWxlZnQ6IDFlbTtcIj48L3NwYW4+YFxuXG4gIG1haW5EaXYuYXBwZW5kKGVkaXRvckRpdilcbiAgbWFpbkRpdi5hcHBlbmQocnVuQnV0dG9uKVxuICBtYWluRGl2LmFwcGVuZChlcnJvclN0YXR1cylcblxuICBtYWluRGl2LnZhbHVlID0gdW5kZWZpbmVkXG4gIHlpZWxkIG1haW5EaXZcblxuICBsZXQgZWRpdG9yID0gQ29kZU1pcnJvcihlZGl0b3JEaXYsIHsgbW9kZTogXCJhcHBsaWNhdGlvbi94LWN5cGhlci1xdWVyeVwiIH0pXG5cbiAgZWRpdG9yLnNldFZhbHVlKFwiTUFUQ0ggKG06RTE2X01lYXN1cmVtZW50KSBSRVRVUk4gbSBMSU1JVCAxMFwiKVxuICBlZGl0b3Iuc2V0U2l6ZSh3aWR0aC0yMCwgMjAwKVxuXG4gIHJ1bkJ1dHRvbi5vbmNsaWNrID0gYXN5bmMgKGUpID0+IHtcbiAgICBlcnJvclN0YXR1cy50ZXh0Q29udGVudCA9IFwiXCJcbiAgICBtYWluRGl2LnZhbHVlID0gXG4gICAgY3lwaGVyUXVlcnkoZWRpdG9yLmdldFZhbHVlKCkpXG4gICAgICAudGhlbih2YWx1ZSA9PiBtYWluRGl2LnZhbHVlID0gdmFsdWUpXG4gICAgICAuY2F0Y2goZSA9PiB7IFxuICAgICAgICBlcnJvclN0YXR1cy50ZXh0Q29udGVudCA9IGVcbiAgICAgICAgbWFpbkRpdi52YWx1ZSA9IHVuZGVmaW5lZFxuICAgICAgfSlcblxuICAgIG1haW5EaXYuZGlzcGF0Y2hFdmVudChuZXcgQ3VzdG9tRXZlbnQoXCJpbnB1dFwiKSlcbiAgfVxuXG4gIHJldHVybiBtYWluRGl2XG59XG5cbmN5cGhlckVkaXRvclxuIn0seyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0UXVpZXQiLCJzb3VyY2UiOiJzaGlueUlucHV0KCdjeXBoZXJFZGl0b3InKSJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
