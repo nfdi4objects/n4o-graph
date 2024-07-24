@@ -9,6 +9,9 @@ images: manual/img/crm-all-classes.svg manual/img/crm-extension-classes.svg manu
 docs:
 	QUARTO_PYTHON=venv/bin/python quarto render manual
 
+preview:
+	QUARTO_PYTHON=venv/bin/python quarto preview manual
+
 manual/img/crm-all-classes.svg: voc/crm-all-classes.pg
 	pgraph $< --html -t mmd | mmdc -i - -o $@
 

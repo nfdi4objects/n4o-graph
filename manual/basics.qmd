@@ -53,13 +53,13 @@ versehen sein. Zur Abfrage von Property-Graphen dient die Sprache
 
 ### Triple Store
 
-Ein Triple Store ist eine [Graphendatenbank](https://de.wikipedia.org/wiki/Graphdatenbank) in der Daten dem [RDF-Modell](#rdf) nach in Form von so genannten Triplen gespeichert werden. Jedes **Tripel** entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple-Stores dient [SPARQL](sparql.qmd).
+Ein Triple Store ist eine [Graphendatenbank](https://de.wikipedia.org/wiki/Graphdatenbank) in der Daten dem [RDF-Modell](#rdf) nach in Form von so genannten Triplen gespeichert werden. Jedes **Tripel** entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple Stores dient [SPARQL](sparql.qmd).
 
 ## Datenbankinhalt
 
 ### Schema
 
-Das Datenbankschema oder **Datenmodell** eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von [Property Graph] und [Triple-Store] unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell CIDOC-CRM. Details zu den Schemas finden sich im [Kapitel Datenbankschema](schema.qmd).
+Das Datenbankschema oder **Datenmodell** eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von [Property Graph] und [Triple Store] unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell CIDOC-CRM. Details zu den Schemas finden sich im [Kapitel Datenbankschema](schema.qmd).
 
 ::: {.callout-tip title="Beispiel" appearance="minimal"}
 Im Schema ist beispielsweise vorgegeben, dass es für Messungen Knoten der Klasse `E16_Measurement` und für Zeiträume Knoten der Klasse `E52_Time_Span` gibt.

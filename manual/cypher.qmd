@@ -6,31 +6,39 @@ execute:
   echo: false
 ---
 
-## Öffentliche API
+Vorausgesetzt wird ein Grundverständnis der [Abfragesprache Cypher](#cypher-grundlagen) und des [Datenbankschemas](schema.qmd).
 
-Dieses Kapitel veranschaulicht die Nutzung der [Cypher-API](#cypher-api) zur Abfrage des Property Graphen.
-
-### Demo
+### Abfrage-Editor
 
 ```{ojs}
 viewof cypherEditor = {
   const mainDiv = html`<div><div>`
   const editorDiv = html`<div style="border: 1px solid rgb(0, 0, 0);"></div>`
   const runButton = html`<button>Query</button>`
+  const errorStatus = html`<span style="color: red; margin-left: 1em;"></span>`
 
   mainDiv.append(editorDiv)
   mainDiv.append(runButton)
+  mainDiv.append(errorStatus)
 
-  mainDiv.value = []
+  mainDiv.value = undefined
   yield mainDiv
 
   let editor = CodeMirror(editorDiv, { mode: "application/x-cypher-query" })
 
-  editor.setValue("MATCH (m:E16_Measurement) RETURN m LIMIT 20")
+  editor.setValue("MATCH (m:E16_Measurement) RETURN m LIMIT 10")
   editor.setSize(width-20, 200)
 
   runButton.onclick = async (e) => {
-    mainDiv.value = await cypherQuery(editor.getValue())
+    errorStatus.textContent = ""
+    mainDiv.value = 
+    cypherQuery(editor.getValue())
+      .then(value => mainDiv.value = value)
+      .catch(e => { 
+        errorStatus.textContent = e
+        mainDiv.value = undefined
+      })
+
     mainDiv.dispatchEvent(new CustomEvent("input"))
   }
 
@@ -40,30 +48,86 @@ viewof cypherEditor = {
 cypherEditor
 ```
 
-### Abfrage mit curl
+### Anfrageformat
 
-Die Cypher-Query muss URL-kodiert werden, dabei werden unter anderem
-Leerzeichen durch `%20` ersetzt. Der Parameter
-[--data-urlencode](https://curl.se/docs/manpage.html#--data-urlencode) sorgt
-automatisch dafür:
+Der vorläufige API-Endpunkt ist <https://graph.gbv.de/api>. Die Cypher-Abfrage wird mit einer **HTTP GET** Anfrage im Query-Parameter `cypher` übergeben. 
 
-```sh
-curl -G {{< meta public >}} --data-urlencode 'cypher=MATCH (n:`E22_Man-Made_Object`) RETURN n.cID LIMIT 20'
-```
+### Rückgabeformat
 
-Die Cypher-Query kann auch per Datei übergeben werden:
+Das Rückgabeformat ist ein JSON-Array von Objekten, deren Felder den Abfragefeldern entsprechen. Die Feldwerte werden folgendermaßen von Cypher nach JSON gemappt:
 
-```sh
-curl -G {{< meta public >}} --data-urlencode 'cypher@queryfile.cypher'
-```
++-------------------+---------------+---------------------------+
+| Cypher Datentyp   | JSON Datentyp | Beispiel                  |
++===================+===============+===========================+
+| `NULL`            | `null`        | `null`{.json}             |
++-------------------+---------------+---------------------------+
+| `BOOLEAN`         | `boolean`     | `true`{.json}             |
++-------------------+---------------+---------------------------+
+| `INTEGER`         | `number`      | `123`{.json}              |
++-------------------+---------------+---------------------------+
+| `FLOAT`           | `number`      | `3.14`{.json}             |
++-------------------+---------------+---------------------------+
+| `STRING`          | `string`      | `"äbć"`{.json}            |
++-------------------+---------------+---------------------------+
+| `ByteArray`       | `string`      | `"A2+/"`{.json} (Base64)  |
++-------------------+---------------+---------------------------+
+| `LIST`            | `array`       | `[0,8,15]`{.json}         |
++-------------------+---------------+---------------------------+
+| `MAP`             | `string`      | `{"x":"?","y":42}`{.json} |
++-------------------+---------------+---------------------------+
+| Temporal (`DATE`, | `string`      | ```json                   |
+| `LOCAL TIME`,     | (ISO-8601)    | "2015-03-26"              |
+| `DURATION`...)    |               | "12:50:35.556"            |
+|                   |               | "P14DT16H12M"             |
+|                   |               | ```                       |
++-------------------+---------------+---------------------------+
+| `POINT`           | `string`      | ```json                   |
+|                   | ([WKT])       | "SRID=7203;POINT(1.2 3.4)"|
+|                   |               | ```                       |
++-------------------+---------------+---------------------------+
+| `NODE`            | `object`      | ```json                   |
+|                   |               | {                         |
+|                   |               |   "type": "node",         |
+|                   |               |   "id": "4b55-98f8",      |
+|                   |               |   "labels": ["E22"],      |
+|                   |               |   "properties": {         | 
+|                   |               |     "P3_has_note": "?!"   |
+|                   |               |   }                       |
+|                   |               | }                         |
+|                   |               | ```                       |
++-------------------+---------------+---------------------------+
+| `RELATIONSHIP`    | `object`      | ```json                   |
+|                   |               | {                         |
+|                   |               |   "type": "edge",         |
+|                   |               |   "id": "37a9-72df",      |
+|                   |               |   "labels": ["P40"],      |
+|                   |               |   "properties": {"x": 1}, | 
+|                   |               |   "from": "98f8-6888",    |
+|                   |               |   "to": "164b-c83a"       |
+|                   |               | }                         |
+|                   |               | ```                       |
++-------------------+---------------+---------------------------+
+| `PATH`            | `array`       | Array aus `NODE` und      |
+|                   |               | `RELATIONSHIP` Objekten.  |
++-------------------+---------------+---------------------------+
 
-## Einführung in Cypher
+Die Kodierung von `NODE` und `RELATIONSHIP` Objekten entspricht der Kodierung
+von Knoten und Kanten im [Format
+PG-JSONL](https://pg-format.github.io/specification/#pg-jsonl) mit dem
+Unterschied, dass Property-Werte nicht zwingend vom Type `array` sind, sondern
+auch `null`, `boolean`, `number` und `string` sein können.
+
+[WKT]: http://giswiki.org/wiki/Well_Known_Text
+
+
+## Kurzeinführung in Cypher {#cypher-grundlagen}
 
 Eine vollständige Einführung in die Abfragesprache Cypher liefert [das
 englische Cypher Handbuch](https://neo4j.com/docs/cypher-manual/current/).
 
-Die folgende Kurzeinführung bezieht sich noch nicht auf das [Schema](schema.qmd) des Property Graphen sondern verwendet ein
-ausgedachtes Beispiel mit Personendaten.
+::: {.callout-warning appearance="simple"}
+Die folgende Kurzeinführung bezieht sich noch nicht auf das [Schema](schema.qmd) des Property Graphen sondern verwendet ein ausgedachtes Beispiel mit Personendaten.
+:::
 
 ### Nodes
 

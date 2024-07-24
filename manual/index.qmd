@@ -3,8 +3,8 @@ title: Einleitung
 lang: de
 ---
 
-::: {.callout-tip}
-Eine vorläufige Version der [API des Property-Graphen](cypher.qmd) ist jetzt verfügbar!
+::: {.callout-tip appearance="simple"}
+Eine erste Version der [Cypher-API des Property-Graphen](cypher.qmd) ist jetzt verfügbar!
 :::
 
 An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des **Knowledge Graphen von NFDI4Objects** (TA5).  Der Zugriff auf die Inhalte des Knowledge Graphen ist [Kapitel Benutzung](usage.qmd) beschrieben.  Hintergründe und Details finden sich im [Grundlagen-Kapitel](basics.qmd) und in der Beschreibung der [Systemarchitektur](architecture.qmd).

@@ -8,86 +8,49 @@ Der Zugriff auf den Knowledge Graphen ist bislang nur [per API](#zugriff-per-api
 
 ## Zugriff per API
 
-Voraussetzung für die Nutzung ist ein Verständnis der [Grundlagen](basics.qmd) und des [Datenbankschema](schema.qmd) sowie Kenntnis der jeweiligen Abfragesprache Cypher bzw. SPARQL.
+Voraussetzung für die Nutzung ist ein Verständnis der [Grundlagen](basics.qmd) und des [Datenbankschema](schema.qmd) sowie Kenntnis der jeweiligen Abfragesprache (Cypher bzw. SPARQL).
 
 ### Cypher-API
 
-Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <https://graph.gbv.de/> abgefragt werden. Eine Einführung in Cypher mit Beispielen gibt es im Kapitel [Cypher-Abfragen](cypher.qmd).
+Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <https://graph.gbv.de/> abgefragt werden. Eine Einführung mit Beispielen gibt es im Kapitel [Cypher-Abfragen](cypher.qmd).
 
-Der vorläufige API-Endpunkt ist <https://graph.gbv.de/api>. Die Cypher-Abfrage wird mit einer **HTTP GET** Anfrage im Query-Parameter `cypher` übergeben. Das Rückgabeformat ist ein JSON-Array von Objekten, deren Felder den Abfragefeldern entsprechen. Die Feldwerte werden folgendermaßen von Cypher nach JSON gemappt:
+#### Abfrage mit curl
 
-+-------------------+---------------+---------------------------+
-| Cypher Datentyp   | JSON Datentyp | Beispiel                  |
-+===================+===============+===========================+
-| `NULL`            | `null`        | `null`{.json}             |
-+-------------------+---------------+---------------------------+
-| `BOOLEAN`         | `boolean`     | `true`{.json}             |
-+-------------------+---------------+---------------------------+
-| `INTEGER`         | `number`      | `123`{.json}              |
-+-------------------+---------------+---------------------------+
-| `FLOAT`           | `number`      | `3.14`{.json}             |
-+-------------------+---------------+---------------------------+
-| `STRING`          | `string`      | `"äbć"`{.json}            |
-+-------------------+---------------+---------------------------+
-| `ByteArray`       | `string`      | `"A2+/"`{.json} (Base64)  |
-+-------------------+---------------+---------------------------+
-| `LIST`            | `array`       | `[0,8,15]`{.json}         |
-+-------------------+---------------+---------------------------+
-| `MAP`             | `string`      | `{"x":"?","y":42}`{.json} |
-+-------------------+---------------+---------------------------+
-| Temporal (`DATE`, | `string`      | ```json                   |
-| `LOCAL TIME`,     | (ISO-8601)    | "2015-03-26"              |
-| `DURATION`...)    |               | "12:50:35.556"            |
-|                   |               | "P14DT16H12M"             |
-|                   |               | ```                       |
-+-------------------+---------------+---------------------------+
-| `POINT`           | `string`      | ```json                   |
-|                   | ([WKT])       | "SRID=7203;POINT(1.2 3.4)"|
-|                   |               | ```                       |
-+-------------------+---------------+---------------------------+
-| `NODE`            | `object`      | ```json                   |
-|                   |               | {                         |
-|                   |               |   "type": "node",         |
-|                   |               |   "id": "4b55-98f8",      |
-|                   |               |   "labels": ["E22"],      |
-|                   |               |   "properties": {         | 
-|                   |               |     "P3_has_note": "?!"   |
-|                   |               |   }                       |
-|                   |               | }                         |
-|                   |               | ```                       |
-+-------------------+---------------+---------------------------+
-| `RELATIONSHIP`    | `object`      | ```json                   |
-|                   |               | {                         |
-|                   |               |   "type": "edge",         |
-|                   |               |   "id": "37a9-72df",      |
-|                   |               |   "labels": ["P40"],      |
-|                   |               |   "properties": {"x": 1}, | 
-|                   |               |   "from": "98f8-6888",    |
-|                   |               |   "to": "164b-c83a"       |
-|                   |               | }                         |
-|                   |               | ```                       |
-+-------------------+---------------+---------------------------+
-| `PATH`            | `array`       | Array aus `NODE` und      |
-|                   |               | `RELATIONSHIP` Objekten.  |
-+-------------------+---------------+---------------------------+
+Die Cypher-Query muss URL-kodiert werden, dabei werden unter anderem
+Leerzeichen durch `%20` ersetzt. Der Parameter
+[--data-urlencode](https://curl.se/docs/manpage.html#--data-urlencode) sorgt
+automatisch dafür:
 
-Die Kodierung von `NODE` und `RELATIONSHIP` Objekten entspricht der Kodierung
-von Knoten und Kanten im [Format
-PG-JSONL](https://pg-format.github.io/specification/#pg-jsonl) mit dem
-Unterschied, dass Property-Werte nicht zwingend vom Type `array` sind, sondern
-auch `null`, `boolean`, `number` und `string` sein können.
+:::{.column-screen-inset-right}
+```sh
+curl -G {{< meta public >}} --data-urlencode 'cypher=MATCH (m:E16_Measurement) RETURN m LIMIT 10'
+```
+:::
 
-[WKT]: http://giswiki.org/wiki/Well_Known_Text
+Die Cypher-Query kann auch per Datei übergeben werden:
+
+```sh
+curl -G {{< meta public >}} --data-urlencode 'cypher@queryfile.cypher'
+```
 
 ### SPARQL-API
 
-Siehe [SPARQL-Abfragen](sparql.qmd) (noch nicht umgesetzt)
+::: {.callout-warning appearance="simple"}
+Noch nicht öffentlich zugänglich!
+:::
+
+Der Triple-Store des Knowledge Graphen kann mittels SPARQL abgefragt werden.
+Eine Einführung mit Beispielen gibt es im Kapitel
+[SPARQL-Abfragen](sparql.qmd).
 
 ## Datenbankdumps
 
+::: {.callout-warning appearance="simple"}
 Die Bereitstellung von Datenbankdumps zur lokalen Nutzung von Teilen des Knowledge Graphen ist noch nicht umgesetzt.
+:::
 
 ## Suchoberfläche
 
+::: {.callout-warning appearance="simple"}
 Eine browserbasierte Suchoberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung ist noch nicht umgesetzt.
-
+:::
