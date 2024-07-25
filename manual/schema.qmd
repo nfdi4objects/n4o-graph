@@ -3,20 +3,21 @@ title: Datenbankschema
 lang: de
 ---
 
-Als Sammlungsübergeifendes Datenmodell wird **CIDOC-CRM (CRM)** verwendet.
-Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine
-Reihen von etablierten Vokabularen wie ICONCLASS, GND und die
+Als Sammlungsübergeifendes Datenmodell wird **[CIDOC-CRM (CRM)](crm.qmd)**
+verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus
+werden eine Reihen von etablierten Vokabularen wie ICONCLASS, GND und die
 LIDO-Terminologien unterstützt.
 
-Im Folgenden das Datenbankschema des Property Graphen beschrieben. Die RDF-Daten
-im Triple-Store folgend dagegen bislang keinen Schema sondern werden so eingespielt wie sie geliefert werden.
+Im Folgenden das Datenbankschema des Property Graphen beschrieben. Die
+RDF-Daten im Triple-Store folgend dagegen bislang keinen Schema sondern werden
+so eingespielt wie sie geliefert werden.
 
 ## Modellierung
 
 ### Entitäten und Knoten
 
 Knoten im [Property Graphen](#property-graphen) erhalten als Knoten-Label
-die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und
+die entsprechenden [CRM-Klassen](crm.qmd). Dabei werden Leerzeichen und
 Sonderzeichen durch Unterstrich ersetzt
 
 :::{.callout-note title="Beispiele"}
@@ -81,8 +82,8 @@ Die Property-Keys werden möglicherweise noch umbenannt, um zu lange Namen zu ve
 
 :::{.callout-note title="Beispiel"}
 ```pg
-d1 :E54_Dimension P90_has_value:12      # Wert 12 als Property mit Key `P90_has_value`
-d1 -> u1 :P90_has_unit                  # Einheit u1 (hier nicht weiter definiert) 
+d1 :E54_Dimension P90_has_value:12   # Wert 12 als Property
+d1 -> u1 :P90_has_unit               # Einheit u1 (hier nicht weiter definiert) 
 ```
 :::
 
@@ -97,6 +98,7 @@ Darüber hinaus gibt es einige besondere Property-Keys, deren möglicher Einsatz
 - `formatResource`
 - `sortorder`
 - `source`
+- `uri`
 
 ### Expansion
 
@@ -124,7 +126,10 @@ Die Anreicherung ergibt sich aus der CRM-Klassenhierarchie:
 
 Das Datenmodell muss noch erweitert werden um:
 
-- Identifier (für Normdaten-Identifier siehe <https://github.com/nfdi4objects/n4o-terminologies>)
+- Identifier (für Normdaten-Identifier siehe <https://github.com/nfdi4objects/n4o-terminologies>) 
+    - `CREATE CONSTRAINT uri FOR (n:E1) REQUIRE n.uri IS UNIQUE`
+    <!-- see https://community.neo4j.com/t/index-on-array/4625 -->
+
 - Informationen über Sammlungen aus denen die Daten und Objekte stammen
   (siehe <https://github.com/nfdi4objects/n4o-databases> und
   <https://github.com/nfdi4objects/n4o-rdf-import>)
@@ -146,11 +151,45 @@ wird konvertiert in folgenden Property Graph (in PG Format und als Diagram):
 
 ![](img/crm-pg-example.svg)
 
-## Weitere Ontologien
-
-...
-
 ## Vokabulare
 
-...
+Ausgewählte kontrollierte Vokabulare werden zentral in den Property Graphen eingespielt. Die konkrete Modellierung und Implementierung ist noch in Arbeit.
+
+Konkret spielen unter Anderem folgende CRM-Bestandteile eine Rolle:
+
+- [E32 Authority Document](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E32)
+- [P71 lists](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#P71)
+- [E55 Type](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E55)
+- [P127 has broader term](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#P127)
+- [P150 defines typical part of](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#P150)
+- [P2 has type](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#P2)
+- [P137 exemplifies](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#P137)
+
+In RDF entspricht dies ungefähr:
+
+- P71 is die Inverse Relation von `skos:inScheme`
+- E32 entspricht `skos:ConceptScheme`
+- E55 entspricht `skos:Concept` (allerdings kann jede Klasse auch als Konzept verwendet werden) 
+- P127 entspricht `skos:broader`
+- P150 ist Spezialfall von `skos:related`
+- P137 is inverse von `skos:example`
+
+<!--
+
+The Art & Architecture Thesaurus (E32) lists alcazars (E55). (http://vocab.getty.edu/page/aat/300006897)
+
+-->
+
+Ein Beispiel ist das Vokabular von Einheiten (`E58 Measurement Unit`)
+
+Wenn möglich sollten CRM-Klassen statt Typen verwendet werden.
+
+:::{.callout-note title="Beispiele"}
+```pg
+gnd :E32_Authority_Document
+  uri:
+x :E55_Type uri:"https://d-nb.info/gnd/4052692-6"
+x -> gnd
+```
+:::
 

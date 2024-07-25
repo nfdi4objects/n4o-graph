@@ -1,0 +1,22 @@
+---
+title: CIDOC-CRM
+subtitle: Das gemeinsamen Datenmodell
+---
+
+Das CIDOC Conceptual Reference Model (CRM) ist ein abstraktes Datenmodell zur Modellierung von Informationen aus dem Kulturbereich. CRM ist Grundlage verschiedener Datenformate und Datenbanken. Insbesondere bildet es auch die Grundlage der Ontologie des Knowledge Graphen in Form des [Datenbankschema](schema.qmd).
+
+# Umfang
+
+Folgende Bestandteile des CRM werden unterstützt:
+
+- CRM-Klassen und Properties aller bisherigen CRM-Versionen
+- CRM-Erweiterungen [CRMarchaeo](https://cidoc-crm.org/extensions/crmarchaeo/html/CRMarchaeo_v2.0.html),
+ [CRMsci](https://cidoc-crm.org/extensions/crmsci/html/CRMsci_v2.0.html)
+ und [LRMoo](https://cidoc-crm.org/extensions/lrmoo/html/LRMoo_v0.9.6.html)
+
+Andere Ontologien müssen zur Integration in das gemeinsame Datenmodell auf CRM gemappt werden.
+
+# Weitere Informationen
+
+- [CIDOC-CRM Homepage](https://cidoc-crm.org/)
+- [Wikipedia-Eintrag zu CRM](https://de.wikipedia.org/wiki/CIDOC_Conceptual_Reference_Model)

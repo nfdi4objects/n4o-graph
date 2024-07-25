@@ -25,6 +25,7 @@ book:
     - index.qmd
     - basics.qmd
     - sources.qmd
+    - crm.qmd
     - schema.qmd
     - vocabularies.qmd
     - usage.qmd
