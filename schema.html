@@ -555,30 +555,36 @@ Beispiele
 <li>P137 is inverse von <code>skos:example</code></li>
 </ul>
 <!--
-
 The Art & Architecture Thesaurus (E32) lists alcazars (E55). (http://vocab.getty.edu/page/aat/300006897)
 
+Ein Beispiel ist das Vokabular von Einheiten (`E58 Measurement Unit`)
 -->
-<p>Ein Beispiel ist das Vokabular von Einheiten (<code>E58 Measurement Unit</code>)</p>
-<p>Wenn möglich sollten CRM-Klassen statt Typen verwendet werden.</p>
-<div class="callout callout-style-default callout-note callout-titled" title="Beispiele">
+<div class="callout callout-style-default callout-note callout-titled" title="Beispiel">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Beispiele
+Beispiel
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb4"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">gnd</span><span class="at"> :E32_Authority_Document</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uri:</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">x</span> <span class="er">:</span><span class="ss">E55_Type</span> <span class="fu">uri:</span><span class="ss">"https://d-nb.info/gnd/4052692-6"</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">x</span> <span class="op">-&gt;</span> <span class="st">gnd</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
+<p>GND-Datensatz zu “Schleswig-Holstein”:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">gnd</span><span class="at"> :E32_Authority_Document</span><span class="co">             # GND</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uri:</span> <span class="ss">http://bartoc.org/en/node/430</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">sh</span><span class="at"> :E55_Type :E42_Identifier</span><span class="co">            # Schleswig-Holstein</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uri:</span> <span class="ss">https://d-nb.info/gnd/4052692-6</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">gnd</span> <span class="op">-&gt;</span> <span class="st">sh</span><span class="at"> :P71_lists</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!--
+type    http://terminology.lido-schema.org/identifier_type/uri  
+value   https://d-nb.info/gnd/4052692-6
+-->
 
 
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
