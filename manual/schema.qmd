@@ -175,21 +175,26 @@ In RDF entspricht dies ungefähr:
 - P137 is inverse von `skos:example`
 
 <!--
-
 The Art & Architecture Thesaurus (E32) lists alcazars (E55). (http://vocab.getty.edu/page/aat/300006897)
 
+Ein Beispiel ist das Vokabular von Einheiten (`E58 Measurement Unit`)
 -->
 
-Ein Beispiel ist das Vokabular von Einheiten (`E58 Measurement Unit`)
+:::{.callout-note title="Beispiel"}
+GND-Datensatz zu "Schleswig-Holstein":
 
-Wenn möglich sollten CRM-Klassen statt Typen verwendet werden.
-
-:::{.callout-note title="Beispiele"}
 ```pg
-gnd :E32_Authority_Document
-  uri:
-x :E55_Type uri:"https://d-nb.info/gnd/4052692-6"
-x -> gnd
+gnd :E32_Authority_Document             # GND
+  uri: http://bartoc.org/en/node/430
+
+sh :E55_Type :E42_Identifier            # Schleswig-Holstein
+  uri: https://d-nb.info/gnd/4052692-6
+
+gnd -> sh :P71_lists
 ```
-:::
+
+<!--
+type	http://terminology.lido-schema.org/identifier_type/uri	
+value	https://d-nb.info/gnd/4052692-6
+-->
 
