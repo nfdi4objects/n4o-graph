@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./vocabularies.html" rel="next">
-<link href="./sources.html" rel="prev">
+<link href="./crm.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -161,6 +161,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./crm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CIDOC-CRM</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./schema.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Datenbankschema</span></a>
   </div>
 </li>
@@ -219,7 +224,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#offene-punkte" id="toc-offene-punkte" class="nav-link" data-scroll-target="#offene-punkte">Offene Punkte</a></li>
   </ul></li>
   <li><a href="#beispiel" id="toc-beispiel" class="nav-link" data-scroll-target="#beispiel">Beispiel</a></li>
-  <li><a href="#weitere-ontologien" id="toc-weitere-ontologien" class="nav-link" data-scroll-target="#weitere-ontologien">Weitere Ontologien</a></li>
   <li><a href="#vokabulare" id="toc-vokabulare" class="nav-link" data-scroll-target="#vokabulare">Vokabulare</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/schema.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
@@ -253,13 +257,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Als Sammlungsübergeifendes Datenmodell wird <strong>CIDOC-CRM (CRM)</strong> verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten Vokabularen wie ICONCLASS, GND und die LIDO-Terminologien unterstützt.</p>
+<p>Als Sammlungsübergeifendes Datenmodell wird <strong><a href="./crm.html">CIDOC-CRM (CRM)</a></strong> verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten Vokabularen wie ICONCLASS, GND und die LIDO-Terminologien unterstützt.</p>
 <p>Im Folgenden das Datenbankschema des Property Graphen beschrieben. Die RDF-Daten im Triple-Store folgend dagegen bislang keinen Schema sondern werden so eingespielt wie sie geliefert werden.</p>
 <section id="modellierung" class="level2">
 <h2 class="anchored" data-anchor-id="modellierung">Modellierung</h2>
 <section id="entitäten-und-knoten" class="level3">
 <h3 class="anchored" data-anchor-id="entitäten-und-knoten">Entitäten und Knoten</h3>
-<p>Knoten im <a href="#property-graphen">Property Graphen</a> erhalten als Knoten-Label die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt</p>
+<p>Knoten im <a href="#property-graphen">Property Graphen</a> erhalten als Knoten-Label die entsprechenden <a href="./crm.html">CRM-Klassen</a>. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Beispiele">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -398,8 +402,8 @@ Beispiel
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span><span class="at"> :E54_Dimension</span> <span class="fu">P90_has_value:</span><span class="dv">12</span><span class="co">      # Wert 12 als Property mit Key `P90_has_value`</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span> <span class="op">-&gt;</span> <span class="st">u1</span><span class="at"> :P90_has_unit</span><span class="co">                  # Einheit u1 (hier nicht weiter definiert) </span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span><span class="at"> :E54_Dimension</span> <span class="fu">P90_has_value:</span><span class="dv">12</span><span class="co">   # Wert 12 als Property</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span> <span class="op">-&gt;</span> <span class="st">u1</span><span class="at"> :P90_has_unit</span><span class="co">               # Einheit u1 (hier nicht weiter definiert) </span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Darüber hinaus gibt es einige besondere Property-Keys, deren möglicher Einsatz noch diskutiert wird:</p>
@@ -413,6 +417,7 @@ Beispiel
 <li><code>formatResource</code></li>
 <li><code>sortorder</code></li>
 <li><code>source</code></li>
+<li><code>uri</code></li>
 </ul>
 </section>
 <section id="expansion" class="level3">
@@ -444,7 +449,10 @@ Beispiele
 <h3 class="anchored" data-anchor-id="offene-punkte">Offene Punkte</h3>
 <p>Das Datenmodell muss noch erweitert werden um:</p>
 <ul>
-<li>Identifier (für Normdaten-Identifier siehe <a href="https://github.com/nfdi4objects/n4o-terminologies" class="uri">https://github.com/nfdi4objects/n4o-terminologies</a>)</li>
+<li>Identifier (für Normdaten-Identifier siehe <a href="https://github.com/nfdi4objects/n4o-terminologies" class="uri">https://github.com/nfdi4objects/n4o-terminologies</a>)
+<ul>
+<li><code>CREATE CONSTRAINT uri FOR (n:E1) REQUIRE n.uri IS UNIQUE</code> <!-- see https://community.neo4j.com/t/index-on-array/4625 --></li>
+</ul></li>
 <li>Informationen über Sammlungen aus denen die Daten und Objekte stammen (siehe <a href="https://github.com/nfdi4objects/n4o-databases" class="uri">https://github.com/nfdi4objects/n4o-databases</a> und <a href="https://github.com/nfdi4objects/n4o-rdf-import" class="uri">https://github.com/nfdi4objects/n4o-rdf-import</a>)</li>
 <li>Informationen <em>über</em> Ontologien und Vokabulare</li>
 </ul>
@@ -524,13 +532,51 @@ Beispiele
 <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P3_has_note:</span> <span class="ss">"cm"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="img/crm-pg-example.svg" class="img-fluid"></p>
 </section>
-<section id="weitere-ontologien" class="level2">
-<h2 class="anchored" data-anchor-id="weitere-ontologien">Weitere Ontologien</h2>
-<p>…</p>
-</section>
 <section id="vokabulare" class="level2">
 <h2 class="anchored" data-anchor-id="vokabulare">Vokabulare</h2>
-<p>…</p>
+<p>Ausgewählte kontrollierte Vokabulare werden zentral in den Property Graphen eingespielt. Die konkrete Modellierung und Implementierung ist noch in Arbeit.</p>
+<p>Konkret spielen unter Anderem folgende CRM-Bestandteile eine Rolle:</p>
+<ul>
+<li><a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E32">E32 Authority Document</a></li>
+<li><a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#P71">P71 lists</a></li>
+<li><a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E55">E55 Type</a></li>
+<li><a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#P127">P127 has broader term</a></li>
+<li><a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#P150">P150 defines typical part of</a></li>
+<li><a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#P2">P2 has type</a></li>
+<li><a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#P137">P137 exemplifies</a></li>
+</ul>
+<p>In RDF entspricht dies ungefähr:</p>
+<ul>
+<li>P71 is die Inverse Relation von <code>skos:inScheme</code></li>
+<li>E32 entspricht <code>skos:ConceptScheme</code></li>
+<li>E55 entspricht <code>skos:Concept</code> (allerdings kann jede Klasse auch als Konzept verwendet werden)</li>
+<li>P127 entspricht <code>skos:broader</code></li>
+<li>P150 ist Spezialfall von <code>skos:related</code></li>
+<li>P137 is inverse von <code>skos:example</code></li>
+</ul>
+<!--
+
+The Art & Architecture Thesaurus (E32) lists alcazars (E55). (http://vocab.getty.edu/page/aat/300006897)
+
+-->
+<p>Ein Beispiel ist das Vokabular von Einheiten (<code>E58 Measurement Unit</code>)</p>
+<p>Wenn möglich sollten CRM-Klassen statt Typen verwendet werden.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Beispiele">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beispiele
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb4"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">gnd</span><span class="at"> :E32_Authority_Document</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uri:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="er">x</span> <span class="er">:</span><span class="ss">E55_Type</span> <span class="fu">uri:</span><span class="ss">"https://d-nb.info/gnd/4052692-6"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">x</span> <span class="op">-&gt;</span> <span class="st">gnd</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 
 
 </section>
@@ -960,8 +1006,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./sources.html" class="pagination-link" aria-label="Datenquellen">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Datenquellen</span></span>
+      <a href="./crm.html" class="pagination-link" aria-label="CIDOC-CRM">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">CIDOC-CRM</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

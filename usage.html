@@ -161,6 +161,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./crm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CIDOC-CRM</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./schema.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenbankschema</span></a>
   </div>
 </li>
@@ -209,11 +214,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#zugriff-per-api" id="toc-zugriff-per-api" class="nav-link active" data-scroll-target="#zugriff-per-api">Zugriff per API</a>
-  <ul class="collapse">
-  <li><a href="#cypher-api" id="toc-cypher-api" class="nav-link" data-scroll-target="#cypher-api">Cypher-API</a></li>
+  <li><a href="#cypher-api" id="toc-cypher-api" class="nav-link active" data-scroll-target="#cypher-api">Cypher-API</a></li>
   <li><a href="#sparql-api" id="toc-sparql-api" class="nav-link" data-scroll-target="#sparql-api">SPARQL-API</a></li>
-  </ul></li>
   <li><a href="#datenbankdumps" id="toc-datenbankdumps" class="nav-link" data-scroll-target="#datenbankdumps">Datenbankdumps</a></li>
   <li><a href="#suchoberfläche" id="toc-suchoberfläche" class="nav-link" data-scroll-target="#suchoberfläche">Suchoberfläche</a></li>
   </ul>
@@ -249,25 +251,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Der Zugriff auf den Knowledge Graphen ist bislang nur <a href="#zugriff-per-api">per API</a> möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.</p>
-<section id="zugriff-per-api" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="zugriff-per-api">Zugriff per API</h2>
-<p>Voraussetzung für die Nutzung ist ein Verständnis der <a href="./basics.html">Grundlagen</a> und des <a href="./schema.html">Datenbankschema</a> sowie Kenntnis der jeweiligen Abfragesprache (Cypher bzw. SPARQL).</p>
-<section id="cypher-api" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="cypher-api">Cypher-API</h3>
-<p>Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <a href="https://graph.gbv.de/" class="uri">https://graph.gbv.de/</a> abgefragt werden. Eine Einführung mit Beispielen gibt es im Kapitel <a href="./cypher.html">Cypher-Abfragen</a>.</p>
+<p>Der Zugriff auf den Knowledge Graphen ist bislang nur <a href="#cypher-api">per Cypher-API</a> möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.</p>
+<section id="cypher-api" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="cypher-api">Cypher-API</h2>
+<p>Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <a href="https://graph.gbv.de/" class="uri">https://graph.gbv.de/</a> abgefragt werden. Eine Einführung mit Beispielen und Dokumentation des Rückgabeformat gibt es im Kapitel <a href="./cypher.html">Cypher-Abfragen</a>.</p>
+<div class="column-screen-inset-right">
+<section id="abfrage-mit-python" class="level4">
+<h4 class="anchored" data-anchor-id="abfrage-mit-python">Abfrage mit Python</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>api <span class="op">=</span> <span class="st">"https://graph.gbv.de/api"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">'MATCH (m:E16_Measurement) RETURN m LIMIT 1'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> requests.get(api, { <span class="st">"cypher"</span>: query }).json()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="abfrage-mit-javascript" class="level4">
+<h4 class="anchored" data-anchor-id="abfrage-mit-javascript">Abfrage mit JavaScript</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> api <span class="op">=</span> <span class="st">"https://graph.gbv.de/api"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> cypher <span class="op">=</span> <span class="st">'MATCH (m:E16_Measurement) RETURN m LIMIT 1'</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(api<span class="op">,</span> { cypher })<span class="op">.</span><span class="fu">then</span>(res <span class="kw">=&gt;</span> res<span class="op">.</span><span class="fu">json</span>())</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</div>
 <section id="abfrage-mit-curl" class="level4 page-columns page-full">
 <h4 class="anchored" data-anchor-id="abfrage-mit-curl">Abfrage mit curl</h4>
 <p>Die Cypher-Query muss URL-kodiert werden, dabei werden unter anderem Leerzeichen durch <code>%20</code> ersetzt. Der Parameter <a href="https://curl.se/docs/manpage.html#--data-urlencode">–data-urlencode</a> sorgt automatisch dafür:</p>
 <div class="column-screen-inset-right">
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-G</span> https://graph.gbv.de/api <span class="at">--data-urlencode</span> <span class="st">'cypher=MATCH (m:E16_Measurement) RETURN m LIMIT 10'</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-G</span> https://graph.gbv.de/api <span class="at">--data-urlencode</span> <span class="st">'cypher=MATCH (m:E16_Measurement) RETURN m LIMIT 10'</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Die Cypher-Query kann auch per Datei übergeben werden:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-G</span> https://graph.gbv.de/api <span class="at">--data-urlencode</span> <span class="st">'cypher@queryfile.cypher'</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-G</span> https://graph.gbv.de/api <span class="at">--data-urlencode</span> <span class="st">'cypher@queryfile.cypher'</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
-<section id="sparql-api" class="level3">
-<h3 class="anchored" data-anchor-id="sparql-api">SPARQL-API</h3>
+<section id="sparql-api" class="level2">
+<h2 class="anchored" data-anchor-id="sparql-api">SPARQL-API</h2>
 <div class="callout callout-style-simple callout-warning">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -279,7 +295,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Der Triple-Store des Knowledge Graphen kann mittels SPARQL abgefragt werden. Eine Einführung mit Beispielen gibt es im Kapitel <a href="./sparql.html">SPARQL-Abfragen</a>.</p>
-</section>
 </section>
 <section id="datenbankdumps" class="level2">
 <h2 class="anchored" data-anchor-id="datenbankdumps">Datenbankdumps</h2>

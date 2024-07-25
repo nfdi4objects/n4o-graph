@@ -127,6 +127,11 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./crm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CIDOC-CRM</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./schema.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenbankschema</span></a>
   </div>
 </li>
@@ -241,6 +246,19 @@ ul.task-list li input[type="checkbox"] {
 <section id="property-graph" class="level3">
 <h3 class="anchored" data-anchor-id="property-graph">Property Graph</h3>
 <p>Property-Graphen dienen der Strukturierung, Speicherung und Auswertung vernetzter Daten. Die Daten werden dabei nicht in tabellarischer Form (wie bei einer Tabellenkalkulation oder bei SQL) oder in hierarchischer Form (wie bei XML) sondern in Form eines <strong>Graphen</strong> gespeichert. Die Knoten und Kanten des Graphen können jeweils <strong>Labels</strong> (Typen) haben und mit <strong>Eigenschaften</strong> versehen sein. Zur Abfrage von Property-Graphen dient die Sprache <a href="./cypher.html">Cypher</a>. Eine genauere Erklärung liefert der Artikel <a href="https://jakobib.github.io/pgraphen2024/">Property-Graphen: eine kurze Einführung</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Beispiele von Property-Graphen werden in diesem Handbuch im <a href="https://pg-format.github.io/">Property Graph Exchange Format (PG)</a> dargestellt.</p>
+</div>
+</div>
 </section>
 <section id="triple-store" class="level3">
 <h3 class="anchored" data-anchor-id="triple-store">Triple Store</h3>
@@ -251,7 +269,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="datenbankinhalt">Datenbankinhalt</h2>
 <section id="schema" class="level3">
 <h3 class="anchored" data-anchor-id="schema">Schema</h3>
-<p>Das Datenbankschema oder <strong>Datenmodell</strong> eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von <a href="#property-graph">Property Graph</a> und <a href="#triple-store">Triple Store</a> unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell CIDOC-CRM. Details zu den Schemas finden sich im <a href="./schema.html">Kapitel Datenbankschema</a>.</p>
+<p>Das Datenbankschema oder <strong>Datenmodell</strong> eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von <a href="#property-graph">Property Graph</a> und <a href="#triple-store">Triple Store</a> unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell <a href="./crm.html">CIDOC-CRM</a>. Details zu den Schemas finden sich im <a href="./schema.html">Kapitel Datenbankschema</a>.</p>
 <div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Beispiel">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">

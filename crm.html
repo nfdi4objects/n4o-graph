@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Status – NFDI4Objects Knowledge Graph (TA5)</title>
+<title>CIDOC-CRM – NFDI4Objects Knowledge Graph (TA5)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,7 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./mappings.html" rel="prev">
+<link href="./schema.html" rel="next">
+<link href="./sources.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -101,8 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script type="module" src="site_libs/quarto-ojs/quarto-ojs-runtime.js"></script>
-<link href="site_libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="codemirror.css">
@@ -117,7 +82,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./status.html"><span class="chapter-title">Status</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./crm.html"><span class="chapter-title">CIDOC-CRM</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./crm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CIDOC-CRM</span></a>
+  <a href="./crm.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">CIDOC-CRM</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -202,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./status.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Status</span></a>
+  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Status</span></a>
   </div>
 </li>
     </ul>
@@ -215,11 +180,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#property-graph" id="toc-property-graph" class="nav-link active" data-scroll-target="#property-graph">Property Graph</a></li>
-  <li><a href="#triple-store" id="toc-triple-store" class="nav-link" data-scroll-target="#triple-store">Triple Store</a></li>
-  <li><a href="#datenquellen" id="toc-datenquellen" class="nav-link" data-scroll-target="#datenquellen">Datenquellen</a></li>
+  <li><a href="#umfang" id="toc-umfang" class="nav-link active" data-scroll-target="#umfang">Umfang</a></li>
+  <li><a href="#weitere-informationen" id="toc-weitere-informationen" class="nav-link" data-scroll-target="#weitere-informationen">Weitere Informationen</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/status.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/crm.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -233,8 +197,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Status</span></h1>
-<p class="subtitle lead">Dashboard zum Stand der Property Graphen</p>
+<h1 class="title"><span class="chapter-title">CIDOC-CRM</span></h1>
+<p class="subtitle lead">Das gemeinsamen Datenmodell</p>
 </div>
 
 
@@ -251,60 +215,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="property-graph" class="level2">
-<h2 class="anchored" data-anchor-id="property-graph">Property Graph</h2>
-<p>Folgende Übersicht wird live per <a href="./cypher.html">Cypher API</a> erstellt.</p>
+<p>Das CIDOC Conceptual Reference Model (CRM) ist ein abstraktes Datenmodell zur Modellierung von Informationen aus dem Kulturbereich. CRM ist Grundlage verschiedener Datenformate und Datenbanken. Insbesondere bildet es auch die Grundlage der Ontologie des Knowledge Graphen in Form des <a href="./schema.html">Datenbankschema</a>.</p>
+<section id="umfang" class="level1">
+<h1>Umfang</h1>
+<p>Folgende Bestandteile des CRM werden unterstützt:</p>
 <ul>
-<li>Anzahl von Knoten: <span><span id="ojs-element-id-1"></span></span></li>
-<li>Anzahl von Kanten: <span><span id="ojs-element-id-2"></span></span></li>
+<li>CRM-Klassen und Properties aller bisherigen CRM-Versionen</li>
+<li>CRM-Erweiterungen <a href="https://cidoc-crm.org/extensions/crmarchaeo/html/CRMarchaeo_v2.0.html">CRMarchaeo</a>, <a href="https://cidoc-crm.org/extensions/crmsci/html/CRMsci_v2.0.html">CRMsci</a> und <a href="https://cidoc-crm.org/extensions/lrmoo/html/LRMoo_v0.9.6.html">LRMoo</a></li>
 </ul>
-<div class="cell hidden">
-<div class="sourceCode cell-code" id="cb1" data-startfrom="16" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 15;"><span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>cypherNodesCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">cypherQuery</span>(<span class="st">"MATCH () RETURN count(*) as count"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>cypherEdgesCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">cypherQuery</span>(<span class="st">"MATCH ()-[]-&gt;() RETURN count(*) as count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display hidden">
-<div>
-<div id="ojs-cell-1-1" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display hidden">
-<div>
-<div id="ojs-cell-1-2" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-</div>
+<p>Andere Ontologien müssen zur Integration in das gemeinsame Datenmodell auf CRM gemappt werden.</p>
 </section>
-<section id="triple-store" class="level2">
-<h2 class="anchored" data-anchor-id="triple-store">Triple Store</h2>
-<p><em>noch nicht umgesetzt</em></p>
-</section>
-<section id="datenquellen" class="level2">
-<h2 class="anchored" data-anchor-id="datenquellen">Datenquellen</h2>
-<p>Der Status des Import aus <a href="./sources.html">Datenquellen</a> ist noch nicht öffentlich zugänglich.</p>
+<section id="weitere-informationen" class="level1">
+<h1>Weitere Informationen</h1>
+<ul>
+<li><a href="https://cidoc-crm.org/">CIDOC-CRM Homepage</a></li>
+<li><a href="https://de.wikipedia.org/wiki/CIDOC_Conceptual_Reference_Model">Wikipedia-Eintrag zu CRM</a></li>
+</ul>
 
 
-<div class="ojs-auto-generated hidden">
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6WyAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7Y3lwaGVyTm9kZXNDb3VudFswXT8uY291bnQ/LnRvTG9jYWxlU3RyaW5nKCl9PC9zcGFuPmAiLCAiY2VsbE5hbWUiOiJvanMtZWxlbWVudC1pZC0xIn0sICB7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJpbmxpbmUiOiJ0cnVlIiwic291cmNlIjoiaHRsLmh0bWxgPHNwYW4+JHtjeXBoZXJFZGdlc0NvdW50WzBdPy5jb3VudD8udG9Mb2NhbGVTdHJpbmcoKX08L3NwYW4+YCIsICJjZWxsTmFtZSI6Im9qcy1lbGVtZW50LWlkLTIifV19
-</script>
-</div>
 </section>
 
 </main> <!-- /main -->
-<script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImN5cGhlck5vZGVzQ291bnQgPSBhd2FpdCBjeXBoZXJRdWVyeShcIk1BVENIICgpIFJFVFVSTiBjb3VudCgqKSBhcyBjb3VudFwiKVxuY3lwaGVyRWRnZXNDb3VudCA9IGF3YWl0IGN5cGhlclF1ZXJ5KFwiTUFUQ0ggKCktW10tPigpIFJFVFVSTiBjb3VudCgqKSBhcyBjb3VudFwiKVxuIn1dfQ==
-</script>
-<script type="module">
-if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
-window._ojs.paths.runtimeToDoc = "../..";
-window._ojs.paths.runtimeToRoot = "../..";
-window._ojs.paths.docToRoot = "";
-window._ojs.selfContained = false;
-window._ojs.runtime.interpretFromScriptTags();
-</script>
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -729,11 +660,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./mappings.html" class="pagination-link" aria-label="Mappings">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Mappings</span></span>
+      <a href="./sources.html" class="pagination-link" aria-label="Datenquellen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Datenquellen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./schema.html" class="pagination-link" aria-label="Datenbankschema">
+        <span class="nav-page-text"><span class="chapter-title">Datenbankschema</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -744,7 +678,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/status.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/crm.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

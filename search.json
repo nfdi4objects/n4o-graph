@@ -24,7 +24,7 @@
     "href": "basics.html#datenbankmodelle",
     "title": "Grundlagen",
     "section": "Datenbankmodelle",
-    "text": "Datenbankmodelle\n\nProperty Graph\nProperty-Graphen dienen der Strukturierung, Speicherung und Auswertung vernetzter Daten. Die Daten werden dabei nicht in tabellarischer Form (wie bei einer Tabellenkalkulation oder bei SQL) oder in hierarchischer Form (wie bei XML) sondern in Form eines Graphen gespeichert. Die Knoten und Kanten des Graphen können jeweils Labels (Typen) haben und mit Eigenschaften versehen sein. Zur Abfrage von Property-Graphen dient die Sprache Cypher. Eine genauere Erklärung liefert der Artikel Property-Graphen: eine kurze Einführung.\n\n\nTriple Store\nEin Triple Store ist eine Graphendatenbank in der Daten dem RDF-Modell nach in Form von so genannten Triplen gespeichert werden. Jedes Tripel entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple Stores dient SPARQL.",
+    "text": "Datenbankmodelle\n\nProperty Graph\nProperty-Graphen dienen der Strukturierung, Speicherung und Auswertung vernetzter Daten. Die Daten werden dabei nicht in tabellarischer Form (wie bei einer Tabellenkalkulation oder bei SQL) oder in hierarchischer Form (wie bei XML) sondern in Form eines Graphen gespeichert. Die Knoten und Kanten des Graphen können jeweils Labels (Typen) haben und mit Eigenschaften versehen sein. Zur Abfrage von Property-Graphen dient die Sprache Cypher. Eine genauere Erklärung liefert der Artikel Property-Graphen: eine kurze Einführung.\n\n\n\n\n\n\nTipp\n\n\n\nBeispiele von Property-Graphen werden in diesem Handbuch im Property Graph Exchange Format (PG) dargestellt.\n\n\n\n\nTriple Store\nEin Triple Store ist eine Graphendatenbank in der Daten dem RDF-Modell nach in Form von so genannten Triplen gespeichert werden. Jedes Tripel entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple Stores dient SPARQL.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grundlagen</span>"
     ]
@@ -80,13 +80,23 @@
     ]
   },
   {
+    "objectID": "crm.html",
+    "href": "crm.html",
+    "title": "CIDOC-CRM",
+    "section": "",
+    "text": "Das CIDOC Conceptual Reference Model (CRM) ist ein abstraktes Datenmodell zur Modellierung von Informationen aus dem Kulturbereich. CRM ist Grundlage verschiedener Datenformate und Datenbanken. Insbesondere bildet es auch die Grundlage der Ontologie des Knowledge Graphen in Form des Datenbankschema.\n\nUmfang\nFolgende Bestandteile des CRM werden unterstützt:\n\nCRM-Klassen und Properties aller bisherigen CRM-Versionen\nCRM-Erweiterungen CRMarchaeo, CRMsci und LRMoo\n\nAndere Ontologien müssen zur Integration in das gemeinsame Datenmodell auf CRM gemappt werden.\n\n\nWeitere Informationen\n\nCIDOC-CRM Homepage\nWikipedia-Eintrag zu CRM",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CIDOC-CRM</span>"
+    ]
+  },
+  {
     "objectID": "schema.html",
     "href": "schema.html",
     "title": "Datenbankschema",
     "section": "",
     "text": "Modellierung",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenbankschema</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Datenbankschema</span>"
     ]
   },
   {
@@ -94,9 +104,9 @@
     "href": "schema.html#modellierung",
     "title": "Datenbankschema",
     "section": "",
-    "text": "Entitäten und Knoten\nKnoten im Property Graphen erhalten als Knoten-Label die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt\n\n\n\n\n\n\nBeispiele\n\n\n\nEntitäten der CRM-Klasse E16 Measurement werden Knoten mit dem Label E16_Measurement. Entitäten der CRM-Klasse E22 Human-Made Object werden Knoten mit dem Label E22_Human_Made_Object\n\n\nZwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch Expansion auf die neueste Form gemappt.\n\n\nElementare Datentypen\nDie folgende CRM-Klassen für elementare Datentypen werden nicht als Knoten-Label verwendet. Ihre Instanzen werden im Datenmodell stattdessen als Property-Werte abgebildet:\n\nE59 Primitive Value\nE60 Number für Zahlen\nE62 String für Zeichenketten\n\nInstanzen der folgenden CRM-Klassen werden ebenfalls wenn möglich nicht als Knoten sondern als Property-Werte abgebildet. Anderenfalls erfolgt die Expansion nur über die übergeordnete Klasse E41 Appellation:\n\nE61 Time Primitive für Datums- und Zeitangaben\nE94 Space Primitive für Koordinaten\n\n\n\nRelationen und Kanten\nCRM-Properties (nicht zu verwechseln mit Eigenschaften im Property-Graph Datenbankmodell) werden im Property-Graphen durch Kanten-Label modelliert.\n\n\n\n\n\n\nExpansion von Kanten-Label ist noch nicht umgesetzt!\n\n\n\n\n\n\n\n\n\nInverse CRM-Properties sind noch nicht berücksichtigt!\n\n\n\nEine Ausnahme bilden die folgenden CRM-Properties für elementare Datentypen, die stattdessen zu Property-Keys werden (siehe folgender Abschnitt).\n\n\nProperties\nFolgende CRM-Properties werden im Property-Graphen durch Knoten-Properties modelliert:\n\n\n\nCRM-Property\nProperty-Key\nDatentyp\n\n\n\n\nP3 has note\nP3_has_note\nZeichenkette\n\n\nP57 has number of parts\nP57_has_number_of_parts\nZahl\n\n\nP79 beginning is qualified by\nP79_beginning_is_qualified_by\nZeichenkette\n\n\nP80 end is qualified by\nP80_end_is_qualified_by\nZeichenkette\n\n\nP90 has value\nP90_has_value\nZahl)\n\n\nP168 place is defined by (defines place)\nP168_place_is_defined_by\nKoordinate\n\n\nP170 defines time (time is defined by)\nP170i_time_is_defined_by (inverse Relation!)\nDatums-/Zeitangabe\n\n\nP171 at some place within\nP171_at_some_place_within\nKoordinate\n\n\nP172 contains\nP172_contains\nKoordinate\n\n\nP190 has_symbolic_content\nP190_has_symbolic_content\nZeichenkette\n\n\n\n\n\n\n\n\n\nDie Property-Keys werden möglicherweise noch umbenannt, um zu lange Namen zu vermeiden!\n\n\n\n\n\n\n\n\n\nBeispiel\n\n\n\nd1 :E54_Dimension P90_has_value:12      # Wert 12 als Property mit Key `P90_has_value`\nd1 -&gt; u1 :P90_has_unit                  # Einheit u1 (hier nicht weiter definiert) \n\n\nDarüber hinaus gibt es einige besondere Property-Keys, deren möglicher Einsatz noch diskutiert wird:\n\ncID\ncollection\nvalue\nlang\ntype\npref\nformatResource\nsortorder\nsource\n\n\n\nExpansion\nEntsprechend der CRM-Klassenhierarchie erhalten alle Knoten ausgehend von ihren Labels jeweils zusätzlich als Label die CRM-Kürzel der eigenen und aller übergeordneten Klassen.\n\n\n\n\n\n\nBeispiele\n\n\n\nKnoten mit dem Label E16_Measurement erhalten zusätzlich die Label E16 sowie die übergeordneten Klassen E13 (Attribute Assignment), E7 (Activity), E5 (Event), E4 (Period), E2 (Temporal Entity) und E92 (Spacetime Volume) sowie E1 (CRM Entity).\nEntitäten der CRM-Klasse E22 Man-Made_Object (mit CRM-Version 6.2.7 umbenannt in “E22 Human-Made Object”) werden Knoten mit dem Label E22_Man_Made_Object und erhalten die selben Überklassen wie E22_Human_Made_Object.\nEntitäte der CRM-Klasse E40 Legal-Body werden Knoten mit dem Label E40_Legal_Body aber da die Klasse veraltet ist und stattdessen E74 Group verwendet werden soll, erhalten sie zusätzlich die Label E74 und die selben Überklassen wie E74_Group.\n\n\nDie Anreicherung ergibt sich aus der CRM-Klassenhierarchie:\n\nCIDOC-CRM-Klassen (alle Versionen)\nCIDOC-CRM-Properties (alle Versionen)\nCRM und auf CRM-gemappte Klassen\n\n\n\nOffene Punkte\nDas Datenmodell muss noch erweitert werden um:\n\nIdentifier (für Normdaten-Identifier siehe https://github.com/nfdi4objects/n4o-terminologies)\nInformationen über Sammlungen aus denen die Daten und Objekte stammen (siehe https://github.com/nfdi4objects/n4o-databases und https://github.com/nfdi4objects/n4o-rdf-import)\nInformationen über Ontologien und Vokabulare",
+    "text": "Entitäten und Knoten\nKnoten im Property Graphen erhalten als Knoten-Label die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt\n\n\n\n\n\n\nBeispiele\n\n\n\nEntitäten der CRM-Klasse E16 Measurement werden Knoten mit dem Label E16_Measurement. Entitäten der CRM-Klasse E22 Human-Made Object werden Knoten mit dem Label E22_Human_Made_Object\n\n\nZwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch Expansion auf die neueste Form gemappt.\n\n\nElementare Datentypen\nDie folgende CRM-Klassen für elementare Datentypen werden nicht als Knoten-Label verwendet. Ihre Instanzen werden im Datenmodell stattdessen als Property-Werte abgebildet:\n\nE59 Primitive Value\nE60 Number für Zahlen\nE62 String für Zeichenketten\n\nInstanzen der folgenden CRM-Klassen werden ebenfalls wenn möglich nicht als Knoten sondern als Property-Werte abgebildet. Anderenfalls erfolgt die Expansion nur über die übergeordnete Klasse E41 Appellation:\n\nE61 Time Primitive für Datums- und Zeitangaben\nE94 Space Primitive für Koordinaten\n\n\n\nRelationen und Kanten\nCRM-Properties (nicht zu verwechseln mit Eigenschaften im Property-Graph Datenbankmodell) werden im Property-Graphen durch Kanten-Label modelliert.\n\n\n\n\n\n\nExpansion von Kanten-Label ist noch nicht umgesetzt!\n\n\n\n\n\n\n\n\n\nInverse CRM-Properties sind noch nicht berücksichtigt!\n\n\n\nEine Ausnahme bilden die folgenden CRM-Properties für elementare Datentypen, die stattdessen zu Property-Keys werden (siehe folgender Abschnitt).\n\n\nProperties\nFolgende CRM-Properties werden im Property-Graphen durch Knoten-Properties modelliert:\n\n\n\nCRM-Property\nProperty-Key\nDatentyp\n\n\n\n\nP3 has note\nP3_has_note\nZeichenkette\n\n\nP57 has number of parts\nP57_has_number_of_parts\nZahl\n\n\nP79 beginning is qualified by\nP79_beginning_is_qualified_by\nZeichenkette\n\n\nP80 end is qualified by\nP80_end_is_qualified_by\nZeichenkette\n\n\nP90 has value\nP90_has_value\nZahl)\n\n\nP168 place is defined by (defines place)\nP168_place_is_defined_by\nKoordinate\n\n\nP170 defines time (time is defined by)\nP170i_time_is_defined_by (inverse Relation!)\nDatums-/Zeitangabe\n\n\nP171 at some place within\nP171_at_some_place_within\nKoordinate\n\n\nP172 contains\nP172_contains\nKoordinate\n\n\nP190 has_symbolic_content\nP190_has_symbolic_content\nZeichenkette\n\n\n\n\n\n\n\n\n\nDie Property-Keys werden möglicherweise noch umbenannt, um zu lange Namen zu vermeiden!\n\n\n\n\n\n\n\n\n\nBeispiel\n\n\n\nd1 :E54_Dimension P90_has_value:12   # Wert 12 als Property\nd1 -&gt; u1 :P90_has_unit               # Einheit u1 (hier nicht weiter definiert) \n\n\nDarüber hinaus gibt es einige besondere Property-Keys, deren möglicher Einsatz noch diskutiert wird:\n\ncID\ncollection\nvalue\nlang\ntype\npref\nformatResource\nsortorder\nsource\nuri\n\n\n\nExpansion\nEntsprechend der CRM-Klassenhierarchie erhalten alle Knoten ausgehend von ihren Labels jeweils zusätzlich als Label die CRM-Kürzel der eigenen und aller übergeordneten Klassen.\n\n\n\n\n\n\nBeispiele\n\n\n\nKnoten mit dem Label E16_Measurement erhalten zusätzlich die Label E16 sowie die übergeordneten Klassen E13 (Attribute Assignment), E7 (Activity), E5 (Event), E4 (Period), E2 (Temporal Entity) und E92 (Spacetime Volume) sowie E1 (CRM Entity).\nEntitäten der CRM-Klasse E22 Man-Made_Object (mit CRM-Version 6.2.7 umbenannt in “E22 Human-Made Object”) werden Knoten mit dem Label E22_Man_Made_Object und erhalten die selben Überklassen wie E22_Human_Made_Object.\nEntitäte der CRM-Klasse E40 Legal-Body werden Knoten mit dem Label E40_Legal_Body aber da die Klasse veraltet ist und stattdessen E74 Group verwendet werden soll, erhalten sie zusätzlich die Label E74 und die selben Überklassen wie E74_Group.\n\n\nDie Anreicherung ergibt sich aus der CRM-Klassenhierarchie:\n\nCIDOC-CRM-Klassen (alle Versionen)\nCIDOC-CRM-Properties (alle Versionen)\nCRM und auf CRM-gemappte Klassen\n\n\n\nOffene Punkte\nDas Datenmodell muss noch erweitert werden um:\n\nIdentifier (für Normdaten-Identifier siehe https://github.com/nfdi4objects/n4o-terminologies)\n\nCREATE CONSTRAINT uri FOR (n:E1) REQUIRE n.uri IS UNIQUE \n\nInformationen über Sammlungen aus denen die Daten und Objekte stammen (siehe https://github.com/nfdi4objects/n4o-databases und https://github.com/nfdi4objects/n4o-rdf-import)\nInformationen über Ontologien und Vokabulare",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenbankschema</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Datenbankschema</span>"
     ]
   },
   {
@@ -106,17 +116,7 @@
     "section": "Beispiel",
     "text": "Beispiel\nFolgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):\n@prefix crm: &lt;http://erlangen-crm.org/170309/&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d&gt;\n  a crm:E16_Measurement ;\n  crm:P40_observed_dimension &lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt;\n  a crm:E54_Dimension ;\n  crm:P2_has_type &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt; ;\n  crm:P91_has_unit &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  crm:P90_has_value 2.8 .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  a crm:E58_Measurement_Unit ;\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt;\n  a crm:E55_Type .\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt; ;\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"Höhe (Scan)\" .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"cm\" .\n\nwird konvertiert in folgenden Property Graph (in PG Format und als Diagram):\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d\n  :E16_Measurement\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d \n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :P40_observed_dimension\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :E54_Dimension \n  P90_has_value: 2.8\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :P2_has_type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :P91_has_unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :E58_Measurement_Unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :E55_Type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :E42_Identifier\n  P3_has_note: \"Höhe (Scan)\"\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :E42_Identifier\n  P3_has_note: \"cm\"",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenbankschema</span>"
-    ]
-  },
-  {
-    "objectID": "schema.html#weitere-ontologien",
-    "href": "schema.html#weitere-ontologien",
-    "title": "Datenbankschema",
-    "section": "Weitere Ontologien",
-    "text": "Weitere Ontologien\n…",
-    "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenbankschema</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Datenbankschema</span>"
     ]
   },
   {
@@ -124,9 +124,9 @@
     "href": "schema.html#vokabulare",
     "title": "Datenbankschema",
     "section": "Vokabulare",
-    "text": "Vokabulare\n…",
+    "text": "Vokabulare\nAusgewählte kontrollierte Vokabulare werden zentral in den Property Graphen eingespielt. Die konkrete Modellierung und Implementierung ist noch in Arbeit.\nKonkret spielen unter Anderem folgende CRM-Bestandteile eine Rolle:\n\nE32 Authority Document\nP71 lists\nE55 Type\nP127 has broader term\nP150 defines typical part of\nP2 has type\nP137 exemplifies\n\nIn RDF entspricht dies ungefähr:\n\nP71 is die Inverse Relation von skos:inScheme\nE32 entspricht skos:ConceptScheme\nE55 entspricht skos:Concept (allerdings kann jede Klasse auch als Konzept verwendet werden)\nP127 entspricht skos:broader\nP150 ist Spezialfall von skos:related\nP137 is inverse von skos:example\n\n\nEin Beispiel ist das Vokabular von Einheiten (E58 Measurement Unit)\nWenn möglich sollten CRM-Klassen statt Typen verwendet werden.\n\n\n\n\n\n\nBeispiele\n\n\n\ngnd :E32_Authority_Document\n  uri:\nx :E55_Type uri:\"https://d-nb.info/gnd/4052692-6\"\nx -&gt; gnd",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Datenbankschema</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Datenbankschema</span>"
     ]
   },
   {
@@ -136,7 +136,7 @@
     "section": "",
     "text": "Vokabulare (auch bekannt als Terminologien oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten, auf die in anderen Daten verwiesen werden kann. Sie sind Teil des Knowledge Graphen, stammen aber nicht aus Datenlieferungen von Sammlungen sondern werden zentral verwaltet.Grundlage für die kontrollierte Verwendung von Vokabularen im Knowledge Graph ist ein Eintrag in BARTOC. Eine Liste von unterstützen oder anderweitig relevanten Vokabularen in NFDI4Objects ist als Teilmenge von BARTOC in einer Übersicht verfügbar.\nAuch wenn sich Vokabulare und Ontologien in der Regel bei genauerer Betrachtung unterscheiden lassen, sind die Grenzen mitunter nicht ganz klar.\nZur Vereinheitlichung von gelieferten Daten müssen verschiedene Vokabulare aufeinander abgebildet werden (siehe Mappings). Dafür steht unter https://coli-conc.gbv.de/cocoda/nfdi4objects/ eine Instanz der Mapping-Anwendung Cocoda zur Verfügung.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Vokabulare</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vokabulare</span>"
     ]
   },
   {
@@ -144,19 +144,29 @@
     "href": "usage.html",
     "title": "Benutzung",
     "section": "",
-    "text": "Zugriff per API\nVoraussetzung für die Nutzung ist ein Verständnis der Grundlagen und des Datenbankschema sowie Kenntnis der jeweiligen Abfragesprache (Cypher bzw. SPARQL).",
+    "text": "Cypher-API\nEine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL https://graph.gbv.de/ abgefragt werden. Eine Einführung mit Beispielen und Dokumentation des Rückgabeformat gibt es im Kapitel Cypher-Abfragen.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Benutzung</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
     ]
   },
   {
-    "objectID": "usage.html#zugriff-per-api",
-    "href": "usage.html#zugriff-per-api",
+    "objectID": "usage.html#cypher-api",
+    "href": "usage.html#cypher-api",
     "title": "Benutzung",
     "section": "",
-    "text": "Cypher-API\nEine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL https://graph.gbv.de/ abgefragt werden. Eine Einführung mit Beispielen gibt es im Kapitel Cypher-Abfragen.\n\nAbfrage mit curl\nDie Cypher-Query muss URL-kodiert werden, dabei werden unter anderem Leerzeichen durch %20 ersetzt. Der Parameter –data-urlencode sorgt automatisch dafür:\n\ncurl -G https://graph.gbv.de/api --data-urlencode 'cypher=MATCH (m:E16_Measurement) RETURN m LIMIT 10'\n\nDie Cypher-Query kann auch per Datei übergeben werden:\ncurl -G https://graph.gbv.de/api --data-urlencode 'cypher@queryfile.cypher'\n\n\n\nSPARQL-API\n\n\n\n\n\n\nNoch nicht öffentlich zugänglich!\n\n\n\nDer Triple-Store des Knowledge Graphen kann mittels SPARQL abgefragt werden. Eine Einführung mit Beispielen gibt es im Kapitel SPARQL-Abfragen.",
+    "text": "Abfrage mit Python\nimport requests\nimport json\n\napi = \"https://graph.gbv.de/api\"\nquery = 'MATCH (m:E16_Measurement) RETURN m LIMIT 1'\nresults = requests.get(api, { \"cypher\": query }).json()\n\n\nAbfrage mit JavaScript\nconst api = \"https://graph.gbv.de/api\"\nconst cypher = 'MATCH (m:E16_Measurement) RETURN m LIMIT 1'\nresults = await fetch(api, { cypher }).then(res =&gt; res.json())\n\n\n\nAbfrage mit curl\nDie Cypher-Query muss URL-kodiert werden, dabei werden unter anderem Leerzeichen durch %20 ersetzt. Der Parameter –data-urlencode sorgt automatisch dafür:\n\ncurl -G https://graph.gbv.de/api --data-urlencode 'cypher=MATCH (m:E16_Measurement) RETURN m LIMIT 10'\n\nDie Cypher-Query kann auch per Datei übergeben werden:\ncurl -G https://graph.gbv.de/api --data-urlencode 'cypher@queryfile.cypher'",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Benutzung</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
+    ]
+  },
+  {
+    "objectID": "usage.html#sparql-api",
+    "href": "usage.html#sparql-api",
+    "title": "Benutzung",
+    "section": "SPARQL-API",
+    "text": "SPARQL-API\n\n\n\n\n\n\nNoch nicht öffentlich zugänglich!\n\n\n\nDer Triple-Store des Knowledge Graphen kann mittels SPARQL abgefragt werden. Eine Einführung mit Beispielen gibt es im Kapitel SPARQL-Abfragen.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
     ]
   },
   {
@@ -166,7 +176,7 @@
     "section": "Datenbankdumps",
     "text": "Datenbankdumps\n\n\n\n\n\n\nDie Bereitstellung von Datenbankdumps zur lokalen Nutzung von Teilen des Knowledge Graphen ist noch nicht umgesetzt.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Benutzung</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
     ]
   },
   {
@@ -176,7 +186,7 @@
     "section": "Suchoberfläche",
     "text": "Suchoberfläche\n\n\n\n\n\n\nEine browserbasierte Suchoberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung ist noch nicht umgesetzt.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Benutzung</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
     ]
   },
   {
@@ -186,7 +196,7 @@
     "section": "",
     "text": "Abfrage-Editor\nviewof cypherEditor = {\n  const mainDiv = html`&lt;div&gt;&lt;div&gt;`\n  const editorDiv = html`&lt;div style=\"border: 1px solid rgb(0, 0, 0);\"&gt;&lt;/div&gt;`\n  const runButton = html`&lt;button&gt;Query&lt;/button&gt;`\n  const errorStatus = html`&lt;span style=\"color: red; margin-left: 1em;\"&gt;&lt;/span&gt;`\n\n  mainDiv.append(editorDiv)\n  mainDiv.append(runButton)\n  mainDiv.append(errorStatus)\n\n  mainDiv.value = undefined\n  yield mainDiv\n\n  let editor = CodeMirror(editorDiv, { mode: \"application/x-cypher-query\" })\n\n  editor.setValue(\"MATCH (m:E16_Measurement) RETURN m LIMIT 10\")\n  editor.setSize(width-20, 200)\n\n  runButton.onclick = async (e) =&gt; {\n    errorStatus.textContent = \"\"\n    mainDiv.value = \n    cypherQuery(editor.getValue())\n      .then(value =&gt; mainDiv.value = value)\n      .catch(e =&gt; { \n        errorStatus.textContent = e\n        mainDiv.value = undefined\n      })\n\n    mainDiv.dispatchEvent(new CustomEvent(\"input\"))\n  }\n\n  return mainDiv\n}\n\ncypherEditor",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
     ]
   },
   {
@@ -196,7 +206,7 @@
     "section": "Kurzeinführung in Cypher",
     "text": "Kurzeinführung in Cypher\nEine vollständige Einführung in die Abfragesprache Cypher liefert das englische Cypher Handbuch.\n\n\n\n\n\n\nDie folgende Kurzeinführung bezieht sich noch nicht auf das Schema des Property Graphen sondern verwendet ein ausgedachtes Beispiel mit Personendaten.\n\n\n\n\nNodes\nKnoten heißen Nodes und werden in runden Klammern definiert.\nMATCH (n:Person {name:'Anna'})\nRETURN n.geboren AS geburtsjahr\nPerson ist ein Label. Labels sind wie Tags und werden genutzt um die Datenbank zu befragen. Eine Node Kann mehrere Labels haben.\nName ist eine Property von Anna. Properties werden in geschweiften Klammern definiert and geben nähere Informationen. Nach Properties kann auch gefragt werden.\nN ist eine Variabel. Auf Variabeln kann weiter verwiesen werden.\nIn diesem Beispiel findet MATCH alle Person Nodes in dem Graph wo die Property name Anna ist und setzt die Variabel n zu dem Ergebnis. n wird dann an RETURN weitergegeben, welche den Wert von einer anderen Property (geboren) dieser Nodes wiedergibt.\n\n\nRelationships\nNodes können mit Relationships verbunden werden. Eine Relationship braucht eine Start Node, eine Ende Node und genau einen Typ. Relationships haben in Cypher einen Pfeil um die Richting zu zeigen. Die Informationen über eine Relationship sind in eckigen Klammern eingeschlossen.\nWährend Nodes mehrere Labels haben können, können Relationships nur einen Typ haben.\nMATCH (:Person {name: 'Anna'})-[r:KENNT WHERE r.seit &lt; 2020]-&gt;(freund:Person)\nRETURN count(r) As zahlAnFreunden\nIn dieser Anfrage findet Match Relationships des Typs KENNT wo die Property seit kleiner als 2020 ist. Außerdem müssen Relationships von einer Person Node mit der Property Anna zu einer anderen Personen Node gehen (wir nennen diese freund). count() wird genutzt um zu zählen wie viele Relationships an die Variabel r in MATCH gebunden wurden somit erhalten wir mit RETURN eine Zahl.\n\n\nPfade\nMATCH (n:Person {name: 'Anna'})-[:KENNT]-{1,5}(freund:Person WHERE n.geboren &lt; freund.geboren)\nRETURN DISTINCT freund.name AS ältereFreunde\nDieses Beispiel nutzt eine quantifizierte Relationship um alle Pfade, die bis zu 5 Schritte entfernt sind, zu finden. Dabei werden nur Relationships des Typs KENNT verwendet. Die Start Node ist Anna und Ende Node sind Personen älter als Anna. Durch DISTINCT wird das gleiche Ergebnis nur einmal ausgegeben.\nMATCH p=shortestPath((:Person {name: 'Anna'})-[:KENNT*1..10]-(:Person {nationalität: 'Kanadier'}))\nRETURN p\nAuch Pfade können einer Variable zugewiesen werden. Hier wird der vollständige Pfad ausgegeben.\n\n\nBeispielabfragen\nFinde Wert, Einheit und Notiz aller Messungen.\nMATCH (n:E16_Measurement)-[:P40_observed_dimension]-&gt;(m:E54_Dimension)-[:P2_has_type]-&gt;(:E55_Type)-[:P48_has_preferred_identifier]-&gt;(l)\nMATCH (m)-[:P91_has_unit]-&gt;(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]-&gt;(o)\nRETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note\n\n\n2.8,cm,Höhe (Scan)",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
     ]
   },
   {
@@ -206,7 +216,7 @@
     "section": "",
     "text": "Inhalt des Triple Store",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
     ]
   },
   {
@@ -216,7 +226,7 @@
     "section": "",
     "text": "Alle in RDF angelieferten Daten (soweit syntaxktisch korrekt). Es ist also kein einheitliches Datenmodell vorgeschrieben! Aus den RDF-Daten werden lediglich Aussagen über Terminologien und Ontologien herausgefiltert\nJede Lieferung ist ein Named Graph, so dass die Lieferungen sowohl einzeln, als auch in einem RDF-Graphen zusammengefasst abgefragt werden können.\nUnterstützte Ontologien und Terminologien sind ebenfalls als eigene Namend Graphs eingespielt, so dass sie für Abfragen verwendet werden können.",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
     ]
   },
   {
@@ -226,7 +236,7 @@
     "section": "Beispielabfragen",
     "text": "Beispielabfragen\n\nStatistik aller Prädikate und ihrer Häufigkeit\nSELECT distinct ?pred WHERE {\n  ?sub ?pred ?obj .\n}\n\n\nStatistik aller Prädikate sortiert nach Anzahl der Prädikate\nSELECT distinct ?pre (COUNT(?pre) AS ?count) WHERE {\n  ?s ?pre ?obj\n} \nGROUP BY ?pre\nORDER BY DESC(?count)\n\n\nStatistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte\nSELECT distinct (COUNT(?s) AS ?count) ?obj WHERE {\n  ?s &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; ?obj\n} \nGROUP BY ?obj\nORDER BY DESC(?count)",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
     ]
   },
   {
@@ -236,7 +246,7 @@
     "section": "",
     "text": "Technik",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
   },
   {
@@ -246,7 +256,7 @@
     "section": "",
     "text": "Webserver (nginx)\nProperty-Graph Datenbanksystem (Neo4J)\nTriple-Store (Fuseki)\nSkripte in Python und NodeJS\nDocker",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
   },
   {
@@ -254,9 +264,9 @@
     "href": "architecture.html#workflow",
     "title": "Systemarchitektur",
     "section": "Workflow",
-    "text": "Workflow\nDer gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus folgenden Schritten:\n\nAnnahme, Prüfung und Bereinigung\nKonvertierung\nEinspielung\nImplementierung siehe https://github.com/nfdi4objects/n4o-property-graph\nAnreicherung\nBereitstellung\nNoch nicht umgesett\n\nEtwas genauer lässt sich der Prozess etwa wie in Abbildung 9.1 dargestellt veranschaulichen.\n\n\n\n\n\n\nflowchart LR\n    Abfrage[\"&lt;b&gt;Abfrage&lt;/b&gt;\"]\n    KG[\"&lt;b&gt;KG&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: Cypher&lt;/i&gt;&lt;br/&gt;&lt;i&gt;model: CRM&lt;/i&gt;\"]\n    LIDO[\"&lt;b&gt;LIDO&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: XML&lt;/i&gt;\"]\n    LIDOConverter[\"&lt;b&gt;LIDOConverter&lt;/b&gt;\"]\n    LIDOMapping[\"&lt;b&gt;LIDOMapping&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: X3ML&lt;/i&gt;\"]\n    RDF[\"&lt;b&gt;RDF&lt;/b&gt;\"]\n    RDFConverter[\"&lt;b&gt;RDFConverter&lt;/b&gt;\"]\n    TTL[\"&lt;b&gt;TTL&lt;/b&gt;&lt;br/&gt;&lt;i&gt;name: Triple-Store&lt;/i&gt;\"]\n    Terminologies[\"&lt;b&gt;Terminologies&lt;/b&gt;\"]\n    TerminologyConverter[\"&lt;b&gt;TerminologyConverter&lt;/b&gt;\"]\n    LIDO -- \"&lt;u&gt;n4o-import&lt;/u&gt;\" --&gt; LIDOConverter\n    LIDOConverter -- \"&lt;u&gt;pgraphs&lt;/u&gt;\" --&gt; KG\n    RDF -- \"&lt;u&gt;n4o-import&lt;/u&gt;\" --&gt; RDFConverter\n    RDFConverter -- \"&lt;u&gt;load-rdf&lt;/u&gt;\" --&gt; TTL\n    RDFConverter -- \"&lt;u&gt;pgraphs&lt;/u&gt;\" --&gt; KG\n    KG -- \"&lt;u&gt;enrich&lt;/u&gt;\" --&gt; KG\n    LIDOMapping --&gt; LIDOConverter\n    KG -- \"&lt;u&gt;Cypher&lt;/u&gt;\" --&gt; Abfrage\n    TTL -- \"&lt;u&gt;SPARQL&lt;/u&gt;\" --&gt; Abfrage\n    TTL -- \"&lt;u&gt;convert&lt;/u&gt;\" --&gt; KG\n    KG -- \"&lt;u&gt;convert&lt;/u&gt;\" --&gt; TTL\n    Terminologies --&gt; TerminologyConverter\n    TerminologyConverter -- \"&lt;u&gt;load-rdf&lt;/u&gt;\" --&gt; TTL\n    TerminologyConverter -- \"&lt;u&gt;pgraphs&lt;/u&gt;\" --&gt; KG\n\n\n\n\n\nAbbildung 9.1: Datenfluss",
+    "text": "Workflow\nDer gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus folgenden Schritten:\n\nAnnahme, Prüfung und Bereinigung\nKonvertierung\nEinspielung\nImplementierung siehe https://github.com/nfdi4objects/n4o-property-graph\nAnreicherung\nBereitstellung\nNoch nicht umgesett\n\nEtwas genauer lässt sich der Prozess etwa wie in Abbildung 10.1 dargestellt veranschaulichen.\n\n\n\n\n\n\nflowchart LR\n    Abfrage[\"&lt;b&gt;Abfrage&lt;/b&gt;\"]\n    KG[\"&lt;b&gt;KG&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: Cypher&lt;/i&gt;&lt;br/&gt;&lt;i&gt;model: CRM&lt;/i&gt;\"]\n    LIDO[\"&lt;b&gt;LIDO&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: XML&lt;/i&gt;\"]\n    LIDOConverter[\"&lt;b&gt;LIDOConverter&lt;/b&gt;\"]\n    LIDOMapping[\"&lt;b&gt;LIDOMapping&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: X3ML&lt;/i&gt;\"]\n    RDF[\"&lt;b&gt;RDF&lt;/b&gt;\"]\n    RDFConverter[\"&lt;b&gt;RDFConverter&lt;/b&gt;\"]\n    TTL[\"&lt;b&gt;TTL&lt;/b&gt;&lt;br/&gt;&lt;i&gt;name: Triple-Store&lt;/i&gt;\"]\n    Terminologies[\"&lt;b&gt;Terminologies&lt;/b&gt;\"]\n    TerminologyConverter[\"&lt;b&gt;TerminologyConverter&lt;/b&gt;\"]\n    LIDO -- \"&lt;u&gt;n4o-import&lt;/u&gt;\" --&gt; LIDOConverter\n    LIDOConverter -- \"&lt;u&gt;pgraphs&lt;/u&gt;\" --&gt; KG\n    RDF -- \"&lt;u&gt;n4o-import&lt;/u&gt;\" --&gt; RDFConverter\n    RDFConverter -- \"&lt;u&gt;load-rdf&lt;/u&gt;\" --&gt; TTL\n    RDFConverter -- \"&lt;u&gt;pgraphs&lt;/u&gt;\" --&gt; KG\n    KG -- \"&lt;u&gt;enrich&lt;/u&gt;\" --&gt; KG\n    LIDOMapping --&gt; LIDOConverter\n    KG -- \"&lt;u&gt;Cypher&lt;/u&gt;\" --&gt; Abfrage\n    TTL -- \"&lt;u&gt;SPARQL&lt;/u&gt;\" --&gt; Abfrage\n    TTL -- \"&lt;u&gt;convert&lt;/u&gt;\" --&gt; KG\n    KG -- \"&lt;u&gt;convert&lt;/u&gt;\" --&gt; TTL\n    Terminologies --&gt; TerminologyConverter\n    TerminologyConverter -- \"&lt;u&gt;load-rdf&lt;/u&gt;\" --&gt; TTL\n    TerminologyConverter -- \"&lt;u&gt;pgraphs&lt;/u&gt;\" --&gt; KG\n\n\n\n\n\nAbbildung 10.1: Datenfluss",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
   },
   {
@@ -266,7 +276,7 @@
     "section": "Annahme",
     "text": "Annahme\nZur Datenannahme, Prüfung und Bereinigung siehe https://github.com/nfdi4objects/n4o-import.\nDort findet sich unter anderem das offizielle XML-Schema für LIDO-Daten.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
   },
   {
@@ -276,7 +286,7 @@
     "section": "Konvertierung",
     "text": "Konvertierung\n\nLIDO\nLIDO-XML-Daten werden mit Hilfe von X3ML ins Property Graph Format konvertiert.\n\n\nRDF\nZur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript rdf2cypher.py (wird derzeit überarbeitet), das eine Cypher-Datei (in Zukunkft CYPHERL und/oder PG-JSONL) ausgibt.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
   },
   {
@@ -286,7 +296,7 @@
     "section": "Einspielung",
     "text": "Einspielung\n\nRDF-Daten in den Property-Graph\nZum Einspielen der Cypher-Datei in eine Neo4J-Datenbank kann das Kommando cypher-shell verwendet werden, das im Neo4J-Docker-Container enthalten ist oder separat installiert werden kann.\nDa Neo4J aus dem Docker-Container nicht auf die Cypher-Datei zugreifen kann, muss ihr Inhalt per Pipe eingelesen werden:\n&lt;file.cypher | docker exec -t neo4j \\\n  cypher-shell -a &lt;ADDRESS&gt; -u &lt;USERNAME&gt; -p &lt;PASSWORD&gt;\nEin neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner für Volume muss bereits existieren.\ndocker run -d \\\n    --name=neo4j \\\n    --publish=7474:7474 --publish=7687:7687 \\\n    --env NEO4J_AUTH=none \\\n    --user $(id -u):$(id -g) \\\n    --volume=$cwd/data:/data \\\n    neo4j \n\n\nRDF-Daten\nSiehe https://github.com/nfdi4objects/n4o-import",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
   },
   {
@@ -296,7 +306,7 @@
     "section": "Anreicherung",
     "text": "Anreicherung\n\nExpansion der Klassenhierarchie\nDa Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen expandiert. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei crm-classes.pg (siehe SVG-Diagram). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.\n\nE22_Man_Made_Object =&gt; E22_Human_Made_Object (renamedTo)\nE50_Date =&gt; E41_Appellation (replacedBy)\nE7_Activity=&gt; E5_Event (superClass)\n\nAus diesen Daten wird die Expansionstabelle crm-expand.txt erzeugt, z.B.:\n\nE22_Human_Made_Object =&gt; E22, E71, E70, E24 E77 und E1\n\nZum Ausführen der Expansion:\n./pg-expand-labels.py [Neo4j login file] &lt; crm-expand.txt\nOhne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.\nNach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. E22_Human_Made_Object möglich oder nach allen Knoten, die direkt oder indirekt er Klasse E22 angehören.\nDie Expansion ist auf gleiche Weise für andere Ontologien möglich, sofern diese auf CRM gemappt wurden.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
   },
   {
@@ -306,7 +316,7 @@
     "section": "",
     "text": "Mapping von Schemas\nDas einheitliche Datenmodell des Knowledge Graphen basiert auf CIDOC-CRM (siehe Datenbankschema). Werden in den gelieferten Daten andere Ontologien verwendet, so müssen diese auf CRM abgebildet werden. Die Abbildung geschieht bislang per Hand in Konfigurationsdateien. In Zukunft soll als Werkzeug hierfür auch Cocoda eingesetzt werden.\nNeben der Abbildung von verschiedenen Ontologien auf CRM ist es auch notwendig, unterschiedliche Modellierungsmöglichkeiten innerhalb von CRM auf ein Schema zu vereinheitlichen.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Mappings</span>"
     ]
   },
   {
@@ -316,7 +326,7 @@
     "section": "Mapping von Vokabularen",
     "text": "Mapping von Vokabularen\nIn den gelieferten Daten werden Entäten wie Personen, Orte, Zeiträume, Materialien etc. auf unterschiedliche Art und Weise referenziert. Im Idealfall wird per Identifiern auf Normdateien verwiesen. Wenn unterschiedliche Normdateien für die gleichen Entitäten verwendet werden, sollten diese aufeinander gemappt werden. Als Werkzeug hierfür dient die Webanwendung Cocoda.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Mappings</span>"
     ]
   },
   {
@@ -326,7 +336,7 @@
     "section": "Reconciliation",
     "text": "Reconciliation\nWerden Entitäten lediglich durch Zeichenketten referenziert (z.B. “Gold” zur Angabe des chemischen Elements Gold), so müssen diese Angaben möglichst auf kontrollierte Vokabulare mit entsprechenden Identifiern gemappt werden. Als technische Schnittstelle hierfür dient dazu die Reconciliation Service API. Wie weit die Erkennung von Entitäten aus Zeichenketten automatisiert ablaufen kann, hängt allerdings stark vom Kontext der Daten ab.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Mappings</span>"
     ]
   },
   {
@@ -336,7 +346,7 @@
     "section": "Mapping von Werten",
     "text": "Mapping von Werten\nIn den gelieferten Daten kommen Werte mit unterschiedlichen Einheiten (Datumsangaben, Ortsangaben, Mengen, Gewichte und andere physische Maße…) vor. Diese sollten möglichst vereinheitlicht werden, damit Abfragen über den gesamten Datenbestand möglich sind.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Mappings</span>"
     ]
   },
   {
@@ -346,7 +356,7 @@
     "section": "",
     "text": "Property Graph\nFolgende Übersicht wird live per Cypher API erstellt.\ncypherNodesCount = await cypherQuery(\"MATCH () RETURN count(*) as count\")\ncypherEdgesCount = await cypherQuery(\"MATCH ()-[]-&gt;() RETURN count(*) as count\")",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Status</span>"
     ]
   },
   {
@@ -356,7 +366,7 @@
     "section": "",
     "text": "Anzahl von Knoten: \nAnzahl von Kanten:",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Status</span>"
     ]
   },
   {
@@ -366,7 +376,7 @@
     "section": "Triple Store",
     "text": "Triple Store\nnoch nicht umgesetzt",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Status</span>"
     ]
   },
   {
@@ -376,7 +386,7 @@
     "section": "Datenquellen",
     "text": "Datenquellen\nDer Status des Import aus Datenquellen ist noch nicht öffentlich zugänglich.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Status</span>"
     ]
   }
 ]
