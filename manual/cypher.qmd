@@ -115,7 +115,8 @@ Die Kodierung von `NODE` und `RELATIONSHIP` Objekten entspricht der Kodierung
 von Knoten und Kanten im [Format
 PG-JSONL](https://pg-format.github.io/specification/#pg-jsonl) mit dem
 Unterschied, dass Property-Werte nicht zwingend vom Type `array` sind, sondern
-auch `null`, `boolean`, `number` und `string` sein können.
+auch `null`, `boolean`, `number` und `string` sein können. Die Kodierung von `PATH` Objekten entspricht der Kodierung von Graphen im [Format
+PG-JSON](https://pg-format.github.io/specification/#pg-jsonl) mit der gleichen Erweiterung von Property-Werten.
 
 [WKT]: http://giswiki.org/wiki/Well_Known_Text
 

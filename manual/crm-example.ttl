@@ -1,4 +1,4 @@
-@prefix crm: <http://erlangen-crm.org/170309/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
 
 <http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d>
   a crm:E16_Measurement ;

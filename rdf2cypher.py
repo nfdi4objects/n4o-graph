@@ -5,7 +5,7 @@ import rdflib
 import urllib.request as ULR
 from urllib.parse import urlparse
 
-subjectPrefixes2ignore = ['http://erlangen-crm.org/170309/','http://iconclass.org']
+subjectPrefixes2ignore = ['http://www.cidoc-crm.org/cidoc-crm/','http://erlangen-crm.org/170309/','http://iconclass.org']
 
 def isValid(s, p, o):
     '''Verifies an SPO triple'''
