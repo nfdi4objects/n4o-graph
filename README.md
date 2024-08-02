@@ -29,8 +29,9 @@ Anschließend müssen weitere Python- und Node-Bibliotheken installiert werden:
 
 ~~~sh
 sudo apt install python3-venv
-python3 -m venv venv
-venv/bin/pip install -r requirements.txt
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
 ~~~
 
 Node-Programme [pgraphs](https://www.npmjs.com/package/pgraphs)
