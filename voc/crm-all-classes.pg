@@ -22,9 +22,9 @@ E18_Physical_Thing since:"4.0" alias:E18_Physical_Stuff
 E19_Physical_Object since:"4.0"
 E20_Biological_Object since:"4.0"
 E21_Person since:"4.0"
-E22_Human_Made_Object since:"4.0" alias:E22_Man_Made_Object
-E24_Physical_Human_Made_Thing since:"4.0" alias:E24_Physical_Man_Made_Thing
-E25_Human_Made_Feature since:"4.0" alias:E25_Man_Made_Feature
+E22_Human-Made_Object since:"4.0" alias:E22_Man-Made_Object
+E24_Physical_Human-Made_Thing since:"4.0" alias:E24_Physical_Man-Made_Thing
+E25_Human-Made_Feature since:"4.0" alias:E25_Man-Made_Feature
 E26_Physical_Feature since:"4.0"
 E27_Site since:"4.0"
 E28_Conceptual_Object since:"4.0"
@@ -68,7 +68,7 @@ E67_Birth since:"4.0"
 E68_Dissolution since:"4.0"
 E69_Death since:"4.0"
 E70_Thing since:"4.0"
-E71_Human_Made_Thing since:"4.0"
+E71_Human-Made_Thing since:"4.0"
 E72_Legal_Object since:"4.0"
 E73_Information_Object since:"4.0"
 E74_Group since:"4.0"
@@ -129,15 +129,15 @@ E15_Identifier_Assignment -> E13_Attribute_Assignment :superClass since:"4.0"
 E16_Measurement -> E13_Attribute_Assignment :superClass since:"4.0"
 E17_Type_Assignment -> E13_Attribute_Assignment :superClass since:"4.0"
 E19_Physical_Object -> E18_Physical_Thing :superClass since:"4.0"
-E24_Physical_Human_Made_Thing -> E18_Physical_Thing :superClass since:"4.0"
+E24_Physical_Human-Made_Thing -> E18_Physical_Thing :superClass since:"4.0"
 E26_Physical_Feature -> E18_Physical_Thing :superClass since:"4.0"
 E20_Biological_Object -> E19_Physical_Object :superClass since:"4.0"
-E22_Human_Made_Object -> E19_Physical_Object :superClass since:"4.0"
+E22_Human-Made_Object -> E19_Physical_Object :superClass since:"4.0"
 E21_Person -> E20_Biological_Object :superClass since:"4.0"
-E22_Human_Made_Object -> E24_Physical_Human_Made_Thing :superClass since:"4.0"
-E25_Human_Made_Feature -> E24_Physical_Human_Made_Thing :superClass since:"4.0"
-E78_Curated_Holding -> E24_Physical_Human_Made_Thing :superClass since:"4.0"
-E25_Human_Made_Feature -> E26_Physical_Feature :superClass since:"4.0"
+E22_Human-Made_Object -> E24_Physical_Human-Made_Thing :superClass since:"4.0"
+E25_Human-Made_Feature -> E24_Physical_Human-Made_Thing :superClass since:"4.0"
+E78_Curated_Holding -> E24_Physical_Human-Made_Thing :superClass since:"4.0"
+E25_Human-Made_Feature -> E26_Physical_Feature :superClass since:"4.0"
 E27_Site -> E26_Physical_Feature :superClass since:"4.0"
 E55_Type -> E28_Conceptual_Object :superClass since:"4.0"
 E89_Propositional_Object -> E28_Conceptual_Object :superClass since:"4.2.5"
@@ -175,10 +175,10 @@ E68_Dissolution -> E64_End_of_Existence :superClass since:"4.0"
 E69_Death -> E64_End_of_Existence :superClass since:"4.0"
 E81_Transformation -> E64_End_of_Existence :superClass since:"4.0"
 E83_Type_Creation -> E65_Creation :superClass since:"4.0"
-E71_Human_Made_Thing -> E70_Thing :superClass since:"4.0"
+E71_Human-Made_Thing -> E70_Thing :superClass since:"4.0"
 E72_Legal_Object -> E70_Thing :superClass since:"4.0"
-E24_Physical_Human_Made_Thing -> E71_Human_Made_Thing :superClass since:"4.0"
-E28_Conceptual_Object -> E71_Human_Made_Thing :superClass since:"4.0"
+E24_Physical_Human-Made_Thing -> E71_Human-Made_Thing :superClass since:"4.0"
+E28_Conceptual_Object -> E71_Human-Made_Thing :superClass since:"4.0"
 E18_Physical_Thing -> E72_Legal_Object :superClass since:"4.0"
 E90_Symbolic_Object -> E72_Legal_Object :superClass since:"4.2.5"
 E29_Design_or_Procedure -> E73_Information_Object :superClass since:"4.0"
@@ -207,7 +207,7 @@ E50_Date -> E41_Appellation :replacedBy since:"6.2.8"
 E51_Contact_Point -> E41_Appellation :replacedBy since:"6.2.8"
 E75_Conceptual_Object_Appellation -> E41_Appellation :replacedBy since:"6.2.8"
 E82_Actor_Appellation -> E41_Appellation :replacedBy since:"6.2.8"
-E84_Information_Carrier -> E22_Human_Made_Object :replacedBy since:"6.2.8"
+E84_Information_Carrier -> E22_Human-Made_Object :replacedBy since:"6.2.8"
 
 # E91 seems to be withdrawn without explicit note. It can be linked to its former superClass.
 E91_Co_Reference_Assignment -> E13_Attribute_Assignment :replacedBy since:"6.1"
@@ -317,7 +317,7 @@ E91_Co_Reference_Assignment -> E13_Attribute_Assignment :replacedBy since:"6.1"
 "A8_Stratigraphic_Unit" -> "S20_Rigid_Physical_Feature" :superClass
 "A9_Archaeological_Excavation" -> "S4_Observation" :superClass
 "A10_Excavation_Interface" -> "S20_Rigid_Physical_Feature" :superClass
-"A10_Excavation_Interface" -> "E25_Human_Made_Feature" :superClass
+"A10_Excavation_Interface" -> "E25_Human-Made_Feature" :superClass
 
 # LRMoo class hierarchy
 "F18_Serial_Work" -> "F1_Work" :superClass
@@ -327,7 +327,7 @@ E91_Co_Reference_Assignment -> E13_Attribute_Assignment :replacedBy since:"6.1"
 "F1_Work" -> "E89_Propositional_Object" :superClass
 "F2_Expression" -> "E73_Information_Object" :superClass
 "F3_Manifestation" -> "E73_Information_Object" :superClass
-"F5_Item" -> "E24_Physical_Human_Made_Thing" :superClass
+"F5_Item" -> "E24_Physical_Human-Made_Thing" :superClass
 "F12_Nomen" -> "E89_Propositional_Object" :superClass
 "F27_Work_Creation" -> "E65_Creation" :superClass
 "F28_Expression_Creation" -> "E12_Production" :superClass

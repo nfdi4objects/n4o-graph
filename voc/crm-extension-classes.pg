@@ -103,7 +103,7 @@
 "A8_Stratigraphic_Unit" -> "S20_Rigid_Physical_Feature" :superClass
 "A9_Archaeological_Excavation" -> "S4_Observation" :superClass
 "A10_Excavation_Interface" -> "S20_Rigid_Physical_Feature" :superClass
-"A10_Excavation_Interface" -> "E25_Human_Made_Feature" :superClass
+"A10_Excavation_Interface" -> "E25_Human-Made_Feature" :superClass
 
 # LRMoo class hierarchy
 "F18_Serial_Work" -> "F1_Work" :superClass
@@ -113,7 +113,7 @@
 "F1_Work" -> "E89_Propositional_Object" :superClass
 "F2_Expression" -> "E73_Information_Object" :superClass
 "F3_Manifestation" -> "E73_Information_Object" :superClass
-"F5_Item" -> "E24_Physical_Human_Made_Thing" :superClass
+"F5_Item" -> "E24_Physical_Human-Made_Thing" :superClass
 "F12_Nomen" -> "E89_Propositional_Object" :superClass
 "F27_Work_Creation" -> "E65_Creation" :superClass
 "F28_Expression_Creation" -> "E12_Production" :superClass

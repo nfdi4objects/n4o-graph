@@ -3,6 +3,8 @@ import { pgformat } from "pgraphs"
 
 const pg = process.argv.slice(2).map(file => fs.readFileSync(file).toString()).join("\n")
 const { nodes, edges } = pgformat.pg.parse(pg)
+nodes.forEach(n => n.id = n.id.replaceAll("-","_"))
+edges.forEach(e => { e.from = e.from.replaceAll("-","_"); e.to = e.to.replaceAll("-","_") })
 
 const broader = {}
 const isBroader = (from, to) => {

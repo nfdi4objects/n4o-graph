@@ -1,28 +1,41 @@
-E10_Transfer_of_Custody E1 E10 E2 E4 E5 E7 E92
-E11_Modification E1 E11 E2 E4 E5 E7 E92
-E11_Modification_Event E1 E11 E2 E4 E5 E7 E92
-E12_Production E1 E11 E12 E2 E4 E5 E63 E7 E92
-E12_Production_Event E1 E11 E12 E2 E4 E5 E63 E7 E92
-E13_Attribute_Assignment E1 E13 E2 E4 E5 E7 E92
-E14_Condition_Assessment E1 E13 E14 E2 E4 E5 E7 E92
-E15_Identifier_Assignment E1 E13 E15 E2 E4 E5 E7 E92
-E16_Measurement E1 E13 E16 E2 E4 E5 E7 E92
-E16_Measurement_Event E1 E13 E16 E2 E4 E5 E7 E92
-E17_Type_Assignment E1 E13 E17 E2 E4 E5 E7 E92
-E18_Physical_Stuff E1 E18 E70 E72 E77
-E18_Physical_Thing E1 E18 E70 E72 E77
-E19_Physical_Object E1 E18 E19 E70 E72 E77
+A10_Excavation_Interface E1 E18 E24 E25 E26 E53 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity S20_Rigid_Physical_Feature
+A1_Excavation_Processing_Unit E1 E11 E12 E13 E2 E4 E5 E63 E64 E7 E92 S15_Observable_Entity S17_Physical_Genesis S18_Alteration S1_Matter_Removal S4_Observation
+A2_Stratigraphic_Volume_Unit A8_Stratigraphic_Unit E1 E18 E26 E53 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity S20_Rigid_Physical_Feature
+A3_Stratigraphic_Interface A8_Stratigraphic_Unit E1 E18 E26 E53 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity S20_Rigid_Physical_Feature
+A4_Stratigraphic_Genesis A5_Stratigraphic_Modification E1 E2 E4 E5 E63 E92 S15_Observable_Entity S17_Physical_Genesis S18_Alteration
+A5_Stratigraphic_Modification E1 E2 E4 E5 E92 S15_Observable_Entity S18_Alteration
+A6_Group_Declaration_Event E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity
+A7_Embedding A8_Stratigraphic_Unit E1 E18 E26 E53 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity S20_Rigid_Physical_Feature
+A8_Stratigraphic_Unit E1 E18 E26 E53 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity S20_Rigid_Physical_Feature
+A9_Archaeological_Excavation E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity S4_Observation
+E10_Transfer_of_Custody E1 E10 E2 E4 E5 E7 E92 S15_Observable_Entity
+E11_Modification E1 E11 E2 E4 E5 E7 E92 S15_Observable_Entity S18_Alteration
+E11_Modification_Event E1 E11 E2 E4 E5 E7 E92 S15_Observable_Entity S18_Alteration
+E12_Production E1 E11 E12 E2 E4 E5 E63 E7 E92 S15_Observable_Entity S17_Physical_Genesis S18_Alteration
+E12_Production_Event E1 E11 E12 E2 E4 E5 E63 E7 E92 S15_Observable_Entity S17_Physical_Genesis S18_Alteration
+E13_Attribute_Assignment E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity
+E14_Condition_Assessment E1 E13 E14 E2 E4 E5 E7 E92 S15_Observable_Entity
+E15_Identifier_Assignment E1 E13 E15 E2 E4 E5 E7 E92 S15_Observable_Entity
+E16_Measurement E1 E13 E16 E2 E4 E5 E7 E92 S15_Observable_Entity S21_Measurement S4_Observation
+E16_Measurement_Event E1 E13 E16 E2 E4 E5 E7 E92 S15_Observable_Entity S21_Measurement S4_Observation
+E17_Type_Assignment E1 E13 E17 E2 E4 E5 E7 E92 S15_Observable_Entity
+E18_Physical_Stuff E1 E18 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E18_Physical_Thing E1 E18 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E19_Physical_Object E1 E18 E19 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity
 E1_CRM_Entity E1
-E20_Biological_Object E1 E18 E19 E20 E70 E72 E77
-E21_Person E1 E18 E19 E20 E21 E39 E70 E72 E77
-E22_Human_Made_Object E1 E18 E19 E22 E24 E70 E71 E72 E77
-E22_Man_Made_Object E1 E18 E19 E22 E24 E70 E71 E72 E77
-E24_Physical_Human_Made_Thing E1 E18 E24 E70 E71 E72 E77
-E24_Physical_Man_Made_Thing E1 E18 E24 E70 E71 E72 E77
-E25_Human_Made_Feature E1 E18 E24 E25 E26 E70 E71 E72 E77
-E25_Man_Made_Feature E1 E18 E24 E25 E26 E70 E71 E72 E77
-E26_Physical_Feature E1 E18 E26 E70 E72 E77
-E27_Site E1 E18 E26 E27 E70 E72 E77
+E20_Biological_Object E1 E18 E19 E20 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E21_Person E1 E18 E19 E20 E21 E39 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E22_Human_Made_Object E1 E18 E19 E22 E24 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E22_Man-Made_Object E1 E18 E19 E22 E24 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E22_Man_Made_Object E1 E18 E19 E22 E24 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E24_Physical_Human_Made_Thing E1 E18 E24 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E24_Physical_Man-Made_Thing E1 E18 E24 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E24_Physical_Man_Made_Thing E1 E18 E24 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E25_Human_Made_Feature E1 E18 E24 E25 E26 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E25_Man-Made_Feature E1 E18 E24 E25 E26 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E25_Man_Made_Feature E1 E18 E24 E25 E26 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E26_Physical_Feature E1 E18 E26 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity
+E27_Site E1 E18 E26 E27 E53 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity S20_Rigid_Physical_Feature
 E28_Conceptual_Object E1 E28 E70 E71 E77
 E29_Design_or_Procedure E1 E28 E29 E70 E71 E72 E73 E77 E89 E90
 E2_Temporal_Entity E1 E2
@@ -56,18 +69,18 @@ E56_Language E1 E28 E55 E56 E70 E71 E77
 E57_Material E1 E28 E55 E57 E70 E71 E77
 E58_Measurement_Unit E1 E28 E55 E58 E70 E71 E77
 E59_Primitive_Value E1 E59
-E5_Event E1 E2 E4 E5 E92
+E5_Event E1 E2 E4 E5 E92 S15_Observable_Entity
 E60_Number E1 E59 E60
 E61_Time_Primitive E1 E28 E41 E59 E61 E70 E71 E72 E77 E90
 E62_String E1 E59 E62
-E63_Beginning_of_Existence E1 E2 E4 E5 E63 E92
-E64_End_of_Existence E1 E2 E4 E5 E64 E92
-E65_Creation E1 E2 E4 E5 E63 E65 E7 E92
-E66_Formation E1 E2 E4 E5 E63 E66 E7 E92
-E67_Birth E1 E2 E4 E5 E63 E67 E92
-E68_Dissolution E1 E2 E4 E5 E64 E68 E92
-E69_Death E1 E2 E4 E5 E64 E69 E92
-E6_Destruction E1 E2 E4 E5 E6 E64 E92
+E63_Beginning_of_Existence E1 E2 E4 E5 E63 E92 S15_Observable_Entity
+E64_End_of_Existence E1 E2 E4 E5 E64 E92 S15_Observable_Entity
+E65_Creation E1 E2 E4 E5 E63 E65 E7 E92 S15_Observable_Entity
+E66_Formation E1 E2 E4 E5 E63 E66 E7 E92 S15_Observable_Entity
+E67_Birth E1 E2 E4 E5 E63 E67 E92 S15_Observable_Entity
+E68_Dissolution E1 E2 E4 E5 E64 E68 E92 S15_Observable_Entity
+E69_Death E1 E2 E4 E5 E64 E69 E92 S15_Observable_Entity
+E6_Destruction E1 E2 E4 E5 E6 E64 E92 S15_Observable_Entity
 E70_Thing E1 E70 E77
 E71_Human_Made_Thing E1 E70 E71 E77
 E72_Legal_Object E1 E70 E72 E77
@@ -75,31 +88,47 @@ E73_Information_Object E1 E28 E70 E71 E72 E73 E77 E89 E90
 E74_Group E1 E39 E74 E77
 E75_Conceptual_Object_Appellation E1 E28 E41 E70 E71 E72 E75 E77 E90
 E77_Persistent_Item E1 E77
-E78_Curated_Holding E1 E18 E24 E70 E71 E72 E77 E78
-E79_Part_Addition E1 E11 E2 E4 E5 E7 E79 E92
-E7_Activity E1 E2 E4 E5 E7 E92
-E80_Part_Removal E1 E11 E2 E4 E5 E7 E80 E92
-E81_Transformation E1 E2 E4 E5 E63 E64 E81 E92
+E78_Curated_Holding E1 E18 E24 E70 E71 E72 E77 E78 S10_Material_Substantial S15_Observable_Entity
+E79_Part_Addition E1 E11 E2 E4 E5 E7 E79 E92 S15_Observable_Entity S18_Alteration
+E7_Activity E1 E2 E4 E5 E7 E92 S15_Observable_Entity
+E80_Part_Removal E1 E11 E2 E4 E5 E7 E80 E92 S15_Observable_Entity S18_Alteration S1_Matter_Removal
+E81_Transformation E1 E2 E4 E5 E63 E64 E81 E92 S15_Observable_Entity
 E82_Actor_Appellation E1 E28 E41 E70 E71 E72 E77 E82 E90
-E83_Type_Creation E1 E2 E4 E5 E63 E65 E7 E83 E92
-E84_Information_Carrier E1 E18 E19 E22 E24 E70 E71 E72 E77 E84
-E85_Joining E1 E2 E4 E5 E7 E85 E92
-E86_Leaving E1 E2 E4 E5 E7 E86 E92
-E87_Curation_Activity E1 E2 E4 E5 E7 E87 E92
+E83_Type_Creation E1 E2 E4 E5 E63 E65 E7 E83 E92 S15_Observable_Entity
+E84_Information_Carrier E1 E18 E19 E22 E24 E70 E71 E72 E77 E84 S10_Material_Substantial S15_Observable_Entity
+E85_Joining E1 E2 E4 E5 E7 E85 E92 S15_Observable_Entity
+E86_Leaving E1 E2 E4 E5 E7 E86 E92 S15_Observable_Entity
+E87_Curation_Activity E1 E2 E4 E5 E7 E87 E92 S15_Observable_Entity
 E89_Propositional_Object E1 E28 E70 E71 E77 E89
-E8_Acquisition E1 E2 E4 E5 E7 E8 E92
-E8_Acquisition_Event E1 E2 E4 E5 E7 E8 E92
+E8_Acquisition E1 E2 E4 E5 E7 E8 E92 S15_Observable_Entity
+E8_Acquisition_Event E1 E2 E4 E5 E7 E8 E92 S15_Observable_Entity
 E90_Symbolic_Object E1 E28 E70 E71 E72 E77 E90
-E91_Co_Reference_Assignment E1 E13 E2 E4 E5 E7 E91 E92
+E91_Co_Reference_Assignment E1 E13 E2 E4 E5 E7 E91 E92 S15_Observable_Entity
 E92_Spacetime_Volume E1 E92
 E93_Presence E1 E92 E93
 E94_Space_Primitive E1 E28 E41 E59 E70 E71 E72 E77 E90 E94
 E95_Spacetime_Primitive E1 E28 E41 E59 E70 E71 E72 E77 E90 E95
-E96_Purchase E1 E2 E4 E5 E7 E8 E92 E96
+E96_Purchase E1 E2 E4 E5 E7 E8 E92 E96 S15_Observable_Entity
 E97_Monetary_Amount E1 E54 E97
 E98_Currency E1 E28 E55 E58 E70 E71 E77 E98
 E99_Product_Type E1 E28 E55 E70 E71 E77 E99
-E9_Move E1 E2 E4 E5 E7 E9 E92
+E9_Move E1 E2 E4 E5 E7 E9 E92 S15_Observable_Entity
+F11_Corporate_Body E1 E39 E74 E77 F55_Collective_Agent
+F12_Nomen E1 E28 E70 E71 E77 E89
+F18_Serial_Work E1 E28 E70 E71 E77 E89 F1_Work
+F1_Work E1 E28 E70 E71 E77 E89
+F27_Work_Creation E1 E2 E4 E5 E63 E65 E7 E92 S15_Observable_Entity
+F28_Expression_Creation E1 E11 E12 E2 E4 E5 E63 E65 E7 E92 S15_Observable_Entity S17_Physical_Genesis S18_Alteration
+F2_Expression E1 E28 E70 E71 E72 E73 E77 E89 E90
+F30_Manifestation_Creation E1 E11 E12 E2 E4 E5 E63 E65 E7 E92 S15_Observable_Entity S17_Physical_Genesis S18_Alteration
+F31_Performance E1 E2 E4 E5 E7 E92 S15_Observable_Entity
+F32_Item_Production_Event E1 E11 E12 E2 E4 E5 E63 E7 E92 S15_Observable_Entity S17_Physical_Genesis S18_Alteration
+F33_Reproduction_Event E1 E11 E12 E2 E4 E5 E63 E65 E7 E92 F30_Manifestation_Creation S15_Observable_Entity S17_Physical_Genesis S18_Alteration
+F36_Script_Conversion E1 E28 E29 E70 E71 E72 E73 E77 E89 E90
+F39_Family E1 E39 E74 E77 F55_Collective_Agent
+F3_Manifestation E1 E28 E70 E71 E72 E73 E77 E89 E90
+F55_Collective_Agent E1 E39 E74 E77
+F5_Item E1 E18 E24 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
 P10 P132
 P100 P12 P93
 P100_was_death_of P100 P12 P93
@@ -110,7 +139,6 @@ P103_was_intended_for P103
 P104_is_subject_to P104
 P105_right_held_by P105
 P106_is_composed_of P106
-P106_is_composed_of_:superProperty P106
 P107_has_current_or_former_member P107
 P108 P12 P31 P92
 P108_has_produced P108 P12 P31 P92
@@ -204,7 +232,8 @@ P162_is_restricted_by P162
 P163_is_restricted_by P163
 P164 P160
 P164_is_temporally_specified_by P160 P164
-P165_incorporates P165
+P165 P106
+P165_incorporates P106 P165
 P166 P10 P132
 P166_was_a_presence_of P10 P132 P166
 P167_was_within P167
@@ -371,44 +400,67 @@ P98_brought_into_life P12 P92 P98
 P99 P11 P12 P93
 P99_dissolved P11 P12 P93 P99
 P9_consists_of P9
+S10_Material_Substantial E1 E70 E77 S15_Observable_Entity
+S11_Amount_of_Matter E1 E70 E77 S10_Material_Substantial S15_Observable_Entity
+S12_Amount_of_Fluid E1 E70 E77 S10_Material_Substantial S11_Amount_of_Matter S14_Fluid_Body S15_Observable_Entity
+S13_Sample E1 E70 E77 S10_Material_Substantial S11_Amount_of_Matter S15_Observable_Entity
+S14_Fluid_Body E1 E70 E77 S10_Material_Substantial S15_Observable_Entity
+S15_Observable_Entity E1
+S17_Physical_Genesis E1 E2 E4 E5 E63 E92 S15_Observable_Entity S18_Alteration
+S18_Alteration E1 E2 E4 E5 E92 S15_Observable_Entity
+S19_Encounter_Event E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity S4_Observation
+S1_Matter_Removal E1 E2 E4 E5 E7 E92 S15_Observable_Entity
+S20_Rigid_Physical_Feature E1 E18 E26 E53 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity
+S21_Measurement E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity S4_Observation
+S22_Segment_of_Matter E1 E18 E26 E53 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity S20_Rigid_Physical_Feature
+S23_Position_Determination E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity S4_Observation
+S24_Sample_Splitting E1 E2 E4 E5 E7 E92 S15_Observable_Entity S1_Matter_Removal S2_Sample_Taking
+S2_Sample_Taking E1 E2 E4 E5 E7 E92 S15_Observable_Entity S1_Matter_Removal
+S3_Measurement_by_Sampling E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity S1_Matter_Removal S21_Measurement S2_Sample_Taking S4_Observation
+S4_Observation E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity
+S5_Inference_Making E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity
+S6_Data_Evaluation E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity S5_Inference_Making
+S7_Simulation_or_Prediction E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity S5_Inference_Making
+S8_Categorical_Hypothesis_Building E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity S5_Inference_Making
+S9_Property_Type E1 E28 E55 E70 E71 E77
 n4o_3D_Model E1 E28 E70 E71 E72 E73 E77 E89 E90
-n4o_Accession E1 E10 E2 E4 E5 E7 E92
-n4o_AcquisitionType_Assignment E1 E13 E17 E2 E4 E5 E7 E92
+n4o_Accession E1 E10 E2 E4 E5 E7 E92 S15_Observable_Entity
+n4o_AcquisitionType_Assignment E1 E13 E17 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_Acquisition_Type E1 E28 E55 E70 E71 E77
 n4o_Activity_Type E1 E28 E55 E70 E71 E77
-n4o_Actor_Assignment E1 E13 E2 E4 E5 E7 E92
+n4o_Actor_Assignment E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_Alternative_Title E1 E28 E33 E35 E41 E70 E71 E72 E73 E77 E89 E90
-n4o_Appellation_Assignment E1 E13 E2 E4 E5 E7 E92
-n4o_Appropriation E1 E10 E2 E4 E5 E7 E92
+n4o_Appellation_Assignment E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity
+n4o_Appropriation E1 E10 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_Appropriation_Type E1 E28 E55 E70 E71 E77
 n4o_Audiofile E1 E28 E70 E71 E72 E73 E77 E89 E90
 n4o_Authorityfile E1 E28 E31 E32 E70 E71 E72 E73 E77 E89 E90
 n4o_Authorityfile_ID E1 E28 E41 E42 E70 E71 E72 E77 E90
 n4o_Collectionsystematics E1 E28 E55 E70 E71 E77
-n4o_Collectionsystematics_Assignment E1 E13 E17 E2 E4 E5 E7 E92
+n4o_Collectionsystematics_Assignment E1 E13 E17 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_Comment E1 E28 E31 E70 E71 E72 E73 E77 E89 E90
-n4o_Commissioning E1 E2 E4 E5 E7 E92
+n4o_Commissioning E1 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_Corporate_Body E1 E39 E74 E77
-n4o_Deaccession E1 E10 E2 E4 E5 E7 E92
+n4o_Deaccession E1 E10 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_Description E1 E28 E31 E70 E71 E72 E73 E77 E89 E90
 n4o_Dimension_Type E1 E28 E55 E70 E71 E77
-n4o_Encounter_Event E1 E2 E4 E5 E7 E92
-n4o_Environment E1 E18 E26 E27 E70 E72 E77
-n4o_Environmental_Affiliation E1 E2 E4 E5 E92
-n4o_Excavation E1 E2 E4 E5 E7 E92
-n4o_Exhibition E1 E2 E4 E5 E7 E87 E92
+n4o_Encounter_Event E1 E2 E4 E5 E7 E92 S15_Observable_Entity
+n4o_Environment E1 E18 E26 E27 E53 E70 E72 E77 S10_Material_Substantial S15_Observable_Entity S20_Rigid_Physical_Feature
+n4o_Environmental_Affiliation E1 E2 E4 E5 E92 S15_Observable_Entity
+n4o_Excavation E1 E2 E4 E5 E7 E92 S15_Observable_Entity
+n4o_Exhibition E1 E2 E4 E5 E7 E87 E92 S15_Observable_Entity
 n4o_Exhibition_Type E1 E28 E55 E70 E71 E77
-n4o_Existence E1 E2 E4 E5 E92
-n4o_Expedition E1 E2 E4 E5 E7 E92
-n4o_Field_Work E1 E2 E4 E5 E7 E92
+n4o_Existence E1 E2 E4 E5 E92 S15_Observable_Entity
+n4o_Expedition E1 E2 E4 E5 E7 E92 S15_Observable_Entity
+n4o_Field_Work E1 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_File E1 E28 E70 E71 E72 E73 E77 E89 E90
 n4o_Finding E1 E28 E70 E71 E72 E73 E77 E89 E90
-n4o_Foundation E1 E2 E4 E5 E63 E92
+n4o_Foundation E1 E2 E4 E5 E63 E92 S15_Observable_Entity
 n4o_Geo_Coordinates E1 E28 E41 E42 E70 E71 E72 E77 E90
 n4o_Geographical_Place E1 E53
 n4o_Global_Stratigraphic_Period E1 E2 E4 E92
 n4o_Iconographic_Motive E1 E28 E36 E70 E71 E72 E73 E77 E89 E90
-n4o_Iconography_Assignment E1 E13 E2 E4 E5 E7 E92
+n4o_Iconography_Assignment E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_Identifier E1 E28 E41 E42 E70 E71 E72 E77 E90
 n4o_Image E1 E28 E36 E70 E71 E72 E73 E77 E89 E90
 n4o_Inventory_Number E1 E28 E41 E42 E70 E71 E72 E77 E90
@@ -422,35 +474,35 @@ n4o_Literature_Type E1 E28 E55 E70 E71 E77
 n4o_Local_Stratigraphic_Period E1 E2 E4 E92
 n4o_Location E1 E53
 n4o_Location_Type E1 E28 E55 E70 E71 E77
-n4o_Material_Assignment E1 E13 E2 E4 E5 E7 E92
-n4o_Museum_or_Collection_Affiliation E1 E2 E4 E5 E92
-n4o_Object E1 E18 E19 E22 E24 E70 E71 E72 E77
-n4o_ObjectType_Assignment E1 E13 E17 E2 E4 E5 E7 E92
+n4o_Material_Assignment E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity
+n4o_Museum_or_Collection_Affiliation E1 E2 E4 E5 E92 S15_Observable_Entity
+n4o_Object E1 E18 E19 E22 E24 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
+n4o_ObjectType_Assignment E1 E13 E17 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_Object_Condition_Type E1 E28 E55 E70 E71 E77
-n4o_Object_Documentation E1 E2 E4 E5 E7 E92
-n4o_Object_Transport E1 E2 E4 E5 E7 E9 E92
+n4o_Object_Documentation E1 E2 E4 E5 E7 E92 S15_Observable_Entity
+n4o_Object_Transport E1 E2 E4 E5 E7 E9 E92 S15_Observable_Entity
 n4o_Object_Type E1 E28 E55 E70 E71 E77
 n4o_Occupation E1 E28 E55 E70 E71 E77
-n4o_Photography E1 E2 E4 E5 E63 E65 E7 E92
-n4o_Place_Assignment E1 E13 E2 E4 E5 E7 E92
-n4o_Preparation E1 E11 E2 E4 E5 E7 E92
+n4o_Photography E1 E2 E4 E5 E63 E65 E7 E92 S15_Observable_Entity
+n4o_Place_Assignment E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity
+n4o_Preparation E1 E11 E2 E4 E5 E7 E92 S15_Observable_Entity S18_Alteration
 n4o_Presentation_Type E1 E28 E55 E70 E71 E77
-n4o_Research_Activity E1 E2 E4 E5 E7 E92
+n4o_Research_Activity E1 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_Research_Activity_Type E1 E28 E55 E70 E71 E77
-n4o_Restoration E1 E11 E2 E4 E5 E7 E92
-n4o_Rock_Genesis E1 E2 E4 E5 E63 E92
+n4o_Restoration E1 E11 E2 E4 E5 E7 E92 S15_Observable_Entity S18_Alteration
+n4o_Rock_Genesis E1 E2 E4 E5 E63 E92 S15_Observable_Entity
 n4o_Society_of_Origin E1 E39 E74 E77
-n4o_Source E1 E18 E19 E22 E24 E70 E71 E72 E77
+n4o_Source E1 E18 E19 E22 E24 E70 E71 E72 E77 S10_Material_Substantial S15_Observable_Entity
 n4o_Source_Content E1 E28 E70 E71 E72 E73 E77 E89 E90
 n4o_Source_Content_Section E1 E28 E70 E71 E72 E73 E77 E89 E90
 n4o_Source_Content_Type E1 E28 E55 E70 E71 E77
-n4o_Stratigraphic_Period_Assignment E1 E13 E2 E4 E5 E7 E92
-n4o_Systematization E1 E2 E4 E5 E7 E87 E92
-n4o_Time_Assignment E1 E13 E2 E4 E5 E7 E92
+n4o_Stratigraphic_Period_Assignment E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity
+n4o_Systematization E1 E2 E4 E5 E7 E87 E92 S15_Observable_Entity
+n4o_Time_Assignment E1 E13 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_Transcription E1 E28 E31 E70 E71 E72 E73 E77 E89 E90
 n4o_URL E1 E28 E41 E42 E70 E71 E72 E77 E90
-n4o_Usage E1 E2 E4 E5 E7 E92
-n4o_UsageType_Assignment E1 E13 E17 E2 E4 E5 E7 E92
+n4o_Usage E1 E2 E4 E5 E7 E92 S15_Observable_Entity
+n4o_UsageType_Assignment E1 E13 E17 E2 E4 E5 E7 E92 S15_Observable_Entity
 n4o_Usage_Type E1 E28 E55 E70 E71 E77
 n4o_Videofile E1 E28 E70 E71 E72 E73 E77 E89 E90
 nmo_CoinWear nmo_Wear
