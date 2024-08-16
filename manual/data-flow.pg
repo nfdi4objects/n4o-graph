@@ -1,14 +1,23 @@
+sources repo:n4o-databases status:prototype
+
+sources -> Property_Graph :pgraph
+sources -> Triple_Store
+
+sources -> LIDO
+sources -> RDF
+
 # Visualization of data flow
 
 LIDO format:XML
+
 LIDO -> LIDOConverter :n4o-import
-LIDOConverter -> KG :pgraphs 
-KG format:Cypher model:CRM
+LIDOConverter -> Property_Graph :pgraph 
+Property_Graph format:Cypher model:CRM
 RDF -> RDFConverter :n4o-import
 RDFConverter -> Triple_Store :load-rdf
-RDFConverter -> KG :pgraphs
+RDFConverter -> Property_Graph :pgraph
 
-KG -> KG :enrich
+Property_Graph -> Property_Graph :enrich
 
 LIDOMapping format:X3ML
 LIDOMapping -> LIDOConverter
@@ -16,16 +25,16 @@ LIDOMapping -> LIDOConverter
 Triple_Store
   status: prototype
 
-KG -> APIs :Cypher
+Property_Graph -> APIs :Cypher
 Triple_Store -> APIs :SPARQL
 
 APIs 
   repo: n4o-graph-apis
   status: ready
 
-# Triple_Store -> KG :convert
-# KG -> Triple_Store :convert
+# Triple_Store -> Property_Graph :convert
+# Property_Graph -> Triple_Store :convert
 
 Terminologies -> TerminologyConverter 
 TerminologyConverter -> Triple_Store :load-rdf
-TerminologyConverter -> KG :pgraphs
+TerminologyConverter -> Property_Graph :pgraph

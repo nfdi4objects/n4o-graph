@@ -1,23 +1,28 @@
 flowchart LR
-    APIs["<b>APIs</b><br/><i>repo: n4o-graph-apis</i><br/><i>url: https://graph.gbv.de/</i><br/><i>status: ready</i>"]
-    KG["<b>KG</b><br/><i>format: Cypher</i><br/><i>model: CRM</i>"]
+    APIs["<b>APIs</b><br/><i>repo: n4o-graph-apis</i><br/><i>status: ready</i>"]
     LIDO["<b>LIDO</b><br/><i>format: XML</i>"]
     LIDOConverter["<b>LIDOConverter</b>"]
     LIDOMapping["<b>LIDOMapping</b><br/><i>format: X3ML</i>"]
+    Property_Graph["<b>Property_Graph</b><br/><i>format: Cypher</i><br/><i>model: CRM</i>"]
     RDF["<b>RDF</b>"]
     RDFConverter["<b>RDFConverter</b>"]
     Terminologies["<b>Terminologies</b>"]
     TerminologyConverter["<b>TerminologyConverter</b>"]
     Triple_Store["<b>Triple_Store</b><br/><i>status: prototype</i>"]
+    sources["<b>sources</b><br/><i>repo: n4o-databases</i><br/><i>status: prototype</i>"]
+    sources -- "<u>pgraph</u>" --> Property_Graph
+    sources --> Triple_Store
+    sources --> LIDO
+    sources --> RDF
     LIDO -- "<u>n4o-import</u>" --> LIDOConverter
-    LIDOConverter -- "<u>pgraphs</u>" --> KG
+    LIDOConverter -- "<u>pgraph</u>" --> Property_Graph
     RDF -- "<u>n4o-import</u>" --> RDFConverter
     RDFConverter -- "<u>load-rdf</u>" --> Triple_Store
-    RDFConverter -- "<u>pgraphs</u>" --> KG
-    KG -- "<u>enrich</u>" --> KG
+    RDFConverter -- "<u>pgraph</u>" --> Property_Graph
+    Property_Graph -- "<u>enrich</u>" --> Property_Graph
     LIDOMapping --> LIDOConverter
-    KG -- "<u>Cypher</u>" --> APIs
+    Property_Graph -- "<u>Cypher</u>" --> APIs
     Triple_Store -- "<u>SPARQL</u>" --> APIs
     Terminologies --> TerminologyConverter
     TerminologyConverter -- "<u>load-rdf</u>" --> Triple_Store
-    TerminologyConverter -- "<u>pgraphs</u>" --> KG
+    TerminologyConverter -- "<u>pgraph</u>" --> Property_Graph
