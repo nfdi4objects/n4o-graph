@@ -296,29 +296,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div aria-describedby="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div>
 <pre class="mermaid mermaid-js" data-label="fig-data-flow">flowchart LR
-    Abfrage["&lt;b&gt;Abfrage&lt;/b&gt;"]
+    APIs["&lt;b&gt;APIs&lt;/b&gt;&lt;br/&gt;&lt;i&gt;repo: n4o-graph-apis&lt;/i&gt;&lt;br/&gt;&lt;i&gt;url: https://graph.gbv.de/&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: ready&lt;/i&gt;"]
     KG["&lt;b&gt;KG&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: Cypher&lt;/i&gt;&lt;br/&gt;&lt;i&gt;model: CRM&lt;/i&gt;"]
     LIDO["&lt;b&gt;LIDO&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: XML&lt;/i&gt;"]
     LIDOConverter["&lt;b&gt;LIDOConverter&lt;/b&gt;"]
     LIDOMapping["&lt;b&gt;LIDOMapping&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: X3ML&lt;/i&gt;"]
     RDF["&lt;b&gt;RDF&lt;/b&gt;"]
     RDFConverter["&lt;b&gt;RDFConverter&lt;/b&gt;"]
-    TTL["&lt;b&gt;TTL&lt;/b&gt;&lt;br/&gt;&lt;i&gt;name: Triple-Store&lt;/i&gt;"]
     Terminologies["&lt;b&gt;Terminologies&lt;/b&gt;"]
     TerminologyConverter["&lt;b&gt;TerminologyConverter&lt;/b&gt;"]
+    Triple_Store["&lt;b&gt;Triple_Store&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;"]
     LIDO -- "&lt;u&gt;n4o-import&lt;/u&gt;" --&gt; LIDOConverter
     LIDOConverter -- "&lt;u&gt;pgraphs&lt;/u&gt;" --&gt; KG
     RDF -- "&lt;u&gt;n4o-import&lt;/u&gt;" --&gt; RDFConverter
-    RDFConverter -- "&lt;u&gt;load-rdf&lt;/u&gt;" --&gt; TTL
+    RDFConverter -- "&lt;u&gt;load-rdf&lt;/u&gt;" --&gt; Triple_Store
     RDFConverter -- "&lt;u&gt;pgraphs&lt;/u&gt;" --&gt; KG
     KG -- "&lt;u&gt;enrich&lt;/u&gt;" --&gt; KG
     LIDOMapping --&gt; LIDOConverter
-    KG -- "&lt;u&gt;Cypher&lt;/u&gt;" --&gt; Abfrage
-    TTL -- "&lt;u&gt;SPARQL&lt;/u&gt;" --&gt; Abfrage
-    TTL -- "&lt;u&gt;convert&lt;/u&gt;" --&gt; KG
-    KG -- "&lt;u&gt;convert&lt;/u&gt;" --&gt; TTL
+    KG -- "&lt;u&gt;Cypher&lt;/u&gt;" --&gt; APIs
+    Triple_Store -- "&lt;u&gt;SPARQL&lt;/u&gt;" --&gt; APIs
     Terminologies --&gt; TerminologyConverter
-    TerminologyConverter -- "&lt;u&gt;load-rdf&lt;/u&gt;" --&gt; TTL
+    TerminologyConverter -- "&lt;u&gt;load-rdf&lt;/u&gt;" --&gt; Triple_Store
     TerminologyConverter -- "&lt;u&gt;pgraphs&lt;/u&gt;" --&gt; KG
 
 </pre>
