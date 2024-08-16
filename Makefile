@@ -12,12 +12,14 @@ docs:
 preview:
 	QUARTO_PYTHON=.venv/bin/python quarto preview manual
 
+manual/img/data-flow.mmd: manual/data-flow.pg
+	pgraph $< --html -t mmd > $@
+
 manual/img/crm-all-classes.svg: voc/crm-all-classes.pg
 	pgraph $< --html -t mmd | mmdc -i - -o $@
 
-manual/img/crm-extensions+classes.svg: voc/crm-extension-classes.pg
+manual/img/crm-extensions-classes.svg: voc/crm-extension-classes.pg
 	pgraph $< --html -t mmd | mmdc -i - -o $@
-
 
 manual/img/crm-pg-example.svg: manual/crm-pg-example.pg
 	pgraph $< --html -t dot |  dot -Tsvg -o $@

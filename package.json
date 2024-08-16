@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "neo4j-driver-lite": "^5.20.0",
-    "pgraphs": "^0.6.9"
+    "pgraphs": "^0.6.17"
   }
 }

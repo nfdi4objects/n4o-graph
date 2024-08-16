@@ -5,22 +5,27 @@ LIDO -> LIDOConverter :n4o-import
 LIDOConverter -> KG :pgraphs 
 KG format:Cypher model:CRM
 RDF -> RDFConverter :n4o-import
-RDFConverter -> TTL :load-rdf
+RDFConverter -> Triple_Store :load-rdf
 RDFConverter -> KG :pgraphs
 
 KG -> KG :enrich
 
-"LIDOMapping" format:X3ML
-"LIDOMapping" -> LIDOConverter
+LIDOMapping format:X3ML
+LIDOMapping -> LIDOConverter
 
-TTL name:"Triple-Store"
+Triple_Store
+  status: prototype
 
-KG -> Abfrage :Cypher
-TTL -> Abfrage :SPARQL
+KG -> APIs :Cypher
+Triple_Store -> APIs :SPARQL
 
-TTL -> KG :convert
-KG -> TTL :convert
+APIs 
+  repo: n4o-graph-apis
+  status: ready
+
+# Triple_Store -> KG :convert
+# KG -> Triple_Store :convert
 
 Terminologies -> TerminologyConverter 
-TerminologyConverter -> TTL :load-rdf
+TerminologyConverter -> Triple_Store :load-rdf
 TerminologyConverter -> KG :pgraphs
