@@ -1,13 +1,12 @@
 flowchart LR
     APIs["<b>APIs</b><br/><i>repo: n4o-graph-apis</i><br/><i>status: ready</i>"]
-    LIDO["<b>LIDO</b><br/><i>format: XML</i>"]
-    LIDOConverter["<b>LIDOConverter</b>"]
-    LIDOMapping["<b>LIDOMapping</b><br/><i>format: X3ML</i>"]
-    Property_Graph["<b>Property_Graph</b><br/><i>format: Cypher</i><br/><i>model: CRM</i>"]
+    LIDO["<b>LIDO</b>"]
+    LIDOConverter["<b>LIDOConverter</b><br/><i>tool: X3ML</i><br/><i>repo: ?</i><br/><i>status: prototype</i>"]
+    Property_Graph["<b>Property_Graph</b><br/><i>status: prototype</i>"]
     RDF["<b>RDF</b>"]
-    RDFConverter["<b>RDFConverter</b>"]
+    RDFConverter["<b>RDFConverter</b><br/><i>status: planned</i><br/><i>repo: ?</i>"]
     Terminologies["<b>Terminologies</b>"]
-    TerminologyConverter["<b>TerminologyConverter</b>"]
+    TerminologyConverter["<b>TerminologyConverter</b><br/><i>status: planned</i><br/><i>repo: ?</i>"]
     Triple_Store["<b>Triple_Store</b><br/><i>status: prototype</i>"]
     sources["<b>sources</b><br/><i>repo: n4o-databases</i><br/><i>status: prototype</i>"]
     sources -- "<u>pgraph</u>" --> Property_Graph
@@ -20,7 +19,7 @@ flowchart LR
     RDFConverter -- "<u>load-rdf</u>" --> Triple_Store
     RDFConverter -- "<u>pgraph</u>" --> Property_Graph
     Property_Graph -- "<u>enrich</u>" --> Property_Graph
-    LIDOMapping --> LIDOConverter
+    LIDOConverter --> RDFConverter
     Property_Graph -- "<u>Cypher</u>" --> APIs
     Triple_Store -- "<u>SPARQL</u>" --> APIs
     Terminologies --> TerminologyConverter

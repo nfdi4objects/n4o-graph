@@ -8,19 +8,23 @@ sources -> RDF
 
 # Visualization of data flow
 
-LIDO format:XML
+LIDO
+
+LIDOConverter tool:X3ML repo:? status:prototype
 
 LIDO -> LIDOConverter :n4o-import
 LIDOConverter -> Property_Graph :pgraph 
-Property_Graph format:Cypher model:CRM
+Property_Graph status:prototype
+
 RDF -> RDFConverter :n4o-import
 RDFConverter -> Triple_Store :load-rdf
 RDFConverter -> Property_Graph :pgraph
 
 Property_Graph -> Property_Graph :enrich
 
-LIDOMapping format:X3ML
-LIDOMapping -> LIDOConverter
+LIDOConverter -> RDFConverter
+
+RDFConverter status:planned repo:?
 
 Triple_Store
   status: prototype
@@ -34,6 +38,8 @@ APIs
 
 # Triple_Store -> Property_Graph :convert
 # Property_Graph -> Triple_Store :convert
+
+TerminologyConverter status:planned repo:?
 
 Terminologies -> TerminologyConverter 
 TerminologyConverter -> Triple_Store :load-rdf
