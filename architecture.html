@@ -297,14 +297,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <pre class="mermaid mermaid-js" data-label="fig-data-flow">flowchart LR
     APIs["&lt;b&gt;APIs&lt;/b&gt;&lt;br/&gt;&lt;i&gt;repo: n4o-graph-apis&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: ready&lt;/i&gt;"]
-    LIDO["&lt;b&gt;LIDO&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: XML&lt;/i&gt;"]
-    LIDOConverter["&lt;b&gt;LIDOConverter&lt;/b&gt;"]
-    LIDOMapping["&lt;b&gt;LIDOMapping&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: X3ML&lt;/i&gt;"]
-    Property_Graph["&lt;b&gt;Property_Graph&lt;/b&gt;&lt;br/&gt;&lt;i&gt;format: Cypher&lt;/i&gt;&lt;br/&gt;&lt;i&gt;model: CRM&lt;/i&gt;"]
+    LIDO["&lt;b&gt;LIDO&lt;/b&gt;"]
+    LIDOConverter["&lt;b&gt;LIDOConverter&lt;/b&gt;&lt;br/&gt;&lt;i&gt;tool: X3ML&lt;/i&gt;&lt;br/&gt;&lt;i&gt;repo: ?&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;"]
+    Property_Graph["&lt;b&gt;Property_Graph&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;"]
     RDF["&lt;b&gt;RDF&lt;/b&gt;"]
-    RDFConverter["&lt;b&gt;RDFConverter&lt;/b&gt;"]
+    RDFConverter["&lt;b&gt;RDFConverter&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: planned&lt;/i&gt;&lt;br/&gt;&lt;i&gt;repo: ?&lt;/i&gt;"]
     Terminologies["&lt;b&gt;Terminologies&lt;/b&gt;"]
-    TerminologyConverter["&lt;b&gt;TerminologyConverter&lt;/b&gt;"]
+    TerminologyConverter["&lt;b&gt;TerminologyConverter&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: planned&lt;/i&gt;&lt;br/&gt;&lt;i&gt;repo: ?&lt;/i&gt;"]
     Triple_Store["&lt;b&gt;Triple_Store&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;"]
     sources["&lt;b&gt;sources&lt;/b&gt;&lt;br/&gt;&lt;i&gt;repo: n4o-databases&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;"]
     sources -- "&lt;u&gt;pgraph&lt;/u&gt;" --&gt; Property_Graph
@@ -317,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     RDFConverter -- "&lt;u&gt;load-rdf&lt;/u&gt;" --&gt; Triple_Store
     RDFConverter -- "&lt;u&gt;pgraph&lt;/u&gt;" --&gt; Property_Graph
     Property_Graph -- "&lt;u&gt;enrich&lt;/u&gt;" --&gt; Property_Graph
-    LIDOMapping --&gt; LIDOConverter
+    LIDOConverter --&gt; RDFConverter
     Property_Graph -- "&lt;u&gt;Cypher&lt;/u&gt;" --&gt; APIs
     Triple_Store -- "&lt;u&gt;SPARQL&lt;/u&gt;" --&gt; APIs
     Terminologies --&gt; TerminologyConverter
