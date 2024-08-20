@@ -144,17 +144,7 @@
     "href": "usage.html",
     "title": "Benutzung",
     "section": "",
-    "text": "Cypher-API\nEine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL https://graph.gbv.de/ abgefragt werden. Eine Einführung mit Beispielen und Dokumentation des Rückgabeformat gibt es im Kapitel Cypher-Abfragen.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
-    ]
-  },
-  {
-    "objectID": "usage.html#cypher-api",
-    "href": "usage.html#cypher-api",
-    "title": "Benutzung",
-    "section": "",
-    "text": "Abfrage mit Python\nimport requests\nimport json\n\napi = \"https://graph.gbv.de/api\"\nquery = 'MATCH (m:E16_Measurement) RETURN m LIMIT 1'\nresults = requests.get(api, { \"cypher\": query }).json()\n\n\nAbfrage mit JavaScript\nconst api = \"https://graph.gbv.de/api\"\nconst cypher = 'MATCH (m:E16_Measurement) RETURN m LIMIT 1'\nresults = await fetch(api, { cypher }).then(res =&gt; res.json())\n\n\n\nAbfrage mit curl\nDie Cypher-Query muss URL-kodiert werden, dabei werden unter anderem Leerzeichen durch %20 ersetzt. Der Parameter –data-urlencode sorgt automatisch dafür:\n\ncurl -G https://graph.gbv.de/api --data-urlencode 'cypher=MATCH (m:E16_Measurement) RETURN m LIMIT 10'\n\nDie Cypher-Query kann auch per Datei übergeben werden:\ncurl -G https://graph.gbv.de/api --data-urlencode 'cypher@queryfile.cypher'",
+    "text": "Cypher-API\nEine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL https://graph.gbv.de/api/cypher abgefragt werden (siehe API-Dokumentation). Unter https://graph.gbv.de/cypher gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel Cypher-Abfragen.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
     ]
@@ -164,7 +154,7 @@
     "href": "usage.html#sparql-api",
     "title": "Benutzung",
     "section": "SPARQL-API",
-    "text": "SPARQL-API\n\n\n\n\n\n\nNoch nicht öffentlich zugänglich!\n\n\n\nDer Triple-Store des Knowledge Graphen kann mittels SPARQL abgefragt werden. Eine Einführung mit Beispielen gibt es im Kapitel SPARQL-Abfragen.",
+    "text": "SPARQL-API\nEine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL https://graph.gbv.de/api/sparql abgefragt werden (siehe API-Dokumentation). Unter https://graph.gbv.de/sparql gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel SPARQL-Abfragen.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
     ]

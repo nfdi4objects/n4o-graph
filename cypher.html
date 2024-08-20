@@ -316,7 +316,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="anfrageformat" class="level3">
 <h3 class="anchored" data-anchor-id="anfrageformat">Anfrageformat</h3>
-<p>Der vorläufige API-Endpunkt ist <a href="https://graph.gbv.de/api" class="uri">https://graph.gbv.de/api</a>. Die Cypher-Abfrage wird mit einer <strong>HTTP GET</strong> Anfrage im Query-Parameter <code>cypher</code> übergeben.</p>
+<p>Der vorläufige API-Endpunkt ist <a href="https://graph.gbv.de/api/cypher" class="uri">https://graph.gbv.de/api/cypher</a>. Die Cypher-Abfrage wird mit einer <strong>HTTP GET</strong> Anfrage im Query-Parameter <code>query</code> übergeben (siehe <a href="https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#property-graph-api">API-Dokumentation</a>).</p>
 </section>
 <section id="rückgabeformat" class="level3">
 <h3 class="anchored" data-anchor-id="rückgabeformat">Rückgabeformat</h3>
@@ -461,7 +461,7 @@ RETURN p</code></pre>
 <pre class="cypher"><code>MATCH (n:E16_Measurement)-[:P40_observed_dimension]-&gt;(m:E54_Dimension)-[:P2_has_type]-&gt;(:E55_Type)-[:P48_has_preferred_identifier]-&gt;(l)
 MATCH (m)-[:P91_has_unit]-&gt;(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]-&gt;(o)
 RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note</code></pre>
-<div id="4d682a9b" class="cell" data-execution_count="1">
+<div id="e202ea05" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>2.8,cm,Höhe (Scan)</code></pre>
 </div>

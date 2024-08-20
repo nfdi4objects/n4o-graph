@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -222,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 <script src="./js/common.js"></script>
 <script src="./js/codemirror.js"></script>
 <script src="./js/cypher.js"></script>
@@ -251,50 +217,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Der Zugriff auf den Knowledge Graphen ist bislang nur <a href="#cypher-api">per Cypher-API</a> möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.</p>
-<section id="cypher-api" class="level2 page-columns page-full">
+<p>Der Zugriff auf den Knowledge Graphen ist bislang nur über technische Schnittstellen (APIs) möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.</p>
+<section id="cypher-api" class="level2">
 <h2 class="anchored" data-anchor-id="cypher-api">Cypher-API</h2>
-<p>Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <a href="https://graph.gbv.de/" class="uri">https://graph.gbv.de/</a> abgefragt werden. Eine Einführung mit Beispielen und Dokumentation des Rückgabeformat gibt es im Kapitel <a href="./cypher.html">Cypher-Abfragen</a>.</p>
-<div class="column-screen-inset-right">
-<section id="abfrage-mit-python" class="level4">
-<h4 class="anchored" data-anchor-id="abfrage-mit-python">Abfrage mit Python</h4>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>api <span class="op">=</span> <span class="st">"https://graph.gbv.de/api"</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">'MATCH (m:E16_Measurement) RETURN m LIMIT 1'</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> requests.get(api, { <span class="st">"cypher"</span>: query }).json()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="abfrage-mit-javascript" class="level4">
-<h4 class="anchored" data-anchor-id="abfrage-mit-javascript">Abfrage mit JavaScript</h4>
-<div class="sourceCode" id="cb2"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> api <span class="op">=</span> <span class="st">"https://graph.gbv.de/api"</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> cypher <span class="op">=</span> <span class="st">'MATCH (m:E16_Measurement) RETURN m LIMIT 1'</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>results <span class="op">=</span> <span class="cf">await</span> <span class="fu">fetch</span>(api<span class="op">,</span> { cypher })<span class="op">.</span><span class="fu">then</span>(res <span class="kw">=&gt;</span> res<span class="op">.</span><span class="fu">json</span>())</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-</div>
-<section id="abfrage-mit-curl" class="level4 page-columns page-full">
-<h4 class="anchored" data-anchor-id="abfrage-mit-curl">Abfrage mit curl</h4>
-<p>Die Cypher-Query muss URL-kodiert werden, dabei werden unter anderem Leerzeichen durch <code>%20</code> ersetzt. Der Parameter <a href="https://curl.se/docs/manpage.html#--data-urlencode">–data-urlencode</a> sorgt automatisch dafür:</p>
-<div class="column-screen-inset-right">
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-G</span> https://graph.gbv.de/api <span class="at">--data-urlencode</span> <span class="st">'cypher=MATCH (m:E16_Measurement) RETURN m LIMIT 10'</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Die Cypher-Query kann auch per Datei übergeben werden:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-G</span> https://graph.gbv.de/api <span class="at">--data-urlencode</span> <span class="st">'cypher@queryfile.cypher'</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
+<p>Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <a href="https://graph.gbv.de/api/cypher" class="uri">https://graph.gbv.de/api/cypher</a> abgefragt werden (siehe <a href="https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#property-graph-api">API-Dokumentation</a>). Unter <a href="https://graph.gbv.de/cypher" class="uri">https://graph.gbv.de/cypher</a> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel <a href="./cypher.html">Cypher-Abfragen</a>.</p>
 </section>
 <section id="sparql-api" class="level2">
 <h2 class="anchored" data-anchor-id="sparql-api">SPARQL-API</h2>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Noch nicht öffentlich zugänglich!</p>
-</div>
-</div>
-</div>
-<p>Der Triple-Store des Knowledge Graphen kann mittels SPARQL abgefragt werden. Eine Einführung mit Beispielen gibt es im Kapitel <a href="./sparql.html">SPARQL-Abfragen</a>.</p>
+<p>Eine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL <a href="https://graph.gbv.de/api/sparql" class="uri">https://graph.gbv.de/api/sparql</a> abgefragt werden (siehe <a href="https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#sparql-api">API-Dokumentation</a>). Unter <a href="https://graph.gbv.de/sparql" class="uri">https://graph.gbv.de/sparql</a> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel <a href="./sparql.html">SPARQL-Abfragen</a>.</p>
 </section>
 <section id="datenbankdumps" class="level2">
 <h2 class="anchored" data-anchor-id="datenbankdumps">Datenbankdumps</h2>
