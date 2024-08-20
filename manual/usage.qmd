@@ -4,63 +4,15 @@ subtitle: Zugriff auf den Inhalt des Knowledge Graphen
 lang: de
 ---
 
-Der Zugriff auf den Knowledge Graphen ist bislang nur [per Cypher-API](#cypher-api) möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.
+Der Zugriff auf den Knowledge Graphen ist bislang nur über technische Schnittstellen (APIs) möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.
 
 ## Cypher-API
 
-Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <https://graph.gbv.de/> abgefragt werden. Eine Einführung mit Beispielen und Dokumentation des Rückgabeformat gibt es im Kapitel [Cypher-Abfragen](cypher.qmd).
-
-:::{.column-screen-inset-right}
-
-#### Abfrage mit Python
-
-```python
-import requests
-import json
-
-api = "https://graph.gbv.de/api"
-query = 'MATCH (m:E16_Measurement) RETURN m LIMIT 1'
-results = requests.get(api, { "cypher": query }).json()
-```
-
-#### Abfrage mit JavaScript
-
-```js
-const api = "https://graph.gbv.de/api"
-const cypher = 'MATCH (m:E16_Measurement) RETURN m LIMIT 1'
-results = await fetch(api, { cypher }).then(res => res.json())
-```
-
-:::
-
-#### Abfrage mit curl
-
-Die Cypher-Query muss URL-kodiert werden, dabei werden unter anderem
-Leerzeichen durch `%20` ersetzt. Der Parameter
-[--data-urlencode](https://curl.se/docs/manpage.html#--data-urlencode) sorgt
-automatisch dafür:
-
-:::{.column-screen-inset-right}
-```sh
-curl -G {{< meta public >}} --data-urlencode 'cypher=MATCH (m:E16_Measurement) RETURN m LIMIT 10'
-```
-:::
-
-Die Cypher-Query kann auch per Datei übergeben werden:
-
-```sh
-curl -G {{< meta public >}} --data-urlencode 'cypher@queryfile.cypher'
-```
+Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <https://graph.gbv.de/api/cypher> abgefragt werden (siehe [API-Dokumentation](https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#property-graph-api)). Unter <https://graph.gbv.de/cypher> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel [Cypher-Abfragen](cypher.qmd).
 
 ## SPARQL-API
 
-::: {.callout-warning appearance="simple"}
-Noch nicht öffentlich zugänglich!
-:::
-
-Der Triple-Store des Knowledge Graphen kann mittels SPARQL abgefragt werden.
-Eine Einführung mit Beispielen gibt es im Kapitel
-[SPARQL-Abfragen](sparql.qmd).
+Eine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL <https://graph.gbv.de/api/sparql> abgefragt werden (siehe [API-Dokumentation](https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#sparql-api)). Unter <https://graph.gbv.de/sparql> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel [SPARQL-Abfragen](sparql.qmd).
 
 ## Datenbankdumps
 

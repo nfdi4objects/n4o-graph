@@ -3,6 +3,10 @@
 Dieses Repositoriy enthält Skripte und [Dokumentation](#handbuch) zur
 Erstellung, Management und Nutzung des NFDI4Objects Knowledge Graphen von TA5.
 
+Das Handbuch enthält eine Beschreibung der Architektur und Workflows des
+Knowledge Graphen und Abfrage-Beispiele in Cypher und SPARQL in Python und
+JavaScript.
+
 ## Übersicht
 
 - Verzeichnis [voc](voc) enthält Informationen zu unterstützen Ontologien und
