@@ -21,6 +21,7 @@ Die technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie 
 - Versionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG
 - Angaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung
 - Verwendung von Normdaten-URI zur eindeutigen Zuweisung von Personen, Geografika u. s. w. (bspw. GND, VIAF, Wikidata, Geonames, historischen Gazeteers, ...)
+- Weitere Daten der unterstützten Terminologien und Ontologien werden herausgefiltert und gesondert eingespielt.
 
 ## Beispiele
 

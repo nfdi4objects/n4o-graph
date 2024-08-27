@@ -4,45 +4,35 @@ subtitle: Zugriff auf den Knowledge Graphen per SPARQL
 lang: de
 ---
 
-Die im Knowledge-Graph zusammengeführten Daten werden zusammen mit weiteren
-RDF-Daten in einem **[Triple Store](#triple-store)** zur Verfügung gestellt und
-können per **SPARQL** abgefragt werden.
+Die im Knowledge-Graph gesammelten Forschungsdaten werden zusammen mit Normdaten und Verwaltungsdaten in einem **[Triple Store](#triple-store)** zusammengeführt und können unter <https://graph.nfdi4objects.net/sparql> mittels **SPARQL** abgefragt werden (siehe Beispielabfragen dort). 
 
-*Dieser Dienst befindet sich noch im Aufbau*
+## Datenmodell
 
-## Inhalt des Triple Store
+### Teilgraphen
 
-- Alle in RDF angelieferten Daten (soweit syntaxktisch korrekt). Es ist also kein einheitliches Datenmodell vorgeschrieben! Aus den RDF-Daten werden lediglich Aussagen über Terminologien und Ontologien herausgefiltert
+Die RDF-Datenbank ist in mehrere Graphen unterteilt: 
 
-- Jede Lieferung ist ein Named Graph, so dass die Lieferungen sowohl einzeln, als auch in einem RDF-Graphen zusammengefasst abgefragt werden können.
+- Jede Sammlung von Forschungsdaten wird über eine URI der Form
+  `https://graph.nfdi4objects.net/collection/ID` identifiziert,
+  beispielsweise <https://graph.nfdi4objects.net/collection/4>.
+  Die Sammlung kann als ganzes aktualisiert und einzeln oder
+  zusammen mit anderen Inhalten abgefragt werden.
 
-- Unterstützte Ontologien und Terminologien sind ebenfalls als eigene Namend Graphs eingespielt, so dass sie für Abfragen verwendet werden können.
+- Der Graph <https://graph.nfdi4objects.net/collection/> enthält 
+  Informationen *über* die einzelnen Sammlungen.
 
+- Vokabulare und Ontologien sind in eigenen Graphen verwaltet, deren
+  URI der BARTOC-URI des jeweiligen Vokabulars entspricht,
+  beispielsweise <http://bartoc.org/en/node/1940> für Wikidata
+  und <http://bartoc.org/en/node/1644> für CIDOC-CRM.
 
-## Beispielabfragen
+- Der Graph <https://graph.nfdi4objects.net/terminology/> enthält
+  Informationen *über* Vokabulare.
 
-### Statistik aller Prädikate und ihrer Häufigkeit
-```sparql
-SELECT distinct ?pred WHERE {
-  ?sub ?pred ?obj .
-}
-```
+Sofern kein konkreter Graph angegeben ist, gelten Abfragen über die Gesamtheit
+aller Graphen.
 
-### Statistik aller Prädikate sortiert nach Anzahl der Prädikate
-```sparql
-SELECT distinct ?pre (COUNT(?pre) AS ?count) WHERE {
-  ?s ?pre ?obj
-} 
-GROUP BY ?pre
-ORDER BY DESC(?count)
-```
+### Struktur der Inhalt
 
-### Statistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte
-```sparql
-SELECT distinct (COUNT(?s) AS ?count) ?obj WHERE {
-  ?s <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?obj
-} 
-GROUP BY ?obj
-ORDER BY DESC(?count)
-```
+Aus den Lieferungen von Sammlungen werden prinzipiell alle syntaktisch korrekten RDF-Daten übernommen. Allerdings werden einige Triples herausgefiltert und einige URIs umgeschrieben, um unnötige Uneinheitlichkeiten zu vermeiden (siehe [Datenimport](sources.qmd)). Es gibt ist also *kein einheitliches Datenmodell vorgeschrieben.* 
 
