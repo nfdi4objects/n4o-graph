@@ -3,5 +3,5 @@
   "url": "http://localhost:7474",
   "user": "",
   "password": "",
-  "public": "https://graph.gbv.de/api/cypher"
+  "public": "https://graph.nfdi4objects.net/api/cypher"
 }

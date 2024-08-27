@@ -8,11 +8,11 @@ Der Zugriff auf den Knowledge Graphen ist bislang nur über technische Schnittst
 
 ## Cypher-API
 
-Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <https://graph.gbv.de/api/cypher> abgefragt werden (siehe [API-Dokumentation](https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#property-graph-api)). Unter <https://graph.gbv.de/cypher> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel [Cypher-Abfragen](cypher.qmd).
+Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <https://graph.nfdi4objects.net/api/cypher> abgefragt werden (siehe [API-Dokumentation](https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#property-graph-api)). Unter <https://graph.nfdi4objects.net/cypher> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel [Cypher-Abfragen](cypher.qmd).
 
 ## SPARQL-API
 
-Eine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL <https://graph.gbv.de/api/sparql> abgefragt werden (siehe [API-Dokumentation](https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#sparql-api)). Unter <https://graph.gbv.de/sparql> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel [SPARQL-Abfragen](sparql.qmd).
+Eine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL <https://graph.nfdi4objects.net/api/sparql> abgefragt werden (siehe [API-Dokumentation](https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#sparql-api)). Unter <https://graph.nfdi4objects.net/sparql> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel [SPARQL-Abfragen](sparql.qmd).
 
 ## Datenbankdumps
 

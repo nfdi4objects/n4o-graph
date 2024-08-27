@@ -50,7 +50,7 @@ cypherEditor
 
 ### Anfrageformat
 
-Der vorläufige API-Endpunkt ist <https://graph.gbv.de/api/cypher>. Die Cypher-Abfrage wird mit einer **HTTP GET** Anfrage im Query-Parameter `query` übergeben
+Der vorläufige API-Endpunkt ist <https://graph.nfdi4objects.net/api/cypher>. Die Cypher-Abfrage wird mit einer **HTTP GET** Anfrage im Query-Parameter `query` übergeben
 (siehe [API-Dokumentation](https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#property-graph-api)). 
 
 ### Rückgabeformat
