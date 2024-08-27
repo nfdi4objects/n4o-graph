@@ -180,12 +180,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#inhalt-des-triple-store" id="toc-inhalt-des-triple-store" class="nav-link active" data-scroll-target="#inhalt-des-triple-store">Inhalt des Triple Store</a></li>
-  <li><a href="#beispielabfragen" id="toc-beispielabfragen" class="nav-link" data-scroll-target="#beispielabfragen">Beispielabfragen</a>
+  <li><a href="#datenmodell" id="toc-datenmodell" class="nav-link active" data-scroll-target="#datenmodell">Datenmodell</a>
   <ul class="collapse">
-  <li><a href="#statistik-aller-prädikate-und-ihrer-häufigkeit" id="toc-statistik-aller-prädikate-und-ihrer-häufigkeit" class="nav-link" data-scroll-target="#statistik-aller-prädikate-und-ihrer-häufigkeit">Statistik aller Prädikate und ihrer Häufigkeit</a></li>
-  <li><a href="#statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate" id="toc-statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate" class="nav-link" data-scroll-target="#statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate">Statistik aller Prädikate sortiert nach Anzahl der Prädikate</a></li>
-  <li><a href="#statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte" id="toc-statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte" class="nav-link" data-scroll-target="#statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte">Statistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte</a></li>
+  <li><a href="#teilgraphen" id="toc-teilgraphen" class="nav-link" data-scroll-target="#teilgraphen">Teilgraphen</a></li>
+  <li><a href="#struktur-der-inhalt" id="toc-struktur-der-inhalt" class="nav-link" data-scroll-target="#struktur-der-inhalt">Struktur der Inhalt</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/sparql.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
@@ -220,39 +218,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Die im Knowledge-Graph zusammengeführten Daten werden zusammen mit weiteren RDF-Daten in einem <strong><a href="basics.html#triple-store">Triple Store</a></strong> zur Verfügung gestellt und können per <strong>SPARQL</strong> abgefragt werden.</p>
-<p><em>Dieser Dienst befindet sich noch im Aufbau</em></p>
-<section id="inhalt-des-triple-store" class="level2">
-<h2 class="anchored" data-anchor-id="inhalt-des-triple-store">Inhalt des Triple Store</h2>
+<p>Die im Knowledge-Graph gesammelten Forschungsdaten werden zusammen mit Normdaten und Verwaltungsdaten in einem <strong><a href="basics.html#triple-store">Triple Store</a></strong> zusammengeführt und können unter <a href="https://graph.nfdi4objects.net/sparql" class="uri">https://graph.nfdi4objects.net/sparql</a> mittels <strong>SPARQL</strong> abgefragt werden (siehe Beispielabfragen dort).</p>
+<section id="datenmodell" class="level2">
+<h2 class="anchored" data-anchor-id="datenmodell">Datenmodell</h2>
+<section id="teilgraphen" class="level3">
+<h3 class="anchored" data-anchor-id="teilgraphen">Teilgraphen</h3>
+<p>Die RDF-Datenbank ist in mehrere Graphen unterteilt:</p>
 <ul>
-<li><p>Alle in RDF angelieferten Daten (soweit syntaxktisch korrekt). Es ist also kein einheitliches Datenmodell vorgeschrieben! Aus den RDF-Daten werden lediglich Aussagen über Terminologien und Ontologien herausgefiltert</p></li>
-<li><p>Jede Lieferung ist ein Named Graph, so dass die Lieferungen sowohl einzeln, als auch in einem RDF-Graphen zusammengefasst abgefragt werden können.</p></li>
-<li><p>Unterstützte Ontologien und Terminologien sind ebenfalls als eigene Namend Graphs eingespielt, so dass sie für Abfragen verwendet werden können.</p></li>
+<li><p>Jede Sammlung von Forschungsdaten wird über eine URI der Form <code>https://graph.nfdi4objects.net/collection/ID</code> identifiziert, beispielsweise <a href="https://graph.nfdi4objects.net/collection/4" class="uri">https://graph.nfdi4objects.net/collection/4</a>. Die Sammlung kann als ganzes aktualisiert und einzeln oder zusammen mit anderen Inhalten abgefragt werden.</p></li>
+<li><p>Der Graph <a href="https://graph.nfdi4objects.net/collection/" class="uri">https://graph.nfdi4objects.net/collection/</a> enthält Informationen <em>über</em> die einzelnen Sammlungen.</p></li>
+<li><p>Vokabulare und Ontologien sind in eigenen Graphen verwaltet, deren URI der BARTOC-URI des jeweiligen Vokabulars entspricht, beispielsweise <a href="http://bartoc.org/en/node/1940" class="uri">http://bartoc.org/en/node/1940</a> für Wikidata und <a href="http://bartoc.org/en/node/1644" class="uri">http://bartoc.org/en/node/1644</a> für CIDOC-CRM.</p></li>
+<li><p>Der Graph <a href="https://graph.nfdi4objects.net/terminology/" class="uri">https://graph.nfdi4objects.net/terminology/</a> enthält Informationen <em>über</em> Vokabulare.</p></li>
 </ul>
+<p>Sofern kein konkreter Graph angegeben ist, gelten Abfragen über die Gesamtheit aller Graphen.</p>
 </section>
-<section id="beispielabfragen" class="level2">
-<h2 class="anchored" data-anchor-id="beispielabfragen">Beispielabfragen</h2>
-<section id="statistik-aller-prädikate-und-ihrer-häufigkeit" class="level3">
-<h3 class="anchored" data-anchor-id="statistik-aller-prädikate-und-ihrer-häufigkeit">Statistik aller Prädikate und ihrer Häufigkeit</h3>
-<pre class="sparql"><code>SELECT distinct ?pred WHERE {
-  ?sub ?pred ?obj .
-}</code></pre>
-</section>
-<section id="statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate" class="level3">
-<h3 class="anchored" data-anchor-id="statistik-aller-prädikate-sortiert-nach-anzahl-der-prädikate">Statistik aller Prädikate sortiert nach Anzahl der Prädikate</h3>
-<pre class="sparql"><code>SELECT distinct ?pre (COUNT(?pre) AS ?count) WHERE {
-  ?s ?pre ?obj
-} 
-GROUP BY ?pre
-ORDER BY DESC(?count)</code></pre>
-</section>
-<section id="statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte" class="level3">
-<h3 class="anchored" data-anchor-id="statistik-aller-objekte-mit-spezifischen-prädikat-sortiert-nach-anzahl-der-subjekte">Statistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte</h3>
-<pre class="sparql"><code>SELECT distinct (COUNT(?s) AS ?count) ?obj WHERE {
-  ?s &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; ?obj
-} 
-GROUP BY ?obj
-ORDER BY DESC(?count)</code></pre>
+<section id="struktur-der-inhalt" class="level3">
+<h3 class="anchored" data-anchor-id="struktur-der-inhalt">Struktur der Inhalt</h3>
+<p>Aus den Lieferungen von Sammlungen werden prinzipiell alle syntaktisch korrekten RDF-Daten übernommen. Allerdings werden einige Triples herausgefiltert und einige URIs umgeschrieben, um unnötige Uneinheitlichkeiten zu vermeiden (siehe <a href="./sources.html">Datenimport</a>). Es gibt ist also <em>kein einheitliches Datenmodell vorgeschrieben.</em></p>
 
 
 </section>

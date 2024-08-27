@@ -64,7 +64,7 @@
     "href": "sources.html#anforderungen-an-datenlieferungen",
     "title": "Datenquellen",
     "section": "",
-    "text": "Lieferung ausschließlich in RDF oder als XML Lightweight Information Describing Objects (LIDO)\nZur Integration von RDF-Daten in den Property Graphen muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von etablierten Vokabularen oder zumindest URIs statt Freitextfeldern\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung\nVerwendung von Normdaten-URI zur eindeutigen Zuweisung von Personen, Geografika u. s. w. (bspw. GND, VIAF, Wikidata, Geonames, historischen Gazeteers, …)",
+    "text": "Lieferung ausschließlich in RDF oder als XML Lightweight Information Describing Objects (LIDO)\nZur Integration von RDF-Daten in den Property Graphen muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von etablierten Vokabularen oder zumindest URIs statt Freitextfeldern\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung\nVerwendung von Normdaten-URI zur eindeutigen Zuweisung von Personen, Geografika u. s. w. (bspw. GND, VIAF, Wikidata, Geonames, historischen Gazeteers, …)\nWeitere Daten der unterstützten Terminologien und Ontologien werden herausgefiltert und gesondert eingespielt.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
@@ -204,27 +204,17 @@
     "href": "sparql.html",
     "title": "Abfragen mit SPARQL",
     "section": "",
-    "text": "Inhalt des Triple Store",
+    "text": "Datenmodell",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
     ]
   },
   {
-    "objectID": "sparql.html#inhalt-des-triple-store",
-    "href": "sparql.html#inhalt-des-triple-store",
+    "objectID": "sparql.html#datenmodell",
+    "href": "sparql.html#datenmodell",
     "title": "Abfragen mit SPARQL",
     "section": "",
-    "text": "Alle in RDF angelieferten Daten (soweit syntaxktisch korrekt). Es ist also kein einheitliches Datenmodell vorgeschrieben! Aus den RDF-Daten werden lediglich Aussagen über Terminologien und Ontologien herausgefiltert\nJede Lieferung ist ein Named Graph, so dass die Lieferungen sowohl einzeln, als auch in einem RDF-Graphen zusammengefasst abgefragt werden können.\nUnterstützte Ontologien und Terminologien sind ebenfalls als eigene Namend Graphs eingespielt, so dass sie für Abfragen verwendet werden können.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
-    ]
-  },
-  {
-    "objectID": "sparql.html#beispielabfragen",
-    "href": "sparql.html#beispielabfragen",
-    "title": "Abfragen mit SPARQL",
-    "section": "Beispielabfragen",
-    "text": "Beispielabfragen\n\nStatistik aller Prädikate und ihrer Häufigkeit\nSELECT distinct ?pred WHERE {\n  ?sub ?pred ?obj .\n}\n\n\nStatistik aller Prädikate sortiert nach Anzahl der Prädikate\nSELECT distinct ?pre (COUNT(?pre) AS ?count) WHERE {\n  ?s ?pre ?obj\n} \nGROUP BY ?pre\nORDER BY DESC(?count)\n\n\nStatistik aller Objekte mit spezifischen Prädikat sortiert nach Anzahl der Subjekte\nSELECT distinct (COUNT(?s) AS ?count) ?obj WHERE {\n  ?s &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; ?obj\n} \nGROUP BY ?obj\nORDER BY DESC(?count)",
+    "text": "Teilgraphen\nDie RDF-Datenbank ist in mehrere Graphen unterteilt:\n\nJede Sammlung von Forschungsdaten wird über eine URI der Form https://graph.nfdi4objects.net/collection/ID identifiziert, beispielsweise https://graph.nfdi4objects.net/collection/4. Die Sammlung kann als ganzes aktualisiert und einzeln oder zusammen mit anderen Inhalten abgefragt werden.\nDer Graph https://graph.nfdi4objects.net/collection/ enthält Informationen über die einzelnen Sammlungen.\nVokabulare und Ontologien sind in eigenen Graphen verwaltet, deren URI der BARTOC-URI des jeweiligen Vokabulars entspricht, beispielsweise http://bartoc.org/en/node/1940 für Wikidata und http://bartoc.org/en/node/1644 für CIDOC-CRM.\nDer Graph https://graph.nfdi4objects.net/terminology/ enthält Informationen über Vokabulare.\n\nSofern kein konkreter Graph angegeben ist, gelten Abfragen über die Gesamtheit aller Graphen.\n\n\nStruktur der Inhalt\nAus den Lieferungen von Sammlungen werden prinzipiell alle syntaktisch korrekten RDF-Daten übernommen. Allerdings werden einige Triples herausgefiltert und einige URIs umgeschrieben, um unnötige Uneinheitlichkeiten zu vermeiden (siehe Datenimport). Es gibt ist also kein einheitliches Datenmodell vorgeschrieben.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
     ]
