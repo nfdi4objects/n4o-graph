@@ -144,7 +144,7 @@
     "href": "usage.html",
     "title": "Benutzung",
     "section": "",
-    "text": "Cypher-API\nEine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL https://graph.gbv.de/api/cypher abgefragt werden (siehe API-Dokumentation). Unter https://graph.gbv.de/cypher gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel Cypher-Abfragen.",
+    "text": "Cypher-API\nEine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL https://graph.nfdi4objects.net/api/cypher abgefragt werden (siehe API-Dokumentation). Unter https://graph.nfdi4objects.net/cypher gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel Cypher-Abfragen.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
     ]
@@ -154,7 +154,7 @@
     "href": "usage.html#sparql-api",
     "title": "Benutzung",
     "section": "SPARQL-API",
-    "text": "SPARQL-API\nEine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL https://graph.gbv.de/api/sparql abgefragt werden (siehe API-Dokumentation). Unter https://graph.gbv.de/sparql gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel SPARQL-Abfragen.",
+    "text": "SPARQL-API\nEine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL https://graph.nfdi4objects.net/api/sparql abgefragt werden (siehe API-Dokumentation). Unter https://graph.nfdi4objects.net/sparql gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel SPARQL-Abfragen.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
     ]
