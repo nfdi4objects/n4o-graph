@@ -47,7 +47,7 @@ npm install pgraphs
 npm install mermaid-cli
 ~~~
 
-## Konfiguration und Starten der Datenbank
+## Konfiguration und Starten der Datenbanken
 
 Die Datei [neo4j.json](neo4j.json) enthält die interne und externe
 Konfiguration für eine oder zwei Neo4j-Datenbanken:
@@ -61,9 +61,15 @@ Zum Starten eines Docker-Containers mit der internen Neo4j-Datenbank:
 ./neo4j.sh start neo4j.json
 ~~~
 
+Zur Installation eines RDF-Triple-Stores mit Fuseki gibt es [hier ein Debian-Paket](https://github.com/gbv/fuseki.deb/releases). In Fuseki muss zunächst eine Datenbank erstellt werden, z.B. `n4o-rdf-import`:
+
+~~~sh
+curl --data "dbName=n4o-rdf-import&dbType=tdb2" http://localhost:3030/$/datasets
+~~~
+
 ## Import von Daten
 
-*Muss noch dokumentiert werden*
+Siehe Repository [n4o-import](https://github.com/nfdi4objects/n4o-import).
 
 ## Expansion der Klassenhierarchie
 

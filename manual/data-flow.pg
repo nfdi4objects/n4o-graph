@@ -41,6 +41,10 @@ APIs
 
 TerminologyConverter status:planned repo:?
 
+Terminologies
+  repo: n4o-terminologies
+  status: prototype
+
 Terminologies -> TerminologyConverter 
 TerminologyConverter -> Triple_Store :load-rdf
 TerminologyConverter -> Property_Graph :pgraph
