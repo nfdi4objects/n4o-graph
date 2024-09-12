@@ -1,23 +1,16 @@
 # NFDI4Objects Graph
 
-Dieses Repositoriy enthält Skripte und [Dokumentation](#handbuch) zur
-Erstellung, Management und Nutzung des NFDI4Objects Knowledge Graphen von TA5.
+> Skripte und [Dokumentation](#handbuch) zur Erstellung, Management und Nutzung des N4O Knowledge Graphen
 
-Das Handbuch enthält eine Beschreibung der Architektur und Workflows des
-Knowledge Graphen und Abfrage-Beispiele in Cypher und SPARQL in Python und
-JavaScript.
+[![Status](https://github.com/nfdi4objects/n4o-graph/actions/workflows/quarto-publish.yml/badge.svg)](https://nfdi4objects.github.io/n4o-graph/)
 
-## Übersicht
+Das [Handbuch](https://nfdi4objects.github.io/n4o-graph/) enthält eine
+Beschreibung der Konzepte, Architektur und Workflows des Knowledge Graphen.
+Die Dokumentation wird aus Markdown-Quelltexten im Verzeichnis
+[manual](manual) erstellt (lokale mit Aufruf von `make docs` oder
+auf GitHub nach jedem Commit auf dem `main` Branch).
 
-- Verzeichnis [voc](voc) enthält Informationen zu unterstützen Ontologien und
-  Normdateien.
-
-- Verzeichnis [manual](manual) enthält den Quelltext des Handbuchs, das
-  lokal mit `make docs` oder auf GitHub nach jedem Commit auf dem `main` Branch
-  gebaut und unter <https://nfdi4objects.github.io/n4o-graph/> publiziert wird.
-  [![Status](https://github.com/nfdi4objects/n4o-graph/actions/workflows/quarto-publish.yml/badge.svg)](https://nfdi4objects.github.io/n4o-graph/)
-
-- Verzeichnis [import](import) wird temporär für Importe in den Graphen verwendet.
+Das Handbuchs dient gleichzeitig als Integrationstest für den Knowledge Graphen.
 
 ## Installation
 
@@ -67,6 +60,14 @@ Zur Installation eines RDF-Triple-Stores mit Fuseki gibt es [hier ein Debian-Pak
 curl --data "dbName=n4o-rdf-import&dbType=tdb2" http://localhost:3030/$/datasets
 ~~~
 
+Zusätzlich muss die Konfiguration der Datenbank so erweitert werden, dass der Default Graph alle Teilgraphen umfasst:
+
+~~~turtle
+# In Datei /etc/fuseki/configuration/n4o-rdf-import.ttl
+
+:tdb_dataset_readwrite tdb2:unionDefaultGraph true .
+~~~
+
 ## Import von Daten
 
 Siehe Repository [n4o-import](https://github.com/nfdi4objects/n4o-import).
@@ -80,6 +81,10 @@ Aufruf via
 ~~~
 
 Wobei in `neo4j.json` (bzw. einer anderen Konfigurationsdatei) die Verbindungsdaten zur jeweiligen Neo4J-Datenbank stehen müssen.
+
+## Sonstiges
+
+Verzeichnis [voc](voc) enthält Informationen zu unterstützen Ontologien und Normdateien.
 
 ## Lizenz
 
