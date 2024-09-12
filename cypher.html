@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -461,7 +461,7 @@ RETURN p</code></pre>
 <pre class="cypher"><code>MATCH (n:E16_Measurement)-[:P40_observed_dimension]-&gt;(m:E54_Dimension)-[:P2_has_type]-&gt;(:E55_Type)-[:P48_has_preferred_identifier]-&gt;(l)
 MATCH (m)-[:P91_has_unit]-&gt;(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]-&gt;(o)
 RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note</code></pre>
-<div id="401f4f6c" class="cell" data-execution_count="1">
+<div id="e2243567" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-stdout">
 <pre><code>2.8,cm,Höhe (Scan)</code></pre>
 </div>
