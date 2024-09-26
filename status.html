@@ -260,7 +260,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell hidden">
 <div class="sourceCode cell-code" id="cb1" data-startfrom="16" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 15;"><span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>cypherNodesCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">cypherQuery</span>(<span class="st">"MATCH () RETURN count(*) as count"</span>)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>cypherEdgesCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">cypherQuery</span>(<span class="st">"MATCH ()-[]-&gt;() RETURN count(*) as count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>cypherEdgesCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">cypherQuery</span>(<span class="st">"MATCH ()-[]-&gt;() RETURN count(*) as count"</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>sparqlTripleCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">sparqlQuery</span>(<span class="st">"SELECT (COUNT(*) as ?count) { GRAPH ?graph { ?s ?p ?o } }"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display hidden">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -275,11 +276,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div class="cell-output cell-output-display hidden">
+<div>
+<div id="ojs-cell-1-3" data-nodetype="declaration">
+
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="triple-store" class="level2">
 <h2 class="anchored" data-anchor-id="triple-store">Triple Store</h2>
-<p><em>noch nicht umgesetzt</em></p>
+<ul>
+<li>Anzahl von Tripel: <span><span id="ojs-element-id-3"></span></span></li>
+</ul>
 </section>
 <section id="datenquellen" class="level2">
 <h2 class="anchored" data-anchor-id="datenquellen">Datenquellen</h2>
@@ -288,14 +298,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="ojs-auto-generated hidden">
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6WyAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7Y3lwaGVyTm9kZXNDb3VudFswXT8uY291bnQ/LnRvTG9jYWxlU3RyaW5nKCl9PC9zcGFuPmAiLCAiY2VsbE5hbWUiOiJvanMtZWxlbWVudC1pZC0xIn0sICB7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJpbmxpbmUiOiJ0cnVlIiwic291cmNlIjoiaHRsLmh0bWxgPHNwYW4+JHtjeXBoZXJFZGdlc0NvdW50WzBdPy5jb3VudD8udG9Mb2NhbGVTdHJpbmcoKX08L3NwYW4+YCIsICJjZWxsTmFtZSI6Im9qcy1lbGVtZW50LWlkLTIifV19
+eyJjb250ZW50cyI6WyAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7Y3lwaGVyTm9kZXNDb3VudFswXT8uY291bnQ/LnRvTG9jYWxlU3RyaW5nKCl9PC9zcGFuPmAiLCAiY2VsbE5hbWUiOiJvanMtZWxlbWVudC1pZC0xIn0sICB7Im1ldGhvZE5hbWUiOiJpbnRlcnByZXQiLCJpbmxpbmUiOiJ0cnVlIiwic291cmNlIjoiaHRsLmh0bWxgPHNwYW4+JHtjeXBoZXJFZGdlc0NvdW50WzBdPy5jb3VudD8udG9Mb2NhbGVTdHJpbmcoKX08L3NwYW4+YCIsICJjZWxsTmFtZSI6Im9qcy1lbGVtZW50LWlkLTIifSwgIHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImlubGluZSI6InRydWUiLCJzb3VyY2UiOiJodGwuaHRtbGA8c3Bhbj4ke3NwYXJxbFRyaXBsZXNDb3VudFswXT8uY291bnQ/LnRvTG9jYWxlU3RyaW5nKCl9PC9zcGFuPmAiLCAiY2VsbE5hbWUiOiJvanMtZWxlbWVudC1pZC0zIn1dfQ==
 </script>
 </div>
 </section>
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImN5cGhlck5vZGVzQ291bnQgPSBhd2FpdCBjeXBoZXJRdWVyeShcIk1BVENIICgpIFJFVFVSTiBjb3VudCgqKSBhcyBjb3VudFwiKVxuY3lwaGVyRWRnZXNDb3VudCA9IGF3YWl0IGN5cGhlclF1ZXJ5KFwiTUFUQ0ggKCktW10tPigpIFJFVFVSTiBjb3VudCgqKSBhcyBjb3VudFwiKVxuIn1dfQ==
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImN5cGhlck5vZGVzQ291bnQgPSBhd2FpdCBjeXBoZXJRdWVyeShcIk1BVENIICgpIFJFVFVSTiBjb3VudCgqKSBhcyBjb3VudFwiKVxuY3lwaGVyRWRnZXNDb3VudCA9IGF3YWl0IGN5cGhlclF1ZXJ5KFwiTUFUQ0ggKCktW10tPigpIFJFVFVSTiBjb3VudCgqKSBhcyBjb3VudFwiKVxuc3BhcnFsVHJpcGxlQ291bnQgPSBhd2FpdCBzcGFycWxRdWVyeShcIlNFTEVDVCAoQ09VTlQoKikgYXMgP2NvdW50KSB7IEdSQVBIID9ncmFwaCB7ID9zID9wID9vIH0gfVwiKVxuIn1dfQ==
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
