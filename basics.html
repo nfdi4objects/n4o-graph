@@ -147,11 +147,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cypher.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit Cypher</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./sparql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit SPARQL</span></a>
   </div>
 </li>
@@ -163,6 +158,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mappings</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cypher.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit Cypher</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -183,8 +183,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#knowledge-graph" id="toc-knowledge-graph" class="nav-link active" data-scroll-target="#knowledge-graph">Knowledge Graph</a></li>
   <li><a href="#datenbankmodelle" id="toc-datenbankmodelle" class="nav-link" data-scroll-target="#datenbankmodelle">Datenbankmodelle</a>
   <ul class="collapse">
-  <li><a href="#property-graph" id="toc-property-graph" class="nav-link" data-scroll-target="#property-graph">Property Graph</a></li>
   <li><a href="#triple-store" id="toc-triple-store" class="nav-link" data-scroll-target="#triple-store">Triple Store</a></li>
+  <li><a href="#property-graph" id="toc-property-graph" class="nav-link" data-scroll-target="#property-graph">Property Graph</a></li>
   </ul></li>
   <li><a href="#datenbankinhalt" id="toc-datenbankinhalt" class="nav-link" data-scroll-target="#datenbankinhalt">Datenbankinhalt</a>
   <ul class="collapse">
@@ -243,6 +243,10 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="datenbankmodelle" class="level2">
 <h2 class="anchored" data-anchor-id="datenbankmodelle">Datenbankmodelle</h2>
+<section id="triple-store" class="level3">
+<h3 class="anchored" data-anchor-id="triple-store">Triple Store</h3>
+<p>Ein Triple Store ist eine <a href="https://de.wikipedia.org/wiki/Graphdatenbank">Graphendatenbank</a> in der Daten dem <a href="#rdf">RDF-Modell</a> nach in Form von so genannten Triplen gespeichert werden. Jedes <strong>Tripel</strong> entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple Stores dient <a href="./sparql.html">SPARQL</a>.</p>
+</section>
 <section id="property-graph" class="level3">
 <h3 class="anchored" data-anchor-id="property-graph">Property Graph</h3>
 <p>Property-Graphen dienen der Strukturierung, Speicherung und Auswertung vernetzter Daten. Die Daten werden dabei nicht in tabellarischer Form (wie bei einer Tabellenkalkulation oder bei SQL) oder in hierarchischer Form (wie bei XML) sondern in Form eines <strong>Graphen</strong> gespeichert. Die Knoten und Kanten des Graphen können jeweils <strong>Labels</strong> (Typen) haben und mit <strong>Eigenschaften</strong> versehen sein. Zur Abfrage von Property-Graphen dient die Sprache <a href="./cypher.html">Cypher</a>. Eine genauere Erklärung liefert der Artikel <a href="https://jakobib.github.io/pgraphen2024/">Property-Graphen: eine kurze Einführung</a>.</p>
@@ -259,10 +263,6 @@ Tipp
 <p>Beispiele von Property-Graphen werden in diesem Handbuch im <a href="https://pg-format.github.io/">Property Graph Exchange Format (PG)</a> dargestellt.</p>
 </div>
 </div>
-</section>
-<section id="triple-store" class="level3">
-<h3 class="anchored" data-anchor-id="triple-store">Triple Store</h3>
-<p>Ein Triple Store ist eine <a href="https://de.wikipedia.org/wiki/Graphdatenbank">Graphendatenbank</a> in der Daten dem <a href="#rdf">RDF-Modell</a> nach in Form von so genannten Triplen gespeichert werden. Jedes <strong>Tripel</strong> entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple Stores dient <a href="./sparql.html">SPARQL</a>.</p>
 </section>
 </section>
 <section id="datenbankinhalt" class="level2">

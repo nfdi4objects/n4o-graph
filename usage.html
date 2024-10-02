@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./cypher.html" rel="next">
+<link href="./sparql.html" rel="next">
 <link href="./vocabularies.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -147,11 +147,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cypher.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit Cypher</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./sparql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit SPARQL</span></a>
   </div>
 </li>
@@ -163,6 +158,11 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mappings</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cypher.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit Cypher</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -180,10 +180,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
-  <li><a href="#cypher-api" id="toc-cypher-api" class="nav-link active" data-scroll-target="#cypher-api">Cypher-API</a></li>
-  <li><a href="#sparql-api" id="toc-sparql-api" class="nav-link" data-scroll-target="#sparql-api">SPARQL-API</a></li>
+  <li><a href="#sparql-api" id="toc-sparql-api" class="nav-link active" data-scroll-target="#sparql-api">SPARQL-API</a></li>
   <li><a href="#datenbankdumps" id="toc-datenbankdumps" class="nav-link" data-scroll-target="#datenbankdumps">Datenbankdumps</a></li>
   <li><a href="#suchoberfläche" id="toc-suchoberfläche" class="nav-link" data-scroll-target="#suchoberfläche">Suchoberfläche</a></li>
+  <li><a href="#cypher-api" id="toc-cypher-api" class="nav-link" data-scroll-target="#cypher-api">Cypher-API</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
@@ -218,10 +218,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p>Der Zugriff auf den Knowledge Graphen ist bislang nur über technische Schnittstellen (APIs) möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.</p>
-<section id="cypher-api" class="level2">
-<h2 class="anchored" data-anchor-id="cypher-api">Cypher-API</h2>
-<p>Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <a href="https://graph.nfdi4objects.net/api/cypher" class="uri">https://graph.nfdi4objects.net/api/cypher</a> abgefragt werden (siehe <a href="https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#property-graph-api">API-Dokumentation</a>). Unter <a href="https://graph.nfdi4objects.net/cypher" class="uri">https://graph.nfdi4objects.net/cypher</a> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel <a href="./cypher.html">Cypher-Abfragen</a>.</p>
-</section>
 <section id="sparql-api" class="level2">
 <h2 class="anchored" data-anchor-id="sparql-api">SPARQL-API</h2>
 <p>Eine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL <a href="https://graph.nfdi4objects.net/api/sparql" class="uri">https://graph.nfdi4objects.net/api/sparql</a> abgefragt werden (siehe <a href="https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#sparql-api">API-Dokumentation</a>). Unter <a href="https://graph.nfdi4objects.net/sparql" class="uri">https://graph.nfdi4objects.net/sparql</a> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel <a href="./sparql.html">SPARQL-Abfragen</a>.</p>
@@ -251,6 +247,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</section>
+<section id="cypher-api" class="level2">
+<h2 class="anchored" data-anchor-id="cypher-api">Cypher-API</h2>
+<p>Neben dem Triple-Store experimentieren wir mir einer Abbildung der Forschungsdaten in einem Property Graphen. Dieser Graph kann mit der Abfragesprache Cypher über die API-URL <a href="https://graph.nfdi4objects.net/api/cypher" class="uri">https://graph.nfdi4objects.net/api/cypher</a> abgefragt werden. Unter <a href="https://graph.nfdi4objects.net/cypher" class="uri">https://graph.nfdi4objects.net/cypher</a> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Die Datenbankinhalte entsprechen allerdings nicht dem Triple-Store!</p>
 
 
 </section>
@@ -685,8 +685,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./cypher.html" class="pagination-link" aria-label="Abfragen mit Cypher">
-        <span class="nav-page-text"><span class="chapter-title">Abfragen mit Cypher</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./sparql.html" class="pagination-link" aria-label="Abfragen mit SPARQL">
+        <span class="nav-page-text"><span class="chapter-title">Abfragen mit SPARQL</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

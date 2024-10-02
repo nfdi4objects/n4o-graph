@@ -64,8 +64,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./sparql.html" rel="next">
-<link href="./usage.html" rel="prev">
+<link href="./status.html" rel="next">
+<link href="./mappings.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -183,11 +183,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cypher.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Abfragen mit Cypher</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./sparql.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit SPARQL</span></a>
   </div>
 </li>
@@ -199,6 +194,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mappings</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cypher.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Abfragen mit Cypher</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -219,13 +219,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#abfrage-editor" id="toc-abfrage-editor" class="nav-link active" data-scroll-target="#abfrage-editor">Abfrage-Editor</a></li>
   <li><a href="#anfrageformat" id="toc-anfrageformat" class="nav-link" data-scroll-target="#anfrageformat">Anfrageformat</a></li>
   <li><a href="#rückgabeformat" id="toc-rückgabeformat" class="nav-link" data-scroll-target="#rückgabeformat">Rückgabeformat</a></li>
-  <li><a href="#cypher-grundlagen" id="toc-cypher-grundlagen" class="nav-link" data-scroll-target="#cypher-grundlagen">Kurzeinführung in Cypher</a>
-  <ul class="collapse">
-  <li><a href="#nodes" id="toc-nodes" class="nav-link" data-scroll-target="#nodes">Nodes</a></li>
-  <li><a href="#relationships" id="toc-relationships" class="nav-link" data-scroll-target="#relationships">Relationships</a></li>
-  <li><a href="#pfade" id="toc-pfade" class="nav-link" data-scroll-target="#pfade">Pfade</a></li>
-  <li><a href="#beispielabfragen" id="toc-beispielabfragen" class="nav-link" data-scroll-target="#beispielabfragen">Beispielabfragen</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/cypher.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
     </div>
@@ -259,45 +252,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Vorausgesetzt wird ein Grundverständnis der <a href="#cypher-grundlagen">Abfragesprache Cypher</a> und des <a href="./schema.html">Datenbankschemas</a>.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Der Property Graph und die Cypher-API sind experimentell.</p>
+</div>
+</div>
+</div>
+<p>Vorausgesetzt wird ein Grundverständnis der Abfragesprache Cypher und des <a href="./schema.html">Datenbankschemas</a>.</p>
 <section id="abfrage-editor" class="level3">
 <h3 class="anchored" data-anchor-id="abfrage-editor">Abfrage-Editor</h3>
 <div class="cell">
-<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="14" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 13;"><span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>viewof cypherEditor <span class="op">=</span> {</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> mainDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;&lt;div&gt;`</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> editorDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div style="border: 1px solid rgb(0, 0, 0);"&gt;&lt;/div&gt;`</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> runButton <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;button&gt;Query&lt;/button&gt;`</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> errorStatus <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;span style="color: red; margin-left: 1em;"&gt;&lt;/span&gt;`</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(editorDiv)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(runButton)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(errorStatus)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="kw">undefined</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  <span class="kw">yield</span> mainDiv</span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> editor <span class="op">=</span> <span class="fu">CodeMirror</span>(editorDiv<span class="op">,</span> { <span class="dt">mode</span><span class="op">:</span> <span class="st">"application/x-cypher-query"</span> })</span>
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="19" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 18;"><span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>viewof cypherEditor <span class="op">=</span> {</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> mainDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div&gt;&lt;div&gt;`</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> editorDiv <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;div style="border: 1px solid rgb(0, 0, 0);"&gt;&lt;/div&gt;`</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> runButton <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;button&gt;Query&lt;/button&gt;`</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">const</span> errorStatus <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;span style="color: red; margin-left: 1em;"&gt;&lt;/span&gt;`</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(editorDiv)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(runButton)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="fu">append</span>(errorStatus)</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  editor<span class="op">.</span><span class="fu">setValue</span>(<span class="st">"MATCH (m:E16_Measurement) RETURN m LIMIT 10"</span>)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  editor<span class="op">.</span><span class="fu">setSize</span>(width<span class="op">-</span><span class="dv">20</span><span class="op">,</span> <span class="dv">200</span>)</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="kw">undefined</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="kw">yield</span> mainDiv</span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  runButton<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> <span class="kw">async</span> (e) <span class="kw">=&gt;</span> {</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    errorStatus<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">""</span></span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> </span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cypherQuery</span>(editor<span class="op">.</span><span class="fu">getValue</span>())</span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">then</span>(value <span class="kw">=&gt;</span> mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> value)</span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">catch</span>(e <span class="kw">=&gt;</span> { </span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        errorStatus<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> e</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>        mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="kw">undefined</span></span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>      })</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="fu">dispatchEvent</span>(<span class="kw">new</span> <span class="bu">CustomEvent</span>(<span class="st">"input"</span>))</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mainDiv</span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>cypherEditor</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="kw">let</span> editor <span class="op">=</span> <span class="fu">CodeMirror</span>(editorDiv<span class="op">,</span> { <span class="dt">mode</span><span class="op">:</span> <span class="st">"application/x-cypher-query"</span> })</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>  editor<span class="op">.</span><span class="fu">setValue</span>(<span class="st">"MATCH (m:E16_Measurement) RETURN m LIMIT 10"</span>)</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>  editor<span class="op">.</span><span class="fu">setSize</span>(width<span class="op">-</span><span class="dv">20</span><span class="op">,</span> <span class="dv">200</span>)</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  runButton<span class="op">.</span><span class="at">onclick</span> <span class="op">=</span> <span class="kw">async</span> (e) <span class="kw">=&gt;</span> {</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    errorStatus<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">""</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> </span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cypherQuery</span>(editor<span class="op">.</span><span class="fu">getValue</span>())</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">then</span>(value <span class="kw">=&gt;</span> mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> value)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>      <span class="op">.</span><span class="fu">catch</span>(e <span class="kw">=&gt;</span> { </span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>        errorStatus<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> e</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>        mainDiv<span class="op">.</span><span class="at">value</span> <span class="op">=</span> <span class="kw">undefined</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>      })</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    mainDiv<span class="op">.</span><span class="fu">dispatchEvent</span>(<span class="kw">new</span> <span class="bu">CustomEvent</span>(<span class="st">"input"</span>))</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> mainDiv</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>cypherEditor</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <div id="ojs-cell-1-1" data-nodetype="declaration">
@@ -414,61 +417,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tbody>
 </table>
 <p>Die Kodierung von <code>NODE</code> und <code>RELATIONSHIP</code> Objekten entspricht der Kodierung von Knoten und Kanten im <a href="https://pg-format.github.io/specification/#pg-jsonl">Format PG-JSONL</a> mit dem Unterschied, dass Property-Werte nicht zwingend vom Type <code>array</code> sind, sondern auch <code>null</code>, <code>boolean</code>, <code>number</code> und <code>string</code> sein können. Die Kodierung von <code>PATH</code> Objekten entspricht der Kodierung von Graphen im <a href="https://pg-format.github.io/specification/#pg-jsonl">Format PG-JSON</a> mit der gleichen Erweiterung von Property-Werten.</p>
-</section>
-<section id="cypher-grundlagen" class="level2">
-<h2 class="anchored" data-anchor-id="cypher-grundlagen">Kurzeinführung in Cypher</h2>
-<p>Eine vollständige Einführung in die Abfragesprache Cypher liefert <a href="https://neo4j.com/docs/cypher-manual/current/">das englische Cypher Handbuch</a>.</p>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Die folgende Kurzeinführung bezieht sich noch nicht auf das <a href="./schema.html">Schema</a> des Property Graphen sondern verwendet ein ausgedachtes Beispiel mit Personendaten.</p>
-</div>
-</div>
-</div>
-<section id="nodes" class="level3">
-<h3 class="anchored" data-anchor-id="nodes">Nodes</h3>
-<p>Knoten heißen Nodes und werden in runden Klammern definiert.</p>
-<pre class="cypher"><code>MATCH (n:Person {name:'Anna'})
-RETURN n.geboren AS geburtsjahr</code></pre>
-<p>Person ist ein Label. Labels sind wie Tags und werden genutzt um die Datenbank zu befragen. Eine Node Kann mehrere Labels haben.<br>
-Name ist eine Property von Anna. Properties werden in geschweiften Klammern definiert and geben nähere Informationen. Nach Properties kann auch gefragt werden.<br>
-N ist eine Variabel. Auf Variabeln kann weiter verwiesen werden.</p>
-<p>In diesem Beispiel findet MATCH alle Person Nodes in dem Graph wo die Property name Anna ist und setzt die Variabel n zu dem Ergebnis. n wird dann an RETURN weitergegeben, welche den Wert von einer anderen Property (geboren) dieser Nodes wiedergibt.</p>
-</section>
-<section id="relationships" class="level3">
-<h3 class="anchored" data-anchor-id="relationships">Relationships</h3>
-<p>Nodes können mit Relationships verbunden werden. Eine Relationship braucht eine Start Node, eine Ende Node und genau einen Typ. Relationships haben in Cypher einen Pfeil um die Richting zu zeigen. Die Informationen über eine Relationship sind in eckigen Klammern eingeschlossen.<br>
-Während Nodes mehrere Labels haben können, können Relationships nur einen Typ haben.</p>
-<pre class="cypher"><code>MATCH (:Person {name: 'Anna'})-[r:KENNT WHERE r.seit &lt; 2020]-&gt;(freund:Person)
-RETURN count(r) As zahlAnFreunden</code></pre>
-<p>In dieser Anfrage findet Match Relationships des Typs KENNT wo die Property seit kleiner als 2020 ist. Außerdem müssen Relationships von einer Person Node mit der Property Anna zu einer anderen Personen Node gehen (wir nennen diese freund). count() wird genutzt um zu zählen wie viele Relationships an die Variabel r in MATCH gebunden wurden somit erhalten wir mit RETURN eine Zahl.</p>
-</section>
-<section id="pfade" class="level3">
-<h3 class="anchored" data-anchor-id="pfade">Pfade</h3>
-<pre class="cypher"><code>MATCH (n:Person {name: 'Anna'})-[:KENNT]-{1,5}(freund:Person WHERE n.geboren &lt; freund.geboren)
-RETURN DISTINCT freund.name AS ältereFreunde</code></pre>
-<p>Dieses Beispiel nutzt eine quantifizierte Relationship um alle Pfade, die bis zu 5 Schritte entfernt sind, zu finden. Dabei werden nur Relationships des Typs KENNT verwendet. Die Start Node ist Anna und Ende Node sind Personen älter als Anna. Durch DISTINCT wird das gleiche Ergebnis nur einmal ausgegeben.</p>
-<pre class="cypher"><code>MATCH p=shortestPath((:Person {name: 'Anna'})-[:KENNT*1..10]-(:Person {nationalität: 'Kanadier'}))
-RETURN p</code></pre>
-<p>Auch Pfade können einer Variable zugewiesen werden. Hier wird der vollständige Pfad ausgegeben.</p>
-</section>
-<section id="beispielabfragen" class="level3">
-<h3 class="anchored" data-anchor-id="beispielabfragen">Beispielabfragen</h3>
-<p>Finde Wert, Einheit und Notiz aller Messungen.</p>
-<pre class="cypher"><code>MATCH (n:E16_Measurement)-[:P40_observed_dimension]-&gt;(m:E54_Dimension)-[:P2_has_type]-&gt;(:E55_Type)-[:P48_has_preferred_identifier]-&gt;(l)
-MATCH (m)-[:P91_has_unit]-&gt;(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]-&gt;(o)
-RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note</code></pre>
-<div id="e5e23ed6" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-stdout">
-<pre><code>2.8,cm,Höhe (Scan)</code></pre>
-</div>
-</div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -907,13 +857,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./usage.html" class="pagination-link" aria-label="Benutzung">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Benutzung</span></span>
+      <a href="./mappings.html" class="pagination-link" aria-label="Mappings">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Mappings</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./sparql.html" class="pagination-link" aria-label="Abfragen mit SPARQL">
-        <span class="nav-page-text"><span class="chapter-title">Abfragen mit SPARQL</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./status.html" class="pagination-link" aria-label="Status">
+        <span class="nav-page-text"><span class="chapter-title">Status</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
