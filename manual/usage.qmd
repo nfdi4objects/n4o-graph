@@ -6,10 +6,6 @@ lang: de
 
 Der Zugriff auf den Knowledge Graphen ist bislang nur über technische Schnittstellen (APIs) möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.
 
-## Cypher-API
-
-Eine öffentliche Entwicklungsversion des Property Graphen kann mit der Abfragesprache Cypher über die API-URL <https://graph.nfdi4objects.net/api/cypher> abgefragt werden (siehe [API-Dokumentation](https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#property-graph-api)). Unter <https://graph.nfdi4objects.net/cypher> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel [Cypher-Abfragen](cypher.qmd).
-
 ## SPARQL-API
 
 Eine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL <https://graph.nfdi4objects.net/api/sparql> abgefragt werden (siehe [API-Dokumentation](https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#sparql-api)). Unter <https://graph.nfdi4objects.net/sparql> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel [SPARQL-Abfragen](sparql.qmd).
@@ -25,3 +21,8 @@ Die Bereitstellung von Datenbankdumps zur lokalen Nutzung von Teilen des Knowled
 ::: {.callout-warning appearance="simple"}
 Eine browserbasierte Suchoberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung ist noch nicht umgesetzt.
 :::
+
+## Cypher-API
+
+Neben dem Triple-Store experimentieren wir mir einer Abbildung der Forschungsdaten in einem Property Graphen. Dieser Graph kann mit der Abfragesprache Cypher über die API-URL <https://graph.nfdi4objects.net/api/cypher> abgefragt werden. Unter <https://graph.nfdi4objects.net/cypher> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Die Datenbankinhalte entsprechen allerdings nicht dem Triple-Store!
+

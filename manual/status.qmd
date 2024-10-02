@@ -4,6 +4,10 @@ subtitle: Dashboard zum Stand der Property Graphen
 format: dashboard
 ---
 
+## Triple Store
+
+- Anzahl von Tripel: `{ojs} sparqlTriplesCount[0]?.count?.toLocaleString()`
+
 ## Property Graph
 
 Folgende Übersicht wird live per [Cypher API](cypher.qmd) erstellt.
@@ -18,9 +22,6 @@ cypherEdgesCount = await cypherQuery("MATCH ()-[]->() RETURN count(*) as count")
 sparqlTripleCount = await sparqlQuery("SELECT (COUNT(*) as ?count) { GRAPH ?graph { ?s ?p ?o } }")
 ```
 
-## Triple Store
-
-- Anzahl von Tripel: `{ojs} sparqlTriplesCount[0]?.count?.toLocaleString()`
 
 ## Datenquellen
 

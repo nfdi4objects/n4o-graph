@@ -6,7 +6,12 @@ execute:
   echo: false
 ---
 
-Vorausgesetzt wird ein Grundverständnis der [Abfragesprache Cypher](#cypher-grundlagen) und des [Datenbankschemas](schema.qmd).
+::: {.callout-warning appearance="simple"}
+Der Property Graph und die Cypher-API sind experimentell.
+:::
+
+
+Vorausgesetzt wird ein Grundverständnis der Abfragesprache Cypher und des [Datenbankschemas](schema.qmd).
 
 ### Abfrage-Editor
 
@@ -120,82 +125,3 @@ auch `null`, `boolean`, `number` und `string` sein können. Die Kodierung von `P
 PG-JSON](https://pg-format.github.io/specification/#pg-jsonl) mit der gleichen Erweiterung von Property-Werten.
 
 [WKT]: http://giswiki.org/wiki/Well_Known_Text
-
-
-## Kurzeinführung in Cypher {#cypher-grundlagen}
-
-Eine vollständige Einführung in die Abfragesprache Cypher liefert [das
-englische Cypher Handbuch](https://neo4j.com/docs/cypher-manual/current/).
-
-::: {.callout-warning appearance="simple"}
-Die folgende Kurzeinführung bezieht sich noch nicht auf das [Schema](schema.qmd) des Property Graphen sondern verwendet ein ausgedachtes Beispiel mit Personendaten.
-:::
-
-### Nodes
-
-Knoten heißen Nodes und werden in runden Klammern definiert.
-```cypher
-MATCH (n:Person {name:'Anna'})
-RETURN n.geboren AS geburtsjahr
-```
-
-Person ist ein Label. Labels sind wie Tags und werden genutzt um die Datenbank zu befragen. Eine Node Kann mehrere Labels haben.  
-Name ist eine Property von Anna. Properties werden in geschweiften Klammern definiert and geben nähere Informationen. Nach Properties kann auch gefragt werden.  
-N ist eine Variabel. Auf Variabeln kann weiter verwiesen werden.  
-
-In diesem Beispiel findet MATCH alle Person Nodes in dem Graph wo die Property name Anna ist und setzt die Variabel n zu dem Ergebnis. n wird dann an RETURN weitergegeben, welche den Wert von einer anderen Property (geboren) dieser Nodes wiedergibt.  
-
-### Relationships
-
-Nodes können mit Relationships verbunden werden. Eine Relationship braucht eine Start Node, eine Ende Node und genau einen Typ. Relationships haben in Cypher einen Pfeil um die Richting zu zeigen. Die Informationen über eine Relationship sind in eckigen Klammern eingeschlossen.  
-Während Nodes mehrere Labels haben können, können Relationships nur einen Typ haben.
-
-```cypher
-MATCH (:Person {name: 'Anna'})-[r:KENNT WHERE r.seit < 2020]->(freund:Person)
-RETURN count(r) As zahlAnFreunden
-```
-
-In dieser Anfrage findet Match Relationships des Typs KENNT wo die Property seit kleiner als 2020 ist. Außerdem müssen Relationships von einer Person Node mit der Property Anna zu einer anderen Personen Node gehen (wir nennen diese freund). count() wird genutzt um zu zählen wie viele Relationships an die Variabel r in MATCH gebunden wurden somit erhalten wir mit RETURN eine Zahl.
-
-### Pfade
-
-```cypher
-MATCH (n:Person {name: 'Anna'})-[:KENNT]-{1,5}(freund:Person WHERE n.geboren < freund.geboren)
-RETURN DISTINCT freund.name AS ältereFreunde
-```
-
-Dieses Beispiel nutzt eine quantifizierte Relationship um alle Pfade, die bis zu 5 Schritte entfernt sind, zu finden. Dabei werden nur Relationships des Typs KENNT verwendet. Die Start Node ist Anna und Ende Node sind Personen älter als Anna. Durch DISTINCT wird das gleiche Ergebnis nur einmal ausgegeben.
-
-
-```cypher
-MATCH p=shortestPath((:Person {name: 'Anna'})-[:KENNT*1..10]-(:Person {nationalität: 'Kanadier'}))
-RETURN p
-```
-
-Auch Pfade können einer Variable zugewiesen werden. Hier wird der vollständige Pfad ausgegeben.
-
-### Beispielabfragen
-
-Finde Wert, Einheit und Notiz aller Messungen.
-
-```cypher
-MATCH (n:E16_Measurement)-[:P40_observed_dimension]->(m:E54_Dimension)-[:P2_has_type]->(:E55_Type)-[:P48_has_preferred_identifier]->(l)
-MATCH (m)-[:P91_has_unit]->(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]->(o)
-RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note
-```
-
-```{python}
-from neo4j import GraphDatabase
-import json
-with open('neo4j.json', 'r') as file:
-  neo4j_login = json.loads(file.read())
-  uri = neo4j_login.get("uri")
-  user = neo4j_login.get("user")
-  password = neo4j_login.get("password")
-cmd = "MATCH (n:E16_Measurement)-[:P40_observed_dimension]->(m:E54_Dimension)-[:P2_has_type]->(:E55_Type)-[:P48_has_preferred_identifier]->(l) MATCH (m)-[:P91_has_unit]->(:E58_Measurement_Unit)-[:P48_has_preferred_identifier]->(o) RETURN m.P90_has_value AS value, o.P3_has_note AS unit, l.P3_has_note AS note;"
-driver = GraphDatabase.driver(uri, auth=(user, password))
-with driver.session() as session:
- for x in session.run(cmd):
-  print(','.join((str(x) for x in x.values())))
-```
-

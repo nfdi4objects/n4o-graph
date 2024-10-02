@@ -40,6 +40,10 @@ Einzelne "Datensätze" gibt es aufgrund der Graphstruktur nicht.
 
 ## Datenbankmodelle
 
+### Triple Store
+
+Ein Triple Store ist eine [Graphendatenbank](https://de.wikipedia.org/wiki/Graphdatenbank) in der Daten dem [RDF-Modell](#rdf) nach in Form von so genannten Triplen gespeichert werden. Jedes **Tripel** entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple Stores dient [SPARQL](sparql.qmd).
+
 ### Property Graph
 
 Property-Graphen dienen der Strukturierung, Speicherung und Auswertung
@@ -54,10 +58,6 @@ versehen sein. Zur Abfrage von Property-Graphen dient die Sprache
 ::: {.callout-tip}
 Beispiele von Property-Graphen werden in diesem Handbuch im [Property Graph Exchange Format (PG)](https://pg-format.github.io/) dargestellt.
 :::
-
-### Triple Store
-
-Ein Triple Store ist eine [Graphendatenbank](https://de.wikipedia.org/wiki/Graphdatenbank) in der Daten dem [RDF-Modell](#rdf) nach in Form von so genannten Triplen gespeichert werden. Jedes **Tripel** entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple Stores dient [SPARQL](sparql.qmd).
 
 ## Datenbankinhalt
 
