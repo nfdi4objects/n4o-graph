@@ -11,6 +11,12 @@ ICONCLASS, GND und die LIDO-Terminologien unterstützt.
 
 ## Modellierung
 
+::: {.callout-warning appearance="simple"}
+Die Modellierung ist noch nicht abgeschlossen! Überlegungen zur Abbildung
+von CRM in RDF [befinden sich hier](https://nfdi4objects.github.io/crm-rdf-ap/).
+:::
+
+
 ### Entitäten und Knoten
 
 Knoten im [Property Graphen](#property-graphen) erhalten als Knoten-Label

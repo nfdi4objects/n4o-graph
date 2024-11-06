@@ -55,7 +55,7 @@ versehen sein. Zur Abfrage von Property-Graphen dient die Sprache
 [Cypher](cypher.qmd). Eine genauere Erklärung liefert der Artikel
 [Property-Graphen: eine kurze Einführung](https://jakobib.github.io/pgraphen2024/).
 
-::: {.callout-tip}
+::: {.callout-tip appearance="minimal"}
 Beispiele von Property-Graphen werden in diesem Handbuch im [Property Graph Exchange Format (PG)](https://pg-format.github.io/) dargestellt.
 :::
 
@@ -65,11 +65,12 @@ Beispiele von Property-Graphen werden in diesem Handbuch im [Property Graph Exch
 
 Das Datenbankschema oder **Datenmodell** eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von [Property Graph] und [Triple Store] unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell [CIDOC-CRM](crm.qmd). Details zu den Schemas finden sich im [Kapitel Datenbankschema](schema.qmd).
 
-::: {.callout-tip title="Beispiel" appearance="minimal"}
+Neben dem Schema von Graphdatenbanken gibt Schemas zur Validierung der [Datenformate] gelieferter Daten und Vokabulare.
+
+::: {.callout-tip appearance="minimal"}
 Im Schema ist beispielsweise vorgegeben, dass es für Messungen Knoten der Klasse `E16_Measurement` und für Zeiträume Knoten der Klasse `E52_Time_Span` gibt.
 :::
 
-Neben dem Schema von Graphdatenbanken gibt Schemas zur Validierung der [Datenformate] gelieferter Daten.
 
 ### Datenbestand
 
@@ -79,7 +80,7 @@ Der Datenbestand ist der eigentliche Inhalt des gemeinsamen Knowledge Graphen vo
 
 Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von [Sammlungen](#sammlungen) überschrieben werden. Weitere Informationen finden sich in den Kapiteln zu [Vokabularen](vocabularies.qmd) und zu [Mappings](mappings.qmd).
 
-::: {.callout-tip title="Beispiel" appearance="minimal"}
+::: {.callout-tip title="Beispiele" appearance="minimal"}
 Häufig verwendete Vokabulare sind die Gemeinsame Normdatei (GND), das Klassifizierungssystem Iconclass und die Normdateien des Getty Research Institute.
 Darüber hinaus gibt es zahlreiche Spezial-Vokabulare wie zum Beispiel die Hornbostel-Sachs-Klassifikation der Musikinstrumente.
 :::

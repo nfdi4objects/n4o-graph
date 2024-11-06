@@ -5,9 +5,9 @@ Zur besseren Integration von Daten sollen spezialisierte Ontologien und Metadate
 - [Mapping von Schemas]
 - [Mapping von Vokabularen]
 - [Reconciliation]
-- [Mapping von Werten]
+- [Mapping von Werten und Einheiten]
 
-Ein Teil der Mappings für den NFDI4Objects Knowledge Graphen kann mit Hilfe der Webanwendung [Cocoda] erstellt und gepflegt werden. Eine vorläufige Instanz der Software ist unter <https://coli-conc.gbv.de/cocoda/nfdi4objects/> erreichbar.
+Ein Teil der Mappings für den NFDI4Objects Knowledge Graphen kann mit Hilfe der Webanwendung [Cocoda] erstellt und gepflegt werden. Eine entsprechend konfigurierte Instanz der Software ist unter <https://coli-conc.gbv.de/cocoda/nfdi4objects/> erreichbar.
 
 ## Mapping von Schemas
 
@@ -23,7 +23,7 @@ In den gelieferten Daten werden Entäten wie Personen, Orte, Zeiträume, Materia
 
 Werden Entitäten lediglich durch Zeichenketten referenziert (z.B. "Gold" zur Angabe des chemischen Elements [Gold](https://de.wikipedia.org/wiki/Gold)), so müssen diese Angaben möglichst auf kontrollierte Vokabulare mit entsprechenden Identifiern gemappt werden. Als technische Schnittstelle hierfür dient dazu die [Reconciliation Service API](https://reconciliation-api.github.io/specs/draft/). Wie weit die Erkennung von Entitäten aus Zeichenketten automatisiert ablaufen kann, hängt allerdings stark vom Kontext der Daten ab.
 
-## Mapping von Werten
+## Mapping von Werten und Einheiten
 
 In den gelieferten Daten kommen Werte mit unterschiedlichen Einheiten (Datumsangaben, Ortsangaben, Mengen, Gewichte und andere physische Maße...) vor. Diese sollten möglichst vereinheitlicht werden, damit Abfragen über den gesamten Datenbestand möglich sind.
 
