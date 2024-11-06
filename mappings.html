@@ -183,7 +183,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#mapping-von-schemas" id="toc-mapping-von-schemas" class="nav-link active" data-scroll-target="#mapping-von-schemas">Mapping von Schemas</a></li>
   <li><a href="#mapping-von-vokabularen" id="toc-mapping-von-vokabularen" class="nav-link" data-scroll-target="#mapping-von-vokabularen">Mapping von Vokabularen</a></li>
   <li><a href="#reconciliation" id="toc-reconciliation" class="nav-link" data-scroll-target="#reconciliation">Reconciliation</a></li>
-  <li><a href="#mapping-von-werten" id="toc-mapping-von-werten" class="nav-link" data-scroll-target="#mapping-von-werten">Mapping von Werten</a></li>
+  <li><a href="#mapping-von-werten-und-einheiten" id="toc-mapping-von-werten-und-einheiten" class="nav-link" data-scroll-target="#mapping-von-werten-und-einheiten">Mapping von Werten und Einheiten</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/mappings.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -221,9 +221,9 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="#mapping-von-schemas">Mapping von Schemas</a></li>
 <li><a href="#mapping-von-vokabularen">Mapping von Vokabularen</a></li>
 <li><a href="#reconciliation">Reconciliation</a></li>
-<li><a href="#mapping-von-werten">Mapping von Werten</a></li>
+<li><a href="#mapping-von-werten-und-einheiten">Mapping von Werten und Einheiten</a></li>
 </ul>
-<p>Ein Teil der Mappings für den NFDI4Objects Knowledge Graphen kann mit Hilfe der Webanwendung <a href="https://coli-conc.gbv.de/cocoda/">Cocoda</a> erstellt und gepflegt werden. Eine vorläufige Instanz der Software ist unter <a href="https://coli-conc.gbv.de/cocoda/nfdi4objects/" class="uri">https://coli-conc.gbv.de/cocoda/nfdi4objects/</a> erreichbar.</p>
+<p>Ein Teil der Mappings für den NFDI4Objects Knowledge Graphen kann mit Hilfe der Webanwendung <a href="https://coli-conc.gbv.de/cocoda/">Cocoda</a> erstellt und gepflegt werden. Eine entsprechend konfigurierte Instanz der Software ist unter <a href="https://coli-conc.gbv.de/cocoda/nfdi4objects/" class="uri">https://coli-conc.gbv.de/cocoda/nfdi4objects/</a> erreichbar.</p>
 <section id="mapping-von-schemas" class="level2">
 <h2 class="anchored" data-anchor-id="mapping-von-schemas">Mapping von Schemas</h2>
 <p>Das einheitliche Datenmodell des Knowledge Graphen basiert auf CIDOC-CRM (siehe <a href="./schema.html">Datenbankschema</a>). Werden in den gelieferten Daten andere Ontologien verwendet, so müssen diese auf CRM abgebildet werden. Die Abbildung geschieht bislang per Hand in Konfigurationsdateien. In Zukunft soll als Werkzeug hierfür auch <a href="https://coli-conc.gbv.de/cocoda/">Cocoda</a> eingesetzt werden.</p>
@@ -237,8 +237,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="reconciliation">Reconciliation</h2>
 <p>Werden Entitäten lediglich durch Zeichenketten referenziert (z.B. “Gold” zur Angabe des chemischen Elements <a href="https://de.wikipedia.org/wiki/Gold">Gold</a>), so müssen diese Angaben möglichst auf kontrollierte Vokabulare mit entsprechenden Identifiern gemappt werden. Als technische Schnittstelle hierfür dient dazu die <a href="https://reconciliation-api.github.io/specs/draft/">Reconciliation Service API</a>. Wie weit die Erkennung von Entitäten aus Zeichenketten automatisiert ablaufen kann, hängt allerdings stark vom Kontext der Daten ab.</p>
 </section>
-<section id="mapping-von-werten" class="level2">
-<h2 class="anchored" data-anchor-id="mapping-von-werten">Mapping von Werten</h2>
+<section id="mapping-von-werten-und-einheiten" class="level2">
+<h2 class="anchored" data-anchor-id="mapping-von-werten-und-einheiten">Mapping von Werten und Einheiten</h2>
 <p>In den gelieferten Daten kommen Werte mit unterschiedlichen Einheiten (Datumsangaben, Ortsangaben, Mengen, Gewichte und andere physische Maße…) vor. Diese sollten möglichst vereinheitlicht werden, damit Abfragen über den gesamten Datenbestand möglich sind.</p>
 
 

@@ -250,17 +250,14 @@ ul.task-list li input[type="checkbox"] {
 <section id="property-graph" class="level3">
 <h3 class="anchored" data-anchor-id="property-graph">Property Graph</h3>
 <p>Property-Graphen dienen der Strukturierung, Speicherung und Auswertung vernetzter Daten. Die Daten werden dabei nicht in tabellarischer Form (wie bei einer Tabellenkalkulation oder bei SQL) oder in hierarchischer Form (wie bei XML) sondern in Form eines <strong>Graphen</strong> gespeichert. Die Knoten und Kanten des Graphen können jeweils <strong>Labels</strong> (Typen) haben und mit <strong>Eigenschaften</strong> versehen sein. Zur Abfrage von Property-Graphen dient die Sprache <a href="./cypher.html">Cypher</a>. Eine genauere Erklärung liefert der Artikel <a href="https://jakobib.github.io/pgraphen2024/">Property-Graphen: eine kurze Einführung</a>.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Tipp
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-body-container">
 <p>Beispiele von Property-Graphen werden in diesem Handbuch im <a href="https://pg-format.github.io/">Property Graph Exchange Format (PG)</a> dargestellt.</p>
+</div>
 </div>
 </div>
 </section>
@@ -270,20 +267,17 @@ Tipp
 <section id="schema" class="level3">
 <h3 class="anchored" data-anchor-id="schema">Schema</h3>
 <p>Das Datenbankschema oder <strong>Datenmodell</strong> eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von <a href="#property-graph">Property Graph</a> und <a href="#triple-store">Triple Store</a> unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell <a href="./crm.html">CIDOC-CRM</a>. Details zu den Schemas finden sich im <a href="./schema.html">Kapitel Datenbankschema</a>.</p>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Beispiel">
-<div class="callout-header d-flex align-content-center">
+<p>Neben dem Schema von Graphdatenbanken gibt Schemas zur Validierung der <a href="#datenformate">Datenformate</a> gelieferter Daten und Vokabulare.</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Beispiel
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<div class="callout-body-container">
 <p>Im Schema ist beispielsweise vorgegeben, dass es für Messungen Knoten der Klasse <code>E16_Measurement</code> und für Zeiträume Knoten der Klasse <code>E52_Time_Span</code> gibt.</p>
 </div>
 </div>
-<p>Neben dem Schema von Graphdatenbanken gibt Schemas zur Validierung der <a href="#datenformate">Datenformate</a> gelieferter Daten.</p>
+</div>
 </section>
 <section id="datenbestand" class="level3">
 <h3 class="anchored" data-anchor-id="datenbestand">Datenbestand</h3>
@@ -292,13 +286,13 @@ Beispiel
 <section id="vokabular" class="level3">
 <h3 class="anchored" data-anchor-id="vokabular">Vokabular</h3>
 <p>Vokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von <a href="#sammlungen">Sammlungen</a> überschrieben werden. Weitere Informationen finden sich in den Kapiteln zu <a href="./vocabularies.html">Vokabularen</a> und zu <a href="./mappings.html">Mappings</a>.</p>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Beispiel">
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="Beispiele">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Beispiel
+Beispiele
 </div>
 </div>
 <div class="callout-body-container callout-body">
