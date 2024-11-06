@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="codemirror.css">
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -174,7 +174,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Inhaltsverzeichnis</h2>
+   
+  <ul>
+  <li><a href="#publikationen" id="toc-publikationen" class="nav-link active" data-scroll-target="#publikationen">Publikationen</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/index.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <script src="./js/common.js"></script>
@@ -205,11 +213,23 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des <strong>Knowledge Graphen von NFDI4Objects</strong> (TA5). Der Zugriff auf die Inhalte des Knowledge Graphen ist <a href="./usage.html">Kapitel Benutzung</a> beschrieben. Hintergründe und Details finden sich im <a href="./basics.html">Grundlagen-Kapitel</a> und in der Beschreibung der <a href="./architecture.html">Systemarchitektur</a>.</p>
+<p>An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des <strong>Knowledge Graphen von NFDI4Objects</strong> (N4O Graph) der TA5. Der Zugriff auf die Inhalte des Knowledge Graphen ist <a href="./usage.html">Kapitel Benutzung</a> beschrieben. Hintergründe und Details finden sich im <a href="./basics.html">Grundlagen-Kapitel</a> und in der Beschreibung der <a href="./architecture.html">Systemarchitektur</a>.</p>
 <p>Der Knowledge Graph besteht im Kern aus einem <strong><a href="basics.html#triple-store">Triple-Store</a></strong>, in denen Daten aus <a href="./sources.html">verschiedenene Quellen</a> zusammengeführt werden und per <a href="./sparql.html">SPARQL</a>-Schnittstelle abgefragt werden können. Darüber hinaus sind weitere Schnittstellen geplant, darunter ein Query-Builder und einen Graph-Browser. Forschungsdaten-Anwendungen können auf den Knowledge Graphen zugreifen und zusätzliche Recherche- und Analysemöglichkeiten bieten.</p>
-<!-- Der aktuelle Stand des Property Graphen ist [über ein Dashboard](status.qmd) einsehbar. -->
+<p>Eine einfache Oberfläche zum Zugriff auf die Schnittstellen des Knowledge Graph ist unter <a href="https://graph.nfdi4objects.net/" class="uri">https://graph.nfdi4objects.net/</a> verfügbar.</p>
+<section id="publikationen" class="level3">
+<h3 class="anchored" data-anchor-id="publikationen">Publikationen</h3>
+<p>Weitere Einführungen in den Knowledge Graph geben folgende <a href="https://zenodo.org/communities/vzg/records">Publikationen der VZG</a>:</p>
+<ul>
+<li><em>N4O Graph: The Knowledge Graph of NFDI4Objects</em> <a href="https://doi.org/10.5281/zenodo.13946053" class="uri">https://doi.org/10.5281/zenodo.13946053</a> (Präsentation vom 17.10.2024)</li>
+<li><em>N40 Graph. Datenformate, -flüsse und -modelle</em> <a href="https://doi.org/10.5281/zenodo.13784846" class="uri">https://doi.org/10.5281/zenodo.13784846</a> (Präsentation vom 20.9.2024)</li>
+<li><em>Integration von Forschungsdaten im NFDI4Objects Knowledge Graph</em> <a href="https://doi.org/10.5281/zenodo.13744338" class="uri">https://doi.org/10.5281/zenodo.13744338</a> (Poster vom 11.9.2024)</li>
+<li><em>Ontology development in NFDI4Objects</em> <a href="https://doi.org/10.5281/zenodo.13149276" class="uri">https://doi.org/10.5281/zenodo.13149276</a> (Präsentation vom 31.7.2024)</li>
+<li><em>Terminologien in NFDI4Objects</em> <a href="https://doi.org/10.5281/zenodo.10906912" class="uri">https://doi.org/10.5281/zenodo.10906912</a> (Präsentation vom 20.3.2024)</li>
+<li><em>Mapping von Terminologien mit Cocoda für NFDI4Objects</em> <a href="https://doi.org/10.5281/zenodo.10820784" class="uri">https://doi.org/10.5281/zenodo.10820784</a> (Präsentation vom 15.3.2024)</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -651,7 +671,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/index.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/index.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
