@@ -3,7 +3,7 @@ title: Einleitung
 lang: de
 ---
 
-An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des **Knowledge Graphen von NFDI4Objects** (TA5).  Der Zugriff auf die Inhalte des Knowledge Graphen ist [Kapitel Benutzung](usage.qmd) beschrieben.  Hintergründe und Details finden sich im [Grundlagen-Kapitel](basics.qmd) und in der Beschreibung der [Systemarchitektur](architecture.qmd).
+An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des **Knowledge Graphen von NFDI4Objects** (N4O Graph) der TA5.  Der Zugriff auf die Inhalte des Knowledge Graphen ist [Kapitel Benutzung](usage.qmd) beschrieben.  Hintergründe und Details finden sich im [Grundlagen-Kapitel](basics.qmd) und in der Beschreibung der [Systemarchitektur](architecture.qmd).
 
 Der Knowledge Graph besteht im Kern aus einem **[Triple-Store](#triple-store)**,
 in denen Daten aus [verschiedenene Quellen](sources.qmd) zusammengeführt werden
@@ -12,4 +12,29 @@ sind weitere Schnittstellen geplant, darunter ein Query-Builder und einen Graph-
 Forschungsdaten-Anwendungen können auf den Knowledge Graphen zugreifen und zusätzliche
 Recherche- und Analysemöglichkeiten bieten.
 
-<!-- Der aktuelle Stand des Property Graphen ist [über ein Dashboard](status.qmd) einsehbar. -->
+Eine einfache Oberfläche zum Zugriff auf die Schnittstellen des Knowledge Graph ist unter
+<https://graph.nfdi4objects.net/> verfügbar.
+
+### Publikationen
+
+Weitere Einführungen in den Knowledge Graph geben folgende [Publikationen der VZG](https://zenodo.org/communities/vzg/records):
+
+- *N4O Graph: The Knowledge Graph of NFDI4Objects*
+  <https://doi.org/10.5281/zenodo.13946053>
+  (Präsentation vom 17.10.2024)
+- *N40 Graph. Datenformate, -flüsse und -modelle*
+   <https://doi.org/10.5281/zenodo.13784846>
+  (Präsentation vom 20.9.2024)
+- *Integration von Forschungsdaten im NFDI4Objects Knowledge Graph*
+  <https://doi.org/10.5281/zenodo.13744338>
+  (Poster vom 11.9.2024)
+- *Ontology development in NFDI4Objects*
+  <https://doi.org/10.5281/zenodo.13149276>
+  (Präsentation vom 31.7.2024)
+- *Terminologien in NFDI4Objects*
+  <https://doi.org/10.5281/zenodo.10906912>
+  (Präsentation vom 20.3.2024)
+- *Mapping von Terminologien mit Cocoda für NFDI4Objects*
+  <https://doi.org/10.5281/zenodo.10820784>
+  (Präsentation vom 15.3.2024)
+
