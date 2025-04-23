@@ -14,7 +14,7 @@
     "href": "basics.html",
     "title": "Grundlagen",
     "section": "",
-    "text": "Knowledge Graph\nIn einem Knowledge Graph (auch Wissensgraph) sind Informationen strukturiert und stark miteinander vernetzt gespeichert. Ein Beispiel hierfür ist ein Netzwerk aus Personen, die durch Verwandschaft und andere Beziehungen miteinander verknüpft sind. Jeder Graph besteht aus Knoten und Kanten. So lassen sich beispielsweise Personen durch Knoten und Beziehungen durch Kanten repräsentieren.\nWeitere Details hängen von der technischen Umsetzung des Knowledge Graphen ab. Die beiden am häufigsten verwendeten Datenbankmodelle sind Property-Graphen und das RDF-Datenmodell mit Triple Stores. Darüber hinaus gibt es einige Knowledge Graphen mit eigenem Datenbankmodell, beispielsweise Wikidata auf Grundlage von des Wikibase-Modells.\nDie Inhalte eines Knowledge Graphen besteht aus einem Schema, optional einigen Vokabularen und dem Datenbestand als eigentlichem Datenbankinhalt. Einzelne “Datensätze” gibt es aufgrund der Graphstruktur nicht.",
+    "text": "Knowledge Graph\nZur Nutzung des Knowledge Graphen ist das Verständnis einiger Grundbegriffe notwendig:\nWeitere technischen Details und Hintergründe finden sich im Kapitel zur Systemarchitektur.\nIn einem Knowledge Graph (auch Wissensgraph) sind Informationen strukturiert und stark miteinander vernetzt gespeichert. Ein Beispiel hierfür ist ein Netzwerk aus Personen, die durch Verwandschaft und andere Beziehungen miteinander verknüpft sind. Jeder Graph besteht aus Knoten und Kanten. So lassen sich beispielsweise Personen durch Knoten und Beziehungen durch Kanten repräsentieren.\nWeitere Details hängen von der technischen Umsetzung des Knowledge Graphen ab. Die beiden am häufigsten verwendeten Datenbankmodelle sind Property-Graphen und das RDF-Datenmodell mit Triple Stores. Darüber hinaus gibt es einige Knowledge Graphen mit eigenem Datenbankmodell, beispielsweise Wikidata auf Grundlage von des Wikibase-Modells.\nDie Inhalte eines Knowledge Graphen besteht aus einem Schema, optional einigen Vokabularen und dem Datenbestand als eigentlichem Datenbankinhalt. Einzelne “Datensätze” gibt es aufgrund der Graphstruktur nicht.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grundlagen</span>"
     ]
@@ -54,7 +54,7 @@
     "href": "sources.html",
     "title": "Datenquellen",
     "section": "",
-    "text": "Anforderungen an Datenlieferungen",
+    "text": "Anforderungen an Datenlieferungen\nDer Knowledge Graph besteht aus Daten verschiedener Sammlungen aus verschiedenenen Quelldatenbanken, die mit bekannten Vokabularen angereichert werden.\nDie technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie Update-Verfahren befinden sich noch in Entwicklung.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
@@ -94,7 +94,7 @@
     "href": "schema.html",
     "title": "Datenbankschema",
     "section": "",
-    "text": "Modellierung",
+    "text": "Modellierung\nIm Folgenden das Datenbankschema des Property Graphen beschrieben. Die RDF-Daten im Triple-Store folgend dagegen bislang keinen Schema sondern werden so eingespielt wie sie geliefert werden.\nAls Sammlungsübergeifendes Datenmodell wird CIDOC-CRM (CRM) verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten Vokabularen wie ICONCLASS, GND und die LIDO-Terminologien unterstützt.",
     "crumbs": [
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Datenbankschema</span>"
     ]
@@ -144,7 +144,7 @@
     "href": "usage.html",
     "title": "Benutzung",
     "section": "",
-    "text": "SPARQL-API\nEine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL https://graph.nfdi4objects.net/api/sparql abgefragt werden (siehe API-Dokumentation). Unter https://graph.nfdi4objects.net/sparql gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel SPARQL-Abfragen.",
+    "text": "SPARQL-API\nDer Zugriff auf den Knowledge Graphen ist bislang nur über technische Schnittstellen (APIs) möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.\nEine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL https://graph.nfdi4objects.net/api/sparql abgefragt werden (siehe API-Dokumentation). Unter https://graph.nfdi4objects.net/sparql gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel SPARQL-Abfragen.",
     "crumbs": [
       "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
     ]
@@ -184,7 +184,7 @@
     "href": "sparql.html",
     "title": "Abfragen mit SPARQL",
     "section": "",
-    "text": "Datenmodell",
+    "text": "Datenmodell\nDie im Knowledge-Graph gesammelten Forschungsdaten werden zusammen mit Normdaten und Verwaltungsdaten in einem Triple Store zusammengeführt und können unter https://graph.nfdi4objects.net/sparql mittels SPARQL abgefragt werden (siehe Beispielabfragen dort).",
     "crumbs": [
       "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
     ]
@@ -274,7 +274,7 @@
     "href": "mappings.html",
     "title": "Mappings",
     "section": "",
-    "text": "Mapping von Schemas\nDas einheitliche Datenmodell des Knowledge Graphen basiert auf CIDOC-CRM (siehe Datenbankschema). Werden in den gelieferten Daten andere Ontologien verwendet, so müssen diese auf CRM abgebildet werden. Die Abbildung geschieht bislang per Hand in Konfigurationsdateien. In Zukunft soll als Werkzeug hierfür auch Cocoda eingesetzt werden.\nNeben der Abbildung von verschiedenen Ontologien auf CRM ist es auch notwendig, unterschiedliche Modellierungsmöglichkeiten innerhalb von CRM auf ein Schema zu vereinheitlichen.",
+    "text": "Mapping von Schemas\nZur besseren Integration von Daten sollen spezialisierte Ontologien und Metadaten-Schema auf ein einheitliches Datenbankschema und ausgewählte Werte per Named-Entity-Recognition auf Vokabulare gemappt werden. Im Detail lassen sich folgende Mapping-Bereiche unterscheiden:\nEin Teil der Mappings für den NFDI4Objects Knowledge Graphen kann mit Hilfe der Webanwendung Cocoda erstellt und gepflegt werden. Eine entsprechend konfigurierte Instanz der Software ist unter https://coli-conc.gbv.de/cocoda/nfdi4objects/ erreichbar.\nDas einheitliche Datenmodell des Knowledge Graphen basiert auf CIDOC-CRM (siehe Datenbankschema). Werden in den gelieferten Daten andere Ontologien verwendet, so müssen diese auf CRM abgebildet werden. Die Abbildung geschieht bislang per Hand in Konfigurationsdateien. In Zukunft soll als Werkzeug hierfür auch Cocoda eingesetzt werden.\nNeben der Abbildung von verschiedenen Ontologien auf CRM ist es auch notwendig, unterschiedliche Modellierungsmöglichkeiten innerhalb von CRM auf ein Schema zu vereinheitlichen.",
     "crumbs": [
       "<span class='chapter-number'>10</span>  <span class='chapter-title'>Mappings</span>"
     ]
