@@ -1,0 +1,58 @@
+# Try with:
+#
+# docker compose -f docker-compose-graph.yml up --force-recreate -V
+
+version: '3.0'
+services:
+
+  fuseki:
+    image: ghcr.io/nfdi4objects/n4o-fuseki:main
+    #ports:
+    #  - "3031:3030"
+    #volumes:
+    #  - ./fuseki/logs:/fuseki/logs
+    #  - ./fuseki/databases:/fuseki/databases
+    #  - ./fuseki/log4j2.properties:/fuseki/log4j2.properties:ro
+    networks:
+      - n4o
+    restart: always
+    healthcheck:
+      test: ["CMD", "wget", "--post-data", "query=DESCRIBE <>", "http://localhost:3030/n4o", "-O", "/dev/null"]
+      # Less frequent health check requires Docker >= 25.0.0
+      # start_interval: 1s
+      # start_period: 0s    # directly check on startup
+      # interval: 1m        # then check every minute
+      interval: 2s        # check after 2s, then every 2s
+      timeout: 2s
+
+  apis:
+    image: ghcr.io/nfdi4objects/n4o-graph-apis:main
+    ports:
+      - ${PORT:-8000}:8000
+    volumes:
+      - ./config-apis.yml:/app/config.yaml:ro # ./config-apis.yml must exist!
+      - ${STAGE:-./stage}:/app/stage:ro
+    networks:
+      - n4o
+    depends_on:
+     fuseki: 
+       condition: service_healthy
+
+  importer:
+    image: ghcr.io/nfdi4objects/n4o-graph-importer:main
+    volumes:
+      - ${STAGE:-./stage}:/app/stage
+      - ${DATA:-./data}:/app/data:ro
+    networks:
+      - n4o
+    environment:
+      - SPARQL=http://fuseki:3030/n4o
+
+  lido2rdf:
+    image: ghcr.io/nfdi4objects/lido-rdf-converter:main
+    networks:
+      - n4o
+
+networks:
+  n4o:
+    driver: bridge
