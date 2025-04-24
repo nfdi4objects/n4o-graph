@@ -1,5 +1,7 @@
 # NFDI4Objects Graph
 
+> Technical architecture and documentation of the NFDI4Objects Knowledge Graph
+
 ## Components
 
 - [n4o-fuseki](https://github.com/nfdi4objects/n4o-fuseki): RDF triple store
@@ -16,19 +18,19 @@ graph TD
     data(research data) --> receive
     stage(stage)
 
-    subgraph "**importer**: n4o-graph-importer"
+    subgraph "n4o-graph-**importer**"
         receive[**receive**]
         receive -- validate, transform, report --> stage
         stage --> load
         load[**load**]
     end
-    subgraph "**fuseki**: n4o-fuseki"
+    subgraph "n4o-**fuseki**"
         kg(triple store)
     end
-    subgraph "**apis**: n4o-graph-apis"
+    subgraph "n4o-graph-**apis**"
         ui[**web application**]
     end
-    subgraph "**lido2rdf**: lido-rdf-converter"
+    subgraph "lido-rdf-**converter**"
         lido2rdf[**lido2rdf**]
         web-app[**web-app**]
     end

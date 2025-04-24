@@ -48,7 +48,7 @@ services:
     environment:
       - SPARQL=http://fuseki:3030/n4o
 
-  lido2rdf:
+  converter:
     image: ghcr.io/nfdi4objects/lido-rdf-converter:main
     networks:
       - n4o
