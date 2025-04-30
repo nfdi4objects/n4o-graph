@@ -2,7 +2,6 @@
 #
 # docker compose -f docker-compose-graph.yml up --force-recreate -V
 
-version: '3.0'
 services:
 
   fuseki:

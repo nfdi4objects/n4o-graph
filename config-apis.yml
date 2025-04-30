@@ -23,4 +23,4 @@ tools:
   - name: LIDO2RDF
     description: Convert LIDO XML to RDF
     path: /lido2rdf/
-    proxy: http://lido2rdf:5000/
+    proxy: http://converter:5000/
