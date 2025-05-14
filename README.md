@@ -87,12 +87,18 @@ docker compose run importer import-terminology http://bartoc.org/en/node/1644   
 
 To import collections, fist get and import the list of collections:
 
-~~~
+~~~sh
 docker compose run importer update-collections
-docker compose run importer import-collections-metadata
+docker compose run importer load-collections-metadata
 ~~~
 
 Import of selected collection data is not fully implemented yet.
+
+To retrieve and load the lists of terminologies and collection with one command:
+
+~~~sh
+docker compose run importer import-metadata
+~~~
 
 ## Configuration
 
