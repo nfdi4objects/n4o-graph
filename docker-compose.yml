@@ -39,6 +39,8 @@ services:
 
   importer:
     image: ghcr.io/nfdi4objects/n4o-graph-importer:main
+    ports:
+      - ${PORT:-5020}:5020
     volumes:
       - ${STAGE:-./stage}:/app/stage
       - ${DATA:-./data}:/app/data:ro
