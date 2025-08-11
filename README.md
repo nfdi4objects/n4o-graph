@@ -111,9 +111,10 @@ docker compose run importer import-metadata
 
 The following environment variables can be used for configuration:
 
-- PORT
-- STAGE
-- DATA
+- PORT - port to publish n4o-graph-apis (public read access)
+- IMPORT - port to publish n4o-graph-importer (with write access!)
+- STAGE - stage directory (default: `./stage`)
+- DATA - data directory (optional, default: `./data`)
 
 ## License
 
