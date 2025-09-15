@@ -30,6 +30,9 @@ book:
     - architecture.qmd
     - mappings.qmd
     - status.qmd
+  navbar:
+    logo: img/logo.png
+    logo-href: https://graph.nfdi4objects.net/  
   page-footer: 
     right: 
       - text: Datenschutz
