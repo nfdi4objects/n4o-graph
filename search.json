@@ -14,17 +14,17 @@
     "href": "basics.html",
     "title": "Grundlagen",
     "section": "",
-    "text": "Knowledge Graph\nZur Nutzung des Knowledge Graphen ist das Verständnis einiger Grundbegriffe notwendig:\nWeitere technischen Details und Hintergründe finden sich im Kapitel zur Systemarchitektur.\nIn einem Knowledge Graph (auch Wissensgraph) sind Informationen strukturiert und stark miteinander vernetzt gespeichert. Ein Beispiel hierfür ist ein Netzwerk aus Personen, die durch Verwandschaft und andere Beziehungen miteinander verknüpft sind. Jeder Graph besteht aus Knoten und Kanten. So lassen sich beispielsweise Personen durch Knoten und Beziehungen durch Kanten repräsentieren.\nWeitere Details hängen von der technischen Umsetzung des Knowledge Graphen ab. Die beiden am häufigsten verwendeten Datenbankmodelle sind Property-Graphen und das RDF-Datenmodell mit Triple Stores. Darüber hinaus gibt es einige Knowledge Graphen mit eigenem Datenbankmodell, beispielsweise Wikidata auf Grundlage von des Wikibase-Modells.\nDie Inhalte eines Knowledge Graphen besteht aus einem Schema, optional einigen Vokabularen und dem Datenbestand als eigentlichem Datenbankinhalt. Einzelne “Datensätze” gibt es aufgrund der Graphstruktur nicht.",
+    "text": "Knowledge Graph\nZur Nutzung des Knowledge Graphen ist das Verständnis einiger Grundbegriffe notwendig:\nWeitere technischen Details und Hintergründe finden sich im Kapitel zur Systemarchitektur.\nIn einem Knowledge Graph (auch Wissensgraph) sind Informationen strukturiert und stark miteinander vernetzt gespeichert. Ein Beispiel hierfür ist ein Netzwerk aus Personen, die durch Verwandschaft und andere Beziehungen miteinander verknüpft sind. Jeder Graph besteht aus Knoten und Kanten. So lassen sich beispielsweise Personen durch Knoten und Beziehungen durch Kanten repräsentieren.\nWeitere Details hängen von der technischen Umsetzung des Knowledge Graphen ab. Eines der am häufigsten verwendeten Datenbankmodelle ist das RDF-Datenmodell mit Triple Stores. Darüber hinaus gibt es einige Knowledge Graphen mit eigenem Datenbankmodell, beispielsweise Wikidata auf Grundlage von des Wikibase-Modells.\nDie Inhalte eines Knowledge Graphen besteht aus einem Schema, optional einigen Vokabularen und dem Datenbestand als eigentlichem Datenbankinhalt. Einzelne “Datensätze” gibt es aufgrund der Graphstruktur nicht.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grundlagen</span>"
     ]
   },
   {
-    "objectID": "basics.html#datenbankmodelle",
-    "href": "basics.html#datenbankmodelle",
+    "objectID": "basics.html#datenbankmodell",
+    "href": "basics.html#datenbankmodell",
     "title": "Grundlagen",
-    "section": "Datenbankmodelle",
-    "text": "Datenbankmodelle\n\nTriple Store\nEin Triple Store ist eine Graphendatenbank in der Daten dem RDF-Modell nach in Form von so genannten Triplen gespeichert werden. Jedes Tripel entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple Stores dient SPARQL.\n\n\nProperty Graph\nProperty-Graphen dienen der Strukturierung, Speicherung und Auswertung vernetzter Daten. Die Daten werden dabei nicht in tabellarischer Form (wie bei einer Tabellenkalkulation oder bei SQL) oder in hierarchischer Form (wie bei XML) sondern in Form eines Graphen gespeichert. Die Knoten und Kanten des Graphen können jeweils Labels (Typen) haben und mit Eigenschaften versehen sein. Zur Abfrage von Property-Graphen dient die Sprache Cypher. Eine genauere Erklärung liefert der Artikel Property-Graphen: eine kurze Einführung.\n\n\n\n\n\n\nBeispiele von Property-Graphen werden in diesem Handbuch im Property Graph Exchange Format (PG) dargestellt.",
+    "section": "Datenbankmodell",
+    "text": "Datenbankmodell\n\nTriple Store\nEin Triple Store ist eine Graphendatenbank in der Daten dem RDF-Modell nach in Form von so genannten Triplen gespeichert werden. Jedes Tripel entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple Stores dient SPARQL.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grundlagen</span>"
     ]
@@ -34,7 +34,7 @@
     "href": "basics.html#datenbankinhalt",
     "title": "Grundlagen",
     "section": "Datenbankinhalt",
-    "text": "Datenbankinhalt\n\nSchema\nDas Datenbankschema oder Datenmodell eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Da sich die Datenbankmodelle von Property Graph und Triple Store unterscheiden, gibt es für beide jeweils ein eigenes Schema. Beide Schemas basieren allerdings auf dem gemeinsamen abstrakten Datenmodell CIDOC-CRM. Details zu den Schemas finden sich im Kapitel Datenbankschema.\nNeben dem Schema von Graphdatenbanken gibt Schemas zur Validierung der Datenformate gelieferter Daten und Vokabulare.\n\n\n\n\n\n\nIm Schema ist beispielsweise vorgegeben, dass es für Messungen Knoten der Klasse E16_Measurement und für Zeiträume Knoten der Klasse E52_Time_Span gibt.\n\n\n\n\n\nDatenbestand\nDer Datenbestand ist der eigentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts. Er wird im Gegensatz zu Schema und Vokabularen laufend durch Lieferungen von Sammlungen Forschungsdaten aktualisiert, die in den Graphen integriert werden.\n\n\nVokabular\nVokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von Sammlungen überschrieben werden. Weitere Informationen finden sich in den Kapiteln zu Vokabularen und zu Mappings.\n\n\n\n\n\n\nTippBeispiele\n\n\n\nHäufig verwendete Vokabulare sind die Gemeinsame Normdatei (GND), das Klassifizierungssystem Iconclass und die Normdateien des Getty Research Institute. Darüber hinaus gibt es zahlreiche Spezial-Vokabulare wie zum Beispiel die Hornbostel-Sachs-Klassifikation der Musikinstrumente.\n\n\n\n\nSammlung\nDer Datenbestand des Knowledge Graphen von NFDI4IObjekts ist in so genannte Sammlungen unterteilt. Einige Sammlungen bestehen aus einzelnen Datensätzen, andere aus einer zusammengefassten Lieferung von Daten. Weitere Informationen zu Sammlungen und Lieferungen finden sich im Kapitel Datenquellen.",
+    "text": "Datenbankinhalt\n\nSchema\nDas Datenbankschema oder Datenmodell eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Das Schemas basiert auf dem abstrakten Datenmodell CIDOC-CRM. Details zu den Schemas finden sich im Kapitel Datenbankschema.\nNeben dem Schema von Graphdatenbanken gibt Schemas zur Validierung der Datenformate gelieferter Daten und Vokabulare.\n\n\n\n\n\n\nIm Schema ist beispielsweise vorgegeben, dass es für Messungen Knoten der Klasse E16_Measurement und für Zeiträume Knoten der Klasse E52_Time_Span gibt.\n\n\n\n\n\nDatenbestand\nDer Datenbestand ist der eigentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts. Er wird im Gegensatz zu Schema und Vokabularen laufend durch Lieferungen von Sammlungen Forschungsdaten aktualisiert, die in den Graphen integriert werden.\n\n\nVokabular\nVokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von Sammlungen überschrieben werden. Weitere Informationen finden sich in den Kapiteln zu Vokabularen und zu Mappings.\n\n\n\n\n\n\nTippBeispiele\n\n\n\nHäufig verwendete Vokabulare sind die Gemeinsame Normdatei (GND), das Klassifizierungssystem Iconclass und die Normdateien des Getty Research Institute. Darüber hinaus gibt es zahlreiche Spezial-Vokabulare wie zum Beispiel die Hornbostel-Sachs-Klassifikation der Musikinstrumente.\n\n\n\n\nSammlung\nDer Datenbestand des Knowledge Graphen von NFDI4IObjekts ist in so genannte Sammlungen unterteilt. Einige Sammlungen bestehen aus einzelnen Datensätzen, andere aus einer zusammengefassten Lieferung von Daten. Weitere Informationen zu Sammlungen und Lieferungen finden sich im Kapitel Datenquellen.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grundlagen</span>"
     ]
@@ -44,7 +44,7 @@
     "href": "basics.html#datenformate",
     "title": "Grundlagen",
     "section": "Datenformate",
-    "text": "Datenformate\nZur Integration in den Datenbestand des Knowledge Graphen können Daten grundsätzlich in LIDO oder in RDF geliefert werden. Darüber hinaus gibt es spezielle Formate für Vokabulare und Mappings.\n\nLIDO\nLightweight Information Describing Objects (LIDO) ist ein XML-Format aus dem Museumsbereich (siehe LIDO in der Formatdatenbank).\n\n\nRDF\nRDF-Daten können in verschiedenen Serialisierungen vorkommen, die sich verlustfrei ineinander überführen lassen (siehe RDF in der Formatdatenbank). Im Gegensatz zum allgemeinen Graph-Daten eines Property Graphen enthalten RDF-Daten global eindeutige URIs als Identifikatoren. Außerdem lassen sich RDF-Daten aus unterschiedlichen Quellen immer zusammenführen. Sofern kein einheitliches Schema verwendet wird, ist das Ergebnis allerdings uneinheitlich.",
+    "text": "Datenformate\nZur Integration in den Datenbestand des Knowledge Graphen können Daten grundsätzlich in LIDO oder in RDF geliefert werden. Darüber hinaus gibt es spezielle Formate für Vokabulare und Mappings.\n\nLIDO\nLightweight Information Describing Objects (LIDO) ist ein XML-Format aus dem Museumsbereich (siehe LIDO in der Formatdatenbank).\n\n\nRDF\nRDF-Daten können in verschiedenen Serialisierungen vorkommen, die sich verlustfrei ineinander überführen lassen (siehe RDF in der Formatdatenbank). Im Gegensatz zu allgemeinen Graph-Daten enthalten RDF-Daten global eindeutige URIs als Identifikatoren. Außerdem lassen sich RDF-Daten aus unterschiedlichen Quellen immer zusammenführen. Sofern kein einheitliches Schema verwendet wird, ist das Ergebnis allerdings uneinheitlich.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grundlagen</span>"
     ]
@@ -64,7 +64,7 @@
     "href": "sources.html#anforderungen-an-datenlieferungen",
     "title": "Datenquellen",
     "section": "",
-    "text": "Lieferung ausschließlich in RDF oder als XML Lightweight Information Describing Objects (LIDO)\nZur Integration von RDF-Daten in den Property Graphen muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von etablierten Vokabularen oder zumindest URIs statt Freitextfeldern\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung\nVerwendung von Normdaten-URI zur eindeutigen Zuweisung von Personen, Geografika u. s. w. (bspw. GND, VIAF, Wikidata, Geonames, historischen Gazeteers, …)\nWeitere Daten der unterstützten Terminologien und Ontologien werden herausgefiltert und gesondert eingespielt.",
+    "text": "Lieferung ausschließlich in RDF oder als XML Lightweight Information Describing Objects (LIDO)\nZur Integration von Daten muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von etablierten Vokabularen oder zumindest URIs statt Freitextfeldern\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung\nVerwendung von Normdaten-URI zur eindeutigen Zuweisung von Personen, Geografika u. s. w. (bspw. GND, VIAF, Wikidata, Geonames, historischen Gazeteers, …)\nWeitere Daten der unterstützten Terminologien und Ontologien werden herausgefiltert und gesondert eingespielt.",
     "crumbs": [
       "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
@@ -170,16 +170,6 @@
     ]
   },
   {
-    "objectID": "usage.html#cypher-api",
-    "href": "usage.html#cypher-api",
-    "title": "Benutzung",
-    "section": "Cypher-API",
-    "text": "Cypher-API\nNeben dem Triple-Store experimentieren wir mir einer Abbildung der Forschungsdaten in einem Property Graphen. Dieser Graph kann mit der Abfragesprache Cypher über die API-URL https://graph.nfdi4objects.net/api/cypher abgefragt werden. Unter https://graph.nfdi4objects.net/cypher gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Die Datenbankinhalte entsprechen allerdings nicht dem Triple-Store!",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
-    ]
-  },
-  {
     "objectID": "sparql.html",
     "href": "sparql.html",
     "title": "Abfragen mit SPARQL",
@@ -214,7 +204,7 @@
     "href": "architecture.html#technik",
     "title": "Systemarchitektur",
     "section": "",
-    "text": "Webserver (nginx)\nProperty-Graph Datenbanksystem (Neo4J)\nTriple-Store (Fuseki)\nSkripte in Python und NodeJS\nDocker",
+    "text": "Webserver (nginx)\nTriple-Store (Fuseki)\nSkripte in Python und NodeJS\nDocker",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
@@ -224,37 +214,7 @@
     "href": "architecture.html#workflow",
     "title": "Systemarchitektur",
     "section": "Workflow",
-    "text": "Workflow\nDer gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus folgenden Schritten:\n\nAnnahme, Prüfung und Bereinigung\nKonvertierung\nEinspielung\nImplementierung siehe https://github.com/nfdi4objects/n4o-property-graph\nAnreicherung\nBereitstellung\nNoch nicht umgesett\n\nEtwas genauer lässt sich der Prozess etwa wie in Abbildung 9.1 dargestellt veranschaulichen.\n\n\n\n\n\n\nflowchart LR\n    APIs[\"&lt;b&gt;APIs&lt;/b&gt;&lt;br/&gt;&lt;i&gt;repo: n4o-graph-apis&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: ready&lt;/i&gt;\"]\n    LIDO[\"&lt;b&gt;LIDO&lt;/b&gt;\"]\n    LIDOConverter[\"&lt;b&gt;LIDOConverter&lt;/b&gt;&lt;br/&gt;&lt;i&gt;tool: X3ML&lt;/i&gt;&lt;br/&gt;&lt;i&gt;repo: ?&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;\"]\n    Property_Graph[\"&lt;b&gt;Property_Graph&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;\"]\n    RDF[\"&lt;b&gt;RDF&lt;/b&gt;\"]\n    RDFConverter[\"&lt;b&gt;RDFConverter&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: planned&lt;/i&gt;&lt;br/&gt;&lt;i&gt;repo: ?&lt;/i&gt;\"]\n    Terminologies[\"&lt;b&gt;Terminologies&lt;/b&gt;&lt;br/&gt;&lt;i&gt;repo: n4o-terminologies&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;\"]\n    TerminologyConverter[\"&lt;b&gt;TerminologyConverter&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: planned&lt;/i&gt;&lt;br/&gt;&lt;i&gt;repo: ?&lt;/i&gt;\"]\n    Triple_Store[\"&lt;b&gt;Triple_Store&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;\"]\n    sources[\"&lt;b&gt;sources&lt;/b&gt;&lt;br/&gt;&lt;i&gt;repo: n4o-databases&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;\"]\n    sources -- \"&lt;u&gt;pgraph&lt;/u&gt;\" --&gt; Property_Graph\n    sources --&gt; Triple_Store\n    sources --&gt; LIDO\n    sources --&gt; RDF\n    LIDO -- \"&lt;u&gt;n4o-import&lt;/u&gt;\" --&gt; LIDOConverter\n    LIDOConverter -- \"&lt;u&gt;pgraph&lt;/u&gt;\" --&gt; Property_Graph\n    RDF -- \"&lt;u&gt;n4o-import&lt;/u&gt;\" --&gt; RDFConverter\n    RDFConverter -- \"&lt;u&gt;load-rdf&lt;/u&gt;\" --&gt; Triple_Store\n    RDFConverter -- \"&lt;u&gt;pgraph&lt;/u&gt;\" --&gt; Property_Graph\n    Property_Graph -- \"&lt;u&gt;enrich&lt;/u&gt;\" --&gt; Property_Graph\n    LIDOConverter --&gt; RDFConverter\n    Property_Graph -- \"&lt;u&gt;Cypher&lt;/u&gt;\" --&gt; APIs\n    Triple_Store -- \"&lt;u&gt;SPARQL&lt;/u&gt;\" --&gt; APIs\n    Terminologies --&gt; TerminologyConverter\n    TerminologyConverter -- \"&lt;u&gt;load-rdf&lt;/u&gt;\" --&gt; Triple_Store\n    TerminologyConverter -- \"&lt;u&gt;pgraph&lt;/u&gt;\" --&gt; Property_Graph\n\n\n\n\n\nAbbildung 9.1: Datenfluss",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
-    ]
-  },
-  {
-    "objectID": "architecture.html#annahme",
-    "href": "architecture.html#annahme",
-    "title": "Systemarchitektur",
-    "section": "Annahme",
-    "text": "Annahme\nZur Datenannahme, Prüfung und Bereinigung siehe https://github.com/nfdi4objects/n4o-import.\nDort findet sich unter anderem das offizielle XML-Schema für LIDO-Daten.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
-    ]
-  },
-  {
-    "objectID": "architecture.html#konvertierung",
-    "href": "architecture.html#konvertierung",
-    "title": "Systemarchitektur",
-    "section": "Konvertierung",
-    "text": "Konvertierung\n\nLIDO\nLIDO-XML-Daten werden mit Hilfe von X3ML ins Property Graph Format konvertiert.\n\n\nRDF\nZur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript rdf2cypher.py (wird derzeit überarbeitet), das eine Cypher-Datei (in Zukunkft CYPHERL und/oder PG-JSONL) ausgibt.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
-    ]
-  },
-  {
-    "objectID": "architecture.html#einspielung",
-    "href": "architecture.html#einspielung",
-    "title": "Systemarchitektur",
-    "section": "Einspielung",
-    "text": "Einspielung\n\nRDF-Daten in den Property-Graph\nZum Einspielen der Cypher-Datei in eine Neo4J-Datenbank kann das Kommando cypher-shell verwendet werden, das im Neo4J-Docker-Container enthalten ist oder separat installiert werden kann.\nDa Neo4J aus dem Docker-Container nicht auf die Cypher-Datei zugreifen kann, muss ihr Inhalt per Pipe eingelesen werden:\n&lt;file.cypher | docker exec -t neo4j \\\n  cypher-shell -a &lt;ADDRESS&gt; -u &lt;USERNAME&gt; -p &lt;PASSWORD&gt;\nEin neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner für Volume muss bereits existieren.\ndocker run -d \\\n    --name=neo4j \\\n    --publish=7474:7474 --publish=7687:7687 \\\n    --env NEO4J_AUTH=none \\\n    --user $(id -u):$(id -g) \\\n    --volume=$cwd/data:/data \\\n    neo4j \n\n\nRDF-Daten\nSiehe https://github.com/nfdi4objects/n4o-import",
+    "text": "Workflow\nDer gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus mehreren Schritten. Zur Datenannahme, Prüfung und Bereinigung siehe https://github.com/nfdi4objects/n4o-graph-importer. Dort findet sich unter anderem das offizielle XML-Schema für LIDO-Daten.\n\nLIDO\nLIDO-XML-Daten werden mit Hilfe von X3ML ins RDF-Format konvertiert.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
@@ -264,7 +224,7 @@
     "href": "architecture.html#anreicherung",
     "title": "Systemarchitektur",
     "section": "Anreicherung",
-    "text": "Anreicherung\n\nExpansion der Klassenhierarchie\nDa Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen expandiert. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei crm-classes.pg (siehe SVG-Diagram). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.\n\nE22_Man_Made_Object =&gt; E22_Human_Made_Object (renamedTo)\nE50_Date =&gt; E41_Appellation (replacedBy)\nE7_Activity=&gt; E5_Event (superClass)\n\nAus diesen Daten wird die Expansionstabelle crm-expand.txt erzeugt, z.B.:\n\nE22_Human_Made_Object =&gt; E22, E71, E70, E24 E77 und E1\n\nZum Ausführen der Expansion:\n./pg-expand-labels.py [Neo4j login file] &lt; crm-expand.txt\nOhne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.\nNach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. E22_Human_Made_Object möglich oder nach allen Knoten, die direkt oder indirekt er Klasse E22 angehören.\nDie Expansion ist auf gleiche Weise für andere Ontologien möglich, sofern diese auf CRM gemappt wurden.",
+    "text": "Anreicherung\n\n\n\n\n\n\nWarnung\n\n\n\nDieses Kapitel ist nichtmehr aktuell!\n\n\n\nExpansion der Klassenhierarchie\nDa Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen expandiert. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei crm-classes.pg (siehe SVG-Diagram). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.\n\nE22_Man_Made_Object =&gt; E22_Human_Made_Object (renamedTo)\nE50_Date =&gt; E41_Appellation (replacedBy)\nE7_Activity=&gt; E5_Event (superClass)\n\nAus diesen Daten wird die Expansionstabelle crm-expand.txt erzeugt, z.B.:\n\nE22_Human_Made_Object =&gt; E22, E71, E70, E24 E77 und E1\n\nZum Ausführen der Expansion:\n./pg-expand-labels.py [Neo4j login file] &lt; crm-expand.txt\nOhne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.\nNach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. E22_Human_Made_Object möglich oder nach allen Knoten, die direkt oder indirekt er Klasse E22 angehören.\nDie Expansion ist auf gleiche Weise für andere Ontologien möglich, sofern diese auf CRM gemappt wurden.",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
@@ -310,23 +270,13 @@
     ]
   },
   {
-    "objectID": "cypher.html",
-    "href": "cypher.html",
-    "title": "Abfragen mit Cypher",
-    "section": "",
-    "text": "Der Property Graph und die Cypher-API sind experimentell.\n\n\n\nVorausgesetzt wird ein Grundverständnis der Abfragesprache Cypher und des Datenbankschemas.\n\nAbfrage-Editor\n\nviewof cypherEditor = {\n  const mainDiv = html`&lt;div&gt;&lt;div&gt;`\n  const editorDiv = html`&lt;div style=\"border: 1px solid rgb(0, 0, 0);\"&gt;&lt;/div&gt;`\n  const runButton = html`&lt;button&gt;Query&lt;/button&gt;`\n  const errorStatus = html`&lt;span style=\"color: red; margin-left: 1em;\"&gt;&lt;/span&gt;`\n\n  mainDiv.append(editorDiv)\n  mainDiv.append(runButton)\n  mainDiv.append(errorStatus)\n\n  mainDiv.value = undefined\n  yield mainDiv\n\n  let editor = CodeMirror(editorDiv, { mode: \"application/x-cypher-query\" })\n\n  editor.setValue(\"MATCH (m:E16_Measurement) RETURN m LIMIT 10\")\n  editor.setSize(width-20, 200)\n\n  runButton.onclick = async (e) =&gt; {\n    errorStatus.textContent = \"\"\n    mainDiv.value = \n    cypherQuery(editor.getValue())\n      .then(value =&gt; mainDiv.value = value)\n      .catch(e =&gt; { \n        errorStatus.textContent = e\n        mainDiv.value = undefined\n      })\n\n    mainDiv.dispatchEvent(new CustomEvent(\"input\"))\n  }\n\n  return mainDiv\n}\n\ncypherEditor\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnfrageformat\nDer vorläufige API-Endpunkt ist https://graph.nfdi4objects.net/api/cypher. Die Cypher-Abfrage wird mit einer HTTP GET Anfrage im Query-Parameter query übergeben (siehe API-Dokumentation).\n\n\nRückgabeformat\nDas Rückgabeformat ist ein JSON-Array von Objekten, deren Felder den Abfragefeldern entsprechen. Die Feldwerte werden folgendermaßen von Cypher nach JSON gemappt:\n\n\n\nCypher Datentyp\nJSON Datentyp\nBeispiel\n\n\n\n\nNULL\nnull\nnull\n\n\nBOOLEAN\nboolean\ntrue\n\n\nINTEGER\nnumber\n123\n\n\nFLOAT\nnumber\n3.14\n\n\nSTRING\nstring\n\"äbć\"\n\n\nByteArray\nstring\n\"A2+/\" (Base64)\n\n\nLIST\narray\n[0,8,15]\n\n\nMAP\nstring\n{\"x\":\"?\",\"y\":42}\n\n\nTemporal (DATE, LOCAL TIME, DURATION…)\nstring (ISO-8601)\n\"2015-03-26\"\n\"12:50:35.556\"\n\"P14DT16H12M\"\n\n\nPOINT\nstring (WKT)\n\"SRID=7203;POINT(1.2 3.4)\"\n\n\nNODE\nobject\n{\n  \"type\": \"node\",\n  \"id\": \"4b55-98f8\",\n  \"labels\": [\"E22\"],\n  \"properties\": {\n    \"P3_has_note\": \"?!\"\n  }\n}\n\n\nRELATIONSHIP\nobject\n{\n  \"type\": \"edge\",\n  \"id\": \"37a9-72df\",\n  \"labels\": [\"P40\"],\n  \"properties\": {\"x\": 1},\n  \"from\": \"98f8-6888\",\n  \"to\": \"164b-c83a\"\n}\n\n\nPATH\narray\nArray aus NODE und RELATIONSHIP Objekten.\n\n\n\nDie Kodierung von NODE und RELATIONSHIP Objekten entspricht der Kodierung von Knoten und Kanten im Format PG-JSONL mit dem Unterschied, dass Property-Werte nicht zwingend vom Type array sind, sondern auch null, boolean, number und string sein können. Die Kodierung von PATH Objekten entspricht der Kodierung von Graphen im Format PG-JSON mit der gleichen Erweiterung von Property-Werten.",
-    "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Abfragen mit Cypher</span>"
-    ]
-  },
-  {
     "objectID": "status.html",
     "href": "status.html",
     "title": "Status",
     "section": "",
-    "text": "Triple Store",
+    "text": "Triple Store\nsparqlTripleCount = await sparqlQuery(\"SELECT (COUNT(*) as ?count) { GRAPH ?graph { ?s ?p ?o } }\")",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Status</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
     ]
   },
   {
@@ -336,17 +286,7 @@
     "section": "",
     "text": "Anzahl von Tripel:",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Status</span>"
-    ]
-  },
-  {
-    "objectID": "status.html#property-graph",
-    "href": "status.html#property-graph",
-    "title": "Status",
-    "section": "Property Graph",
-    "text": "Property Graph\nFolgende Übersicht wird live per Cypher API erstellt.\n\nAnzahl von Knoten: \nAnzahl von Kanten: \n\n\ncypherNodesCount = await cypherQuery(\"MATCH () RETURN count(*) as count\")\ncypherEdgesCount = await cypherQuery(\"MATCH ()-[]-&gt;() RETURN count(*) as count\")\nsparqlTripleCount = await sparqlQuery(\"SELECT (COUNT(*) as ?count) { GRAPH ?graph { ?s ?p ?o } }\")",
-    "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Status</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
     ]
   },
   {
@@ -356,7 +296,7 @@
     "section": "Datenquellen",
     "text": "Datenquellen\nDer Status des Import aus Datenquellen ist noch nicht öffentlich zugänglich.",
     "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Status</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
     ]
   }
 ]

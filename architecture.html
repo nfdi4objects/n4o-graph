@@ -105,9 +105,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Suchen"
   }
 }</script>
-<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
-<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
-<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="codemirror.css">
@@ -204,11 +201,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cypher.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit Cypher</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Status</span></a>
   </div>
 </li>
@@ -223,17 +215,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#technik" id="toc-technik" class="nav-link active" data-scroll-target="#technik">Technik</a></li>
-  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a></li>
-  <li><a href="#annahme" id="toc-annahme" class="nav-link" data-scroll-target="#annahme">Annahme</a></li>
-  <li><a href="#konvertierung" id="toc-konvertierung" class="nav-link" data-scroll-target="#konvertierung">Konvertierung</a>
+  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a>
   <ul class="collapse">
   <li><a href="#lido" id="toc-lido" class="nav-link" data-scroll-target="#lido">LIDO</a></li>
-  <li><a href="#rdf" id="toc-rdf" class="nav-link" data-scroll-target="#rdf">RDF</a></li>
-  </ul></li>
-  <li><a href="#einspielung" id="toc-einspielung" class="nav-link" data-scroll-target="#einspielung">Einspielung</a>
-  <ul class="collapse">
-  <li><a href="#rdf-daten-in-den-property-graph" id="toc-rdf-daten-in-den-property-graph" class="nav-link" data-scroll-target="#rdf-daten-in-den-property-graph">RDF-Daten in den Property-Graph</a></li>
-  <li><a href="#rdf-daten" id="toc-rdf-daten" class="nav-link" data-scroll-target="#rdf-daten">RDF-Daten</a></li>
   </ul></li>
   <li><a href="#anreicherung" id="toc-anreicherung" class="nav-link" data-scroll-target="#anreicherung">Anreicherung</a>
   <ul class="collapse">
@@ -275,7 +259,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="technik">Technik</h2>
 <ul>
 <li>Webserver (nginx)</li>
-<li>Property-Graph Datenbanksystem (Neo4J)</li>
 <li>Triple-Store (Fuseki)</li>
 <li>Skripte in Python und NodeJS</li>
 <li>Docker</li>
@@ -283,102 +266,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="workflow" class="level2">
 <h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
-<p>Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus folgenden Schritten:</p>
-<ol type="1">
-<li><p><strong><a href="#annahme">Annahme</a></strong>, <strong>Prüfung</strong> und <strong>Bereinigung</strong></p></li>
-<li><p><strong><a href="#konvertierung">Konvertierung</a></strong></p></li>
-<li><p><strong><a href="#einspielung">Einspielung</a></strong></p>
-<p>Implementierung siehe <a href="https://github.com/nfdi4objects/n4o-property-graph" class="uri">https://github.com/nfdi4objects/n4o-property-graph</a></p></li>
-<li><p><strong><a href="#anreicherung">Anreicherung</a></strong></p></li>
-<li><p><strong>Bereitstellung</strong></p>
-<p>Noch nicht umgesett</p></li>
-</ol>
-<p>Etwas genauer lässt sich der Prozess etwa wie in <a href="#fig-data-flow" class="quarto-xref">Abbildung&nbsp;<span>9.1</span></a> dargestellt veranschaulichen.</p>
-<div class="cell" data-layout-align="default">
-<div class="cell-output-display">
-<div id="fig-data-flow" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div>
-<pre class="mermaid mermaid-js" data-label="fig-data-flow">flowchart LR
-    APIs["&lt;b&gt;APIs&lt;/b&gt;&lt;br/&gt;&lt;i&gt;repo: n4o-graph-apis&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: ready&lt;/i&gt;"]
-    LIDO["&lt;b&gt;LIDO&lt;/b&gt;"]
-    LIDOConverter["&lt;b&gt;LIDOConverter&lt;/b&gt;&lt;br/&gt;&lt;i&gt;tool: X3ML&lt;/i&gt;&lt;br/&gt;&lt;i&gt;repo: ?&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;"]
-    Property_Graph["&lt;b&gt;Property_Graph&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;"]
-    RDF["&lt;b&gt;RDF&lt;/b&gt;"]
-    RDFConverter["&lt;b&gt;RDFConverter&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: planned&lt;/i&gt;&lt;br/&gt;&lt;i&gt;repo: ?&lt;/i&gt;"]
-    Terminologies["&lt;b&gt;Terminologies&lt;/b&gt;&lt;br/&gt;&lt;i&gt;repo: n4o-terminologies&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;"]
-    TerminologyConverter["&lt;b&gt;TerminologyConverter&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: planned&lt;/i&gt;&lt;br/&gt;&lt;i&gt;repo: ?&lt;/i&gt;"]
-    Triple_Store["&lt;b&gt;Triple_Store&lt;/b&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;"]
-    sources["&lt;b&gt;sources&lt;/b&gt;&lt;br/&gt;&lt;i&gt;repo: n4o-databases&lt;/i&gt;&lt;br/&gt;&lt;i&gt;status: prototype&lt;/i&gt;"]
-    sources -- "&lt;u&gt;pgraph&lt;/u&gt;" --&gt; Property_Graph
-    sources --&gt; Triple_Store
-    sources --&gt; LIDO
-    sources --&gt; RDF
-    LIDO -- "&lt;u&gt;n4o-import&lt;/u&gt;" --&gt; LIDOConverter
-    LIDOConverter -- "&lt;u&gt;pgraph&lt;/u&gt;" --&gt; Property_Graph
-    RDF -- "&lt;u&gt;n4o-import&lt;/u&gt;" --&gt; RDFConverter
-    RDFConverter -- "&lt;u&gt;load-rdf&lt;/u&gt;" --&gt; Triple_Store
-    RDFConverter -- "&lt;u&gt;pgraph&lt;/u&gt;" --&gt; Property_Graph
-    Property_Graph -- "&lt;u&gt;enrich&lt;/u&gt;" --&gt; Property_Graph
-    LIDOConverter --&gt; RDFConverter
-    Property_Graph -- "&lt;u&gt;Cypher&lt;/u&gt;" --&gt; APIs
-    Triple_Store -- "&lt;u&gt;SPARQL&lt;/u&gt;" --&gt; APIs
-    Terminologies --&gt; TerminologyConverter
-    TerminologyConverter -- "&lt;u&gt;load-rdf&lt;/u&gt;" --&gt; Triple_Store
-    TerminologyConverter -- "&lt;u&gt;pgraph&lt;/u&gt;" --&gt; Property_Graph
-
-</pre>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-data-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Abbildung&nbsp;9.1: Datenfluss
-</figcaption>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="annahme" class="level2">
-<h2 class="anchored" data-anchor-id="annahme">Annahme</h2>
-<p>Zur Datenannahme, Prüfung und Bereinigung siehe <a href="https://github.com/nfdi4objects/n4o-import" class="uri">https://github.com/nfdi4objects/n4o-import</a>.</p>
-<p>Dort findet sich unter anderem das offizielle <a href="https://github.com/nfdi4objects/n4o-import/tree/main/schemas">XML-Schema für LIDO-Daten</a>.</p>
-</section>
-<section id="konvertierung" class="level2">
-<h2 class="anchored" data-anchor-id="konvertierung">Konvertierung</h2>
+<p>Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus mehreren Schritten. Zur Datenannahme, Prüfung und Bereinigung siehe <a href="https://github.com/nfdi4objects/n4o-graph-importer" class="uri">https://github.com/nfdi4objects/n4o-graph-importer</a>. Dort findet sich unter anderem das offizielle <a href="https://github.com/nfdi4objects/lido-schema">XML-Schema für LIDO-Daten</a>.</p>
 <section id="lido" class="level3">
 <h3 class="anchored" data-anchor-id="lido">LIDO</h3>
-<p>LIDO-XML-Daten werden mit Hilfe von <a href="https://github.com/isl/x3ml">X3ML</a> ins Property Graph Format konvertiert.</p>
-</section>
-<section id="rdf" class="level3">
-<h3 class="anchored" data-anchor-id="rdf">RDF</h3>
-<p>Zur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript <code>rdf2cypher.py</code> (wird derzeit überarbeitet), das eine Cypher-Datei (in Zukunkft CYPHERL und/oder PG-JSONL) ausgibt.</p>
-</section>
-</section>
-<section id="einspielung" class="level2">
-<h2 class="anchored" data-anchor-id="einspielung">Einspielung</h2>
-<section id="rdf-daten-in-den-property-graph" class="level3">
-<h3 class="anchored" data-anchor-id="rdf-daten-in-den-property-graph">RDF-Daten in den Property-Graph</h3>
-<p>Zum Einspielen der Cypher-Datei in eine Neo4J-Datenbank kann das Kommando <code>cypher-shell</code> verwendet werden, das im Neo4J-Docker-Container enthalten ist oder <a href="https://neo4j.com/deployment-center/?cypher-shell">separat installiert</a> werden kann.</p>
-<p>Da Neo4J aus dem Docker-Container nicht auf die Cypher-Datei zugreifen kann, muss ihr Inhalt per Pipe eingelesen werden:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>file.cypher <span class="kw">|</span> <span class="ex">docker</span> exec <span class="at">-t</span> neo4j <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  cypher-shell <span class="at">-a</span> <span class="op">&lt;</span>ADDRESS<span class="op">&gt;</span> -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span> -p <span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-<p>Ein neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner für Volume muss bereits existieren.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="dt">\</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--name</span><span class="op">=</span>neo4j <span class="dt">\</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--publish</span><span class="op">=</span>7474:7474 <span class="at">--publish</span><span class="op">=</span>7687:7687 <span class="dt">\</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--env</span> NEO4J_AUTH=none <span class="dt">\</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">--user</span> <span class="va">$(</span><span class="fu">id</span> <span class="at">-u</span><span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> <span class="at">-g</span><span class="va">)</span> <span class="dt">\</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">--volume</span><span class="op">=</span><span class="va">$cwd</span>/data:/data <span class="dt">\</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    neo4j </span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
-</section>
-<section id="rdf-daten" class="level3">
-<h3 class="anchored" data-anchor-id="rdf-daten">RDF-Daten</h3>
-<p><em>Siehe https://github.com/nfdi4objects/n4o-import</em></p>
+<p>LIDO-XML-Daten werden mit Hilfe von <a href="https://github.com/isl/x3ml">X3ML</a> ins RDF-Format konvertiert.</p>
 </section>
 </section>
 <section id="anreicherung" class="level2">
 <h2 class="anchored" data-anchor-id="anreicherung">Anreicherung</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warnung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dieses Kapitel ist nichtmehr aktuell!</p>
+</div>
+</div>
 <section id="expansion-der-klassenhierarchie" class="level3">
 <h3 class="anchored" data-anchor-id="expansion-der-klassenhierarchie">Expansion der Klassenhierarchie</h3>
 <p>Da Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen <em>expandiert</em>. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei <code>crm-classes.pg</code> (siehe <a href="img/crm-classes.svg">SVG-Diagram</a>). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.</p>
@@ -392,7 +300,7 @@ Abbildung&nbsp;9.1: Datenfluss
 <li><code>E22_Human_Made_Object</code> =&gt; <code>E22</code>, <code>E71</code>, <code>E70</code>, <code>E24</code> <code>E77</code> und <code>E1</code></li>
 </ul>
 <p>Zum Ausführen der Expansion:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./pg-expand-labels.py</span> [Neo4j login file] <span class="op">&lt;</span> crm-expand.txt</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./pg-expand-labels.py</span> [Neo4j login file] <span class="op">&lt;</span> crm-expand.txt</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ohne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.</p>
 <p>Nach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. <code>E22_Human_Made_Object</code> möglich oder nach allen Knoten, die direkt oder indirekt er Klasse <code>E22</code> angehören.</p>
 <p>Die Expansion ist auf gleiche Weise für andere Ontologien möglich, sofern diese auf CRM gemappt wurden.</p>

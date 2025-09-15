@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./cypher.html" rel="prev">
+<link href="./mappings.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -202,11 +202,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cypher.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Abfragen mit Cypher</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./status.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Status</span></a>
   </div>
 </li>
@@ -221,7 +216,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#triple-store" id="toc-triple-store" class="nav-link active" data-scroll-target="#triple-store">Triple Store</a></li>
-  <li><a href="#property-graph" id="toc-property-graph" class="nav-link" data-scroll-target="#property-graph">Property Graph</a></li>
   <li><a href="#datenquellen" id="toc-datenquellen" class="nav-link" data-scroll-target="#datenquellen">Datenquellen</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/status.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
@@ -239,7 +233,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Status</span></h1>
-<p class="subtitle lead">Dashboard zum Stand der Property Graphen</p>
+<p class="subtitle lead">Dashboard zum Stand des Triple Store</p>
 </div>
 
 
@@ -261,37 +255,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Anzahl von Tripel: <span><span id="ojs-element-id-1"></span></span></li>
 </ul>
-</section>
-<section id="property-graph" class="level2">
-<h2 class="anchored" data-anchor-id="property-graph">Property Graph</h2>
-<p>Folgende Übersicht wird live per <a href="./cypher.html">Cypher API</a> erstellt.</p>
-<ul>
-<li>Anzahl von Knoten: <span><span id="ojs-element-id-2"></span></span></li>
-<li>Anzahl von Kanten: <span><span id="ojs-element-id-3"></span></span></li>
-</ul>
 <div class="cell hidden">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-startfrom="20" data-source-offset="-0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 19;"><span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>cypherNodesCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">cypherQuery</span>(<span class="st">"MATCH () RETURN count(*) as count"</span>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>cypherEdgesCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">cypherQuery</span>(<span class="st">"MATCH ()-[]-&gt;() RETURN count(*) as count"</span>)</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>sparqlTripleCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">sparqlQuery</span>(<span class="st">"SELECT (COUNT(*) as ?count) { GRAPH ?graph { ?s ?p ?o } }"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-startfrom="12" data-source-offset="0"><pre class="sourceCode js code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 11;"><span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>sparqlTripleCount <span class="op">=</span> <span class="cf">await</span> <span class="fu">sparqlQuery</span>(<span class="st">"SELECT (COUNT(*) as ?count) { GRAPH ?graph { ?s ?p ?o } }"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display hidden">
-<div>
-<div id="ojs-cell-1-1" data-nodetype="declaration">
+<div id="ojs-cell-1" data-nodetype="declaration">
 
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display hidden">
-<div>
-<div id="ojs-cell-1-2" data-nodetype="declaration">
-
-</div>
-</div>
-</div>
-<div class="cell-output cell-output-display hidden">
-<div>
-<div id="ojs-cell-1-3" data-nodetype="declaration">
-
-</div>
 </div>
 </div>
 </div>
@@ -303,14 +271,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="ojs-auto-generated hidden">
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6WyAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7c3BhcnFsVHJpcGxlc0NvdW50WzBdPy5jb3VudD8udG9Mb2NhbGVTdHJpbmcoKX08L3NwYW4+YCIsICJjZWxsTmFtZSI6Im9qcy1lbGVtZW50LWlkLTEifSwgIHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImlubGluZSI6InRydWUiLCJzb3VyY2UiOiJodGwuaHRtbGA8c3Bhbj4ke2N5cGhlck5vZGVzQ291bnRbMF0/LmNvdW50Py50b0xvY2FsZVN0cmluZygpfTwvc3Bhbj5gIiwgImNlbGxOYW1lIjoib2pzLWVsZW1lbnQtaWQtMiJ9LCAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7Y3lwaGVyRWRnZXNDb3VudFswXT8uY291bnQ/LnRvTG9jYWxlU3RyaW5nKCl9PC9zcGFuPmAiLCAiY2VsbE5hbWUiOiJvanMtZWxlbWVudC1pZC0zIn1dfQ==
+eyJjb250ZW50cyI6WyAgeyJtZXRob2ROYW1lIjoiaW50ZXJwcmV0IiwiaW5saW5lIjoidHJ1ZSIsInNvdXJjZSI6Imh0bC5odG1sYDxzcGFuPiR7c3BhcnFsVHJpcGxlc0NvdW50WzBdPy5jb3VudD8udG9Mb2NhbGVTdHJpbmcoKX08L3NwYW4+YCIsICJjZWxsTmFtZSI6Im9qcy1lbGVtZW50LWlkLTEifV19
 </script>
 </div>
 </section>
 
 </main> <!-- /main -->
 <script type="ojs-module-contents">
-eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6ImN5cGhlck5vZGVzQ291bnQgPSBhd2FpdCBjeXBoZXJRdWVyeShcIk1BVENIICgpIFJFVFVSTiBjb3VudCgqKSBhcyBjb3VudFwiKVxuY3lwaGVyRWRnZXNDb3VudCA9IGF3YWl0IGN5cGhlclF1ZXJ5KFwiTUFUQ0ggKCktW10tPigpIFJFVFVSTiBjb3VudCgqKSBhcyBjb3VudFwiKVxuc3BhcnFsVHJpcGxlQ291bnQgPSBhd2FpdCBzcGFycWxRdWVyeShcIlNFTEVDVCAoQ09VTlQoKikgYXMgP2NvdW50KSB7IEdSQVBIID9ncmFwaCB7ID9zID9wID9vIH0gfVwiKVxuIn1dfQ==
+eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6InNwYXJxbFRyaXBsZUNvdW50ID0gYXdhaXQgc3BhcnFsUXVlcnkoXCJTRUxFQ1QgKENPVU5UKCopIGFzID9jb3VudCkgeyBHUkFQSCA/Z3JhcGggeyA/cyA/cCA/byB9IH1cIilcbiJ9XX0=
 </script>
 <script type="module">
 if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
@@ -724,8 +692,8 @@ window._ojs.runtime.interpretFromScriptTags();
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./cypher.html" class="pagination-link" aria-label="Abfragen mit Cypher">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Abfragen mit Cypher</span></span>
+      <a href="./mappings.html" class="pagination-link" aria-label="Mappings">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Mappings</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
