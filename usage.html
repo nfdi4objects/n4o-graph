@@ -177,16 +177,8 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Inhaltsverzeichnis</h2>
-   
-  <ul>
-  <li><a href="#sparql-api" id="toc-sparql-api" class="nav-link active" data-scroll-target="#sparql-api">SPARQL-API</a></li>
-  <li><a href="#datenbankdumps" id="toc-datenbankdumps" class="nav-link" data-scroll-target="#datenbankdumps">Datenbankdumps</a></li>
-  <li><a href="#suchoberfläche" id="toc-suchoberfläche" class="nav-link" data-scroll-target="#suchoberfläche">Suchoberfläche</a></li>
-  </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -201,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Benutzung</span></h1>
-<p class="subtitle lead">Zugriff auf den Inhalt des Knowledge Graphen</p>
+<p class="subtitle lead">Zugriff auf die Inhalte des Knowledge Graphen</p>
 </div>
 
 
@@ -218,39 +210,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Der Zugriff auf den Knowledge Graphen ist bislang nur über technische Schnittstellen (APIs) möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.</p>
-<section id="sparql-api" class="level2">
-<h2 class="anchored" data-anchor-id="sparql-api">SPARQL-API</h2>
-<p>Eine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL <a href="https://graph.nfdi4objects.net/api/sparql" class="uri">https://graph.nfdi4objects.net/api/sparql</a> abgefragt werden (siehe <a href="https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#sparql-api">API-Dokumentation</a>). Unter <a href="https://graph.nfdi4objects.net/sparql" class="uri">https://graph.nfdi4objects.net/sparql</a> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel <a href="./sparql.html">SPARQL-Abfragen</a>.</p>
-</section>
-<section id="datenbankdumps" class="level2">
-<h2 class="anchored" data-anchor-id="datenbankdumps">Datenbankdumps</h2>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Die Bereitstellung von Datenbankdumps zur lokalen Nutzung von Teilen des Knowledge Graphen ist noch nicht umgesetzt.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="suchoberfläche" class="level2">
-<h2 class="anchored" data-anchor-id="suchoberfläche">Suchoberfläche</h2>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Eine browserbasierte Suchoberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung ist noch nicht umgesetzt.</p>
-</div>
-</div>
-</div>
+<p>Der direkte Zugriff auf die Inhalte des Knowledge Graphen erfolgt über eine API mit der Abfragesprache SPARQL. Eine Einführung mit Beispielen gibt es im Kapitel <a href="./sparql.html">Abfragen mit SPARQL</a>. Darüber hinaus können Teile des Knowledge Graphen als Linked Open Data heruntergeladen werden. Zur Vereinfachung des Zugriffs gibt es auch unter <a href="https://graph.nfdi4objects.net/" class="uri">https://graph.nfdi4objects.net/</a> auch eine Weboberfläche. Alle Inhalte stehen unter freien Lizenzen zur Verfügung.</p>
+<p>Die technische Umsetzung des Zugriffs per API und die dazu gehörige Weboberfläche sind in der Open-Source Komponente <a href="https://github.com/nfdi4objects/n4o-graph-apis">n4o-graph-apis</a> umgesetzt.</p>
+<p>Da die Formulierung von SPARQL-Abfragen nicht trivial ist, ist es sinnvoll für konkrete Forschungsfragen und -vorhaben auf Anwendungen zurückzugreifen, die ihrerseits den Knowledge-Graphen abfragen oder selbst solche Anwendungen zu erstellen.</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -675,7 +639,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
+    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/usage.qmd" class="toc-action"><i class="bi bi-github"></i>Quellcode anzeigen</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
