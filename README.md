@@ -26,9 +26,6 @@ graph TD
         stage --> load
         load[**load**]
     end
-    subgraph n4o-**admin**
-      admin-ui[**web application**]
-    end
     subgraph "n4o-**fuseki**"
         kg(triple store)
     end
