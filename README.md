@@ -7,7 +7,6 @@
 - [n4o-fuseki](https://github.com/nfdi4objects/n4o-fuseki): RDF triple store
 - [n4o-graph-apis](https://github.com/nfdi4objects/n4o-graph-apis): web interface and public SPARQL endpoint
 - [n4o-graph-importer](https://github.com/nfdi4objects/n4o-graph-importer): scripts to import data into the triple store
-- [n4o-admin](https://github.com/nfdi4objects/n4o-admin): web interface to manage the knowledge graph
 - [lido-rdf-converter](https://github.com/nfdi4objects/lido-rdf-converter): convert LIDO format to RDF
 
 Another component is planned to provide an admin interface.
@@ -26,13 +25,10 @@ graph TD
         receive -- validate, transform, report --> stage
         stage --> load
         load[**load**]
-
     end
     subgraph n4o-**admin**
       admin-ui[**web application**]
     end
-    admin-ui --> importer
-    admin-ui -- web browser --- admin(admin)
     subgraph "n4o-**fuseki**"
         kg(triple store)
     end
