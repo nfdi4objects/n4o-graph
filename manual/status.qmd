@@ -1,6 +1,6 @@
 ---
 title: Status
-subtitle: Dashboard zum Stand der Property Graphen
+subtitle: Dashboard zum Stand des Triple Store
 format: dashboard
 ---
 
@@ -8,17 +8,8 @@ format: dashboard
 
 - Anzahl von Tripel: `{ojs} sparqlTriplesCount[0]?.count?.toLocaleString()`
 
-## Property Graph
-
-Folgende Übersicht wird live per [Cypher API](cypher.qmd) erstellt.
-
-- Anzahl von Knoten: `{ojs} cypherNodesCount[0]?.count?.toLocaleString()`
-- Anzahl von Kanten: `{ojs} cypherEdgesCount[0]?.count?.toLocaleString()`
-
 ```{ojs}
 //| output: false
-cypherNodesCount = await cypherQuery("MATCH () RETURN count(*) as count")
-cypherEdgesCount = await cypherQuery("MATCH ()-[]->() RETURN count(*) as count")
 sparqlTripleCount = await sparqlQuery("SELECT (COUNT(*) as ?count) { GRAPH ?graph { ?s ?p ?o } }")
 ```
 

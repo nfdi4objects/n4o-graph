@@ -1,5 +1,9 @@
 # Datenbankschema {#sec-schema}
 
+::: {.callout-warning appearance="important"}
+Dieses Kapitel ist nichtmehr aktuell!
+:::
+
 Im Folgenden das Datenbankschema des Property Graphen beschrieben. Die
 RDF-Daten im Triple-Store folgend dagegen bislang keinen Schema sondern werden
 so eingespielt wie sie geliefert werden.

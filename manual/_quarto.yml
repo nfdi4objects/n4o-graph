@@ -1,9 +1,6 @@
 project:
   type: book
   output-dir: ../docs
-  pre-render:
-    # - ../neo4j.sh status neo4j.json
-    - make images
   render:
     - "!*.md"
 
@@ -32,7 +29,6 @@ book:
     - sparql.qmd
     - architecture.qmd
     - mappings.qmd
-    - cypher.qmd
     - status.qmd
   page-footer: 
     right: 

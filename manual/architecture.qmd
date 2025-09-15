@@ -6,91 +6,26 @@ lang: de
 ## Technik
 
 - Webserver (nginx)
-- Property-Graph Datenbanksystem (Neo4J)
 - Triple-Store (Fuseki)
 - Skripte in Python und NodeJS
 - Docker
 
 ## Workflow
 
-Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus folgenden Schritten:
-
-1. **[Annahme]**, **Prüfung** und **Bereinigung**
-
-2. **[Konvertierung](#konvertierung)**
-
-3. **[Einspielung](#einspielung)**
-
-   Implementierung siehe <https://github.com/nfdi4objects/n4o-property-graph>
-
-4. **[Anreicherung](#anreicherung)**
-
-5. **Bereitstellung**
-
-   Noch nicht umgesett
-
-Etwas genauer lässt sich der Prozess etwa wie in @fig-data-flow dargestellt veranschaulichen.
-
-```{mermaid}
-%%| label: fig-data-flow
-%%| fig-cap: Datenfluss
-{{< include img/data-flow.mmd >}}
-```
-
-## Annahme
-
-Zur Datenannahme, Prüfung und Bereinigung siehe  <https://github.com/nfdi4objects/n4o-import>.
-
-Dort findet sich unter anderem das offizielle [XML-Schema für LIDO-Daten](https://github.com/nfdi4objects/n4o-import/tree/main/schemas).
-
-## Konvertierung
+Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus mehreren Schritten.
+Zur Datenannahme, Prüfung und Bereinigung siehe  <https://github.com/nfdi4objects/n4o-graph-importer>.
+Dort findet sich unter anderem das offizielle [XML-Schema für LIDO-Daten](https://github.com/nfdi4objects/lido-schema).
 
 ### LIDO
 
 LIDO-XML-Daten werden mit Hilfe von [X3ML](https://github.com/isl/x3ml)
-ins Property Graph Format konvertiert. 
-
-### RDF
-
-Zur Konvertierung von RDF-Daten ins Property Graph Format dient das Skript
-`rdf2cypher.py` (wird derzeit überarbeitet), das eine Cypher-Datei (in Zukunkft
-CYPHERL und/oder PG-JSONL) ausgibt.
-
-## Einspielung
-
-### RDF-Daten in den Property-Graph
-
-Zum Einspielen der Cypher-Datei in eine Neo4J-Datenbank kann das Kommando
-`cypher-shell` verwendet werden, das im Neo4J-Docker-Container enthalten ist
-oder [separat installiert](https://neo4j.com/deployment-center/?cypher-shell)
-werden kann.
-
-Da Neo4J aus dem Docker-Container nicht auf die Cypher-Datei zugreifen kann,
-muss ihr Inhalt per Pipe eingelesen werden:
-
-```bash
-<file.cypher | docker exec -t neo4j \
-  cypher-shell -a <ADDRESS> -u <USERNAME> -p <PASSWORD>
-```
-
-Ein neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner
-für Volume muss bereits existieren.
-
-```bash
-docker run -d \
-    --name=neo4j \
-    --publish=7474:7474 --publish=7687:7687 \
-    --env NEO4J_AUTH=none \
-    --user $(id -u):$(id -g) \
-    --volume=$cwd/data:/data \
-    neo4j 
-```
-
-### RDF-Daten
-
-*Siehe https://github.com/nfdi4objects/n4o-import*
+ins RDF-Format konvertiert. 
 
 ## Anreicherung
+
+::: {.callout-warning appearance="important"}
+Dieses Kapitel ist nichtmehr aktuell!
+:::
 
 ### Expansion der Klassenhierarchie
 

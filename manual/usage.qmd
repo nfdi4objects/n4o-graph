@@ -22,7 +22,3 @@ Die Bereitstellung von Datenbankdumps zur lokalen Nutzung von Teilen des Knowled
 Eine browserbasierte Suchoberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung ist noch nicht umgesetzt.
 :::
 
-## Cypher-API
-
-Neben dem Triple-Store experimentieren wir mir einer Abbildung der Forschungsdaten in einem Property Graphen. Dieser Graph kann mit der Abfragesprache Cypher über die API-URL <https://graph.nfdi4objects.net/api/cypher> abgefragt werden. Unter <https://graph.nfdi4objects.net/cypher> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Die Datenbankinhalte entsprechen allerdings nicht dem Triple-Store!
-

@@ -1,2 +1,4 @@
 /.quarto/
 /img/data-flow.mmd
+
+**/*.quarto_ipynb

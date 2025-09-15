@@ -15,7 +15,7 @@ Die technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie 
 ## Anforderungen an Datenlieferungen
 
 - Lieferung ausschließlich in RDF oder als XML Lightweight Information Describing Objects (LIDO)
-- Zur Integration von RDF-Daten in den Property Graphen muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein
+- Zur Integration von Daten muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein
 - Beschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.
 - Verwendung von etablierten [Vokabularen](vocabularies.qmd) oder zumindest URIs statt Freitextfeldern
 - Versionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG
