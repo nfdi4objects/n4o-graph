@@ -16,6 +16,7 @@ Another component is planned to provide an admin interface.
 ```mermaid
 graph TD
     terminologies(terminologies) --> receive
+    mappings(mappings) --> receive
     collections(collections) --> receive
     data(research data) --> receive
     stage(stage)
@@ -65,40 +66,9 @@ docker compose pull
 
 ## Usage
 
-The web interface is made public at <http://localhost:8000/> by default. The tool to convert LIDO to RDF is hosted at <http://localhost:8000/lido2rdf/>.
+The web interface is made public at <http://localhost:8000/> by default.
 
-The importer scripts can be called with `docker compose run importer`:
-
-First retrieve the current list of terminologies and their metadata:
-
-~~~sh
-docker compose run importer update-terminologies
-docker compose run importer load-terminologies-metadata 
-~~~
-
-The terminology metadata should now be listed at <http://localhost:8000/terminology/>.
-
-Then retrieve and load selected terminologies, e.g.:
-
-~~~sh
-docker compose run importer import-terminology http://bartoc.org/en/node/18274  # SKOS
-docker compose run importer import-terminology http://bartoc.org/en/node/1644   # CRM
-~~~
-
-To import collections, fist get and import the list of collections:
-
-~~~sh
-docker compose run importer update-collections
-docker compose run importer load-collections-metadata
-~~~
-
-Import of selected collection data is not fully implemented yet.
-
-To retrieve and load the lists of terminologies and collection with one command:
-
-~~~sh
-docker compose run importer import-metadata
-~~~
+For importing data see n4o-graph-importer.
 
 ## Configuration
 
