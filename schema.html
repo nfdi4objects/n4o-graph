@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./crm.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e8de9bd59ba156b9e4cb33cd6f01d621.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d58359eb3ecc31d3bec1ed479c2cbb3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -131,7 +132,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">NFDI4Objects Knowledge Graph (TA5)</a> 
         <div class="sidebar-tools-main">
@@ -282,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Beispiele
+<span class="screen-reader-only">Note</span>Beispiele
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -410,12 +413,12 @@ Beispiele
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Beispiel
+<span class="screen-reader-only">Note</span>Beispiel
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb1"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span><span class="at"> :E54_Dimension</span> <span class="fu">P90_has_value:</span><span class="dv">12</span><span class="co">   # Wert 12 als Property</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span> <span class="op">-&gt;</span> <span class="st">u1</span><span class="at"> :P90_has_unit</span><span class="co">               # Einheit u1 (hier nicht weiter definiert) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span><span class="at"> :E54_Dimension</span> <span class="fu">P90_has_value:</span><span class="dv">12</span><span class="co">   # Wert 12 als Property</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span> <span class="op">-&gt;</span> <span class="st">u1</span><span class="at"> :P90_has_unit</span><span class="co">               # Einheit u1 (hier nicht weiter definiert) </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 <p>Darüber hinaus gibt es einige besondere Property-Keys, deren möglicher Einsatz noch diskutiert wird:</p>
@@ -441,7 +444,7 @@ Beispiel
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Beispiele
+<span class="screen-reader-only">Note</span>Beispiele
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -502,7 +505,7 @@ Beispiele
   crm:P3_has_note "cm" .
 </code></pre>
 <p>wird konvertiert in folgenden Property Graph (in PG Format und als Diagram):</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode .pg code-with-copy"><code class="sourceCode pg"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode .pg code-with-copy"><code class="sourceCode pg"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  :E16_Measurement</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d</span> </span>
@@ -541,7 +544,7 @@ Beispiele
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc</span></span>
 <span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="at">  :E42_Identifier</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P3_has_note:</span> <span class="ss">"cm"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P3_has_note:</span> <span class="ss">"cm"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><img src="img/crm-pg-example.svg" class="img-fluid"></p>
 </section>
 <section id="vokabulare" class="level2">
@@ -574,18 +577,18 @@ The Art & Architecture Thesaurus (E32) lists alcazars (E55). (http://vocab.getty
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Beispiel
+<span class="screen-reader-only">Note</span>Beispiel
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>GND-Datensatz zu “Schleswig-Holstein”:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">gnd</span><span class="at"> :ConceptScheme :E32_Authority_Document</span><span class="co">             # GND</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">gnd</span><span class="at"> :ConceptScheme :E32_Authority_Document</span><span class="co">             # GND</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uri:</span> <span class="ss">http://bartoc.org/en/node/430</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">sh</span><span class="at"> :Concept :E55_Type :E42_Identifier</span><span class="co">            # Schleswig-Holstein</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uri:</span> <span class="ss">https://d-nb.info/gnd/4052692-6</span></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">sh</span> <span class="op">-&gt;</span> <span class="st">gnd</span><span class="at"> :inScheme</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">sh</span> <span class="op">-&gt;</span> <span class="st">gnd</span><span class="at"> :inScheme</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <!--
 type    http://terminology.lido-schema.org/identifier_type/uri  
 value   https://d-nb.info/gnd/4052692-6
@@ -648,13 +651,14 @@ value   https://d-nb.info/gnd/4052692-6
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

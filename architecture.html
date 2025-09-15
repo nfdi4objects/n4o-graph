@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,14 +69,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="./sparql.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-e8de9bd59ba156b9e4cb33cd6f01d621.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d58359eb3ecc31d3bec1ed479c2cbb3a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -134,7 +135,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">NFDI4Objects Knowledge Graph (TA5)</a> 
         <div class="sidebar-tools-main">
@@ -358,16 +361,16 @@ Abbildung&nbsp;9.1: Datenfluss
 <h3 class="anchored" data-anchor-id="rdf-daten-in-den-property-graph">RDF-Daten in den Property-Graph</h3>
 <p>Zum Einspielen der Cypher-Datei in eine Neo4J-Datenbank kann das Kommando <code>cypher-shell</code> verwendet werden, das im Neo4J-Docker-Container enthalten ist oder <a href="https://neo4j.com/deployment-center/?cypher-shell">separat installiert</a> werden kann.</p>
 <p>Da Neo4J aus dem Docker-Container nicht auf die Cypher-Datei zugreifen kann, muss ihr Inhalt per Pipe eingelesen werden:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>file.cypher <span class="kw">|</span> <span class="ex">docker</span> exec <span class="at">-t</span> neo4j <span class="dt">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  cypher-shell <span class="at">-a</span> <span class="op">&lt;</span>ADDRESS<span class="op">&gt;</span> -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span> -p <span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">&lt;</span>file.cypher <span class="kw">|</span> <span class="ex">docker</span> exec <span class="at">-t</span> neo4j <span class="dt">\</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  cypher-shell <span class="at">-a</span> <span class="op">&lt;</span>ADDRESS<span class="op">&gt;</span> -u <span class="op">&lt;</span>USERNAME<span class="op">&gt;</span> -p <span class="op">&lt;</span>PASSWORD<span class="op">&gt;</span></span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ein neuer Docker Container kann mit diesem Kommando erstellt werden. Ein Ordner für Volume muss bereits existieren.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="dt">\</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">docker</span> run <span class="at">-d</span> <span class="dt">\</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">--name</span><span class="op">=</span>neo4j <span class="dt">\</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">--publish</span><span class="op">=</span>7474:7474 <span class="at">--publish</span><span class="op">=</span>7687:7687 <span class="dt">\</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">--env</span> NEO4J_AUTH=none <span class="dt">\</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">--user</span> <span class="va">$(</span><span class="fu">id</span> <span class="at">-u</span><span class="va">)</span>:<span class="va">$(</span><span class="fu">id</span> <span class="at">-g</span><span class="va">)</span> <span class="dt">\</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">--volume</span><span class="op">=</span><span class="va">$cwd</span>/data:/data <span class="dt">\</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    neo4j </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    neo4j </span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="rdf-daten" class="level3">
 <h3 class="anchored" data-anchor-id="rdf-daten">RDF-Daten</h3>
@@ -389,7 +392,7 @@ Abbildung&nbsp;9.1: Datenfluss
 <li><code>E22_Human_Made_Object</code> =&gt; <code>E22</code>, <code>E71</code>, <code>E70</code>, <code>E24</code> <code>E77</code> und <code>E1</code></li>
 </ul>
 <p>Zum Ausführen der Expansion:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./pg-expand-labels.py</span> [Neo4j login file] <span class="op">&lt;</span> crm-expand.txt</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">./pg-expand-labels.py</span> [Neo4j login file] <span class="op">&lt;</span> crm-expand.txt</span></code></pre></div><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ohne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.</p>
 <p>Nach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. <code>E22_Human_Made_Object</code> möglich oder nach allen Knoten, die direkt oder indirekt er Klasse <code>E22</code> angehören.</p>
 <p>Die Expansion ist auf gleiche Weise für andere Ontologien möglich, sofern diese auf CRM gemappt wurden.</p>
@@ -450,13 +453,14 @@ Abbildung&nbsp;9.1: Datenfluss
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
