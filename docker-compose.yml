@@ -15,14 +15,6 @@ services:
     networks:
       - n4o
     restart: always
-    healthcheck:
-      test: ["CMD", "wget", "--post-data", "query=DESCRIBE <>", "http://localhost:3030/n4o", "-O", "/dev/null"]
-      # Less frequent health check requires Docker >= 25.0.0
-      # start_interval: 1s
-      # start_period: 0s    # directly check on startup
-      # interval: 1m        # then check every minute
-      interval: 2s        # check after 2s, then every 2s
-      timeout: 2s
 
   apis:
     image: ghcr.io/nfdi4objects/n4o-graph-apis:main
@@ -33,9 +25,6 @@ services:
       - ${STAGE:-./stage}:/app/stage:ro
     networks:
       - n4o
-    depends_on:
-     fuseki: 
-       condition: service_healthy
 
   importer:
     image: ghcr.io/nfdi4objects/n4o-graph-importer:main
