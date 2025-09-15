@@ -1,24 +1,11 @@
 ---
 title: Benutzung
-subtitle: Zugriff auf den Inhalt des Knowledge Graphen
+subtitle: Zugriff auf die Inhalte des Knowledge Graphen
 lang: de
 ---
 
-Der Zugriff auf den Knowledge Graphen ist bislang nur über technische Schnittstellen (APIs) möglich. Darüber hinaus sind eine browserbasierte Suchoberfläche, Datenbankdumps und die Integration in andere Anwendungen geplant.
+Der direkte Zugriff auf die Inhalte des Knowledge Graphen erfolgt über eine API mit der Abfragesprache SPARQL. Eine Einführung mit Beispielen gibt es im Kapitel [Abfragen mit SPARQL](sparql.qmd). Darüber hinaus können Teile des Knowledge Graphen als Linked Open Data heruntergeladen werden. Zur Vereinfachung des Zugriffs gibt es auch unter <https://graph.nfdi4objects.net/> auch eine Weboberfläche. Alle Inhalte stehen unter freien Lizenzen zur Verfügung.
 
-## SPARQL-API
+Die technische Umsetzung des Zugriffs per API und die dazu gehörige Weboberfläche sind in der Open-Source Komponente [n4o-graph-apis](https://github.com/nfdi4objects/n4o-graph-apis) umgesetzt.
 
-Eine öffentliche Entwicklungsversion des Triple-Store kann mit der Abfragesprache SPARQL über die API-URL <https://graph.nfdi4objects.net/api/sparql> abgefragt werden (siehe [API-Dokumentation](https://github.com/nfdi4objects/n4o-graph-apis?tab=readme-ov-file#sparql-api)). Unter <https://graph.nfdi4objects.net/sparql> gibt es eine einfache Weboberfläche zur Formulierung von Abfragen. Eine weitere Einführung mit Beispielen gibt es im Kapitel [SPARQL-Abfragen](sparql.qmd).
-
-## Datenbankdumps
-
-::: {.callout-warning appearance="simple"}
-Die Bereitstellung von Datenbankdumps zur lokalen Nutzung von Teilen des Knowledge Graphen ist noch nicht umgesetzt.
-:::
-
-## Suchoberfläche
-
-::: {.callout-warning appearance="simple"}
-Eine browserbasierte Suchoberfläche (“Rich Metadata Discovery”) mit Möglichkeiten zur interaktiven Abfrage und Datenvisualisierung ist noch nicht umgesetzt.
-:::
-
+Da die Formulierung von SPARQL-Abfragen nicht trivial ist, ist es sinnvoll für konkrete Forschungsfragen und -vorhaben auf Anwendungen zurückzugreifen, die ihrerseits den Knowledge-Graphen abfragen oder selbst solche Anwendungen zu erstellen.
