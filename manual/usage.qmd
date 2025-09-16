@@ -1,7 +1,6 @@
 ---
-title: Benutzung
+title: Nutzung des Graphen
 subtitle: Zugriff auf die Inhalte des Knowledge Graphen
-lang: de
 ---
 
 Der direkte Zugriff auf die Inhalte des Knowledge Graphen erfolgt über eine API mit der Abfragesprache SPARQL. Eine Einführung mit Beispielen gibt es im Kapitel [Abfragen mit SPARQL](sparql.qmd). Darüber hinaus können Teile des Knowledge Graphen als Linked Open Data heruntergeladen werden. Zur Vereinfachung des Zugriffs gibt es auch unter <https://graph.nfdi4objects.net/> auch eine Weboberfläche. Alle Inhalte stehen unter freien Lizenzen zur Verfügung.

@@ -1,7 +1,0 @@
-{
-  "uri": "neo4j://localhost",
-  "url": "http://localhost:7474",
-  "user": "",
-  "password": "",
-  "public": "https://graph.nfdi4objects.net/api/cypher"
-}

@@ -9,8 +9,6 @@
 - [n4o-graph-importer](https://github.com/nfdi4objects/n4o-graph-importer): scripts to import data into the triple store
 - [lido-rdf-converter](https://github.com/nfdi4objects/lido-rdf-converter): convert LIDO format to RDF
 
-Another component is planned to provide an admin interface.
-
 ## Data flow
 
 ```mermaid

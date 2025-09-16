@@ -1,0 +1,23 @@
+# Publikationen {#sec-pubs}
+
+Weitere Einführungen in den Knowledge Graph geben folgende [Publikationen der VZG](https://zenodo.org/communities/vzg/records) und/oder [Publikationen aus NFDI4Objects](https://zenodo.org/communities/nfdi4objects/records):
+
+- *N4O Graph: The Knowledge Graph of NFDI4Objects*
+  <https://doi.org/10.5281/zenodo.13946053>
+  (Präsentation vom 17.10.2024)
+- *N40 Graph. Datenformate, -flüsse und -modelle*
+   <https://doi.org/10.5281/zenodo.13784846>
+  (Präsentation vom 20.9.2024)
+- *Integration von Forschungsdaten im NFDI4Objects Knowledge Graph*
+  <https://doi.org/10.5281/zenodo.13744338>
+  (Poster vom 11.9.2024)
+- *Ontology development in NFDI4Objects*
+  <https://doi.org/10.5281/zenodo.13149276>
+  (Präsentation vom 31.7.2024)
+- *Terminologien in NFDI4Objects*
+  <https://doi.org/10.5281/zenodo.10906912>
+  (Präsentation vom 20.3.2024)
+- *Mapping von Terminologien mit Cocoda für NFDI4Objects*
+  <https://doi.org/10.5281/zenodo.10820784>
+  (Präsentation vom 15.3.2024)
+

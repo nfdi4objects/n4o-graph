@@ -7,12 +7,9 @@ project:
 filters:
  - include-code-files
 
-#metadata-files:
-#  - neo4j.json
-
 book:
-  title: "NFDI4Objects Knowledge Graph (TA5)"
-  subtitle: "Technisches Handbuch für Management und Nutzung"
+  title: "NFDI4Objects Knowledge Graph"
+  subtitle: "Handbuch für Nutzung und Management des N4O Graph"
   repo-url: https://github.com/nfdi4objects/n4o-graph
   language: de
   repo-subdir: manual
@@ -22,28 +19,35 @@ book:
     - index.qmd
     - basics.qmd
     - sources.qmd
-    - crm.qmd
-    - schema.qmd
+    - collections.qmd
     - vocabularies.qmd
+    - mappings.qmd
+    - schema.qmd
+    - cidoc-crm.qmd
     - usage.qmd
     - sparql.qmd
+    - applications.qmd
+    - import.qmd
     - architecture.qmd
-    - mappings.qmd
     - status.qmd
+    - references.qmd
   navbar:
-    title: NFDI4**Objects Knowledge Graph** (TA5)
+    title: NFDI4**Objects Knowledge Graph**
     logo: img/logo.png
     logo-href: https://graph.nfdi4objects.net/
     left:
-      - text: __SPARQL__ 
+      - text: SPARQL 
         href: https://graph.nfdi4objects.net/sparql
-      - text: __Collections__
+      - text: Collections
         href: https://graph.nfdi4objects.net/collection/
-      - text: __Terminologies__
+      - text: Terminologies
         href: https://graph.nfdi4objects.net/terminology/
       - text: __Manual__
-        href: https://nfdi4objects.github.io/n4o-graph/  
+        href: ../
   page-footer: 
+    left:
+      - text: NFDI4Objects
+        href: https://www.nfdi4objects.net/
     right: 
       - text: Datenschutz
         href: https://www.gbv.de/datenschutz
@@ -60,13 +64,10 @@ format:
   html:
     theme: cosmo
     link-external-icon: true
-    syntax-definitions:
-     - pg.xml
     include-before-body:
       text: |
         <script src="./js/common.js"></script>
         <script src="./js/codemirror.js"></script>
-        <script src="./js/cypher.js"></script>
         <script src="./js/sparql.js"></script>
         <script src="./js/turtle.js"></script>
         <script src="./js/runmode.js"></script>

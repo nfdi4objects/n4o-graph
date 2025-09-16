@@ -1,4 +1,4 @@
-# Datenbankschema {#sec-schema}
+# Datenmodell {#sec-schema}
 
 ::: {.callout-warning appearance="important"}
 Dieses Kapitel ist nichtmehr aktuell!
@@ -86,26 +86,6 @@ CRM-Property | Property-Key | Datentyp
 ::: {.callout-warning appearance="simple"}
 Die Property-Keys werden möglicherweise noch umbenannt, um zu lange Namen zu vermeiden!
 :::
-
-:::{.callout-note title="Beispiel"}
-```pg
-d1 :E54_Dimension P90_has_value:12   # Wert 12 als Property
-d1 -> u1 :P90_has_unit               # Einheit u1 (hier nicht weiter definiert) 
-```
-:::
-
-Darüber hinaus gibt es einige besondere Property-Keys, deren möglicher Einsatz noch diskutiert wird:
-
-- `cID`
-- `collection`
-- `value`
-- `lang`
-- `type`
-- `pref`
-- `formatResource`
-- `sortorder`
-- `source`
-- `uri`
 
 ### Expansion
 

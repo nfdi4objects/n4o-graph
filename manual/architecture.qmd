@@ -1,14 +1,14 @@
----
-title: Systemarchitektur
-lang: de
----
+# Systemarchitektur {#sec-architecture}
 
-## Technik
+Der N4O Graph besteht im Kern aus einem Triple-Store, an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Die Dienste werden in einzelnen git-Repositorien verwaltet und als Docker-Images publiziert:
 
-- Webserver (nginx)
-- Triple-Store (Fuseki)
-- Skripte in Python und NodeJS
-- Docker
+- [n4o-fuseki](https://github.com/nfdi4objects/n4o-fuseki): vorkonfigurierter Triple-Store
+- [n4o-graph-apis](https://github.com/nfdi4objects/n4o-graph-apis): APIs und Weboberfläche zum lesenden Zugriff
+- [n4o-graph-importer](https://github.com/nfdi4objects/n4o-graph-importer): Workflows und APIs zum schreibenden Zugriff
+- [lido-rdf-converter](https://github.com/nfdi4objects/lido-rdf-converter): Skripte und Webanwendung zur Konvertierung von LIDO nach RDF
+
+Darüber hinaus gibt es das Repository [n4o-graph](https://github.com/nfdi4objects/n4o-graph) zur Dokumentation und Konfiguration der Dienste als Gesamtheit, darunter auch dieses Handbuch.
+
 
 ## Workflow
 
@@ -16,50 +16,5 @@ Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhalte
 Zur Datenannahme, Prüfung und Bereinigung siehe  <https://github.com/nfdi4objects/n4o-graph-importer>.
 Dort findet sich unter anderem das offizielle [XML-Schema für LIDO-Daten](https://github.com/nfdi4objects/lido-schema).
 
-### LIDO
-
-LIDO-XML-Daten werden mit Hilfe von [X3ML](https://github.com/isl/x3ml)
-ins RDF-Format konvertiert. 
-
-## Anreicherung
-
-::: {.callout-warning appearance="important"}
-Dieses Kapitel ist nichtmehr aktuell!
-:::
-
-### Expansion der Klassenhierarchie
-
-Da Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und
-weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im
-Property-Graphen *expandiert*.  Grundlage ist ein eigener Property-Graph mit
-der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich
-umbenannter oder veralteter Klassen in der Datei `crm-classes.pg` (siehe
-[SVG-Diagram](img/crm-classes.svg)). Der Graph aller Klassen enthält Informationen
-darüber welche Klassen sich aus einer anderen ergeben, z.B.
-
-- `E22_Man_Made_Object` => `E22_Human_Made_Object` (renamedTo)
-- `E50_Date` => `E41_Appellation` (replacedBy)
-- `E7_Activity`=> `E5_Event` (superClass)
-
-Aus diesen Daten wird die Expansionstabelle [`crm-expand.txt`](crm-expand.txt)
-erzeugt, z.B.:
-
-- `E22_Human_Made_Object` => `E22`, `E71`, `E70`, `E24` `E77` und `E1`
-
-Zum Ausführen der Expansion: 
-
-~~~sh
-./pg-expand-labels.py [Neo4j login file] < crm-expand.txt
-~~~
-
-Ohne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit
-Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank
-ausgeführt.
-
-Nach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label
-wie z.B. `E22_Human_Made_Object` möglich oder nach allen Knoten, die direkt
-oder indirekt er Klasse `E22` angehören.
-
-Die Expansion ist auf gleiche Weise für andere Ontologien möglich, sofern diese
-auf CRM gemappt wurden.
+LIDO-XML-Daten werden mit Hilfe von [X3ML](https://github.com/isl/x3ml) ins RDF-Format konvertiert. 
 

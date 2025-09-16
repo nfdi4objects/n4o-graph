@@ -1,0 +1,7 @@
+# Anwendungen {#sec-applications}
+
+...Darüber hinaus sind weitere Schnittstellen geplant, darunter ein Query-Builder und einen Graph-Browser.
+Forschungsdaten-Anwendungen können auf den Knowledge Graphen zugreifen und zusätzliche
+Recherche- und Analysemöglichkeiten bieten...
+
+

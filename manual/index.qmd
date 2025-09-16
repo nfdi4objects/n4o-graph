@@ -1,39 +1,18 @@
 ---
 title: Einleitung
-lang: de
 ---
 
-An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des **Knowledge Graphen von NFDI4Objects** (N4O Graph).  Der Zugriff auf die Inhalte des Knowledge Graphen ist [Kapitel Benutzung](usage.qmd) beschrieben.  Hintergründe und Details finden sich im [Grundlagen-Kapitel](basics.qmd) und in der Beschreibung der [Systemarchitektur](architecture.qmd).
+::: {.callout-warning appearance="important"}
+Das Handbuch wird gerade überarbeitet und ist somit unvollständig und teilweise veraltet!
+:::
 
-Eine einfache Oberfläche zum Zugriff auf die Schnittstellen des Knowledge Graph ist unter <https://graph.nfdi4objects.net/> verfügbar.
+An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des **Knowledge Graphen von NFDI4Objects** (N4O Graph). Der Knowledge Graph besteht im Kern aus einem [Triple-Store](#triple-store), in den Daten aus [verschiedenene Quellen](sources.qmd) zusammengeführt werden und per [SPARQL](sparql.qmd) abgefragt werden können.
 
-Der Knowledge Graph besteht im Kern aus einem **[Triple-Store](#triple-store)**,
-in denen Daten aus [verschiedenene Quellen](sources.qmd) zusammengeführt werden
-und per [SPARQL](sparql.qmd)-Schnittstelle abgefragt werden können. Darüber hinaus
-sind weitere Schnittstellen geplant, darunter ein Query-Builder und einen Graph-Browser.
-Forschungsdaten-Anwendungen können auf den Knowledge Graphen zugreifen und zusätzliche
-Recherche- und Analysemöglichkeiten bieten.
+Wesentliche Grundbegriffe zum Verständnis des Knowledge Graphen sind unter [Grundlagen](basics.qmd) beschrieben. Dazu gehört die Einteilung der Datenquellen in [Sammlungen](collections.qmd), [Vokabulare](terminologies.qmd) und [Mappings](mappings.qmd) sowie das [Datenmodell](schema.qmd) auf Grundlage von [CIDOC-CRM](cidoc-crm.qmd).
 
-### Publikationen
+Es folgt eine Dokumentation des [Nutzung des Graphen](usage.qmd): Unter <https://graph.nfdi4objects.net/> gibt es eine einfache Oberfläche zum direkten Zugriff auf die Inhalte des Graphen. Darüber hinaus vereinfachen verschiedene [Anwendungen](anwendungen.qmd) die Nutzung für spezielle Anwendungsfälle.
 
-Weitere Einführungen in den Knowledge Graph geben folgende [Publikationen der VZG](https://zenodo.org/communities/vzg/records) und/oder [Publikationen aus NFDI4Objects](https://zenodo.org/communities/nfdi4objects/records):
 
-- *N4O Graph: The Knowledge Graph of NFDI4Objects*
-  <https://doi.org/10.5281/zenodo.13946053>
-  (Präsentation vom 17.10.2024)
-- *N40 Graph. Datenformate, -flüsse und -modelle*
-   <https://doi.org/10.5281/zenodo.13784846>
-  (Präsentation vom 20.9.2024)
-- *Integration von Forschungsdaten im NFDI4Objects Knowledge Graph*
-  <https://doi.org/10.5281/zenodo.13744338>
-  (Poster vom 11.9.2024)
-- *Ontology development in NFDI4Objects*
-  <https://doi.org/10.5281/zenodo.13149276>
-  (Präsentation vom 31.7.2024)
-- *Terminologien in NFDI4Objects*
-  <https://doi.org/10.5281/zenodo.10906912>
-  (Präsentation vom 20.3.2024)
-- *Mapping von Terminologien mit Cocoda für NFDI4Objects*
-  <https://doi.org/10.5281/zenodo.10820784>
-  (Präsentation vom 15.3.2024)
+Die technische Beschreibung der [Systemarchitektur](architecture.qmd) und der [Datenimport](import.qmd) sind kürzer gefasst, da technische Details in den jeweiligen Code-Repositorien stehen.
 
+Unter [Publikationen](references.qmd) finden sich schließlich Vorträge, Artikel und andere weiterführende Quellen.
