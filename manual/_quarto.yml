@@ -56,6 +56,7 @@ book:
       - icon: github
         href: https://github.com/nfdi4objects/n4o-graph
 
+toc: true
 tbl-cap-location: bottom
 number-sections: false
 number-depth: 1
