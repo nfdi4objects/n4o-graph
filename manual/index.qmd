@@ -10,7 +10,7 @@ An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des **Kno
 
 Wesentliche Grundbegriffe zum Verständnis des Knowledge Graphen sind unter [Grundlagen](basics.qmd) beschrieben. Dazu gehört die Einteilung der Datenquellen in [Sammlungen](collections.qmd), [Vokabulare](terminologies.qmd) und [Mappings](mappings.qmd) sowie das [Datenmodell](schema.qmd) auf Grundlage von [CIDOC-CRM](cidoc-crm.qmd).
 
-Es folgt eine Dokumentation des [Nutzung des Graphen](usage.qmd): Unter <https://graph.nfdi4objects.net/> gibt es eine einfache Oberfläche zum direkten Zugriff auf die Inhalte des Graphen. Darüber hinaus vereinfachen verschiedene [Anwendungen](anwendungen.qmd) die Nutzung für spezielle Anwendungsfälle.
+Es folgt eine Dokumentation des [Nutzung des Graphen](usage.qmd): Unter <https://graph.nfdi4objects.net/> gibt es eine einfache Oberfläche zum direkten Zugriff auf die Inhalte des Graphen. Darüber hinaus vereinfachen verschiedene [Anwendungen](applications.qmd) die Nutzung für spezielle Anwendungsfälle.
 
 
 Die technische Beschreibung der [Systemarchitektur](architecture.qmd) und der [Datenimport](import.qmd) sind kürzer gefasst, da technische Details in den jeweiligen Code-Repositorien stehen.

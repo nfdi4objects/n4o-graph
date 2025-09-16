@@ -20,7 +20,7 @@ book:
     - basics.qmd
     - sources.qmd
     - collections.qmd
-    - vocabularies.qmd
+    - terminologies.qmd
     - mappings.qmd
     - schema.qmd
     - cidoc-crm.qmd

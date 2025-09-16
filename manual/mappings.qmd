@@ -1,6 +1,6 @@
 # Mappings {#sec-mappings}
 
-Zur besseren Integration von Daten sollen spezialisierte Ontologien und Metadaten-Schema auf ein [einheitliches Datenbankschema](schema.qmd) und ausgewählte Werte per Named-Entity-Recognition auf [Vokabulare](vocabularies.qmd) gemappt werden. Im Detail lassen sich folgende Mapping-Bereiche unterscheiden:
+Zur besseren Integration von Daten sollen spezialisierte Ontologien und Metadaten-Schema auf ein [einheitliches Datenbankschema](schema.qmd) und ausgewählte Werte per Named-Entity-Recognition auf [Vokabulare](terminologies.qmd) gemappt werden. Im Detail lassen sich folgende Mapping-Bereiche unterscheiden:
 
 - [Mapping von Schemas]
 - [Mapping von Vokabularen]

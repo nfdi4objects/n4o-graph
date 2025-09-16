@@ -8,7 +8,7 @@ Im Folgenden das Datenbankschema des Property Graphen beschrieben. Die
 RDF-Daten im Triple-Store folgend dagegen bislang keinen Schema sondern werden
 so eingespielt wie sie geliefert werden.
 
-Als Sammlungsübergeifendes Datenmodell wird **[CIDOC-CRM (CRM)](crm.qmd)**
+Als Sammlungsübergeifendes Datenmodell wird **[CIDOC-CRM (CRM)](cidoc-crm.qmd)**
 verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus
 werden eine Reihen von etablierten [Vokabularen](#sec-vocabularies) wie
 ICONCLASS, GND und die LIDO-Terminologien unterstützt.
@@ -20,17 +20,7 @@ Die Modellierung ist noch nicht abgeschlossen! Überlegungen zur Abbildung
 von CRM in RDF [befinden sich hier](https://nfdi4objects.github.io/crm-rdf-ap/).
 :::
 
-
 ### Entitäten und Knoten
-
-Knoten im [Property Graphen](#property-graphen) erhalten als Knoten-Label
-die entsprechenden [CRM-Klassen](crm.qmd). Dabei werden Leerzeichen und
-Sonderzeichen durch Unterstrich ersetzt
-
-:::{.callout-note title="Beispiele"}
-Entitäten der CRM-Klasse [E16 Measurement](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E16) werden Knoten mit dem Label `E16_Measurement`.
-Entitäten der CRM-Klasse [E22 Human-Made Object](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E22) werden Knoten mit dem Label `E22_Human_Made_Object`
-:::
 
 Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet
 werden, allerdings werden diese durch [Expansion](#expansion) auf die neueste
@@ -66,62 +56,6 @@ Inverse CRM-Properties sind noch nicht berücksichtigt!
 Eine Ausnahme bilden die folgenden CRM-Properties für [elementare
 Datentypen](#elementare-datentypen), die stattdessen zu Property-Keys werden (siehe folgender Abschnitt).
 
-### Properties
-
-Folgende CRM-Properties werden im Property-Graphen durch Knoten-Properties modelliert:
-
-CRM-Property | Property-Key | Datentyp
--------------|--------------|----------
-[P3 has note](http://www.cidoc-crm.org/cidoc-crm/P3) | `P3_has_note` | Zeichenkette
-[P57 has number of parts](http://www.cidoc-crm.org/cidoc-crm/P57) | `P57_has_number_of_parts` | Zahl
-[P79 beginning is qualified by](http://www.cidoc-crm.org/cidoc-crm/P79) | `P79_beginning_is_qualified_by` | Zeichenkette
-[P80 end is qualified by](http://www.cidoc-crm.org/cidoc-crm/P80) | `P80_end_is_qualified_by`| Zeichenkette
-[P90 has value](http://www.cidoc-crm.org/cidoc-crm/P90) | `P90_has_value` | Zahl)
-[P168 place is defined by (defines place)](http://www.cidoc-crm.org/cidoc-crm/P168) | `P168_place_is_defined_by` | Koordinate
-[P170 defines time (time is defined by)](http://www.cidoc-crm.org/cidoc-crm/P170) | `P170i_time_is_defined_by` (inverse Relation!) | Datums-/Zeitangabe 
-[P171 at some place within](http://www.cidoc-crm.org/cidoc-crm/P171 ) | `P171_at_some_place_within` | Koordinate 
-[P172 contains](http://www.cidoc-crm.org/cidoc-crm/P172) | `P172_contains` | Koordinate
-[P190 has_symbolic_content](https://cidoc-crm.org/html/cidoc_crm_v7.1.2_with_translations.html#P190) | `P190_has_symbolic_content` | Zeichenkette
-
-::: {.callout-warning appearance="simple"}
-Die Property-Keys werden möglicherweise noch umbenannt, um zu lange Namen zu vermeiden!
-:::
-
-### Expansion
-
-Entsprechend der CRM-Klassenhierarchie erhalten alle Knoten ausgehend von ihren
-Labels jeweils zusätzlich als Label die CRM-Kürzel der eigenen und aller
-übergeordneten Klassen.
-
-:::{.callout-note title="Beispiele"}
-Knoten mit dem Label `E16_Measurement` erhalten zusätzlich die Label `E16` sowie die übergeordneten Klassen `E13` (Attribute Assignment), `E7` (Activity), `E5` (Event),
-`E4` (Period), `E2` (Temporal Entity) und `E92` (Spacetime Volume) sowie `E1` (CRM Entity).
-
-Entitäten der CRM-Klasse [E22 Man-Made_Object](https://cidoc-crm.org/html/cidoc_crm_v6.2.6_with_translations.html#E22) (mit CRM-Version 6.2.7 umbenannt in "E22 Human-Made Object")
-werden Knoten mit dem Label `E22_Man_Made_Object` und erhalten die selben Überklassen wie `E22_Human_Made_Object`.
-
-Entitäte der CRM-Klasse [E40 Legal-Body](https://cidoc-crm.org/html/cidoc_crm_v6.2.7_with_translations.html#E40) werden Knoten mit dem Label `E40_Legal_Body` aber da die Klasse veraltet ist und stattdessen [E74 Group](https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E74) verwendet werden soll, erhalten sie zusätzlich die Label `E74` und die selben Überklassen wie `E74_Group`.
-:::
-
-Die Anreicherung ergibt sich aus der CRM-Klassenhierarchie:
-
-- [CIDOC-CRM-Klassen (alle Versionen)](img/crm-classes.svg)
-- [CIDOC-CRM-Properties (alle Versionen)](img/crm-properties.svg)
-- [CRM und auf CRM-gemappte Klassen](img/n4o-all-classes.svg)
-
-### Offene Punkte
-
-Das Datenmodell muss noch erweitert werden um:
-
-- Identifier (für Normdaten-Identifier siehe <https://github.com/nfdi4objects/n4o-terminologies>) 
-    - `CREATE CONSTRAINT uri FOR (n:E1) REQUIRE n.uri IS UNIQUE`
-    <!-- see https://community.neo4j.com/t/index-on-array/4625 -->
-
-- Informationen über Sammlungen aus denen die Daten und Objekte stammen
-  (siehe <https://github.com/nfdi4objects/n4o-databases> und
-  <https://github.com/nfdi4objects/n4o-rdf-import>)
-- Informationen *über* Ontologien und Vokabulare
-
 ## Beispiel
 
 Folgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):
@@ -129,14 +63,6 @@ Folgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):
 ```ttl
 {{< include crm-example.ttl >}}
 ```
-
-wird konvertiert in folgenden Property Graph (in PG Format und als Diagram):
-
-```.pg
-{{< include crm-pg-example.pg >}}
-```
-
-![](img/crm-pg-example.svg)
 
 ## Vokabulare
 

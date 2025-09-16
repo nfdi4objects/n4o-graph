@@ -77,6 +77,14 @@ The following environment variables can be used for configuration:
 - STAGE - stage directory (default: `./stage`)
 - DATA - data directory (optional, default: `./data`)
 
+## Manual
+
+[![Status](https://github.com/nfdi4objects/n4o-graph/actions/workflows/quarto-publish.yml/badge.svg)](https://github.com/nfdi4objects/n4o-graph/actions/workflows/quarto-publish.yml)
+
+Das Handbuch zum Knowledge Graphen ist mit [quarto](https://quarto.org/) erstellt. Die Quelldateien liegen im Verzeichnis `manual`.
+
+Die HTML-Version des Handbuch kann lokal mit `make docs` im Wurzelverzeichnis aktualisiert werden und liegt anschließend im Verzeichnis `docs`. Die publizierte Version unter <https://nfdi4objects.github.io/n4o-graph/> wird bei GitHub automatisch aus dem `main` Branch erzeugt.
+
 ## License
 
 The content of this repository can be used freely as *Public Domain* ([CC Zero](https://creativecommons.org/publicdomain/zero/1.0/)).

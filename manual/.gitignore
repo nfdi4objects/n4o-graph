@@ -1,4 +1,5 @@
 /.quarto/
-/img/data-flow.mmd
 
 **/*.quarto_ipynb
+*.html
+site_libs

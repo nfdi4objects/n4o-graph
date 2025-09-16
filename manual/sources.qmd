@@ -4,7 +4,7 @@ subtitle: Aus welchen Daten setzt sich der Knowledge Graph zusammen?
 lang: de
 ---
 
-Der Knowledge Graph besteht aus Daten verschiedener [Sammlungen](#sammlung) aus [verschiedenenen Quelldatenbanken](https://nfdi4objects.github.io/n4o-databases/), die mit bekannten [Vokabularen](vocabularies.qmd) angereichert werden.
+Der Knowledge Graph besteht aus Daten verschiedener [Sammlungen](#sammlung) aus [verschiedenenen Quelldatenbanken](https://nfdi4objects.github.io/n4o-databases/), die mit bekannten [Vokabularen](terminologies.qmd) angereichert werden.
 
 ::: {.callout-tip appearance="simple"}
 Eine Liste von Sammlungen [befindet sich hier](https://graph.nfdi4objects.net/collection/).
@@ -17,7 +17,7 @@ Die technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie 
 - Lieferung ausschließlich in RDF oder als XML Lightweight Information Describing Objects (LIDO)
 - Zur Integration von Daten muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein
 - Beschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.
-- Verwendung von etablierten [Vokabularen](vocabularies.qmd) oder zumindest URIs statt Freitextfeldern
+- Verwendung von etablierten [Vokabularen](terminologies.qmd) oder zumindest URIs statt Freitextfeldern
 - Versionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG
 - Angaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung
 - Verwendung von Normdaten-URI zur eindeutigen Zuweisung von Personen, Geografika u. s. w. (bspw. GND, VIAF, Wikidata, Geonames, historischen Gazeteers, ...)
