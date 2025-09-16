@@ -31,8 +31,18 @@ book:
     - mappings.qmd
     - status.qmd
   navbar:
+    title: NFDI4**Objects Knowledge Graph** (TA5)
     logo: img/logo.png
-    logo-href: https://graph.nfdi4objects.net/  
+    logo-href: https://graph.nfdi4objects.net/
+    left:
+      - text: __SPARQL__ 
+        href: https://graph.nfdi4objects.net/sparql
+      - text: __Collections__
+        href: https://graph.nfdi4objects.net/collection/
+      - text: __Terminologies__
+        href: https://graph.nfdi4objects.net/terminology/
+      - text: __Manual__
+        href: https://nfdi4objects.github.io/n4o-graph/  
   page-footer: 
     right: 
       - text: Datenschutz
@@ -63,4 +73,5 @@ format:
         <script src="./js/highlight.js"></script>
     css:
       - codemirror.css
+      - style.css
 
