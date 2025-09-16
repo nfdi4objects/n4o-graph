@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "NFDI4Objects Knowledge Graph (TA5)",
+    "title": "NFDI4Objects Knowledge Graph",
     "section": "",
-    "text": "An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des Knowledge Graphen von NFDI4Objects (N4O Graph). Der Zugriff auf die Inhalte des Knowledge Graphen ist Kapitel Benutzung beschrieben. Hintergründe und Details finden sich im Grundlagen-Kapitel und in der Beschreibung der Systemarchitektur.\nEine einfache Oberfläche zum Zugriff auf die Schnittstellen des Knowledge Graph ist unter https://graph.nfdi4objects.net/ verfügbar.\nDer Knowledge Graph besteht im Kern aus einem Triple-Store, in denen Daten aus verschiedenene Quellen zusammengeführt werden und per SPARQL-Schnittstelle abgefragt werden können. Darüber hinaus sind weitere Schnittstellen geplant, darunter ein Query-Builder und einen Graph-Browser. Forschungsdaten-Anwendungen können auf den Knowledge Graphen zugreifen und zusätzliche Recherche- und Analysemöglichkeiten bieten.\n\nPublikationen\nWeitere Einführungen in den Knowledge Graph geben folgende Publikationen der VZG und/oder Publikationen aus NFDI4Objects:\n\nN4O Graph: The Knowledge Graph of NFDI4Objects https://doi.org/10.5281/zenodo.13946053 (Präsentation vom 17.10.2024)\nN40 Graph. Datenformate, -flüsse und -modelle https://doi.org/10.5281/zenodo.13784846 (Präsentation vom 20.9.2024)\nIntegration von Forschungsdaten im NFDI4Objects Knowledge Graph https://doi.org/10.5281/zenodo.13744338 (Poster vom 11.9.2024)\nOntology development in NFDI4Objects https://doi.org/10.5281/zenodo.13149276 (Präsentation vom 31.7.2024)\nTerminologien in NFDI4Objects https://doi.org/10.5281/zenodo.10906912 (Präsentation vom 20.3.2024)\nMapping von Terminologien mit Cocoda für NFDI4Objects https://doi.org/10.5281/zenodo.10820784 (Präsentation vom 15.3.2024)",
+    "text": "Warning\n\n\n\nDas Handbuch wird gerade überarbeitet und ist somit unvollständig und teilweise veraltet!\n\n\nAn dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des Knowledge Graphen von NFDI4Objects (N4O Graph). Der Knowledge Graph besteht im Kern aus einem Triple-Store, in den Daten aus verschiedenene Quellen zusammengeführt werden und per SPARQL abgefragt werden können.\nWesentliche Grundbegriffe zum Verständnis des Knowledge Graphen sind unter Grundlagen beschrieben. Dazu gehört die Einteilung der Datenquellen in Sammlungen, Vokabulare und Mappings sowie das Datenmodell auf Grundlage von CIDOC-CRM.\nEs folgt eine Dokumentation des Nutzung des Graphen: Unter https://graph.nfdi4objects.net/ gibt es eine einfache Oberfläche zum direkten Zugriff auf die Inhalte des Graphen. Darüber hinaus vereinfachen verschiedene Anwendungen die Nutzung für spezielle Anwendungsfälle.\nDie technische Beschreibung der Systemarchitektur und der Datenimport sind kürzer gefasst, da technische Details in den jeweiligen Code-Repositorien stehen.\nUnter Publikationen finden sich schließlich Vorträge, Artikel und andere weiterführende Quellen.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einleitung</span>"
     ]
@@ -80,53 +80,13 @@
     ]
   },
   {
-    "objectID": "crm.html",
-    "href": "crm.html",
-    "title": "CIDOC-CRM",
+    "objectID": "collections.html",
+    "href": "collections.html",
+    "title": "Sammlungen",
     "section": "",
-    "text": "Das CIDOC Conceptual Reference Model (CRM) ist ein abstraktes Datenmodell zur Modellierung von Informationen aus dem Kulturbereich. CRM ist Grundlage verschiedener Datenformate und Datenbanken. Insbesondere bildet es auch die Grundlage der Ontologie des Knowledge Graphen in Form des Datenbankschema.\n\nUmfang\nFolgende Bestandteile des CRM werden unterstützt:\n\nCRM-Klassen und Properties aller bisherigen CRM-Versionen\nCRM-Erweiterungen CRMarchaeo, CRMsci und LRMoo\n\nAndere Ontologien müssen zur Integration in das gemeinsame Datenmodell auf CRM gemappt werden.\n\n\nWeitere Informationen\n\nCIDOC-CRM Homepage\nWikipedia-Eintrag zu CRM",
+    "text": "…",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>CIDOC-CRM</span>"
-    ]
-  },
-  {
-    "objectID": "schema.html",
-    "href": "schema.html",
-    "title": "Datenbankschema",
-    "section": "",
-    "text": "Modellierung\nIm Folgenden das Datenbankschema des Property Graphen beschrieben. Die RDF-Daten im Triple-Store folgend dagegen bislang keinen Schema sondern werden so eingespielt wie sie geliefert werden.\nAls Sammlungsübergeifendes Datenmodell wird CIDOC-CRM (CRM) verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten Vokabularen wie ICONCLASS, GND und die LIDO-Terminologien unterstützt.",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Datenbankschema</span>"
-    ]
-  },
-  {
-    "objectID": "schema.html#modellierung",
-    "href": "schema.html#modellierung",
-    "title": "Datenbankschema",
-    "section": "",
-    "text": "Die Modellierung ist noch nicht abgeschlossen! Überlegungen zur Abbildung von CRM in RDF befinden sich hier.\n\n\n\n\nEntitäten und Knoten\nKnoten im Property Graphen erhalten als Knoten-Label die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt\n\n\n\n\n\n\nNoteBeispiele\n\n\n\nEntitäten der CRM-Klasse E16 Measurement werden Knoten mit dem Label E16_Measurement. Entitäten der CRM-Klasse E22 Human-Made Object werden Knoten mit dem Label E22_Human_Made_Object\n\n\nZwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch Expansion auf die neueste Form gemappt.\n\n\nElementare Datentypen\nDie folgende CRM-Klassen für elementare Datentypen werden nicht als Knoten-Label verwendet. Ihre Instanzen werden im Datenmodell stattdessen als Property-Werte abgebildet:\n\nE59 Primitive Value\nE60 Number für Zahlen\nE62 String für Zeichenketten\n\nInstanzen der folgenden CRM-Klassen werden ebenfalls wenn möglich nicht als Knoten sondern als Property-Werte abgebildet. Anderenfalls erfolgt die Expansion nur über die übergeordnete Klasse E41 Appellation:\n\nE61 Time Primitive für Datums- und Zeitangaben\nE94 Space Primitive für Koordinaten\n\n\n\nRelationen und Kanten\nCRM-Properties (nicht zu verwechseln mit Eigenschaften im Property-Graph Datenbankmodell) werden im Property-Graphen durch Kanten-Label modelliert.\n\n\n\n\n\n\nExpansion von Kanten-Label ist noch nicht umgesetzt!\n\n\n\n\n\n\n\n\n\nInverse CRM-Properties sind noch nicht berücksichtigt!\n\n\n\nEine Ausnahme bilden die folgenden CRM-Properties für elementare Datentypen, die stattdessen zu Property-Keys werden (siehe folgender Abschnitt).\n\n\nProperties\nFolgende CRM-Properties werden im Property-Graphen durch Knoten-Properties modelliert:\n\n\n\nCRM-Property\nProperty-Key\nDatentyp\n\n\n\n\nP3 has note\nP3_has_note\nZeichenkette\n\n\nP57 has number of parts\nP57_has_number_of_parts\nZahl\n\n\nP79 beginning is qualified by\nP79_beginning_is_qualified_by\nZeichenkette\n\n\nP80 end is qualified by\nP80_end_is_qualified_by\nZeichenkette\n\n\nP90 has value\nP90_has_value\nZahl)\n\n\nP168 place is defined by (defines place)\nP168_place_is_defined_by\nKoordinate\n\n\nP170 defines time (time is defined by)\nP170i_time_is_defined_by (inverse Relation!)\nDatums-/Zeitangabe\n\n\nP171 at some place within\nP171_at_some_place_within\nKoordinate\n\n\nP172 contains\nP172_contains\nKoordinate\n\n\nP190 has_symbolic_content\nP190_has_symbolic_content\nZeichenkette\n\n\n\n\n\n\n\n\n\nDie Property-Keys werden möglicherweise noch umbenannt, um zu lange Namen zu vermeiden!\n\n\n\n\n\n\n\n\n\nNoteBeispiel\n\n\n\nd1 :E54_Dimension P90_has_value:12   # Wert 12 als Property\nd1 -&gt; u1 :P90_has_unit               # Einheit u1 (hier nicht weiter definiert) \n\n\nDarüber hinaus gibt es einige besondere Property-Keys, deren möglicher Einsatz noch diskutiert wird:\n\ncID\ncollection\nvalue\nlang\ntype\npref\nformatResource\nsortorder\nsource\nuri\n\n\n\nExpansion\nEntsprechend der CRM-Klassenhierarchie erhalten alle Knoten ausgehend von ihren Labels jeweils zusätzlich als Label die CRM-Kürzel der eigenen und aller übergeordneten Klassen.\n\n\n\n\n\n\nNoteBeispiele\n\n\n\nKnoten mit dem Label E16_Measurement erhalten zusätzlich die Label E16 sowie die übergeordneten Klassen E13 (Attribute Assignment), E7 (Activity), E5 (Event), E4 (Period), E2 (Temporal Entity) und E92 (Spacetime Volume) sowie E1 (CRM Entity).\nEntitäten der CRM-Klasse E22 Man-Made_Object (mit CRM-Version 6.2.7 umbenannt in “E22 Human-Made Object”) werden Knoten mit dem Label E22_Man_Made_Object und erhalten die selben Überklassen wie E22_Human_Made_Object.\nEntitäte der CRM-Klasse E40 Legal-Body werden Knoten mit dem Label E40_Legal_Body aber da die Klasse veraltet ist und stattdessen E74 Group verwendet werden soll, erhalten sie zusätzlich die Label E74 und die selben Überklassen wie E74_Group.\n\n\nDie Anreicherung ergibt sich aus der CRM-Klassenhierarchie:\n\nCIDOC-CRM-Klassen (alle Versionen)\nCIDOC-CRM-Properties (alle Versionen)\nCRM und auf CRM-gemappte Klassen\n\n\n\nOffene Punkte\nDas Datenmodell muss noch erweitert werden um:\n\nIdentifier (für Normdaten-Identifier siehe https://github.com/nfdi4objects/n4o-terminologies)\n\nCREATE CONSTRAINT uri FOR (n:E1) REQUIRE n.uri IS UNIQUE \n\nInformationen über Sammlungen aus denen die Daten und Objekte stammen (siehe https://github.com/nfdi4objects/n4o-databases und https://github.com/nfdi4objects/n4o-rdf-import)\nInformationen über Ontologien und Vokabulare",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Datenbankschema</span>"
-    ]
-  },
-  {
-    "objectID": "schema.html#beispiel",
-    "href": "schema.html#beispiel",
-    "title": "Datenbankschema",
-    "section": "Beispiel",
-    "text": "Beispiel\nFolgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):\n@prefix crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d&gt;\n  a crm:E16_Measurement ;\n  crm:P40_observed_dimension &lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt;\n  a crm:E54_Dimension ;\n  crm:P2_has_type &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt; ;\n  crm:P91_has_unit &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  crm:P90_has_value 2.8 .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  a crm:E58_Measurement_Unit ;\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt;\n  a crm:E55_Type .\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt; ;\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"Höhe (Scan)\" .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"cm\" .\n\nwird konvertiert in folgenden Property Graph (in PG Format und als Diagram):\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d\n  :E16_Measurement\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d \n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :P40_observed_dimension\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :E54_Dimension \n  P90_has_value: 2.8\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :P2_has_type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :P91_has_unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :E58_Measurement_Unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :E55_Type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :E42_Identifier\n  P3_has_note: \"Höhe (Scan)\"\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :E42_Identifier\n  P3_has_note: \"cm\"",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Datenbankschema</span>"
-    ]
-  },
-  {
-    "objectID": "schema.html#vokabulare",
-    "href": "schema.html#vokabulare",
-    "title": "Datenbankschema",
-    "section": "Vokabulare",
-    "text": "Vokabulare\nDie konkrete Modellierung und Implementierung ist noch in Arbeit.\nAusgewählte kontrollierte Vokabulare werden zentral in den Property Graphen eingespielt. Das Datenmodell dafür basiert auf CIDOC-CRM und SKOS mit folgenden Bestandteilen:\n\nVokabulare haben die Property uri mit der BARTOC-URI des Vokabulars als Wert und die Label E32_Authority_Document (E32 Authority Document) sowie ConceptScheme zur Markierung, dass sie als Vokabular eingespielt wurden.\nKonzepte haben eine Property uri und können unterschiedliche Label haben. Der allgemein Fall ist E55_Type. (E55 Type). Darüber hinaus erhalten sie das Label Concept zur Markierung, dass sie aus einem Vokabular statt aus einer Lieferung von Forschungsdaten stammen.\nKonzepte werden ihrem Vokabular mit dem Kanten-Label inScheme zugeordnet. Die entsprechende inverse CRM-Property P71 lists wird nicht verwendet.\nKonzepte können mit den Kanten-Labeln broader miteinander verknüpft werden. Die entsprechende CRM-Property P127 has broader term wird nicht verwendet.\nKonzepte können eine interne ID oder Notation haben (Property notation)\nKonzepte sollten Benennungen haben (Property label und labelLang)\n\nDarüber könnten folgende CRM-Bestandteile eine Rolle spielen:\n\nP150 defines typical part of, ein Spezialfall von skos:related.\nP2 has type\nP137 exemplifies die inverse Relation von skos:example.\n\n\n\n\n\n\n\n\nNoteBeispiel\n\n\n\nGND-Datensatz zu “Schleswig-Holstein”:\ngnd :ConceptScheme :E32_Authority_Document             # GND\n  uri: http://bartoc.org/en/node/430\n\nsh :Concept :E55_Type :E42_Identifier            # Schleswig-Holstein\n  uri: https://d-nb.info/gnd/4052692-6\n\nsh -&gt; gnd :inScheme",
-    "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Datenbankschema</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Sammlungen</span>"
     ]
   },
   {
@@ -136,77 +96,7 @@
     "section": "",
     "text": "Vokabulare (auch bekannt als Terminologien oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten, auf die in anderen Daten verwiesen werden kann. Sie sind Teil des Knowledge Graphen, stammen aber nicht aus Datenlieferungen von Sammlungen sondern werden zentral verwaltet.Grundlage für die kontrollierte Verwendung von Vokabularen im Knowledge Graph ist ein Eintrag in BARTOC. Eine Liste von unterstützen oder anderweitig relevanten Vokabularen in NFDI4Objects ist als Teilmenge von BARTOC in einer Übersicht verfügbar. Darin enthalten sind auch Ontologien, die sich in das Datenbankschema des Knowledge Graphen integrieren oder darauf abbilden lassen.\nZur Vereinheitlichung der gelieferten Daten müssen verschiedene Vokabulare aufeinander gemappt werden. Dafür steht unter https://coli-conc.gbv.de/cocoda/nfdi4objects/ eine Instanz der Mapping-Anwendung Cocoda zur Verfügung.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Vokabulare</span>"
-    ]
-  },
-  {
-    "objectID": "usage.html",
-    "href": "usage.html",
-    "title": "Benutzung",
-    "section": "",
-    "text": "Der direkte Zugriff auf die Inhalte des Knowledge Graphen erfolgt über eine API mit der Abfragesprache SPARQL. Eine Einführung mit Beispielen gibt es im Kapitel Abfragen mit SPARQL. Darüber hinaus können Teile des Knowledge Graphen als Linked Open Data heruntergeladen werden. Zur Vereinfachung des Zugriffs gibt es auch unter https://graph.nfdi4objects.net/ auch eine Weboberfläche. Alle Inhalte stehen unter freien Lizenzen zur Verfügung.\nDie technische Umsetzung des Zugriffs per API und die dazu gehörige Weboberfläche sind in der Open-Source Komponente n4o-graph-apis umgesetzt.\nDa die Formulierung von SPARQL-Abfragen nicht trivial ist, ist es sinnvoll für konkrete Forschungsfragen und -vorhaben auf Anwendungen zurückzugreifen, die ihrerseits den Knowledge-Graphen abfragen oder selbst solche Anwendungen zu erstellen.",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Benutzung</span>"
-    ]
-  },
-  {
-    "objectID": "sparql.html",
-    "href": "sparql.html",
-    "title": "Abfragen mit SPARQL",
-    "section": "",
-    "text": "Datenmodell\nDie im Knowledge-Graph gesammelten Forschungsdaten werden zusammen mit Normdaten und Verwaltungsdaten in einem Triple Store zusammengeführt und können unter https://graph.nfdi4objects.net/sparql mittels SPARQL abgefragt werden (siehe Beispielabfragen dort).",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
-    ]
-  },
-  {
-    "objectID": "sparql.html#datenmodell",
-    "href": "sparql.html#datenmodell",
-    "title": "Abfragen mit SPARQL",
-    "section": "",
-    "text": "Teilgraphen\nDie RDF-Datenbank ist in mehrere Graphen unterteilt:\n\nJede Sammlung von Forschungsdaten wird über eine URI der Form https://graph.nfdi4objects.net/collection/ID identifiziert, beispielsweise https://graph.nfdi4objects.net/collection/4. Die Sammlung kann als ganzes aktualisiert und einzeln oder zusammen mit anderen Inhalten abgefragt werden.\nDer Graph https://graph.nfdi4objects.net/collection/ enthält Informationen über die einzelnen Sammlungen.\nVokabulare und Ontologien sind in eigenen Graphen verwaltet, deren URI der BARTOC-URI des jeweiligen Vokabulars entspricht, beispielsweise http://bartoc.org/en/node/1940 für Wikidata und http://bartoc.org/en/node/1644 für CIDOC-CRM.\nDer Graph https://graph.nfdi4objects.net/terminology/ enthält Informationen über Vokabulare.\n\nSofern kein konkreter Graph angegeben ist, gelten Abfragen über die Gesamtheit aller Graphen.\n\n\nStruktur der Inhalt\nAus den Lieferungen von Sammlungen werden prinzipiell alle syntaktisch korrekten RDF-Daten übernommen. Allerdings werden einige Triples herausgefiltert und einige URIs umgeschrieben, um unnötige Uneinheitlichkeiten zu vermeiden (siehe Datenimport). Es gibt ist also kein einheitliches Datenmodell vorgeschrieben.",
-    "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
-    ]
-  },
-  {
-    "objectID": "architecture.html",
-    "href": "architecture.html",
-    "title": "Systemarchitektur",
-    "section": "",
-    "text": "Technik",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
-    ]
-  },
-  {
-    "objectID": "architecture.html#technik",
-    "href": "architecture.html#technik",
-    "title": "Systemarchitektur",
-    "section": "",
-    "text": "Webserver (nginx)\nTriple-Store (Fuseki)\nSkripte in Python und NodeJS\nDocker",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
-    ]
-  },
-  {
-    "objectID": "architecture.html#workflow",
-    "href": "architecture.html#workflow",
-    "title": "Systemarchitektur",
-    "section": "Workflow",
-    "text": "Workflow\nDer gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus mehreren Schritten. Zur Datenannahme, Prüfung und Bereinigung siehe https://github.com/nfdi4objects/n4o-graph-importer. Dort findet sich unter anderem das offizielle XML-Schema für LIDO-Daten.\n\nLIDO\nLIDO-XML-Daten werden mit Hilfe von X3ML ins RDF-Format konvertiert.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
-    ]
-  },
-  {
-    "objectID": "architecture.html#anreicherung",
-    "href": "architecture.html#anreicherung",
-    "title": "Systemarchitektur",
-    "section": "Anreicherung",
-    "text": "Anreicherung\n\n\n\n\n\n\nWarnung\n\n\n\nDieses Kapitel ist nichtmehr aktuell!\n\n\n\nExpansion der Klassenhierarchie\nDa Property-Graphen im Gegensatz zu RDF keine Inferenz-Regeln beinhalten und weil Inferenz-Regeln sowieso umständlich sind, werden die Daten im Property-Graphen expandiert. Grundlage ist ein eigener Property-Graph mit der Klassenhierarchie des CIDOC-CRM Datenmodell samt zwischenzeitlich umbenannter oder veralteter Klassen in der Datei crm-classes.pg (siehe SVG-Diagram). Der Graph aller Klassen enthält Informationen darüber welche Klassen sich aus einer anderen ergeben, z.B.\n\nE22_Man_Made_Object =&gt; E22_Human_Made_Object (renamedTo)\nE50_Date =&gt; E41_Appellation (replacedBy)\nE7_Activity=&gt; E5_Event (superClass)\n\nAus diesen Daten wird die Expansionstabelle crm-expand.txt erzeugt, z.B.:\n\nE22_Human_Made_Object =&gt; E22, E71, E70, E24 E77 und E1\n\nZum Ausführen der Expansion:\n./pg-expand-labels.py [Neo4j login file] &lt; crm-expand.txt\nOhne Konfigurationsdatei für Neo4J werden Cypher-Kommandos ausgegeben. Mit Konfiguration wird die Expansion in der betreffenden Neo4J-Datenbank ausgeführt.\nNach der Expansion ist die Abfrage nach allen Knoten mit einem bestimmten Label wie z.B. E22_Human_Made_Object möglich oder nach allen Knoten, die direkt oder indirekt er Klasse E22 angehören.\nDie Expansion ist auf gleiche Weise für andere Ontologien möglich, sofern diese auf CRM gemappt wurden.",
-    "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Systemarchitektur</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Vokabulare</span>"
     ]
   },
   {
@@ -216,7 +106,7 @@
     "section": "",
     "text": "Mapping von Schemas\nZur besseren Integration von Daten sollen spezialisierte Ontologien und Metadaten-Schema auf ein einheitliches Datenbankschema und ausgewählte Werte per Named-Entity-Recognition auf Vokabulare gemappt werden. Im Detail lassen sich folgende Mapping-Bereiche unterscheiden:\nEin Teil der Mappings für den NFDI4Objects Knowledge Graphen kann mit Hilfe der Webanwendung Cocoda erstellt und gepflegt werden. Eine entsprechend konfigurierte Instanz der Software ist unter https://coli-conc.gbv.de/cocoda/nfdi4objects/ erreichbar.\nDas einheitliche Datenmodell des Knowledge Graphen basiert auf CIDOC-CRM (siehe Datenbankschema). Werden in den gelieferten Daten andere Ontologien verwendet, so müssen diese auf CRM abgebildet werden. Die Abbildung geschieht bislang per Hand in Konfigurationsdateien. In Zukunft soll als Werkzeug hierfür auch Cocoda eingesetzt werden.\nNeben der Abbildung von verschiedenen Ontologien auf CRM ist es auch notwendig, unterschiedliche Modellierungsmöglichkeiten innerhalb von CRM auf ein Schema zu vereinheitlichen.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Mappings</span>"
     ]
   },
   {
@@ -226,7 +116,7 @@
     "section": "Mapping von Vokabularen",
     "text": "Mapping von Vokabularen\nIn den gelieferten Daten werden Entäten wie Personen, Orte, Zeiträume, Materialien etc. auf unterschiedliche Art und Weise referenziert. Im Idealfall wird per Identifiern auf Normdateien verwiesen. Wenn unterschiedliche Normdateien für die gleichen Entitäten verwendet werden, sollten diese aufeinander gemappt werden. Als Werkzeug hierfür dient die Webanwendung Cocoda.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Mappings</span>"
     ]
   },
   {
@@ -236,7 +126,7 @@
     "section": "Reconciliation",
     "text": "Reconciliation\nWerden Entitäten lediglich durch Zeichenketten referenziert (z.B. “Gold” zur Angabe des chemischen Elements Gold), so müssen diese Angaben möglichst auf kontrollierte Vokabulare mit entsprechenden Identifiern gemappt werden. Als technische Schnittstelle hierfür dient dazu die Reconciliation Service API. Wie weit die Erkennung von Entitäten aus Zeichenketten automatisiert ablaufen kann, hängt allerdings stark vom Kontext der Daten ab.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Mappings</span>"
     ]
   },
   {
@@ -246,7 +136,117 @@
     "section": "Mapping von Werten und Einheiten",
     "text": "Mapping von Werten und Einheiten\nIn den gelieferten Daten kommen Werte mit unterschiedlichen Einheiten (Datumsangaben, Ortsangaben, Mengen, Gewichte und andere physische Maße…) vor. Diese sollten möglichst vereinheitlicht werden, damit Abfragen über den gesamten Datenbestand möglich sind.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Mappings</span>"
+    ]
+  },
+  {
+    "objectID": "schema.html",
+    "href": "schema.html",
+    "title": "Datenmodell",
+    "section": "",
+    "text": "Modellierung\nIm Folgenden das Datenbankschema des Property Graphen beschrieben. Die RDF-Daten im Triple-Store folgend dagegen bislang keinen Schema sondern werden so eingespielt wie sie geliefert werden.\nAls Sammlungsübergeifendes Datenmodell wird CIDOC-CRM (CRM) verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten Vokabularen wie ICONCLASS, GND und die LIDO-Terminologien unterstützt.",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenmodell</span>"
+    ]
+  },
+  {
+    "objectID": "schema.html#modellierung",
+    "href": "schema.html#modellierung",
+    "title": "Datenmodell",
+    "section": "",
+    "text": "Die Modellierung ist noch nicht abgeschlossen! Überlegungen zur Abbildung von CRM in RDF befinden sich hier.\n\n\n\n\nEntitäten und Knoten\nKnoten im Property Graphen erhalten als Knoten-Label die entsprechenden CRM-Klassen. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt\n\n\n\n\n\n\nNoteBeispiele\n\n\n\nEntitäten der CRM-Klasse E16 Measurement werden Knoten mit dem Label E16_Measurement. Entitäten der CRM-Klasse E22 Human-Made Object werden Knoten mit dem Label E22_Human_Made_Object\n\n\nZwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch Expansion auf die neueste Form gemappt.\n\n\nElementare Datentypen\nDie folgende CRM-Klassen für elementare Datentypen werden nicht als Knoten-Label verwendet. Ihre Instanzen werden im Datenmodell stattdessen als Property-Werte abgebildet:\n\nE59 Primitive Value\nE60 Number für Zahlen\nE62 String für Zeichenketten\n\nInstanzen der folgenden CRM-Klassen werden ebenfalls wenn möglich nicht als Knoten sondern als Property-Werte abgebildet. Anderenfalls erfolgt die Expansion nur über die übergeordnete Klasse E41 Appellation:\n\nE61 Time Primitive für Datums- und Zeitangaben\nE94 Space Primitive für Koordinaten\n\n\n\nRelationen und Kanten\nCRM-Properties (nicht zu verwechseln mit Eigenschaften im Property-Graph Datenbankmodell) werden im Property-Graphen durch Kanten-Label modelliert.\n\n\n\n\n\n\nExpansion von Kanten-Label ist noch nicht umgesetzt!\n\n\n\n\n\n\n\n\n\nInverse CRM-Properties sind noch nicht berücksichtigt!\n\n\n\nEine Ausnahme bilden die folgenden CRM-Properties für elementare Datentypen, die stattdessen zu Property-Keys werden (siehe folgender Abschnitt).\n\n\nProperties\nFolgende CRM-Properties werden im Property-Graphen durch Knoten-Properties modelliert:\n\n\n\nCRM-Property\nProperty-Key\nDatentyp\n\n\n\n\nP3 has note\nP3_has_note\nZeichenkette\n\n\nP57 has number of parts\nP57_has_number_of_parts\nZahl\n\n\nP79 beginning is qualified by\nP79_beginning_is_qualified_by\nZeichenkette\n\n\nP80 end is qualified by\nP80_end_is_qualified_by\nZeichenkette\n\n\nP90 has value\nP90_has_value\nZahl)\n\n\nP168 place is defined by (defines place)\nP168_place_is_defined_by\nKoordinate\n\n\nP170 defines time (time is defined by)\nP170i_time_is_defined_by (inverse Relation!)\nDatums-/Zeitangabe\n\n\nP171 at some place within\nP171_at_some_place_within\nKoordinate\n\n\nP172 contains\nP172_contains\nKoordinate\n\n\nP190 has_symbolic_content\nP190_has_symbolic_content\nZeichenkette\n\n\n\n\n\n\n\n\n\nDie Property-Keys werden möglicherweise noch umbenannt, um zu lange Namen zu vermeiden!\n\n\n\n\n\nExpansion\nEntsprechend der CRM-Klassenhierarchie erhalten alle Knoten ausgehend von ihren Labels jeweils zusätzlich als Label die CRM-Kürzel der eigenen und aller übergeordneten Klassen.\n\n\n\n\n\n\nNoteBeispiele\n\n\n\nKnoten mit dem Label E16_Measurement erhalten zusätzlich die Label E16 sowie die übergeordneten Klassen E13 (Attribute Assignment), E7 (Activity), E5 (Event), E4 (Period), E2 (Temporal Entity) und E92 (Spacetime Volume) sowie E1 (CRM Entity).\nEntitäten der CRM-Klasse E22 Man-Made_Object (mit CRM-Version 6.2.7 umbenannt in “E22 Human-Made Object”) werden Knoten mit dem Label E22_Man_Made_Object und erhalten die selben Überklassen wie E22_Human_Made_Object.\nEntitäte der CRM-Klasse E40 Legal-Body werden Knoten mit dem Label E40_Legal_Body aber da die Klasse veraltet ist und stattdessen E74 Group verwendet werden soll, erhalten sie zusätzlich die Label E74 und die selben Überklassen wie E74_Group.\n\n\nDie Anreicherung ergibt sich aus der CRM-Klassenhierarchie:\n\nCIDOC-CRM-Klassen (alle Versionen)\nCIDOC-CRM-Properties (alle Versionen)\nCRM und auf CRM-gemappte Klassen\n\n\n\nOffene Punkte\nDas Datenmodell muss noch erweitert werden um:\n\nIdentifier (für Normdaten-Identifier siehe https://github.com/nfdi4objects/n4o-terminologies)\n\nCREATE CONSTRAINT uri FOR (n:E1) REQUIRE n.uri IS UNIQUE \n\nInformationen über Sammlungen aus denen die Daten und Objekte stammen (siehe https://github.com/nfdi4objects/n4o-databases und https://github.com/nfdi4objects/n4o-rdf-import)\nInformationen über Ontologien und Vokabulare",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenmodell</span>"
+    ]
+  },
+  {
+    "objectID": "schema.html#beispiel",
+    "href": "schema.html#beispiel",
+    "title": "Datenmodell",
+    "section": "Beispiel",
+    "text": "Beispiel\nFolgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):\n@prefix crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d&gt;\n  a crm:E16_Measurement ;\n  crm:P40_observed_dimension &lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt;\n  a crm:E54_Dimension ;\n  crm:P2_has_type &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt; ;\n  crm:P91_has_unit &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  crm:P90_has_value 2.8 .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  a crm:E58_Measurement_Unit ;\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt;\n  a crm:E55_Type .\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt; ;\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"Höhe (Scan)\" .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"cm\" .\n\nwird konvertiert in folgenden Property Graph (in PG Format und als Diagram):\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d\n  :E16_Measurement\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d \n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :P40_observed_dimension\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  :E54_Dimension \n  P90_has_value: 2.8\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :P2_has_type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :P91_has_unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  :E58_Measurement_Unit\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d6480\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  :E55_Type\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b\n  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :P48_has_preferred_identifier \n\nhttp://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310\n  :E42_Identifier\n  P3_has_note: \"Höhe (Scan)\"\n\nhttp://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc\n  :E42_Identifier\n  P3_has_note: \"cm\"",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenmodell</span>"
+    ]
+  },
+  {
+    "objectID": "schema.html#vokabulare",
+    "href": "schema.html#vokabulare",
+    "title": "Datenmodell",
+    "section": "Vokabulare",
+    "text": "Vokabulare\nDie konkrete Modellierung und Implementierung ist noch in Arbeit.\nAusgewählte kontrollierte Vokabulare werden zentral in den Property Graphen eingespielt. Das Datenmodell dafür basiert auf CIDOC-CRM und SKOS mit folgenden Bestandteilen:\n\nVokabulare haben die Property uri mit der BARTOC-URI des Vokabulars als Wert und die Label E32_Authority_Document (E32 Authority Document) sowie ConceptScheme zur Markierung, dass sie als Vokabular eingespielt wurden.\nKonzepte haben eine Property uri und können unterschiedliche Label haben. Der allgemein Fall ist E55_Type. (E55 Type). Darüber hinaus erhalten sie das Label Concept zur Markierung, dass sie aus einem Vokabular statt aus einer Lieferung von Forschungsdaten stammen.\nKonzepte werden ihrem Vokabular mit dem Kanten-Label inScheme zugeordnet. Die entsprechende inverse CRM-Property P71 lists wird nicht verwendet.\nKonzepte können mit den Kanten-Labeln broader miteinander verknüpft werden. Die entsprechende CRM-Property P127 has broader term wird nicht verwendet.\nKonzepte können eine interne ID oder Notation haben (Property notation)\nKonzepte sollten Benennungen haben (Property label und labelLang)\n\nDarüber könnten folgende CRM-Bestandteile eine Rolle spielen:\n\nP150 defines typical part of, ein Spezialfall von skos:related.\nP2 has type\nP137 exemplifies die inverse Relation von skos:example.\n\n\n\n\n\n\n\n\nNoteBeispiel\n\n\n\nGND-Datensatz zu “Schleswig-Holstein”:\ngnd :ConceptScheme :E32_Authority_Document             # GND\n  uri: http://bartoc.org/en/node/430\n\nsh :Concept :E55_Type :E42_Identifier            # Schleswig-Holstein\n  uri: https://d-nb.info/gnd/4052692-6\n\nsh -&gt; gnd :inScheme",
+    "crumbs": [
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenmodell</span>"
+    ]
+  },
+  {
+    "objectID": "cidoc-crm.html",
+    "href": "cidoc-crm.html",
+    "title": "CIDOC-CRM",
+    "section": "",
+    "text": "Das CIDOC Conceptual Reference Model (CRM) ist ein abstraktes Datenmodell zur Modellierung von Informationen aus dem Kulturbereich. CRM ist Grundlage verschiedener Datenformate und Datenbanken. Insbesondere bildet es auch die Grundlage der Ontologie des Knowledge Graphen in Form des Datenbankschema.\n\nUmfang\nFolgende Bestandteile des CRM werden unterstützt:\n\nCRM-Klassen und Properties aller bisherigen CRM-Versionen\nCRM-Erweiterungen CRMarchaeo, CRMsci und LRMoo\n\nAndere Ontologien müssen zur Integration in das gemeinsame Datenmodell auf CRM gemappt werden.\n\n\nWeitere Informationen\n\nCIDOC-CRM Homepage\nWikipedia-Eintrag zu CRM",
+    "crumbs": [
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>CIDOC-CRM</span>"
+    ]
+  },
+  {
+    "objectID": "usage.html",
+    "href": "usage.html",
+    "title": "Nutzung des Graphen",
+    "section": "",
+    "text": "Der direkte Zugriff auf die Inhalte des Knowledge Graphen erfolgt über eine API mit der Abfragesprache SPARQL. Eine Einführung mit Beispielen gibt es im Kapitel Abfragen mit SPARQL. Darüber hinaus können Teile des Knowledge Graphen als Linked Open Data heruntergeladen werden. Zur Vereinfachung des Zugriffs gibt es auch unter https://graph.nfdi4objects.net/ auch eine Weboberfläche. Alle Inhalte stehen unter freien Lizenzen zur Verfügung.\nDie technische Umsetzung des Zugriffs per API und die dazu gehörige Weboberfläche sind in der Open-Source Komponente n4o-graph-apis umgesetzt.\nDa die Formulierung von SPARQL-Abfragen nicht trivial ist, ist es sinnvoll für konkrete Forschungsfragen und -vorhaben auf Anwendungen zurückzugreifen, die ihrerseits den Knowledge-Graphen abfragen oder selbst solche Anwendungen zu erstellen.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Nutzung des Graphen</span>"
+    ]
+  },
+  {
+    "objectID": "sparql.html",
+    "href": "sparql.html",
+    "title": "Abfragen mit SPARQL",
+    "section": "",
+    "text": "Datenmodell\nDie im Knowledge-Graph gesammelten Forschungsdaten werden zusammen mit Normdaten und Verwaltungsdaten in einem Triple Store zusammengeführt und können unter https://graph.nfdi4objects.net/sparql mittels SPARQL abgefragt werden (siehe Beispielabfragen dort).",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
+    ]
+  },
+  {
+    "objectID": "sparql.html#datenmodell",
+    "href": "sparql.html#datenmodell",
+    "title": "Abfragen mit SPARQL",
+    "section": "",
+    "text": "Teilgraphen\nDie RDF-Datenbank ist in mehrere Graphen unterteilt:\n\nJede Sammlung von Forschungsdaten wird über eine URI der Form https://graph.nfdi4objects.net/collection/ID identifiziert, beispielsweise https://graph.nfdi4objects.net/collection/4. Die Sammlung kann als ganzes aktualisiert und einzeln oder zusammen mit anderen Inhalten abgefragt werden.\nDer Graph https://graph.nfdi4objects.net/collection/ enthält Informationen über die einzelnen Sammlungen.\nVokabulare und Ontologien sind in eigenen Graphen verwaltet, deren URI der BARTOC-URI des jeweiligen Vokabulars entspricht, beispielsweise http://bartoc.org/en/node/1940 für Wikidata und http://bartoc.org/en/node/1644 für CIDOC-CRM.\nDer Graph https://graph.nfdi4objects.net/terminology/ enthält Informationen über Vokabulare.\n\nSofern kein konkreter Graph angegeben ist, gelten Abfragen über die Gesamtheit aller Graphen.\n\n\nStruktur der Inhalt\nAus den Lieferungen von Sammlungen werden prinzipiell alle syntaktisch korrekten RDF-Daten übernommen. Allerdings werden einige Triples herausgefiltert und einige URIs umgeschrieben, um unnötige Uneinheitlichkeiten zu vermeiden (siehe Datenimport). Es gibt ist also kein einheitliches Datenmodell vorgeschrieben.",
+    "crumbs": [
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
+    ]
+  },
+  {
+    "objectID": "applications.html",
+    "href": "applications.html",
+    "title": "Anwendungen",
+    "section": "",
+    "text": "…Darüber hinaus sind weitere Schnittstellen geplant, darunter ein Query-Builder und einen Graph-Browser. Forschungsdaten-Anwendungen können auf den Knowledge Graphen zugreifen und zusätzliche Recherche- und Analysemöglichkeiten bieten…",
+    "crumbs": [
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Anwendungen</span>"
+    ]
+  },
+  {
+    "objectID": "import.html",
+    "href": "import.html",
+    "title": "Import",
+    "section": "",
+    "text": "…",
+    "crumbs": [
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Import</span>"
+    ]
+  },
+  {
+    "objectID": "architecture.html",
+    "href": "architecture.html",
+    "title": "Systemarchitektur",
+    "section": "",
+    "text": "Workflow\nDer N4O Graph besteht im Kern aus einem Triple-Store, an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Die Dienste werden in einzelnen git-Repositorien verwaltet und als Docker-Images publiziert:\nDarüber hinaus gibt es das Repository n4o-graph zur Dokumentation und Konfiguration der Dienste als Gesamtheit, darunter auch dieses Handbuch.\nDer gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus mehreren Schritten. Zur Datenannahme, Prüfung und Bereinigung siehe https://github.com/nfdi4objects/n4o-graph-importer. Dort findet sich unter anderem das offizielle XML-Schema für LIDO-Daten.\nLIDO-XML-Daten werden mit Hilfe von X3ML ins RDF-Format konvertiert.",
+    "crumbs": [
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
   },
   {
@@ -256,7 +256,7 @@
     "section": "",
     "text": "Triple Store\nsparqlTripleCount = await sparqlQuery(\"SELECT (COUNT(*) as ?count) { GRAPH ?graph { ?s ?p ?o } }\")",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Status</span>"
     ]
   },
   {
@@ -266,7 +266,7 @@
     "section": "",
     "text": "Anzahl von Tripel:",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Status</span>"
     ]
   },
   {
@@ -276,7 +276,17 @@
     "section": "Datenquellen",
     "text": "Datenquellen\nDer Status des Import aus Datenquellen ist noch nicht öffentlich zugänglich.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Status</span>"
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Status</span>"
+    ]
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "Publikationen",
+    "section": "",
+    "text": "Weitere Einführungen in den Knowledge Graph geben folgende Publikationen der VZG und/oder Publikationen aus NFDI4Objects:\n\nN4O Graph: The Knowledge Graph of NFDI4Objects https://doi.org/10.5281/zenodo.13946053 (Präsentation vom 17.10.2024)\nN40 Graph. Datenformate, -flüsse und -modelle https://doi.org/10.5281/zenodo.13784846 (Präsentation vom 20.9.2024)\nIntegration von Forschungsdaten im NFDI4Objects Knowledge Graph https://doi.org/10.5281/zenodo.13744338 (Poster vom 11.9.2024)\nOntology development in NFDI4Objects https://doi.org/10.5281/zenodo.13149276 (Präsentation vom 31.7.2024)\nTerminologien in NFDI4Objects https://doi.org/10.5281/zenodo.10906912 (Präsentation vom 20.3.2024)\nMapping von Terminologien mit Cocoda für NFDI4Objects https://doi.org/10.5281/zenodo.10820784 (Präsentation vom 15.3.2024)",
+    "crumbs": [
+      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Publikationen</span>"
     ]
   }
 ]

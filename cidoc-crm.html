@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Nutzung des Graphen – NFDI4Objects Knowledge Graph</title>
+<title>CIDOC-CRM – NFDI4Objects Knowledge Graph</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./sparql.html" rel="next">
-<link href="./cidoc-crm.html" rel="prev">
+<link href="./usage.html" rel="next">
+<link href="./schema.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./usage.html"><span class="chapter-title">Nutzung des Graphen</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./cidoc-crm.html"><span class="chapter-title">CIDOC-CRM</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -178,12 +178,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cidoc-crm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CIDOC-CRM</span></a>
+  <a href="./cidoc-crm.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">CIDOC-CRM</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./usage.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Nutzung des Graphen</span></a>
+  <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Nutzung des Graphen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -221,8 +221,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#umfang" id="toc-umfang" class="nav-link active" data-scroll-target="#umfang">Umfang</a></li>
+  <li><a href="#weitere-informationen" id="toc-weitere-informationen" class="nav-link" data-scroll-target="#weitere-informationen">Weitere Informationen</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/cidoc-crm.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -235,8 +242,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Nutzung des Graphen</span></h1>
-<p class="subtitle lead">Zugriff auf die Inhalte des Knowledge Graphen</p>
+<h1 class="title"><span class="chapter-title">CIDOC-CRM</span></h1>
+<p class="subtitle lead">Das gemeinsamen Datenmodell</p>
 </div>
 
 
@@ -253,11 +260,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Der direkte Zugriff auf die Inhalte des Knowledge Graphen erfolgt über eine API mit der Abfragesprache SPARQL. Eine Einführung mit Beispielen gibt es im Kapitel <a href="./sparql.html">Abfragen mit SPARQL</a>. Darüber hinaus können Teile des Knowledge Graphen als Linked Open Data heruntergeladen werden. Zur Vereinfachung des Zugriffs gibt es auch unter <a href="https://graph.nfdi4objects.net/" class="uri">https://graph.nfdi4objects.net/</a> auch eine Weboberfläche. Alle Inhalte stehen unter freien Lizenzen zur Verfügung.</p>
-<p>Die technische Umsetzung des Zugriffs per API und die dazu gehörige Weboberfläche sind in der Open-Source Komponente <a href="https://github.com/nfdi4objects/n4o-graph-apis">n4o-graph-apis</a> umgesetzt.</p>
-<p>Da die Formulierung von SPARQL-Abfragen nicht trivial ist, ist es sinnvoll für konkrete Forschungsfragen und -vorhaben auf Anwendungen zurückzugreifen, die ihrerseits den Knowledge-Graphen abfragen oder selbst solche Anwendungen zu erstellen.</p>
+<p>Das <strong>CIDOC Conceptual Reference Model (CRM)</strong> ist ein abstraktes Datenmodell zur Modellierung von Informationen aus dem Kulturbereich. CRM ist Grundlage verschiedener Datenformate und Datenbanken. Insbesondere bildet es auch die Grundlage der Ontologie des Knowledge Graphen in Form des <a href="./schema.html">Datenbankschema</a>.</p>
+<section id="umfang" class="level1">
+<h1>Umfang</h1>
+<p>Folgende Bestandteile des CRM werden unterstützt:</p>
+<ul>
+<li>CRM-Klassen und Properties aller bisherigen CRM-Versionen</li>
+<li>CRM-Erweiterungen <a href="https://cidoc-crm.org/extensions/crmarchaeo/html/CRMarchaeo_v2.0.html">CRMarchaeo</a>, <a href="https://cidoc-crm.org/extensions/crmsci/html/CRMsci_v2.0.html">CRMsci</a> und <a href="https://cidoc-crm.org/extensions/lrmoo/html/LRMoo_v0.9.6.html">LRMoo</a></li>
+</ul>
+<p>Andere Ontologien müssen zur Integration in das gemeinsame Datenmodell auf CRM gemappt werden.</p>
+</section>
+<section id="weitere-informationen" class="level1">
+<h1>Weitere Informationen</h1>
+<ul>
+<li><a href="https://cidoc-crm.org/">CIDOC-CRM Homepage</a></li>
+<li><a href="https://de.wikipedia.org/wiki/CIDOC_Conceptual_Reference_Model">Wikipedia-Eintrag zu CRM</a></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -664,13 +685,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./cidoc-crm.html" class="pagination-link" aria-label="CIDOC-CRM">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">CIDOC-CRM</span></span>
+      <a href="./schema.html" class="pagination-link" aria-label="Datenmodell">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Datenmodell</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./sparql.html" class="pagination-link" aria-label="Abfragen mit SPARQL">
-        <span class="nav-page-text"><span class="chapter-title">Abfragen mit SPARQL</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./usage.html" class="pagination-link" aria-label="Nutzung des Graphen">
+        <span class="nav-page-text"><span class="chapter-title">Nutzung des Graphen</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -688,7 +709,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/usage.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/cidoc-crm.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

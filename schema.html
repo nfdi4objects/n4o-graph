@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Datenbankschema – NFDI4Objects Knowledge Graph (TA5)</title>
+<title>Datenmodell – NFDI4Objects Knowledge Graph</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./vocabularies.html" rel="next">
-<link href="./crm.html" rel="prev">
+<link href="./cidoc-crm.html" rel="next">
+<link href="./mappings.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -123,7 +88,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <img src="./img/logo.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="https://graph.nfdi4objects.net/">
-    <span class="navbar-title">NFDI4<strong>Objects Knowledge Graph</strong> (TA5)</span>
+    <span class="navbar-title">NFDI4<strong>Objects Knowledge Graph</strong></span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -134,18 +99,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="https://graph.nfdi4objects.net/sparql"> 
-<span class="menu-text"><strong>SPARQL</strong></span></a>
+<span class="menu-text">SPARQL</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://graph.nfdi4objects.net/collection/"> 
-<span class="menu-text"><strong>Collections</strong></span></a>
+<span class="menu-text">Collections</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="https://graph.nfdi4objects.net/terminology/"> 
-<span class="menu-text"><strong>Terminologies</strong></span></a>
+<span class="menu-text">Terminologies</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://nfdi4objects.github.io/n4o-graph/"> 
+    <a class="nav-link" href="./../"> 
 <span class="menu-text"><strong>Manual</strong></span></a>
   </li>  
 </ul>
@@ -160,7 +125,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./schema.html"><span class="chapter-title">Datenbankschema</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./schema.html"><span class="chapter-title">Datenmodell</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -193,12 +158,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./crm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CIDOC-CRM</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./schema.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Datenbankschema</span></a>
+  <a href="./collections.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sammlungen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -208,7 +168,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Benutzung</span></a>
+  <a href="./mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mappings</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schema.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Datenmodell</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./cidoc-crm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">CIDOC-CRM</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./usage.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Nutzung des Graphen</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -218,17 +193,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./applications.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Anwendungen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Import</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mappings.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Mappings</span></a>
+  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Status</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Status</span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Publikationen</span></a>
   </div>
 </li>
     </ul>
@@ -259,7 +244,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 <script src="./js/common.js"></script>
 <script src="./js/codemirror.js"></script>
-<script src="./js/cypher.js"></script>
 <script src="./js/sparql.js"></script>
 <script src="./js/turtle.js"></script>
 <script src="./js/runmode.js"></script>
@@ -267,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-schema" class="quarto-section-identifier"><span class="chapter-title">Datenbankschema</span></span></h1>
+<h1 class="title"><span id="sec-schema" class="quarto-section-identifier"><span class="chapter-title">Datenmodell</span></span></h1>
 </div>
 
 
@@ -298,7 +282,7 @@ Warning
 </div>
 </div>
 <p>Im Folgenden das Datenbankschema des Property Graphen beschrieben. Die RDF-Daten im Triple-Store folgend dagegen bislang keinen Schema sondern werden so eingespielt wie sie geliefert werden.</p>
-<p>Als Sammlungsübergeifendes Datenmodell wird <strong><a href="./crm.html">CIDOC-CRM (CRM)</a></strong> verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten <a href="vocabularies.html">Vokabularen</a> wie ICONCLASS, GND und die LIDO-Terminologien unterstützt.</p>
+<p>Als Sammlungsübergeifendes Datenmodell wird <strong><a href="crm.qmd">CIDOC-CRM (CRM)</a></strong> verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten <a href="vocabularies.html">Vokabularen</a> wie ICONCLASS, GND und die LIDO-Terminologien unterstützt.</p>
 <section id="modellierung" class="level2">
 <h2 class="anchored" data-anchor-id="modellierung">Modellierung</h2>
 <div class="callout callout-style-simple callout-warning">
@@ -313,7 +297,7 @@ Warning
 </div>
 <section id="entitäten-und-knoten" class="level3">
 <h3 class="anchored" data-anchor-id="entitäten-und-knoten">Entitäten und Knoten</h3>
-<p>Knoten im <a href="#property-graphen">Property Graphen</a> erhalten als Knoten-Label die entsprechenden <a href="./crm.html">CRM-Klassen</a>. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt</p>
+<p>Knoten im <a href="#property-graphen">Property Graphen</a> erhalten als Knoten-Label die entsprechenden <a href="crm.qmd">CRM-Klassen</a>. Dabei werden Leerzeichen und Sonderzeichen durch Unterstrich ersetzt</p>
 <div class="callout callout-style-default callout-note callout-titled" title="Beispiele">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -442,33 +426,6 @@ Warning
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled" title="Beispiel">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Beispiel
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span><span class="at"> :E54_Dimension</span> <span class="fu">P90_has_value:</span><span class="dv">12</span><span class="co">   # Wert 12 als Property</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="st">d1</span> <span class="op">-&gt;</span> <span class="st">u1</span><span class="at"> :P90_has_unit</span><span class="co">               # Einheit u1 (hier nicht weiter definiert) </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</div>
-<p>Darüber hinaus gibt es einige besondere Property-Keys, deren möglicher Einsatz noch diskutiert wird:</p>
-<ul>
-<li><code>cID</code></li>
-<li><code>collection</code></li>
-<li><code>value</code></li>
-<li><code>lang</code></li>
-<li><code>type</code></li>
-<li><code>pref</code></li>
-<li><code>formatResource</code></li>
-<li><code>sortorder</code></li>
-<li><code>source</code></li>
-<li><code>uri</code></li>
-</ul>
 </section>
 <section id="expansion" class="level3">
 <h3 class="anchored" data-anchor-id="expansion">Expansion</h3>
@@ -540,46 +497,47 @@ Warning
   crm:P3_has_note "cm" .
 </code></pre>
 <p>wird konvertiert in folgenden Property Graph (in PG Format und als Diagram):</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode .pg code-with-copy"><code class="sourceCode pg"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="at">  :E16_Measurement</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d</span> </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">  :P40_observed_dimension</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">  :E54_Dimension</span> </span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P90_has_value:</span> <span class="dv">2.8</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="at">  :P2_has_type</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="at">  :P91_has_unit</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="at">  :E58_Measurement_Unit</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480</span></span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="at">  :P48_has_preferred_identifier</span> </span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b</span></span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="at">  :E55_Type</span></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="op">-&gt;</span> <span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310</span></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="at">  :P48_has_preferred_identifier</span> </span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a><span class="at">  :E42_Identifier</span></span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P3_has_note:</span> <span class="ss">"Höhe (Scan)"</span></span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a><span class="st">http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc</span></span>
-<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a><span class="at">  :E42_Identifier</span></span>
-<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">P3_has_note:</span> <span class="ss">"cm"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class=".pg"><code>http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d
+  :E16_Measurement
+
+http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d 
+  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  :P40_observed_dimension
+
+http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  :E54_Dimension 
+  P90_has_value: 2.8
+
+http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
+  :P2_has_type
+
+http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41
+  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
+  :P91_has_unit
+
+http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
+  :E58_Measurement_Unit
+
+http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480
+  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc
+  :P48_has_preferred_identifier 
+
+http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
+  :E55_Type
+
+http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b
+  -&gt; http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310
+  :P48_has_preferred_identifier 
+
+http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310
+  :E42_Identifier
+  P3_has_note: "Höhe (Scan)"
+
+http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc
+  :E42_Identifier
+  P3_has_note: "cm"
+</code></pre>
 <p><img src="img/crm-pg-example.svg" class="img-fluid"></p>
 </section>
 <section id="vokabulare" class="level2">
@@ -617,13 +575,13 @@ The Art & Architecture Thesaurus (E32) lists alcazars (E55). (http://vocab.getty
 </div>
 <div class="callout-body-container callout-body">
 <p>GND-Datensatz zu “Schleswig-Holstein”:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode pg code-with-copy"><code class="sourceCode pg"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="st">gnd</span><span class="at"> :ConceptScheme :E32_Authority_Document</span><span class="co">             # GND</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uri:</span> <span class="ss">http://bartoc.org/en/node/430</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">sh</span><span class="at"> :Concept :E55_Type :E42_Identifier</span><span class="co">            # Schleswig-Holstein</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">uri:</span> <span class="ss">https://d-nb.info/gnd/4052692-6</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="st">sh</span> <span class="op">-&gt;</span> <span class="st">gnd</span><span class="at"> :inScheme</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<pre class="pg"><code>gnd :ConceptScheme :E32_Authority_Document             # GND
+  uri: http://bartoc.org/en/node/430
+
+sh :Concept :E55_Type :E42_Identifier            # Schleswig-Holstein
+  uri: https://d-nb.info/gnd/4052692-6
+
+sh -&gt; gnd :inScheme</code></pre>
 <!--
 type    http://terminology.lido-schema.org/identifier_type/uri  
 value   https://d-nb.info/gnd/4052692-6
@@ -1039,13 +997,13 @@ value   https://d-nb.info/gnd/4052692-6
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./crm.html" class="pagination-link" aria-label="CIDOC-CRM">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">CIDOC-CRM</span></span>
+      <a href="./mappings.html" class="pagination-link" aria-label="Mappings">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Mappings</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./vocabularies.html" class="pagination-link" aria-label="Vokabulare">
-        <span class="nav-page-text"><span class="chapter-title">Vokabulare</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./cidoc-crm.html" class="pagination-link" aria-label="CIDOC-CRM">
+        <span class="nav-page-text"><span class="chapter-title">CIDOC-CRM</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1053,7 +1011,13 @@ value   https://d-nb.info/gnd/4052692-6
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-      &nbsp;
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://www.nfdi4objects.net/">
+<p>NFDI4Objects</p>
+</a>
+  </li>  
+</ul>
     </div>   
     <div class="nav-footer-center">
       &nbsp;
