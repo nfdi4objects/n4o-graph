@@ -50,7 +50,7 @@ graph TD
 
 ## Installation
 
-Clone this repository or copy file [`docker-compose.yml`](docker-compose.yml) and config file [`config-apis.yml`](config-apis.yml) to a local directory. Then start a new set of docker containers that make the N4O Knowledge Graph:
+Clone this repository or copy file [`docker-compose.yml`](docker-compose.yml), config file [`config-apis.yml`](config-apis.yml) and referenced `queries` directory to a local directory. Then start a new set of docker containers that make the N4O Knowledge Graph:
 
 ~~~sh
 docker compose up --force-recreate --remove-orphans -V
@@ -64,18 +64,16 @@ docker compose pull
 
 ## Usage
 
-The web interface is made public at <http://localhost:8000/> by default.
-
-For importing data see n4o-graph-importer.
+By default the web interface of n4o-graph-apis is made public at <http://localhost:8000/> and the web interface of n4o-graph-importer at <http://localhost:5020/>.
 
 ## Configuration
 
 The following environment variables can be used for configuration:
 
-- PORT - port to publish n4o-graph-apis (public read access)
-- IMPORT - port to publish n4o-graph-importer (with write access!)
-- STAGE - stage directory (default: `./stage`)
-- DATA - data directory (optional, default: `./data`)
+- **PORT** - port to publish n4o-graph-apis (public read access)
+- **IMPORT** - port to publish n4o-graph-importer (with write access!)
+- **STAGE** - stage directory (default: `./stage`)
+- **DATA** - data directory (optional, default: `./data`)
 
 ## Manual
 
