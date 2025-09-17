@@ -10,6 +10,7 @@ filters:
 book:
   title: "NFDI4Objects Knowledge Graph"
   subtitle: "Handbuch für Nutzung und Management des N4O Graph"
+  favicon: img/logo.png
   repo-url: https://github.com/nfdi4objects/n4o-graph
   language: de
   repo-subdir: manual
