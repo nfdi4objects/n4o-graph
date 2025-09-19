@@ -1,3 +1,4 @@
 *.nt
 *.zip
 *.ndjson
+.venv
