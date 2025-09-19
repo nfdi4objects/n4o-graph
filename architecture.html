@@ -71,6 +71,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="codemirror.css">
@@ -267,6 +270,59 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://github.com/nfdi4objects/lido-rdf-converter">lido-rdf-converter</a>: Skripte und Webanwendung zur Konvertierung von LIDO nach RDF</li>
 </ul>
 <p>Darüber hinaus gibt es das Repository <a href="https://github.com/nfdi4objects/n4o-graph">n4o-graph</a> zur Dokumentation und Konfiguration der Dienste als Gesamtheit, darunter auch dieses Handbuch.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">graph TD
+    terminologies(terminologies) --&gt; receive
+    mappings(mappings) --&gt; receive
+    collections(collections) --&gt; receive
+    data(research data) --&gt; receive
+    stage(stage)
+
+    subgraph importer ["n4o-graph-**importer**"]
+        receive[**receive**]
+        receive -- validate, transform, report --&gt; stage
+        stage --&gt; load
+        load[**load**]
+    end
+    subgraph fuseki ["n4o-**fuseki**"]
+        kg(triple store)
+    end
+    subgraph n4ograph ["n4o-graph-**apis**"]
+        ui[**web application**]
+    end
+    subgraph lido ["lido-rdf-**converter**"]
+        lido2rdf[**lido2rdf**]
+        web-app[**web-app**]
+    end
+
+    stage --&gt; ui
+    kg -- SPARQL --&gt; ui
+    ui -- SPARQL --&gt; apps(applications)
+
+    receive &lt;--&gt; lido2rdf
+    load -- SPARQL update &amp; graph store --&gt; kg
+
+    web-app &lt;--&gt; ui
+
+    ui &lt;--web browser--&gt; users(users)
+    
+classDef data stroke:#4d8dd1, fill:#D4E6F9, color:#333;
+classDef prime fill: #ECECFF, color:#333, stroke:#9370DB;
+classDef box fill:#ffffde, stroke:#aaaa33, color:#333;
+class terminologies,mappings,collections,data,stage,kg,apps,users data;
+class receive,load,ui,lido2rdf,web-app prime;
+class importer,fuseki,n4ograph,lido box;
+linkStyle default color:black;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 <section id="workflow" class="level2">
 <h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
 <p>Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus mehreren Schritten. Zur Datenannahme, Prüfung und Bereinigung siehe <a href="https://github.com/nfdi4objects/n4o-graph-importer" class="uri">https://github.com/nfdi4objects/n4o-graph-importer</a>. Dort findet sich unter anderem das offizielle <a href="https://github.com/nfdi4objects/lido-schema">XML-Schema für LIDO-Daten</a>.</p>
