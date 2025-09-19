@@ -1,6 +1,6 @@
 # Systemarchitektur {#sec-architecture}
 
-Der N4O Graph besteht im Kern aus einem Triple-Store, an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Die Dienste werden in einzelnen git-Repositorien verwaltet und als Docker-Images publiziert:
+Der N4O Graph besteht im Kern aus einem [Triple-Store](#triple-store), an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Die Dienste werden in einzelnen git-Repositorien verwaltet und als Docker-Images publiziert:
 
 - [n4o-fuseki](https://github.com/nfdi4objects/n4o-fuseki): vorkonfigurierter Triple-Store
 - [n4o-graph-apis](https://github.com/nfdi4objects/n4o-graph-apis): APIs und Weboberfläche zum lesenden Zugriff
@@ -8,6 +8,10 @@ Der N4O Graph besteht im Kern aus einem Triple-Store, an den verschiedene Dienst
 - [lido-rdf-converter](https://github.com/nfdi4objects/lido-rdf-converter): Skripte und Webanwendung zur Konvertierung von LIDO nach RDF
 
 Darüber hinaus gibt es das Repository [n4o-graph](https://github.com/nfdi4objects/n4o-graph) zur Dokumentation und Konfiguration der Dienste als Gesamtheit, darunter auch dieses Handbuch.
+
+## Datenfluss
+
+Folgendes Diagram illustriet den Datenfluss im Gesamtsystem. Die einzelnen Docker-Container sind gelb. Quellen, Ziele und Speicherorte von Daten sind blau. Verarbeitungsschritte und Schnittstellen sind violett oder grau.
 
 ```{mermaid}
 graph TD
@@ -33,7 +37,7 @@ graph TD
     kg -- SPARQL --> n4ograph
     n4ograph -- SPARQL --> apps(applications)
 
-    receive <--> lido2rdf
+    receive <-..-> lido2rdf
     load -- SPARQL update & graph store --> kg
 
     web-app <--> n4ograph
@@ -48,13 +52,3 @@ class receive,load,lido2rdf,web-app prime;
 class importer,fuseki,n4ograph,lido box;
 linkStyle default color:black;
 ```
-
-
-## Workflow
-
-Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus mehreren Schritten.
-Zur Datenannahme, Prüfung und Bereinigung siehe  <https://github.com/nfdi4objects/n4o-graph-importer>.
-Dort findet sich unter anderem das offizielle [XML-Schema für LIDO-Daten](https://github.com/nfdi4objects/lido-schema).
-
-LIDO-XML-Daten werden mit Hilfe von [X3ML](https://github.com/isl/x3ml) ins RDF-Format konvertiert. 
-
