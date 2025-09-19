@@ -14,11 +14,10 @@ graph TD
     terminologies(terminologies) --> receive
     mappings(mappings) --> receive
     collections(collections) --> receive
-    data(research data) --> receive
     stage(stage)
 
     subgraph importer ["n4o-graph-**importer**"]
-        receive[**receive**]
+        receive[**register & receive**]
         receive -- validate, transform, report --> stage
         stage --> load
         load[**load**]
@@ -26,30 +25,26 @@ graph TD
     subgraph fuseki ["n4o-**fuseki**"]
         kg(triple store)
     end
-    subgraph n4ograph ["n4o-graph-**apis**"]
-        ui[**web application**]
-    end
     subgraph lido ["lido-rdf-**converter**"]
         lido2rdf[**lido2rdf**]
         web-app[**web-app**]
     end
-
-    stage --> ui
-    kg -- SPARQL --> ui
-    ui -- SPARQL --> apps(applications)
+    stage --> n4ograph["n4o-graph-**apis**"]
+    kg -- SPARQL --> n4ograph
+    n4ograph -- SPARQL --> apps(applications)
 
     receive <--> lido2rdf
     load -- SPARQL update & graph store --> kg
 
-    web-app <--> ui
+    web-app <--> n4ograph
 
-    ui <--web browser--> users(users)
+    n4ograph <--web browser--> users(users)
     
 classDef data stroke:#4d8dd1, fill:#D4E6F9, color:#333;
 classDef prime fill: #ECECFF, color:#333, stroke:#9370DB;
 classDef box fill:#ffffde, stroke:#aaaa33, color:#333;
-class terminologies,mappings,collections,data,stage,kg,apps,users data;
-class receive,load,ui,lido2rdf,web-app prime;
+class terminologies,mappings,collections,stage,kg,apps,users data;
+class receive,load,lido2rdf,web-app prime;
 class importer,fuseki,n4ograph,lido box;
 linkStyle default color:black;
 ```
