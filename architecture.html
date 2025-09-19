@@ -279,11 +279,10 @@ ul.task-list li input[type="checkbox"] {
     terminologies(terminologies) --&gt; receive
     mappings(mappings) --&gt; receive
     collections(collections) --&gt; receive
-    data(research data) --&gt; receive
     stage(stage)
 
     subgraph importer ["n4o-graph-**importer**"]
-        receive[**receive**]
+        receive[**register &amp; receive**]
         receive -- validate, transform, report --&gt; stage
         stage --&gt; load
         load[**load**]
@@ -291,30 +290,26 @@ ul.task-list li input[type="checkbox"] {
     subgraph fuseki ["n4o-**fuseki**"]
         kg(triple store)
     end
-    subgraph n4ograph ["n4o-graph-**apis**"]
-        ui[**web application**]
-    end
     subgraph lido ["lido-rdf-**converter**"]
         lido2rdf[**lido2rdf**]
         web-app[**web-app**]
     end
-
-    stage --&gt; ui
-    kg -- SPARQL --&gt; ui
-    ui -- SPARQL --&gt; apps(applications)
+    stage --&gt; n4ograph["n4o-graph-**apis**"]
+    kg -- SPARQL --&gt; n4ograph
+    n4ograph -- SPARQL --&gt; apps(applications)
 
     receive &lt;--&gt; lido2rdf
     load -- SPARQL update &amp; graph store --&gt; kg
 
-    web-app &lt;--&gt; ui
+    web-app &lt;--&gt; n4ograph
 
-    ui &lt;--web browser--&gt; users(users)
+    n4ograph &lt;--web browser--&gt; users(users)
     
 classDef data stroke:#4d8dd1, fill:#D4E6F9, color:#333;
 classDef prime fill: #ECECFF, color:#333, stroke:#9370DB;
 classDef box fill:#ffffde, stroke:#aaaa33, color:#333;
-class terminologies,mappings,collections,data,stage,kg,apps,users data;
-class receive,load,ui,lido2rdf,web-app prime;
+class terminologies,mappings,collections,stage,kg,apps,users data;
+class receive,load,lido2rdf,web-app prime;
 class importer,fuseki,n4ograph,lido box;
 linkStyle default color:black;
 </pre>
