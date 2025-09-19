@@ -230,7 +230,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#workflow" id="toc-workflow" class="nav-link active" data-scroll-target="#workflow">Workflow</a></li>
+  <li><a href="#datenfluss" id="toc-datenfluss" class="nav-link active" data-scroll-target="#datenfluss">Datenfluss</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/architecture.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
@@ -262,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Der N4O Graph besteht im Kern aus einem Triple-Store, an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Die Dienste werden in einzelnen git-Repositorien verwaltet und als Docker-Images publiziert:</p>
+<p>Der N4O Graph besteht im Kern aus einem <a href="basics.html#triple-store">Triple-Store</a>, an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Die Dienste werden in einzelnen git-Repositorien verwaltet und als Docker-Images publiziert:</p>
 <ul>
 <li><a href="https://github.com/nfdi4objects/n4o-fuseki">n4o-fuseki</a>: vorkonfigurierter Triple-Store</li>
 <li><a href="https://github.com/nfdi4objects/n4o-graph-apis">n4o-graph-apis</a>: APIs und Weboberfläche zum lesenden Zugriff</li>
@@ -270,6 +270,9 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="https://github.com/nfdi4objects/lido-rdf-converter">lido-rdf-converter</a>: Skripte und Webanwendung zur Konvertierung von LIDO nach RDF</li>
 </ul>
 <p>Darüber hinaus gibt es das Repository <a href="https://github.com/nfdi4objects/n4o-graph">n4o-graph</a> zur Dokumentation und Konfiguration der Dienste als Gesamtheit, darunter auch dieses Handbuch.</p>
+<section id="datenfluss" class="level2">
+<h2 class="anchored" data-anchor-id="datenfluss">Datenfluss</h2>
+<p>Folgendes Diagram illustriet den Datenfluss im Gesamtsystem. Die einzelnen Docker-Container sind gelb. Quellen, Ziele und Speicherorte von Daten sind blau. Verarbeitungsschritte und Schnittstellen sind violett oder grau.</p>
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -298,7 +301,7 @@ ul.task-list li input[type="checkbox"] {
     kg -- SPARQL --&gt; n4ograph
     n4ograph -- SPARQL --&gt; apps(applications)
 
-    receive &lt;--&gt; lido2rdf
+    receive &lt;-..-&gt; lido2rdf
     load -- SPARQL update &amp; graph store --&gt; kg
 
     web-app &lt;--&gt; n4ograph
@@ -318,10 +321,6 @@ linkStyle default color:black;
 </div>
 </div>
 </div>
-<section id="workflow" class="level2">
-<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
-<p>Der gesamte Prozess zur Integration von Daten in den Knowledge Graphen beinhaltet besteht aus mehreren Schritten. Zur Datenannahme, Prüfung und Bereinigung siehe <a href="https://github.com/nfdi4objects/n4o-graph-importer" class="uri">https://github.com/nfdi4objects/n4o-graph-importer</a>. Dort findet sich unter anderem das offizielle <a href="https://github.com/nfdi4objects/lido-schema">XML-Schema für LIDO-Daten</a>.</p>
-<p>LIDO-XML-Daten werden mit Hilfe von <a href="https://github.com/isl/x3ml">X3ML</a> ins RDF-Format konvertiert.</p>
 
 
 </section>
