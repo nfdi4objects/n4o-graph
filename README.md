@@ -11,42 +11,7 @@
 
 ## Data flow
 
-```mermaid
-graph TD
-    terminologies(terminologies) --> receive
-    mappings(mappings) --> receive
-    collections(collections) --> receive
-    data(research data) --> receive
-    stage(stage)
-
-    subgraph importer ["n4o-graph-**importer**"]
-        receive[**receive**]
-        receive -- validate, transform, report --> stage
-        stage --> load
-        load[**load**]
-    end
-    subgraph "n4o-**fuseki**"
-        kg(triple store)
-    end
-    subgraph "n4o-graph-**apis**"
-        ui[**web application**]
-    end
-    subgraph "lido-rdf-**converter**"
-        lido2rdf[**lido2rdf**]
-        web-app[**web-app**]
-    end
-
-    stage --> ui
-    kg -- SPARQL --> ui
-    ui -- SPARQL --> apps(applications)
-
-    receive <--> lido2rdf
-    load -- SPARQL update & graph store --> kg
-
-    web-app <--> ui
-
-    ui <--web browser--> users(users)
-```
+See the [manual](https://nfdi4objects.github.io/n4o-graph/architecture.html) for a data flow diagram.
 
 ## Installation
 
