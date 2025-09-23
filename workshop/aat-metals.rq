@@ -1,5 +1,6 @@
 # Metals in AAT
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 SELECT * {
-  ?metal skos:broader* <http://vocab.getty.edu/aat/300010900>
+  ?metal skos:broader* <http://vocab.getty.edu/aat/300010900> ;
+  OPTIONAL {?metal skos:prefLabel ?label} .
 }

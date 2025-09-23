@@ -1,0 +1,11 @@
+# Places of production with number of produced objects
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+
+SELECT ?event (COUNT(*) as ?count){
+  GRAPH <https://graph.nfdi4objects.net/collection/1> {
+    ?event a crm:E12_Production;
+        crm:P7_took_place_at [ crm:P90_has_value ?place]
+  }
+} 
+GROUP BY ?o
+ORDER BY desc(?count)

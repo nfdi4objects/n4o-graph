@@ -1,0 +1,11 @@
+# Shows the twenty longest distinct inscriptions
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+
+SELECT DISTINCT ?inscriptionlabel {
+  GRAPH <https://graph.nfdi4objects.net/collection/1> {
+    ?inscription a crm:E34_Inscription ;
+  		crm:P67i_is_referred_to_by ?inscriptionlabel
+  }
+} 
+ORDER BY DESC(STRLEN(STR(?inscriptionlabel)))
+LIMIT 20
