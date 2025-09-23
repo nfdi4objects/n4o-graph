@@ -11,7 +11,6 @@ POST() { curl --silent --fail -X POST "$@"; }
 PUT() { curl --silent --fail -X PUT "$@"; }
 download() { wget --quiet -N --no-if-modified-since "$@"; } 
 
-foo() {
 echo "## Register terminologies"
 PUT -d @terminologies.json ${importer}terminology/ | jq -r '.[]|[.uri,.prefLabel.en]|@tsv'
 echo
@@ -41,7 +40,6 @@ echo "## Receive and load AAT"
 POST ${importer}terminology/75/receive?from=aat.nt
 POST ${importer}terminology/75/load
 
-}
 echo
 echo "## Receive and load KENOM Material"
 url=https://api.dante.gbv.de/export/download/kenom_material/default/kenom_material__default.jskos.ndjson
