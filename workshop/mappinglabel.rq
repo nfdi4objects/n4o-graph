@@ -1,0 +1,17 @@
+# Mapping Labels KENOM to AAT
+PREFIX aat: <http://vocab.getty.edu/aat/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT ?termkenom ?labelkenom ?termaat ?labelaat
+WHERE {
+	?termkenom skos:exactMatch ?termaat .
+  	FILTER(strStarts(str(?termaat), str(aat:)))
+  	OPTIONAL {
+    	?termkenom skos:prefLabel ?labelkenom .
+    	FILTER(lang(?labelkenom) = "en")
+  	}
+  	OPTIONAL {
+  		?termaat skos:prefLabel ?labelaat .
+    	FILTER(lang(?labelaat) = "en")
+  	}
+}
