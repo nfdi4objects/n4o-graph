@@ -1,4 +1,32 @@
-# Datenmodell {#sec-schema}
+# Datenmodell
+
+### Teilgraphen
+
+Die RDF-Datenbank ist in mehrere Graphen unterteilt: 
+
+- Jede Sammlung von Forschungsdaten wird über eine URI der Form
+  `https://graph.nfdi4objects.net/collection/ID` identifiziert,
+  beispielsweise <https://graph.nfdi4objects.net/collection/4>.
+  Die Sammlung kann als ganzes aktualisiert und einzeln oder
+  zusammen mit anderen Inhalten abgefragt werden.
+
+- Der Graph <https://graph.nfdi4objects.net/collection/> enthält 
+  Informationen *über* die einzelnen Sammlungen.
+
+- Vokabulare und Ontologien sind in eigenen Graphen verwaltet, deren
+  URI der BARTOC-URI des jeweiligen Vokabulars entspricht,
+  beispielsweise <http://bartoc.org/en/node/1940> für Wikidata
+  und <http://bartoc.org/en/node/1644> für CIDOC-CRM.
+
+- Der Graph <https://graph.nfdi4objects.net/terminology/> enthält
+  Informationen *über* Vokabulare.
+
+Sofern kein konkreter Graph angegeben ist, gelten Abfragen über die Gesamtheit
+aller Graphen.
+
+### Struktur der Inhalt
+
+Aus den Lieferungen von Sammlungen werden prinzipiell alle syntaktisch korrekten RDF-Daten übernommen. Allerdings werden einige Triples herausgefiltert und einige URIs umgeschrieben, um unnötige Uneinheitlichkeiten zu vermeiden (siehe [Datenimport](sources.qmd)). Es gibt ist also *kein einheitliches Datenmodell vorgeschrieben.* 
 
 ::: {.callout-warning appearance="important"}
 Dieses Kapitel ist nichtmehr aktuell!
@@ -19,50 +47,6 @@ ICONCLASS, GND und die LIDO-Terminologien unterstützt.
 Die Modellierung ist noch nicht abgeschlossen! Überlegungen zur Abbildung
 von CRM in RDF [befinden sich hier](https://nfdi4objects.github.io/crm-rdf-ap/).
 :::
-
-### Entitäten und Knoten
-
-Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet
-werden, allerdings werden diese durch [Expansion](#expansion) auf die neueste
-Form gemappt.
-
-### Elementare Datentypen
-
-Die folgende CRM-Klassen für elementare Datentypen werden *nicht* als Knoten-Label verwendet. Ihre Instanzen werden im Datenmodell stattdessen als Property-Werte abgebildet:
-
-- [E59 Primitive Value](http://www.cidoc-crm.org/cidoc-crm/E59)
-- [E60 Number](http://www.cidoc-crm.org/cidoc-crm/E60) für Zahlen
-- [E62 String](http://www.cidoc-crm.org/cidoc-crm/E62) für Zeichenketten
-
-Instanzen der folgenden CRM-Klassen werden ebenfalls *wenn möglich* nicht als Knoten sondern als Property-Werte abgebildet. Anderenfalls erfolgt die Expansion nur über die übergeordnete Klasse [E41 Appellation](http://www.cidoc-crm.org/cidoc-crm/E41):
-
-- [E61 Time Primitive](http://www.cidoc-crm.org/cidoc-crm/E61) für Datums- und Zeitangaben
-- [E94 Space Primitive](http://www.cidoc-crm.org/cidoc-crm/E94) für Koordinaten
-
-### Relationen und Kanten
-
-CRM-Properties (nicht zu verwechseln mit Eigenschaften im [Property-Graph
-Datenbankmodell](#property-graph)) werden im Property-Graphen durch
-Kanten-Label modelliert.
-
-::: {.callout-warning appearance="simple"}
-[Expansion] von Kanten-Label ist noch nicht umgesetzt!
-:::
-
-::: {.callout-warning appearance="simple"}
-Inverse CRM-Properties sind noch nicht berücksichtigt!
-:::
-
-Eine Ausnahme bilden die folgenden CRM-Properties für [elementare
-Datentypen](#elementare-datentypen), die stattdessen zu Property-Keys werden (siehe folgender Abschnitt).
-
-## Beispiel
-
-Folgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):
-
-```ttl
-{{< include crm-example.ttl >}}
-```
 
 ## Vokabulare
 

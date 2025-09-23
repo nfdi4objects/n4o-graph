@@ -1,7 +1,10 @@
-# Anwendungen {#sec-applications}
+---
+title: Anwendungen
+subtitle: Gezielter Zugriff auf den Knowledge Graphen
+---
 
-...Darüber hinaus sind weitere Schnittstellen geplant, darunter ein Query-Builder und einen Graph-Browser.
+<!--...Darüber hinaus sind weitere Schnittstellen geplant, darunter ein Query-Builder und einen Graph-Browser.-->
+
 Forschungsdaten-Anwendungen können auf den Knowledge Graphen zugreifen und zusätzliche
-Recherche- und Analysemöglichkeiten bieten...
-
+Recherche- und Analysemöglichkeiten bieten.
 

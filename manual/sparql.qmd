@@ -1,38 +1,9 @@
 ---
 title: Abfragen mit SPARQL
 subtitle: Zugriff auf den Knowledge Graphen per SPARQL
-lang: de
 ---
 
-Die im Knowledge-Graph gesammelten Forschungsdaten werden zusammen mit Normdaten und Verwaltungsdaten in einem **[Triple Store](#triple-store)** zusammengeführt und können unter <https://graph.nfdi4objects.net/sparql> mittels **SPARQL** abgefragt werden (siehe Beispielabfragen dort). 
+Die im Knowledge-Graph gesammelten Forschungsdaten werden zusammen mit Normdaten und Verwaltungsdaten in einem [Triple Store](#triple-store) zusammengeführt und können unter <https://graph.nfdi4objects.net/sparql> mittels SPARQL abgefragt werden. Der dort bereitgestellte SPARQL-Abfrageeditor enthält auch einige Beispielabfragen.
 
-## Datenmodell
-
-### Teilgraphen
-
-Die RDF-Datenbank ist in mehrere Graphen unterteilt: 
-
-- Jede Sammlung von Forschungsdaten wird über eine URI der Form
-  `https://graph.nfdi4objects.net/collection/ID` identifiziert,
-  beispielsweise <https://graph.nfdi4objects.net/collection/4>.
-  Die Sammlung kann als ganzes aktualisiert und einzeln oder
-  zusammen mit anderen Inhalten abgefragt werden.
-
-- Der Graph <https://graph.nfdi4objects.net/collection/> enthält 
-  Informationen *über* die einzelnen Sammlungen.
-
-- Vokabulare und Ontologien sind in eigenen Graphen verwaltet, deren
-  URI der BARTOC-URI des jeweiligen Vokabulars entspricht,
-  beispielsweise <http://bartoc.org/en/node/1940> für Wikidata
-  und <http://bartoc.org/en/node/1644> für CIDOC-CRM.
-
-- Der Graph <https://graph.nfdi4objects.net/terminology/> enthält
-  Informationen *über* Vokabulare.
-
-Sofern kein konkreter Graph angegeben ist, gelten Abfragen über die Gesamtheit
-aller Graphen.
-
-### Struktur der Inhalt
-
-Aus den Lieferungen von Sammlungen werden prinzipiell alle syntaktisch korrekten RDF-Daten übernommen. Allerdings werden einige Triples herausgefiltert und einige URIs umgeschrieben, um unnötige Uneinheitlichkeiten zu vermeiden (siehe [Datenimport](sources.qmd)). Es gibt ist also *kein einheitliches Datenmodell vorgeschrieben.* 
+<!-- TODO: Beispielabfragen hier -->
 

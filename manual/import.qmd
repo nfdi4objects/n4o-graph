@@ -1,3 +1,7 @@
 # Import
 
+Voraussetzung für die Aufnahme von Forschungsdaten in den Knowledge Graphen ist dass die Daten öffentlicht publiziert sind.
+
 ...
+
+Intern ist der Import von Daten in den Knowledge Graph mit der Komponente n4o-graph-importer umgesetzt.

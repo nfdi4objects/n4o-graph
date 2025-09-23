@@ -1,6 +1,9 @@
-# Systemarchitektur {#sec-architecture}
+---
+title: Systemarchitektur
+subtitle: Technischer Aufbau des Knowledge Graphen
+---
 
-Der N4O Graph besteht im Kern aus einem [Triple-Store](#triple-store), an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Die Dienste werden in einzelnen git-Repositorien verwaltet und als Docker-Images publiziert:
+Der N4O Graph besteht im Kern aus einem [Triple-Store](#triple-store), an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Diese Dienste werden in einzelnen git-Repositorien entwickelt und als Docker-Images publiziert:
 
 - [n4o-fuseki](https://github.com/nfdi4objects/n4o-fuseki): vorkonfigurierter Triple-Store
 - [n4o-graph-apis](https://github.com/nfdi4objects/n4o-graph-apis): APIs und Weboberfläche zum lesenden Zugriff

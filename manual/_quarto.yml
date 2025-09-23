@@ -19,7 +19,6 @@ book:
   chapters:
     - index.qmd
     - basics.qmd
-    - sources.qmd
     - collections.qmd
     - terminologies.qmd
     - mappings.qmd
@@ -28,9 +27,8 @@ book:
     - usage.qmd
     - sparql.qmd
     - applications.qmd
-    - import.qmd
     - architecture.qmd
-    - status.qmd
+    - import.qmd
     - references.qmd
   navbar:
     title: NFDI4**Objects Knowledge Graph**

@@ -1,9 +1,17 @@
 ---
+title: Vokabulare
 subtitle: Listen gemeinsamer Entitäten
 ---
 
-# Vokabulare {#sec-vocabularies}
+Vokabulare (auch bekannt als **Terminologien** oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten. Jeder Eintrag hat einen eindeutigen Identifier, der in Daten aus [Sammlungen](collections.qmd) verwendet werden kann, um in unterschiedlichen Zusammenhängen auf die gleichen Dinge zu verweisen.
 
-Vokabulare (auch bekannt als Terminologien oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten, auf die in anderen Daten verwiesen werden kann. Sie sind Teil des Knowledge Graphen, stammen aber nicht aus Datenlieferungen von [Sammlungen](basics.qmd#sammlungen) sondern werden zentral verwaltet.Grundlage für die kontrollierte Verwendung von Vokabularen im Knowledge Graph ist ein Eintrag in [BARTOC](https://bartoc.org). Eine Liste von unterstützen oder anderweitig relevanten Vokabularen in NFDI4Objects ist als Teilmenge von BARTOC [in einer Übersicht](https://nfdi4objects.github.io/n4o-terminologies/) verfügbar. Darin enthalten sind auch Ontologien, die sich in das [Datenbankschema](#sec-schema) des Knowledge Graphen integrieren oder darauf abbilden lassen.
+Vokabulare sind Teil des Knowledge Graphen, werden aber im Gegensatz zu Sammlungen zentral verwaltet. Grundlage ist zunächst ein Eintrag des Vokabulars in [BARTOC](https://bartoc.org). Eine Liste von unterstützen oder anderweitig relevanten Vokabularen in NFDI4Objects ist [als Teilmenge von BARTOC](https://bartoc.org/vocabularies?partOf=http://bartoc.org/en/node/18961) abrufbar.
 
-Zur Vereinheitlichung der gelieferten Daten müssen verschiedene Vokabulare aufeinander [gemappt werden](#sec-mappings). Dafür steht unter <https://coli-conc.gbv.de/cocoda/nfdi4objects/> eine Instanz der Mapping-Anwendung Cocoda zur Verfügung.
+Zur Vereinheitlichung von Daten, die unterschiedliche Vokabulare verwenden, müssen verschiedene Vokabulare aufeinander [gemappt werden](mappings.qmd). Dafür steht unter <https://coli-conc.gbv.de/cocoda/nfdi4objects/> eine Instanz der Mapping-Anwendung Cocoda zur Verfügung.
+
+## Beispiele
+
+Häufig verwendete Normdateien sind die [Gemeinsame Normdatei (GND)](https://bartoc.org/en/node/430), das Klassifizierungssystem [Iconclass](https://bartoc.org/en/node/459) und die Normdateien des Getty Research Institute. Darüber hinaus gibt es zahlreiche Spezial-Vokabulare wie zum Beispiel die [Hornbostel-Sachs-Klassifikation der Musikinstrumente](https://bartoc.org/en/node/1048).
+
+Zu den Vokabularen gehören auch Ontologien, die sich in das [Datenbankschema](schema.qmd) des Knowledge Graphen integrieren oder darauf abbilden lassen. Die wichtigste Ontologie für den N4O Knowledge Graphen ist [CIDOC-CRM](cidoc-crm.qmd).
+

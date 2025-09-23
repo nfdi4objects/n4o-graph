@@ -3,7 +3,7 @@ title: Einleitung
 ---
 
 ::: {.callout-warning appearance="important"}
-Das Handbuch wird gerade überarbeitet und ist somit unvollständig und teilweise veraltet!
+Das Handbuch wird gerade überarbeitet und ist somit unvollständig!
 :::
 
 An dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des **Knowledge Graphen von NFDI4Objects** (N4O Graph). Der Knowledge Graph besteht im Kern aus einem [Triple-Store](#triple-store), in den Daten aus [verschiedenene Quellen](sources.qmd) zusammengeführt werden und per [SPARQL](sparql.qmd) abgefragt werden können.
