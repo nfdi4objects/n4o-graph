@@ -43,7 +43,7 @@ echo
 echo "## Receive and load KENOM Material"
 url=https://api.dante.gbv.de/export/download/kenom_material/default/kenom_material__default.jskos.ndjson
 POST ${importer}terminology/20533/receive?from=$url
-POST ${importer}terminology/75/load
+POST ${importer}terminology/20533/load
 
 echo
 echo "## Download and extract embedded 1-to-1 mappings from KENOM Material"
