@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./status.html" rel="next">
-<link href="./import.html" rel="prev">
+<link href="./import.html" rel="next">
+<link href="./applications.html" rel="prev">
 <link href="./img/logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -157,11 +157,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./collections.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sammlungen</span></a>
   </div>
 </li>
@@ -202,17 +197,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Import</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./architecture.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Status</span></a>
+  <a href="./import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Import</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -245,7 +235,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-architecture" class="quarto-section-identifier"><span class="chapter-title">Systemarchitektur</span></span></h1>
+<h1 class="title"><span class="chapter-title">Systemarchitektur</span></h1>
+<p class="subtitle lead">Technischer Aufbau des Knowledge Graphen</p>
 </div>
 
 
@@ -262,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Der N4O Graph besteht im Kern aus einem <a href="basics.html#triple-store">Triple-Store</a>, an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Die Dienste werden in einzelnen git-Repositorien verwaltet und als Docker-Images publiziert:</p>
+<p>Der N4O Graph besteht im Kern aus einem <a href="basics.html#triple-store">Triple-Store</a>, an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Diese Dienste werden in einzelnen git-Repositorien entwickelt und als Docker-Images publiziert:</p>
 <ul>
 <li><a href="https://github.com/nfdi4objects/n4o-fuseki">n4o-fuseki</a>: vorkonfigurierter Triple-Store</li>
 <li><a href="https://github.com/nfdi4objects/n4o-graph-apis">n4o-graph-apis</a>: APIs und Weboberfläche zum lesenden Zugriff</li>
@@ -730,13 +721,13 @@ linkStyle default color:black;
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./import.html" class="pagination-link" aria-label="Import">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Import</span></span>
+      <a href="./applications.html" class="pagination-link" aria-label="Anwendungen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Anwendungen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./status.html" class="pagination-link" aria-label="Status">
-        <span class="nav-page-text"><span class="chapter-title">Status</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./import.html" class="pagination-link" aria-label="Import">
+        <span class="nav-page-text"><span class="chapter-title">Import</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

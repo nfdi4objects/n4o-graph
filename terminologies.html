@@ -154,11 +154,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./collections.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sammlungen</span></a>
   </div>
 </li>
@@ -199,17 +194,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Import</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Status</span></a>
+  <a href="./import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Import</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -222,8 +212,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#beispiele" id="toc-beispiele" class="nav-link active" data-scroll-target="#beispiele">Beispiele</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/terminologies.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -236,7 +232,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-vocabularies" class="quarto-section-identifier"><span class="chapter-title">Vokabulare</span></span></h1>
+<h1 class="title"><span class="chapter-title">Vokabulare</span></h1>
 <p class="subtitle lead">Listen gemeinsamer Entitäten</p>
 </div>
 
@@ -254,10 +250,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Vokabulare (auch bekannt als Terminologien oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten, auf die in anderen Daten verwiesen werden kann. Sie sind Teil des Knowledge Graphen, stammen aber nicht aus Datenlieferungen von <a href="./basics.html#sammlungen">Sammlungen</a> sondern werden zentral verwaltet.Grundlage für die kontrollierte Verwendung von Vokabularen im Knowledge Graph ist ein Eintrag in <a href="https://bartoc.org">BARTOC</a>. Eine Liste von unterstützen oder anderweitig relevanten Vokabularen in NFDI4Objects ist als Teilmenge von BARTOC <a href="https://nfdi4objects.github.io/n4o-terminologies/">in einer Übersicht</a> verfügbar. Darin enthalten sind auch Ontologien, die sich in das <a href="schema.html">Datenbankschema</a> des Knowledge Graphen integrieren oder darauf abbilden lassen.</p>
-<p>Zur Vereinheitlichung der gelieferten Daten müssen verschiedene Vokabulare aufeinander <a href="mappings.html">gemappt werden</a>. Dafür steht unter <a href="https://coli-conc.gbv.de/cocoda/nfdi4objects/" class="uri">https://coli-conc.gbv.de/cocoda/nfdi4objects/</a> eine Instanz der Mapping-Anwendung Cocoda zur Verfügung.</p>
+<p>Vokabulare (auch bekannt als <strong>Terminologien</strong> oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten. Jeder Eintrag hat einen eindeutigen Identifier, der in Daten aus <a href="./collections.html">Sammlungen</a> verwendet werden kann, um in unterschiedlichen Zusammenhängen auf die gleichen Dinge zu verweisen.</p>
+<p>Vokabulare sind Teil des Knowledge Graphen, werden aber im Gegensatz zu Sammlungen zentral verwaltet. Grundlage ist zunächst ein Eintrag des Vokabulars in <a href="https://bartoc.org">BARTOC</a>. Eine Liste von unterstützen oder anderweitig relevanten Vokabularen in NFDI4Objects ist <a href="https://bartoc.org/vocabularies?partOf=http://bartoc.org/en/node/18961">als Teilmenge von BARTOC</a> abrufbar.</p>
+<p>Zur Vereinheitlichung von Daten, die unterschiedliche Vokabulare verwenden, müssen verschiedene Vokabulare aufeinander <a href="./mappings.html">gemappt werden</a>. Dafür steht unter <a href="https://coli-conc.gbv.de/cocoda/nfdi4objects/" class="uri">https://coli-conc.gbv.de/cocoda/nfdi4objects/</a> eine Instanz der Mapping-Anwendung Cocoda zur Verfügung.</p>
+<section id="beispiele" class="level2">
+<h2 class="anchored" data-anchor-id="beispiele">Beispiele</h2>
+<p>Häufig verwendete Normdateien sind die <a href="https://bartoc.org/en/node/430">Gemeinsame Normdatei (GND)</a>, das Klassifizierungssystem <a href="https://bartoc.org/en/node/459">Iconclass</a> und die Normdateien des Getty Research Institute. Darüber hinaus gibt es zahlreiche Spezial-Vokabulare wie zum Beispiel die <a href="https://bartoc.org/en/node/1048">Hornbostel-Sachs-Klassifikation der Musikinstrumente</a>.</p>
+<p>Zu den Vokabularen gehören auch Ontologien, die sich in das <a href="./schema.html">Datenbankschema</a> des Knowledge Graphen integrieren oder darauf abbilden lassen. Die wichtigste Ontologie für den N4O Knowledge Graphen ist <a href="./cidoc-crm.html">CIDOC-CRM</a>.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -688,7 +690,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/terminologies.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/terminologies.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">

@@ -154,11 +154,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./collections.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sammlungen</span></a>
   </div>
 </li>
@@ -199,17 +194,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Import</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Status</span></a>
+  <a href="./import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Import</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -227,13 +217,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#modellierung" id="toc-modellierung" class="nav-link active" data-scroll-target="#modellierung">Modellierung</a>
-  <ul class="collapse">
-  <li><a href="#entitäten-und-knoten" id="toc-entitäten-und-knoten" class="nav-link" data-scroll-target="#entitäten-und-knoten">Entitäten und Knoten</a></li>
-  <li><a href="#elementare-datentypen" id="toc-elementare-datentypen" class="nav-link" data-scroll-target="#elementare-datentypen">Elementare Datentypen</a></li>
-  <li><a href="#relationen-und-kanten" id="toc-relationen-und-kanten" class="nav-link" data-scroll-target="#relationen-und-kanten">Relationen und Kanten</a></li>
-  </ul></li>
-  <li><a href="#beispiel" id="toc-beispiel" class="nav-link" data-scroll-target="#beispiel">Beispiel</a></li>
+  <li><a href="#teilgraphen" id="toc-teilgraphen" class="nav-link active" data-scroll-target="#teilgraphen">Teilgraphen</a></li>
+  <li><a href="#struktur-der-inhalt" id="toc-struktur-der-inhalt" class="nav-link" data-scroll-target="#struktur-der-inhalt">Struktur der Inhalt</a></li>
+  <li><a href="#modellierung" id="toc-modellierung" class="nav-link" data-scroll-target="#modellierung">Modellierung</a></li>
   <li><a href="#vokabulare" id="toc-vokabulare" class="nav-link" data-scroll-target="#vokabulare">Vokabulare</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/schema.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
@@ -249,7 +235,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-schema" class="quarto-section-identifier"><span class="chapter-title">Datenmodell</span></span></h1>
+<h1 class="title"><span class="chapter-title">Datenmodell</span></h1>
 </div>
 
 
@@ -266,6 +252,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="teilgraphen" class="level3">
+<h3 class="anchored" data-anchor-id="teilgraphen">Teilgraphen</h3>
+<p>Die RDF-Datenbank ist in mehrere Graphen unterteilt:</p>
+<ul>
+<li><p>Jede Sammlung von Forschungsdaten wird über eine URI der Form <code>https://graph.nfdi4objects.net/collection/ID</code> identifiziert, beispielsweise <a href="https://graph.nfdi4objects.net/collection/4" class="uri">https://graph.nfdi4objects.net/collection/4</a>. Die Sammlung kann als ganzes aktualisiert und einzeln oder zusammen mit anderen Inhalten abgefragt werden.</p></li>
+<li><p>Der Graph <a href="https://graph.nfdi4objects.net/collection/" class="uri">https://graph.nfdi4objects.net/collection/</a> enthält Informationen <em>über</em> die einzelnen Sammlungen.</p></li>
+<li><p>Vokabulare und Ontologien sind in eigenen Graphen verwaltet, deren URI der BARTOC-URI des jeweiligen Vokabulars entspricht, beispielsweise <a href="http://bartoc.org/en/node/1940" class="uri">http://bartoc.org/en/node/1940</a> für Wikidata und <a href="http://bartoc.org/en/node/1644" class="uri">http://bartoc.org/en/node/1644</a> für CIDOC-CRM.</p></li>
+<li><p>Der Graph <a href="https://graph.nfdi4objects.net/terminology/" class="uri">https://graph.nfdi4objects.net/terminology/</a> enthält Informationen <em>über</em> Vokabulare.</p></li>
+</ul>
+<p>Sofern kein konkreter Graph angegeben ist, gelten Abfragen über die Gesamtheit aller Graphen.</p>
+</section>
+<section id="struktur-der-inhalt" class="level3">
+<h3 class="anchored" data-anchor-id="struktur-der-inhalt">Struktur der Inhalt</h3>
+<p>Aus den Lieferungen von Sammlungen werden prinzipiell alle syntaktisch korrekten RDF-Daten übernommen. Allerdings werden einige Triples herausgefiltert und einige URIs umgeschrieben, um unnötige Uneinheitlichkeiten zu vermeiden (siehe <a href="sources.qmd">Datenimport</a>). Es gibt ist also <em>kein einheitliches Datenmodell vorgeschrieben.</em></p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -280,7 +280,8 @@ Warning
 </div>
 </div>
 <p>Im Folgenden das Datenbankschema des Property Graphen beschrieben. Die RDF-Daten im Triple-Store folgend dagegen bislang keinen Schema sondern werden so eingespielt wie sie geliefert werden.</p>
-<p>Als Sammlungsübergeifendes Datenmodell wird <strong><a href="./cidoc-crm.html">CIDOC-CRM (CRM)</a></strong> verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten <a href="terminologies.html">Vokabularen</a> wie ICONCLASS, GND und die LIDO-Terminologien unterstützt.</p>
+<p>Als Sammlungsübergeifendes Datenmodell wird <strong><a href="./cidoc-crm.html">CIDOC-CRM (CRM)</a></strong> verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten <a href="#sec-vocabularies">Vokabularen</a> wie ICONCLASS, GND und die LIDO-Terminologien unterstützt.</p>
+</section>
 <section id="modellierung" class="level2">
 <h2 class="anchored" data-anchor-id="modellierung">Modellierung</h2>
 <div class="callout callout-style-simple callout-warning">
@@ -293,86 +294,11 @@ Warning
 </div>
 </div>
 </div>
-<section id="entitäten-und-knoten" class="level3">
-<h3 class="anchored" data-anchor-id="entitäten-und-knoten">Entitäten und Knoten</h3>
-<p>Zwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch <a href="#expansion">Expansion</a> auf die neueste Form gemappt.</p>
-</section>
-<section id="elementare-datentypen" class="level3">
-<h3 class="anchored" data-anchor-id="elementare-datentypen">Elementare Datentypen</h3>
-<p>Die folgende CRM-Klassen für elementare Datentypen werden <em>nicht</em> als Knoten-Label verwendet. Ihre Instanzen werden im Datenmodell stattdessen als Property-Werte abgebildet:</p>
-<ul>
-<li><a href="http://www.cidoc-crm.org/cidoc-crm/E59">E59 Primitive Value</a></li>
-<li><a href="http://www.cidoc-crm.org/cidoc-crm/E60">E60 Number</a> für Zahlen</li>
-<li><a href="http://www.cidoc-crm.org/cidoc-crm/E62">E62 String</a> für Zeichenketten</li>
-</ul>
-<p>Instanzen der folgenden CRM-Klassen werden ebenfalls <em>wenn möglich</em> nicht als Knoten sondern als Property-Werte abgebildet. Anderenfalls erfolgt die Expansion nur über die übergeordnete Klasse <a href="http://www.cidoc-crm.org/cidoc-crm/E41">E41 Appellation</a>:</p>
-<ul>
-<li><a href="http://www.cidoc-crm.org/cidoc-crm/E61">E61 Time Primitive</a> für Datums- und Zeitangaben</li>
-<li><a href="http://www.cidoc-crm.org/cidoc-crm/E94">E94 Space Primitive</a> für Koordinaten</li>
-</ul>
-</section>
-<section id="relationen-und-kanten" class="level3">
-<h3 class="anchored" data-anchor-id="relationen-und-kanten">Relationen und Kanten</h3>
-<p>CRM-Properties (nicht zu verwechseln mit Eigenschaften im <a href="#property-graph">Property-Graph Datenbankmodell</a>) werden im Property-Graphen durch Kanten-Label modelliert.</p>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>[Expansion] von Kanten-Label ist noch nicht umgesetzt!</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-warning">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Inverse CRM-Properties sind noch nicht berücksichtigt!</p>
-</div>
-</div>
-</div>
-<p>Eine Ausnahme bilden die folgenden CRM-Properties für <a href="#elementare-datentypen">elementare Datentypen</a>, die stattdessen zu Property-Keys werden (siehe folgender Abschnitt).</p>
-</section>
-</section>
-<section id="beispiel" class="level2">
-<h2 class="anchored" data-anchor-id="beispiel">Beispiel</h2>
-<p>Folgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):</p>
-<pre class="ttl"><code>@prefix crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; .
-
-&lt;http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d&gt;
-  a crm:E16_Measurement ;
-  crm:P40_observed_dimension &lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt; .
-
-&lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt;
-  a crm:E54_Dimension ;
-  crm:P2_has_type &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt; ;
-  crm:P91_has_unit &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;
-  crm:P90_has_value 2.8 .
-
-&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;
-  a crm:E58_Measurement_Unit ;
-  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt; .
-
-&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt;
-  a crm:E55_Type .
-  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt; ;
-
-&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt;
-  a crm:E42_Identifier ;
-  crm:P3_has_note "Höhe (Scan)" .
-
-&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt;
-  a crm:E42_Identifier ;
-  crm:P3_has_note "cm" .
-</code></pre>
 </section>
 <section id="vokabulare" class="level2">
 <h2 class="anchored" data-anchor-id="vokabulare">Vokabulare</h2>
 <p><em>Die konkrete Modellierung und Implementierung ist noch in Arbeit.</em></p>
-<p>Ausgewählte kontrollierte <a href="terminologies.html">Vokabulare</a> werden zentral in den Property Graphen eingespielt. Das Datenmodell dafür basiert auf CIDOC-CRM und SKOS mit folgenden Bestandteilen:</p>
+<p>Ausgewählte kontrollierte <a href="#sec-vocabularies">Vokabulare</a> werden zentral in den Property Graphen eingespielt. Das Datenmodell dafür basiert auf CIDOC-CRM und SKOS mit folgenden Bestandteilen:</p>
 <ul>
 <li><p>Vokabulare haben die Property <code>uri</code> mit der BARTOC-URI des Vokabulars als Wert und die Label <code>E32_Authority_Document</code> (<a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E32">E32 Authority Document</a>) sowie <code>ConceptScheme</code> zur Markierung, dass sie als Vokabular eingespielt wurden.</p></li>
 <li><p>Konzepte haben eine Property <code>uri</code> und können unterschiedliche Label haben. Der allgemein Fall ist <code>E55_Type</code>. (<a href="https://cidoc-crm.org/html/cidoc_crm_v7.1.3_with_translations.html#E55">E55 Type</a>). Darüber hinaus erhalten sie das Label <code>Concept</code> zur Markierung, dass sie aus einem Vokabular statt aus einer Lieferung von Forschungsdaten stammen.</p></li>

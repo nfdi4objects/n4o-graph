@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "NFDI4Objects Knowledge Graph",
     "section": "",
-    "text": "Warning\n\n\n\nDas Handbuch wird gerade überarbeitet und ist somit unvollständig und teilweise veraltet!\n\n\nAn dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des Knowledge Graphen von NFDI4Objects (N4O Graph). Der Knowledge Graph besteht im Kern aus einem Triple-Store, in den Daten aus verschiedenene Quellen zusammengeführt werden und per SPARQL abgefragt werden können.\nWesentliche Grundbegriffe zum Verständnis des Knowledge Graphen sind unter Grundlagen beschrieben. Dazu gehört die Einteilung der Datenquellen in Sammlungen, Vokabulare und Mappings sowie das Datenmodell auf Grundlage von CIDOC-CRM.\nEs folgt eine Dokumentation des Nutzung des Graphen: Unter https://graph.nfdi4objects.net/ gibt es eine einfache Oberfläche zum direkten Zugriff auf die Inhalte des Graphen. Darüber hinaus vereinfachen verschiedene Anwendungen die Nutzung für spezielle Anwendungsfälle.\nDie technische Beschreibung der Systemarchitektur und der Datenimport sind kürzer gefasst, da technische Details in den jeweiligen Code-Repositorien stehen.\nUnter Publikationen finden sich schließlich Vorträge, Artikel und andere weiterführende Quellen.",
+    "text": "Warning\n\n\n\nDas Handbuch wird gerade überarbeitet und ist somit unvollständig!\n\n\nAn dieser Stelle entsteht ein Handbuch für die Verwaltung und Nutzung des Knowledge Graphen von NFDI4Objects (N4O Graph). Der Knowledge Graph besteht im Kern aus einem Triple-Store, in den Daten aus verschiedenene Quellen zusammengeführt werden und per SPARQL abgefragt werden können.\nWesentliche Grundbegriffe zum Verständnis des Knowledge Graphen sind unter Grundlagen beschrieben. Dazu gehört die Einteilung der Datenquellen in Sammlungen, Vokabulare und Mappings sowie das Datenmodell auf Grundlage von CIDOC-CRM.\nEs folgt eine Dokumentation des Nutzung des Graphen: Unter https://graph.nfdi4objects.net/ gibt es eine einfache Oberfläche zum direkten Zugriff auf die Inhalte des Graphen. Darüber hinaus vereinfachen verschiedene Anwendungen die Nutzung für spezielle Anwendungsfälle.\nDie technische Beschreibung der Systemarchitektur und der Datenimport sind kürzer gefasst, da technische Details in den jeweiligen Code-Repositorien stehen.\nUnter Publikationen finden sich schließlich Vorträge, Artikel und andere weiterführende Quellen.",
     "crumbs": [
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>Einleitung</span>"
     ]
@@ -14,69 +14,9 @@
     "href": "basics.html",
     "title": "Grundlagen",
     "section": "",
-    "text": "Knowledge Graph\nZur Nutzung des Knowledge Graphen ist das Verständnis einiger Grundbegriffe notwendig:\nWeitere technischen Details und Hintergründe finden sich im Kapitel zur Systemarchitektur.\nIn einem Knowledge Graph (auch Wissensgraph) sind Informationen strukturiert und stark miteinander vernetzt gespeichert. Ein Beispiel hierfür ist ein Netzwerk aus Personen, die durch Verwandschaft und andere Beziehungen miteinander verknüpft sind. Jeder Graph besteht aus Knoten und Kanten. So lassen sich beispielsweise Personen durch Knoten und Beziehungen durch Kanten repräsentieren.\nWeitere Details hängen von der technischen Umsetzung des Knowledge Graphen ab. Eines der am häufigsten verwendeten Datenbankmodelle ist das RDF-Datenmodell mit Triple Stores. Darüber hinaus gibt es einige Knowledge Graphen mit eigenem Datenbankmodell, beispielsweise Wikidata auf Grundlage von des Wikibase-Modells.\nDie Inhalte eines Knowledge Graphen besteht aus einem Schema, optional einigen Vokabularen und dem Datenbestand als eigentlichem Datenbankinhalt. Einzelne “Datensätze” gibt es aufgrund der Graphstruktur nicht.",
+    "text": "Zur Nutzung des Knowledge Graphen ist das Verständnis einiger Grundbegriffe notwendig:\n\nEin Knowledge Graph enthält Informationen in Form eines Graphen aus Knoten und Kanten.\nEin Triple Store ist eine Datenbanktechniken zur Verwaltung von Knowledge Graphen in der Strukturierungssprache RDF.\nVokabulare sind Listen von Entitäten zur Verknüpfung unterschiedlicher Daten.\n\n\nWeitere technischen Details und Hintergründe finden sich im Kapitel zur Systemarchitektur.\nZur Integration in den Knowledge Graphen können Daten grundsätzlich in LIDO oder in RDF geliefert werden. Darüber hinaus gibt es spezielle Formate für Vokabulare und Mappings.\n\nKnowledge Graph\nIn einem Knowledge Graph (auch Wissensgraph) sind Informationen strukturiert und stark miteinander vernetzt gespeichert. Ein Beispiel hierfür ist ein Netzwerk aus Personen, die durch Verwandschaft und andere Beziehungen miteinander verknüpft sind. Jeder Graph besteht aus Knoten und Kanten. So lassen sich beispielsweise Personen durch Knoten und Beziehungen durch Kanten repräsentieren.\nWeitere Details hängen von der technischen Umsetzung des Knowledge Graphen ab. Eines der am häufigsten verwendeten Datenbankmodelle ist das RDF-Datenmodell mit Triple Stores. Darüber hinaus gibt es einige Knowledge Graphen mit eigenem Datenbankmodell, beispielsweise Property-Graphen oder Wikidata mit eigenem Datenbankmodell.\n\nEinzelne “Datensätze” gibt es aufgrund der Graphstruktur nicht.\n\n\nTriple Store\nEin Triple Store ist eine Graphendatenbank in der Daten dem RDF-Modell nach in Form von so genannten Triplen gespeichert werden. Jedes Tripel entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple Stores dient SPARQL.\n\n\n\nSammlung\nDer Datenbestand des Knowledge Graphen von NFDI4IObjekts ist in so genannte Sammlungen unterteilt. Einige Sammlungen bestehen aus einzelnen Datensätzen, andere aus einer zusammengefassten Lieferung von Daten. Weitere Informationen zu Sammlungen und Lieferungen finden sich im Kapitel Sammlungen.\n\n\nLIDO\nLightweight Information Describing Objects (LIDO) ist ein XML-Format aus dem Museumsbereich (siehe LIDO in der Formatdatenbank).\n\n\nRDF\nRDF-Daten können in verschiedenen Serialisierungen vorkommen, die sich verlustfrei ineinander überführen lassen (siehe RDF in der Formatdatenbank). Im Gegensatz zu allgemeinen Graph-Daten enthalten RDF-Daten global eindeutige URIs als Identifikatoren. Außerdem lassen sich RDF-Daten aus unterschiedlichen Quellen immer zusammenführen. Sofern kein einheitliches Schema verwendet wird, ist das Ergebnis allerdings uneinheitlich.",
     "crumbs": [
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grundlagen</span>"
-    ]
-  },
-  {
-    "objectID": "basics.html#datenbankmodell",
-    "href": "basics.html#datenbankmodell",
-    "title": "Grundlagen",
-    "section": "Datenbankmodell",
-    "text": "Datenbankmodell\n\nTriple Store\nEin Triple Store ist eine Graphendatenbank in der Daten dem RDF-Modell nach in Form von so genannten Triplen gespeichert werden. Jedes Tripel entspricht in der Regel einer Kante im Graphen und besteht aus Subjekt, Prädikat und Objekt. Als Abfragesprache für RDF-Daten in Triple Stores dient SPARQL.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grundlagen</span>"
-    ]
-  },
-  {
-    "objectID": "basics.html#datenbankinhalt",
-    "href": "basics.html#datenbankinhalt",
-    "title": "Grundlagen",
-    "section": "Datenbankinhalt",
-    "text": "Datenbankinhalt\n\nSchema\nDas Datenbankschema oder Datenmodell eines Knowledge Graphen bestimmt welche Arten von Knoten, Kanten und weiterer Inhalte im Graph enthalten sein dürfen. Das Schemas basiert auf dem abstrakten Datenmodell CIDOC-CRM. Details zu den Schemas finden sich im Kapitel Datenbankschema.\nNeben dem Schema von Graphdatenbanken gibt Schemas zur Validierung der Datenformate gelieferter Daten und Vokabulare.\n\n\n\n\n\n\nIm Schema ist beispielsweise vorgegeben, dass es für Messungen Knoten der Klasse E16_Measurement und für Zeiträume Knoten der Klasse E52_Time_Span gibt.\n\n\n\n\n\nDatenbestand\nDer Datenbestand ist der eigentliche Inhalt des gemeinsamen Knowledge Graphen von NFDI4IObjekts. Er wird im Gegensatz zu Schema und Vokabularen laufend durch Lieferungen von Sammlungen Forschungsdaten aktualisiert, die in den Graphen integriert werden.\n\n\nVokabular\nVokabulare sind vorgegebene Listen von Entitäten oder Werten. Sie sind in Form von Identifikatoren, Datentypen und/oder Knoten und Kanten zwar Teil des Knowledge-Graphen gehören aber eher nicht zum eigentlichen Datenbestand. Vokabulare werden nur in unregelmäßign Abständen und zentral aktualisiert. Sie dürfen nicht durch Lieferungen von Sammlungen überschrieben werden. Weitere Informationen finden sich in den Kapiteln zu Vokabularen und zu Mappings.\n\n\n\n\n\n\nTippBeispiele\n\n\n\nHäufig verwendete Vokabulare sind die Gemeinsame Normdatei (GND), das Klassifizierungssystem Iconclass und die Normdateien des Getty Research Institute. Darüber hinaus gibt es zahlreiche Spezial-Vokabulare wie zum Beispiel die Hornbostel-Sachs-Klassifikation der Musikinstrumente.\n\n\n\n\nSammlung\nDer Datenbestand des Knowledge Graphen von NFDI4IObjekts ist in so genannte Sammlungen unterteilt. Einige Sammlungen bestehen aus einzelnen Datensätzen, andere aus einer zusammengefassten Lieferung von Daten. Weitere Informationen zu Sammlungen und Lieferungen finden sich im Kapitel Datenquellen.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grundlagen</span>"
-    ]
-  },
-  {
-    "objectID": "basics.html#datenformate",
-    "href": "basics.html#datenformate",
-    "title": "Grundlagen",
-    "section": "Datenformate",
-    "text": "Datenformate\nZur Integration in den Datenbestand des Knowledge Graphen können Daten grundsätzlich in LIDO oder in RDF geliefert werden. Darüber hinaus gibt es spezielle Formate für Vokabulare und Mappings.\n\nLIDO\nLightweight Information Describing Objects (LIDO) ist ein XML-Format aus dem Museumsbereich (siehe LIDO in der Formatdatenbank).\n\n\nRDF\nRDF-Daten können in verschiedenen Serialisierungen vorkommen, die sich verlustfrei ineinander überführen lassen (siehe RDF in der Formatdatenbank). Im Gegensatz zu allgemeinen Graph-Daten enthalten RDF-Daten global eindeutige URIs als Identifikatoren. Außerdem lassen sich RDF-Daten aus unterschiedlichen Quellen immer zusammenführen. Sofern kein einheitliches Schema verwendet wird, ist das Ergebnis allerdings uneinheitlich.",
-    "crumbs": [
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Grundlagen</span>"
-    ]
-  },
-  {
-    "objectID": "sources.html",
-    "href": "sources.html",
-    "title": "Datenquellen",
-    "section": "",
-    "text": "Anforderungen an Datenlieferungen\nDer Knowledge Graph besteht aus Daten verschiedener Sammlungen aus verschiedenenen Quelldatenbanken, die mit bekannten Vokabularen angereichert werden.\nDie technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie Update-Verfahren befinden sich noch in Entwicklung.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenquellen</span>"
-    ]
-  },
-  {
-    "objectID": "sources.html#anforderungen-an-datenlieferungen",
-    "href": "sources.html#anforderungen-an-datenlieferungen",
-    "title": "Datenquellen",
-    "section": "",
-    "text": "Lieferung ausschließlich in RDF oder als XML Lightweight Information Describing Objects (LIDO)\nZur Integration von Daten muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von etablierten Vokabularen oder zumindest URIs statt Freitextfeldern\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung\nVerwendung von Normdaten-URI zur eindeutigen Zuweisung von Personen, Geografika u. s. w. (bspw. GND, VIAF, Wikidata, Geonames, historischen Gazeteers, …)\nWeitere Daten der unterstützten Terminologien und Ontologien werden herausgefiltert und gesondert eingespielt.",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenquellen</span>"
-    ]
-  },
-  {
-    "objectID": "sources.html#beispiele",
-    "href": "sources.html#beispiele",
-    "title": "Datenquellen",
-    "section": "Beispiele",
-    "text": "Beispiele\n\nDatenlieferung der Klassik Stiftung Weimar\n\naktuell noch LIDO 1.0, Export orientiert an LIDO für die Deutsche Digitale Bibliothek\nAuszug aus der Museumsdatenbank, einer KSW-eigenentwickelten Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet\nca. 30.000 Datensätze, die auch im Online-Katalog “Digitale Sammlungen der Museen” der Klassik Stiftung Weimar veröffentlicht sind, werden verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte)\ntestweise nach Sprint im Juli ca. 30 Datensätze der grafischen Sammlung gesendet, im für den August terminierten Sprint 2 wird die ereignisbasierte Ausgabe angepasst",
-    "crumbs": [
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Datenquellen</span>"
     ]
   },
   {
@@ -84,9 +24,29 @@
     "href": "collections.html",
     "title": "Sammlungen",
     "section": "",
-    "text": "…",
+    "text": "Anforderungen an Datenlieferungen\nDer N4O Knowledge Graph führt publizierte Forschungsdaten aus verschiedenen Quellen zusammen und reichert sie mit bekannten Vokabularen an, so dass\nDie technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie Update-Verfahren befinden sich noch in Entwicklung.",
     "crumbs": [
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Sammlungen</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Sammlungen</span>"
+    ]
+  },
+  {
+    "objectID": "collections.html#anforderungen-an-datenlieferungen",
+    "href": "collections.html#anforderungen-an-datenlieferungen",
+    "title": "Sammlungen",
+    "section": "",
+    "text": "Lieferung ausschließlich in RDF oder als XML Lightweight Information Describing Objects (LIDO)\nZur Integration von Daten muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein\nBeschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.\nVerwendung von etablierten Vokabularen oder zumindest URIs statt Freitextfeldern\nVersionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG\nAngaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung\nVerwendung von Normdaten-URI zur eindeutigen Zuweisung von Personen, Geografika u. s. w. (bspw. GND, VIAF, Wikidata, Geonames, historischen Gazeteers, …)\nWeitere Daten der unterstützten Terminologien und Ontologien werden herausgefiltert und gesondert eingespielt.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Sammlungen</span>"
+    ]
+  },
+  {
+    "objectID": "collections.html#beispiele",
+    "href": "collections.html#beispiele",
+    "title": "Sammlungen",
+    "section": "Beispiele",
+    "text": "Beispiele\n\nDatenlieferung der Klassik Stiftung Weimar\n\naktuell noch LIDO 1.0, Export orientiert an LIDO für die Deutsche Digitale Bibliothek\nAuszug aus der Museumsdatenbank, einer KSW-eigenentwickelten Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet\nca. 30.000 Datensätze, die auch im Online-Katalog “Digitale Sammlungen der Museen” der Klassik Stiftung Weimar veröffentlicht sind, werden verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte)\ntestweise nach Sprint im Juli ca. 30 Datensätze der grafischen Sammlung gesendet, im für den August terminierten Sprint 2 wird die ereignisbasierte Ausgabe angepasst",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Sammlungen</span>"
     ]
   },
   {
@@ -94,9 +54,9 @@
     "href": "terminologies.html",
     "title": "Vokabulare",
     "section": "",
-    "text": "Vokabulare (auch bekannt als Terminologien oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten, auf die in anderen Daten verwiesen werden kann. Sie sind Teil des Knowledge Graphen, stammen aber nicht aus Datenlieferungen von Sammlungen sondern werden zentral verwaltet.Grundlage für die kontrollierte Verwendung von Vokabularen im Knowledge Graph ist ein Eintrag in BARTOC. Eine Liste von unterstützen oder anderweitig relevanten Vokabularen in NFDI4Objects ist als Teilmenge von BARTOC in einer Übersicht verfügbar. Darin enthalten sind auch Ontologien, die sich in das Datenbankschema des Knowledge Graphen integrieren oder darauf abbilden lassen.\nZur Vereinheitlichung der gelieferten Daten müssen verschiedene Vokabulare aufeinander gemappt werden. Dafür steht unter https://coli-conc.gbv.de/cocoda/nfdi4objects/ eine Instanz der Mapping-Anwendung Cocoda zur Verfügung.",
+    "text": "Beispiele\nVokabulare (auch bekannt als Terminologien oder Normdaten) sind vorgegebene Listen von Entitäten oder Werten. Jeder Eintrag hat einen eindeutigen Identifier, der in Daten aus Sammlungen verwendet werden kann, um in unterschiedlichen Zusammenhängen auf die gleichen Dinge zu verweisen.\nVokabulare sind Teil des Knowledge Graphen, werden aber im Gegensatz zu Sammlungen zentral verwaltet. Grundlage ist zunächst ein Eintrag des Vokabulars in BARTOC. Eine Liste von unterstützen oder anderweitig relevanten Vokabularen in NFDI4Objects ist als Teilmenge von BARTOC abrufbar.\nZur Vereinheitlichung von Daten, die unterschiedliche Vokabulare verwenden, müssen verschiedene Vokabulare aufeinander gemappt werden. Dafür steht unter https://coli-conc.gbv.de/cocoda/nfdi4objects/ eine Instanz der Mapping-Anwendung Cocoda zur Verfügung.\nHäufig verwendete Normdateien sind die Gemeinsame Normdatei (GND), das Klassifizierungssystem Iconclass und die Normdateien des Getty Research Institute. Darüber hinaus gibt es zahlreiche Spezial-Vokabulare wie zum Beispiel die Hornbostel-Sachs-Klassifikation der Musikinstrumente.\nZu den Vokabularen gehören auch Ontologien, die sich in das Datenbankschema des Knowledge Graphen integrieren oder darauf abbilden lassen. Die wichtigste Ontologie für den N4O Knowledge Graphen ist CIDOC-CRM.",
     "crumbs": [
-      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Vokabulare</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Vokabulare</span>"
     ]
   },
   {
@@ -106,7 +66,7 @@
     "section": "",
     "text": "Mapping von Schemas\nZur besseren Integration von Daten sollen spezialisierte Ontologien und Metadaten-Schema auf ein einheitliches Datenbankschema und ausgewählte Werte per Named-Entity-Recognition auf Vokabulare gemappt werden. Im Detail lassen sich folgende Mapping-Bereiche unterscheiden:\nEin Teil der Mappings für den NFDI4Objects Knowledge Graphen kann mit Hilfe der Webanwendung Cocoda erstellt und gepflegt werden. Eine entsprechend konfigurierte Instanz der Software ist unter https://coli-conc.gbv.de/cocoda/nfdi4objects/ erreichbar.\nDas einheitliche Datenmodell des Knowledge Graphen basiert auf CIDOC-CRM (siehe Datenbankschema). Werden in den gelieferten Daten andere Ontologien verwendet, so müssen diese auf CRM abgebildet werden. Die Abbildung geschieht bislang per Hand in Konfigurationsdateien. In Zukunft soll als Werkzeug hierfür auch Cocoda eingesetzt werden.\nNeben der Abbildung von verschiedenen Ontologien auf CRM ist es auch notwendig, unterschiedliche Modellierungsmöglichkeiten innerhalb von CRM auf ein Schema zu vereinheitlichen.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Mappings</span>"
     ]
   },
   {
@@ -116,7 +76,7 @@
     "section": "Mapping von Vokabularen",
     "text": "Mapping von Vokabularen\nIn den gelieferten Daten werden Entäten wie Personen, Orte, Zeiträume, Materialien etc. auf unterschiedliche Art und Weise referenziert. Im Idealfall wird per Identifiern auf Normdateien verwiesen. Wenn unterschiedliche Normdateien für die gleichen Entitäten verwendet werden, sollten diese aufeinander gemappt werden. Als Werkzeug hierfür dient die Webanwendung Cocoda.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Mappings</span>"
     ]
   },
   {
@@ -126,7 +86,7 @@
     "section": "Reconciliation",
     "text": "Reconciliation\nWerden Entitäten lediglich durch Zeichenketten referenziert (z.B. “Gold” zur Angabe des chemischen Elements Gold), so müssen diese Angaben möglichst auf kontrollierte Vokabulare mit entsprechenden Identifiern gemappt werden. Als technische Schnittstelle hierfür dient dazu die Reconciliation Service API. Wie weit die Erkennung von Entitäten aus Zeichenketten automatisiert ablaufen kann, hängt allerdings stark vom Kontext der Daten ab.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Mappings</span>"
     ]
   },
   {
@@ -136,7 +96,7 @@
     "section": "Mapping von Werten und Einheiten",
     "text": "Mapping von Werten und Einheiten\nIn den gelieferten Daten kommen Werte mit unterschiedlichen Einheiten (Datumsangaben, Ortsangaben, Mengen, Gewichte und andere physische Maße…) vor. Diese sollten möglichst vereinheitlicht werden, damit Abfragen über den gesamten Datenbestand möglich sind.",
     "crumbs": [
-      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Mappings</span>"
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Mappings</span>"
     ]
   },
   {
@@ -144,29 +104,19 @@
     "href": "schema.html",
     "title": "Datenmodell",
     "section": "",
-    "text": "Modellierung\nIm Folgenden das Datenbankschema des Property Graphen beschrieben. Die RDF-Daten im Triple-Store folgend dagegen bislang keinen Schema sondern werden so eingespielt wie sie geliefert werden.\nAls Sammlungsübergeifendes Datenmodell wird CIDOC-CRM (CRM) verwendet. Weitere Ontologien müssen auf CRM gemappt werden. Darüber hinaus werden eine Reihen von etablierten Vokabularen wie ICONCLASS, GND und die LIDO-Terminologien unterstützt.",
+    "text": "Teilgraphen\nDie RDF-Datenbank ist in mehrere Graphen unterteilt:\nSofern kein konkreter Graph angegeben ist, gelten Abfragen über die Gesamtheit aller Graphen.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenmodell</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Datenmodell</span>"
     ]
   },
   {
     "objectID": "schema.html#modellierung",
     "href": "schema.html#modellierung",
     "title": "Datenmodell",
-    "section": "",
-    "text": "Die Modellierung ist noch nicht abgeschlossen! Überlegungen zur Abbildung von CRM in RDF befinden sich hier.\n\n\n\n\nEntitäten und Knoten\nZwischenzeitlich gelöschte und umbenannte Klassen können weiterhin verwendet werden, allerdings werden diese durch Expansion auf die neueste Form gemappt.\n\n\nElementare Datentypen\nDie folgende CRM-Klassen für elementare Datentypen werden nicht als Knoten-Label verwendet. Ihre Instanzen werden im Datenmodell stattdessen als Property-Werte abgebildet:\n\nE59 Primitive Value\nE60 Number für Zahlen\nE62 String für Zeichenketten\n\nInstanzen der folgenden CRM-Klassen werden ebenfalls wenn möglich nicht als Knoten sondern als Property-Werte abgebildet. Anderenfalls erfolgt die Expansion nur über die übergeordnete Klasse E41 Appellation:\n\nE61 Time Primitive für Datums- und Zeitangaben\nE94 Space Primitive für Koordinaten\n\n\n\nRelationen und Kanten\nCRM-Properties (nicht zu verwechseln mit Eigenschaften im Property-Graph Datenbankmodell) werden im Property-Graphen durch Kanten-Label modelliert.\n\n\n\n\n\n\n[Expansion] von Kanten-Label ist noch nicht umgesetzt!\n\n\n\n\n\n\n\n\n\nInverse CRM-Properties sind noch nicht berücksichtigt!\n\n\n\nEine Ausnahme bilden die folgenden CRM-Properties für elementare Datentypen, die stattdessen zu Property-Keys werden (siehe folgender Abschnitt).",
+    "section": "Modellierung",
+    "text": "Modellierung\n\n\n\n\n\n\nDie Modellierung ist noch nicht abgeschlossen! Überlegungen zur Abbildung von CRM in RDF befinden sich hier.",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenmodell</span>"
-    ]
-  },
-  {
-    "objectID": "schema.html#beispiel",
-    "href": "schema.html#beispiel",
-    "title": "Datenmodell",
-    "section": "Beispiel",
-    "text": "Beispiel\nFolgender in CIDOC-CRM modellierter Teilgraph (in Turtle-Syntax):\n@prefix crm: &lt;http://www.cidoc-crm.org/cidoc-crm/&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5af2f810b638d&gt;\n  a crm:E16_Measurement ;\n  crm:P40_observed_dimension &lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b3540e7cea41&gt;\n  a crm:E54_Dimension ;\n  crm:P2_has_type &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt; ;\n  crm:P91_has_unit &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  crm:P90_has_value 2.8 .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d6480&gt;\n  a crm:E58_Measurement_Unit ;\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt; .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc30b&gt;\n  a crm:E55_Type .\n  crm:P48_has_preferred_identifier &lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt; ;\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5e3eb2d5dc310&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"Höhe (Scan)\" .\n\n&lt;http://objekte-im-netz.fau.de/palaeo/id/5b353177d64bc&gt;\n  a crm:E42_Identifier ;\n  crm:P3_has_note \"cm\" .",
-    "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenmodell</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Datenmodell</span>"
     ]
   },
   {
@@ -176,7 +126,7 @@
     "section": "Vokabulare",
     "text": "Vokabulare\nDie konkrete Modellierung und Implementierung ist noch in Arbeit.\nAusgewählte kontrollierte Vokabulare werden zentral in den Property Graphen eingespielt. Das Datenmodell dafür basiert auf CIDOC-CRM und SKOS mit folgenden Bestandteilen:\n\nVokabulare haben die Property uri mit der BARTOC-URI des Vokabulars als Wert und die Label E32_Authority_Document (E32 Authority Document) sowie ConceptScheme zur Markierung, dass sie als Vokabular eingespielt wurden.\nKonzepte haben eine Property uri und können unterschiedliche Label haben. Der allgemein Fall ist E55_Type. (E55 Type). Darüber hinaus erhalten sie das Label Concept zur Markierung, dass sie aus einem Vokabular statt aus einer Lieferung von Forschungsdaten stammen.\nKonzepte werden ihrem Vokabular mit dem Kanten-Label inScheme zugeordnet. Die entsprechende inverse CRM-Property P71 lists wird nicht verwendet.\nKonzepte können mit den Kanten-Labeln broader miteinander verknüpft werden. Die entsprechende CRM-Property P127 has broader term wird nicht verwendet.\nKonzepte können eine interne ID oder Notation haben (Property notation)\nKonzepte sollten Benennungen haben (Property label und labelLang)\n\nDarüber könnten folgende CRM-Bestandteile eine Rolle spielen:\n\nP150 defines typical part of, ein Spezialfall von skos:related.\nP2 has type\nP137 exemplifies die inverse Relation von skos:example.\n\n\n\n\n\n\n\n\nNoteBeispiel\n\n\n\nGND-Datensatz zu “Schleswig-Holstein”:\ngnd :ConceptScheme :E32_Authority_Document             # GND\n  uri: http://bartoc.org/en/node/430\n\nsh :Concept :E55_Type :E42_Identifier            # Schleswig-Holstein\n  uri: https://d-nb.info/gnd/4052692-6\n\nsh -&gt; gnd :inScheme",
     "crumbs": [
-      "<span class='chapter-number'>7</span>  <span class='chapter-title'>Datenmodell</span>"
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Datenmodell</span>"
     ]
   },
   {
@@ -186,7 +136,7 @@
     "section": "",
     "text": "Das CIDOC Conceptual Reference Model (CRM) ist ein abstraktes Datenmodell zur Modellierung von Informationen aus dem Kulturbereich. CRM ist Grundlage verschiedener Datenformate und Datenbanken. Insbesondere bildet es auch die Grundlage der Ontologie des Knowledge Graphen in Form des Datenbankschema.\n\nUmfang\nFolgende Bestandteile des CRM werden unterstützt:\n\nCRM-Klassen und Properties aller bisherigen CRM-Versionen\nCRM-Erweiterungen CRMarchaeo, CRMsci und LRMoo\n\nAndere Ontologien müssen zur Integration in das gemeinsame Datenmodell auf CRM gemappt werden.\n\n\nWeitere Informationen\n\nCIDOC-CRM Homepage\nWikipedia-Eintrag zu CRM",
     "crumbs": [
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>CIDOC-CRM</span>"
+      "<span class='chapter-number'>7</span>  <span class='chapter-title'>CIDOC-CRM</span>"
     ]
   },
   {
@@ -194,9 +144,9 @@
     "href": "usage.html",
     "title": "Nutzung des Graphen",
     "section": "",
-    "text": "Der direkte Zugriff auf die Inhalte des Knowledge Graphen erfolgt über eine API mit der Abfragesprache SPARQL. Eine Einführung mit Beispielen gibt es im Kapitel Abfragen mit SPARQL. Darüber hinaus können Teile des Knowledge Graphen als Linked Open Data heruntergeladen werden. Zur Vereinfachung des Zugriffs gibt es auch unter https://graph.nfdi4objects.net/ auch eine Weboberfläche. Alle Inhalte stehen unter freien Lizenzen zur Verfügung.\nDie technische Umsetzung des Zugriffs per API und die dazu gehörige Weboberfläche sind in der Open-Source Komponente n4o-graph-apis umgesetzt.\nDa die Formulierung von SPARQL-Abfragen nicht trivial ist, ist es sinnvoll für konkrete Forschungsfragen und -vorhaben auf Anwendungen zurückzugreifen, die ihrerseits den Knowledge-Graphen abfragen oder selbst solche Anwendungen zu erstellen.",
+    "text": "Der direkte Zugriff auf die Inhalte des Knowledge Graphen erfolgt über eine API mit der Abfragesprache SPARQL. Eine Einführung mit Beispielen gibt es im Kapitel Abfragen mit SPARQL. Darüber hinaus können Teile des Knowledge Graphen als Linked Open Data heruntergeladen werden. Zur Vereinfachung des Zugriffs gibt es auch unter https://graph.nfdi4objects.net/ auch eine Weboberfläche. Alle Inhalte stehen unter freien Lizenzen zur Verfügung.\nDie technische Umsetzung des Zugriffs per API und die dazu gehörige Weboberfläche sind in der Komponente n4o-graph-apis umgesetzt.\nDa die Formulierung von SPARQL-Abfragen nicht trivial ist, ist es sinnvoll für konkrete Forschungsfragen und -vorhaben auf Anwendungen zurückzugreifen, die ihrerseits den Knowledge-Graphen abfragen oder selbst solche Anwendungen zu erstellen.",
     "crumbs": [
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Nutzung des Graphen</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Nutzung des Graphen</span>"
     ]
   },
   {
@@ -204,19 +154,9 @@
     "href": "sparql.html",
     "title": "Abfragen mit SPARQL",
     "section": "",
-    "text": "Datenmodell\nDie im Knowledge-Graph gesammelten Forschungsdaten werden zusammen mit Normdaten und Verwaltungsdaten in einem Triple Store zusammengeführt und können unter https://graph.nfdi4objects.net/sparql mittels SPARQL abgefragt werden (siehe Beispielabfragen dort).",
+    "text": "Die im Knowledge-Graph gesammelten Forschungsdaten werden zusammen mit Normdaten und Verwaltungsdaten in einem Triple Store zusammengeführt und können unter https://graph.nfdi4objects.net/sparql mittels SPARQL abgefragt werden. Der dort bereitgestellte SPARQL-Abfrageeditor enthält auch einige Beispielabfragen.",
     "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
-    ]
-  },
-  {
-    "objectID": "sparql.html#datenmodell",
-    "href": "sparql.html#datenmodell",
-    "title": "Abfragen mit SPARQL",
-    "section": "",
-    "text": "Teilgraphen\nDie RDF-Datenbank ist in mehrere Graphen unterteilt:\n\nJede Sammlung von Forschungsdaten wird über eine URI der Form https://graph.nfdi4objects.net/collection/ID identifiziert, beispielsweise https://graph.nfdi4objects.net/collection/4. Die Sammlung kann als ganzes aktualisiert und einzeln oder zusammen mit anderen Inhalten abgefragt werden.\nDer Graph https://graph.nfdi4objects.net/collection/ enthält Informationen über die einzelnen Sammlungen.\nVokabulare und Ontologien sind in eigenen Graphen verwaltet, deren URI der BARTOC-URI des jeweiligen Vokabulars entspricht, beispielsweise http://bartoc.org/en/node/1940 für Wikidata und http://bartoc.org/en/node/1644 für CIDOC-CRM.\nDer Graph https://graph.nfdi4objects.net/terminology/ enthält Informationen über Vokabulare.\n\nSofern kein konkreter Graph angegeben ist, gelten Abfragen über die Gesamtheit aller Graphen.\n\n\nStruktur der Inhalt\nAus den Lieferungen von Sammlungen werden prinzipiell alle syntaktisch korrekten RDF-Daten übernommen. Allerdings werden einige Triples herausgefiltert und einige URIs umgeschrieben, um unnötige Uneinheitlichkeiten zu vermeiden (siehe Datenimport). Es gibt ist also kein einheitliches Datenmodell vorgeschrieben.",
-    "crumbs": [
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Abfragen mit SPARQL</span>"
     ]
   },
   {
@@ -224,19 +164,9 @@
     "href": "applications.html",
     "title": "Anwendungen",
     "section": "",
-    "text": "…Darüber hinaus sind weitere Schnittstellen geplant, darunter ein Query-Builder und einen Graph-Browser. Forschungsdaten-Anwendungen können auf den Knowledge Graphen zugreifen und zusätzliche Recherche- und Analysemöglichkeiten bieten…",
+    "text": "Forschungsdaten-Anwendungen können auf den Knowledge Graphen zugreifen und zusätzliche Recherche- und Analysemöglichkeiten bieten.",
     "crumbs": [
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Anwendungen</span>"
-    ]
-  },
-  {
-    "objectID": "import.html",
-    "href": "import.html",
-    "title": "Import",
-    "section": "",
-    "text": "…",
-    "crumbs": [
-      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Import</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Anwendungen</span>"
     ]
   },
   {
@@ -244,39 +174,19 @@
     "href": "architecture.html",
     "title": "Systemarchitektur",
     "section": "",
-    "text": "Datenfluss\nDer N4O Graph besteht im Kern aus einem Triple-Store, an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Die Dienste werden in einzelnen git-Repositorien verwaltet und als Docker-Images publiziert:\nDarüber hinaus gibt es das Repository n4o-graph zur Dokumentation und Konfiguration der Dienste als Gesamtheit, darunter auch dieses Handbuch.\nFolgendes Diagram illustriet den Datenfluss im Gesamtsystem. Die einzelnen Docker-Container sind gelb. Quellen, Ziele und Speicherorte von Daten sind blau. Verarbeitungsschritte und Schnittstellen sind violett oder grau.\ngraph TD\n    terminologies(terminologies) --&gt; receive\n    mappings(mappings) --&gt; receive\n    collections(collections) --&gt; receive\n    stage(stage)\n\n    subgraph importer [\"n4o-graph-**importer**\"]\n        receive[**register & receive**]\n        receive -- validate, transform, report --&gt; stage\n        stage --&gt; load\n        load[**load**]\n    end\n    subgraph fuseki [\"n4o-**fuseki**\"]\n        kg(triple store)\n    end\n    subgraph lido [\"lido-rdf-**converter**\"]\n        lido2rdf[**lido2rdf**]\n        web-app[**web-app**]\n    end\n    stage --&gt; n4ograph[\"n4o-graph-**apis**\"]\n    kg -- SPARQL --&gt; n4ograph\n    n4ograph -- SPARQL --&gt; apps(applications)\n\n    receive &lt;-..-&gt; lido2rdf\n    load -- SPARQL update & graph store --&gt; kg\n\n    web-app &lt;--&gt; n4ograph\n\n    n4ograph &lt;--web browser--&gt; users(users)\n    \nclassDef data stroke:#4d8dd1, fill:#D4E6F9, color:#333;\nclassDef prime fill: #ECECFF, color:#333, stroke:#9370DB;\nclassDef box fill:#ffffde, stroke:#aaaa33, color:#333;\nclass terminologies,mappings,collections,stage,kg,apps,users data;\nclass receive,load,lido2rdf,web-app prime;\nclass importer,fuseki,n4ograph,lido box;\nlinkStyle default color:black;",
+    "text": "Datenfluss\nDer N4O Graph besteht im Kern aus einem Triple-Store, an den verschiedene Dienste zur Verwaltung und Nutzung angebunden sind. Diese Dienste werden in einzelnen git-Repositorien entwickelt und als Docker-Images publiziert:\nDarüber hinaus gibt es das Repository n4o-graph zur Dokumentation und Konfiguration der Dienste als Gesamtheit, darunter auch dieses Handbuch.\nFolgendes Diagram illustriet den Datenfluss im Gesamtsystem. Die einzelnen Docker-Container sind gelb. Quellen, Ziele und Speicherorte von Daten sind blau. Verarbeitungsschritte und Schnittstellen sind violett oder grau.\ngraph TD\n    terminologies(terminologies) --&gt; receive\n    mappings(mappings) --&gt; receive\n    collections(collections) --&gt; receive\n    stage(stage)\n\n    subgraph importer [\"n4o-graph-**importer**\"]\n        receive[**register & receive**]\n        receive -- validate, transform, report --&gt; stage\n        stage --&gt; load\n        load[**load**]\n    end\n    subgraph fuseki [\"n4o-**fuseki**\"]\n        kg(triple store)\n    end\n    subgraph lido [\"lido-rdf-**converter**\"]\n        lido2rdf[**lido2rdf**]\n        web-app[**web-app**]\n    end\n    stage --&gt; n4ograph[\"n4o-graph-**apis**\"]\n    kg -- SPARQL --&gt; n4ograph\n    n4ograph -- SPARQL --&gt; apps(applications)\n\n    receive &lt;-..-&gt; lido2rdf\n    load -- SPARQL update & graph store --&gt; kg\n\n    web-app &lt;--&gt; n4ograph\n\n    n4ograph &lt;--web browser--&gt; users(users)\n    \nclassDef data stroke:#4d8dd1, fill:#D4E6F9, color:#333;\nclassDef prime fill: #ECECFF, color:#333, stroke:#9370DB;\nclassDef box fill:#ffffde, stroke:#aaaa33, color:#333;\nclass terminologies,mappings,collections,stage,kg,apps,users data;\nclass receive,load,lido2rdf,web-app prime;\nclass importer,fuseki,n4ograph,lido box;\nlinkStyle default color:black;",
     "crumbs": [
-      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Systemarchitektur</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Systemarchitektur</span>"
     ]
   },
   {
-    "objectID": "status.html",
-    "href": "status.html",
-    "title": "Status",
+    "objectID": "import.html",
+    "href": "import.html",
+    "title": "Import",
     "section": "",
-    "text": "Triple Store\nsparqlTripleCount = await sparqlQuery(\"SELECT (COUNT(*) as ?count) { GRAPH ?graph { ?s ?p ?o } }\")",
+    "text": "Voraussetzung für die Aufnahme von Forschungsdaten in den Knowledge Graphen ist dass die Daten öffentlicht publiziert sind.\n…\nIntern ist der Import von Daten in den Knowledge Graph mit der Komponente n4o-graph-importer umgesetzt.",
     "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Status</span>"
-    ]
-  },
-  {
-    "objectID": "status.html#triple-store",
-    "href": "status.html#triple-store",
-    "title": "Status",
-    "section": "",
-    "text": "Anzahl von Tripel:",
-    "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Status</span>"
-    ]
-  },
-  {
-    "objectID": "status.html#datenquellen",
-    "href": "status.html#datenquellen",
-    "title": "Status",
-    "section": "Datenquellen",
-    "text": "Datenquellen\nDer Status des Import aus Datenquellen ist noch nicht öffentlich zugänglich.",
-    "crumbs": [
-      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Status</span>"
+      "<span class='chapter-number'>12</span>  <span class='chapter-title'>Import</span>"
     ]
   },
   {
@@ -286,7 +196,7 @@
     "section": "",
     "text": "Weitere Einführungen in den Knowledge Graph geben folgende Publikationen der VZG und/oder Publikationen aus NFDI4Objects:\n\nN4O Graph: The Knowledge Graph of NFDI4Objects https://doi.org/10.5281/zenodo.13946053 (Präsentation vom 17.10.2024)\nN40 Graph. Datenformate, -flüsse und -modelle https://doi.org/10.5281/zenodo.13784846 (Präsentation vom 20.9.2024)\nIntegration von Forschungsdaten im NFDI4Objects Knowledge Graph https://doi.org/10.5281/zenodo.13744338 (Poster vom 11.9.2024)\nOntology development in NFDI4Objects https://doi.org/10.5281/zenodo.13149276 (Präsentation vom 31.7.2024)\nTerminologien in NFDI4Objects https://doi.org/10.5281/zenodo.10906912 (Präsentation vom 20.3.2024)\nMapping von Terminologien mit Cocoda für NFDI4Objects https://doi.org/10.5281/zenodo.10820784 (Präsentation vom 15.3.2024)",
     "crumbs": [
-      "<span class='chapter-number'>15</span>  <span class='chapter-title'>Publikationen</span>"
+      "<span class='chapter-number'>13</span>  <span class='chapter-title'>Publikationen</span>"
     ]
   }
 ]

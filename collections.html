@@ -31,7 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./terminologies.html" rel="next">
-<link href="./sources.html" rel="prev">
+<link href="./basics.html" rel="prev">
 <link href="./img/logo.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -154,11 +154,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sources.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Datenquellen</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./collections.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Sammlungen</span></a>
   </div>
 </li>
@@ -199,17 +194,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Import</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./architecture.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Systemarchitektur</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./status.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Status</span></a>
+  <a href="./import.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Import</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -222,8 +212,18 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#anforderungen-an-datenlieferungen" id="toc-anforderungen-an-datenlieferungen" class="nav-link active" data-scroll-target="#anforderungen-an-datenlieferungen">Anforderungen an Datenlieferungen</a></li>
+  <li><a href="#beispiele" id="toc-beispiele" class="nav-link" data-scroll-target="#beispiele">Beispiele</a>
+  <ul class="collapse">
+  <li><a href="#datenlieferung-der-klassik-stiftung-weimar" id="toc-datenlieferung-der-klassik-stiftung-weimar" class="nav-link" data-scroll-target="#datenlieferung-der-klassik-stiftung-weimar">Datenlieferung der Klassik Stiftung Weimar</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/collections.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -237,6 +237,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-title">Sammlungen</span></h1>
+<p class="subtitle lead">Forschungsdaten im Knowledge Graph</p>
 </div>
 
 
@@ -253,9 +254,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>…</p>
+<p>Der N4O Knowledge Graph führt publizierte Forschungsdaten aus verschiedenen Quellen zusammen und reichert sie mit bekannten <a href="./terminologies.html">Vokabularen</a> an, so dass</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Eine Liste von Sammlungen <a href="https://graph.nfdi4objects.net/collection/">befindet sich hier</a>.</p>
+</div>
+</div>
+</div>
+<p>Die technischen Details der Aufnahme von neuen Datenbanken und Sammlungen sowie Update-Verfahren befinden sich noch in Entwicklung.</p>
+<section id="anforderungen-an-datenlieferungen" class="level2">
+<h2 class="anchored" data-anchor-id="anforderungen-an-datenlieferungen">Anforderungen an Datenlieferungen</h2>
+<ul>
+<li>Lieferung ausschließlich in RDF oder als XML Lightweight Information Describing Objects (LIDO)</li>
+<li>Zur Integration von Daten muss das CIDOC Concept Reference Modell (CRM) verwendet werden oder die verwendeten Ontologien auf CRM gemappt sein</li>
+<li>Beschreiben einer Minimalmenge an Datenfeldern, um eine bestimmte Datenqualität zu erfüllen und durchsuchbare Datensets zu erzeugen; das Minimaldatenset und die ObjectOntology als dessen RDF-serialisrung werden im Konsortium noch erarbeitet.</li>
+<li>Verwendung von etablierten <a href="./terminologies.html">Vokabularen</a> oder zumindest URIs statt Freitextfeldern</li>
+<li>Versionierung der Metadaten, sinnvoll bei Aktualisierung des Datenbestands für den KG</li>
+<li>Angaben von Rechteinhabern, Herausgeber und Lizenzen (bspw. Creative Commons) für eine Nachnutzung</li>
+<li>Verwendung von Normdaten-URI zur eindeutigen Zuweisung von Personen, Geografika u. s. w. (bspw. GND, VIAF, Wikidata, Geonames, historischen Gazeteers, …)</li>
+<li>Weitere Daten der unterstützten Terminologien und Ontologien werden herausgefiltert und gesondert eingespielt.</li>
+</ul>
+</section>
+<section id="beispiele" class="level2">
+<h2 class="anchored" data-anchor-id="beispiele">Beispiele</h2>
+<section id="datenlieferung-der-klassik-stiftung-weimar" class="level3">
+<h3 class="anchored" data-anchor-id="datenlieferung-der-klassik-stiftung-weimar">Datenlieferung der Klassik Stiftung Weimar</h3>
+<ul>
+<li>aktuell noch LIDO 1.0, Export orientiert an LIDO für die Deutsche Digitale Bibliothek</li>
+<li>Auszug aus der Museumsdatenbank, einer KSW-eigenentwickelten Oracle-Datenbank, die für Portallieferungen einen LIDO-Export anbietet</li>
+<li>ca. 30.000 Datensätze, die auch im Online-Katalog “Digitale Sammlungen der Museen” der Klassik Stiftung Weimar veröffentlicht sind, werden verwendet (mdb_datendump_n4o_export_true), ohne zugehörige Bilddateien (digitale Repräsentationen der Objekte)</li>
+<li>testweise nach Sprint im Juli ca. 30 Datensätze der grafischen Sammlung gesendet, im für den August terminierten Sprint 2 wird die ereignisbasierte Ausgabe angepasst</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -662,8 +699,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./sources.html" class="pagination-link" aria-label="Datenquellen">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Datenquellen</span></span>
+      <a href="./basics.html" class="pagination-link" aria-label="Grundlagen">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Grundlagen</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -686,7 +723,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/collections.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/nfdi4objects/n4o-graph/blob/main/manual/collections.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li></ul></div></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
