@@ -2,8 +2,9 @@
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 
 SELECT ?owner (COUNT(*) as ?count){
-  GRAPH <https://graph.nfdi4objects.net/collection/1> {
-    ?object crm:P50_has_current_keeper [ crm:P131_is_identified_by [ crm:P90_has_value ?owner ] ]}
+#  GRAPH <https://graph.nfdi4objects.net/collection/1> {
+    ?object crm:P50_has_current_keeper [ crm:P131_is_identified_by [ crm:P90_has_value ?owner ] ]
+#    }
 } 
 GROUP BY ?owner
 ORDER BY desc(?count)
