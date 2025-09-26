@@ -1,0 +1,14 @@
+# List of occurring materials with number of items
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+
+SELECT ?material_label (COUNT(*) AS ?count) 
+WHERE {
+	?item crm:P45_consists_of ?materialstr . 
+  	FILTER(STRSTARTS(STR(?materialstr), "http://vocab.getty.edu/aat/"))
+  	BIND(URI(?materialstr) AS ?material)  
+  	OPTIONAL{?material skos:prefLabel ?material_label .}
+}
+GROUP BY ?material_label 
+ORDER BY DESC(?count)
+

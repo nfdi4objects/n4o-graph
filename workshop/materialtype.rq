@@ -1,0 +1,22 @@
+# List of items of a specific materialtype
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX aat: <http://vocab.getty.edu/aat/>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+
+SELECT ?itemlabel ?material_label 
+WHERE {
+  	?item crm:P108i_was_produced_by [ crm:P45_consists_of ?material_str ];
+  	crm:P1_is_identified_by ?itemlabel .
+  	FILTER(LANG(?itemlabel) = "en")
+  	FILTER(STRSTARTS(STR(?material_str), "http://vocab.getty.edu/aat/"))
+  	BIND(URI(?material_str) AS ?material)
+  	# Materialtype rock
+  	BIND (aat:300011692 AS ?materialtype) 
+  	# Materialtype wood
+  	#BIND (aat:300011914 AS ?materialtype) 
+  	# Materialtype metal
+  	#BIND (aat:300010900 AS ?materialtype) 
+  	?material skos:broader*  ?materialtype.
+  	
+  	OPTIONAL{?material skos:prefLabel ?material_label .}
+}

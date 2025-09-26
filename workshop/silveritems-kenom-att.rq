@@ -1,0 +1,16 @@
+# All items made of silver with KENOM to AAT mapping
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+
+SELECT DISTINCT ?itemlabel ?material_label
+WHERE {
+  	<http://uri.gbv.de/terminology/kenom_material/277086d7-bc08-4757-98ba-d6c125276479> skos:exactMatch ?silber .
+  	FILTER(STRSTARTS(STR(?silber), "http://vocab.getty.edu/aat/"))
+  	?item crm:P108i_was_produced_by [ crm:P45_consists_of ?material_str ];
+  	crm:P1_is_identified_by ?itemlabel .
+  	FILTER(lang(?itemlabel) = "en")
+  	FILTER(STRSTARTS(STR(?material_str), "http://vocab.getty.edu/aat/"))  	
+  	BIND(URI(?material_str) AS ?material)
+  	?material skos:broader*  ?silber .
+  	OPTIONAL{?material skos:prefLabel ?material_label .}
+}
