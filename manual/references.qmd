@@ -2,6 +2,9 @@
 
 Weitere Einführungen in den Knowledge Graph geben folgende [Publikationen der VZG](https://zenodo.org/communities/vzg/records) und/oder [Publikationen aus NFDI4Objects](https://zenodo.org/communities/nfdi4objects/records):
 
+- *Hands On Data - Modellierungen zur Integration in den LIDO/CIDOC CRM basierten NFDI4Objects Knowledge Graph*
+  <https://zenodo.org/records/17023156>
+  (Präsentation vom 28.4.2025)
 - *N4O Graph: The Knowledge Graph of NFDI4Objects*
   <https://doi.org/10.5281/zenodo.13946053>
   (Präsentation vom 17.10.2024)
