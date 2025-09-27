@@ -2,9 +2,28 @@
 
 Weitere Einführungen in den Knowledge Graph geben folgende [Publikationen der VZG](https://zenodo.org/communities/vzg/records) und/oder [Publikationen aus NFDI4Objects](https://zenodo.org/communities/nfdi4objects/records):
 
+
+- *Integration von Forschungsdaten im NFDI4Objects Knowledge Graph*
+  <https://zenodo.org/records/15694730>
+  (Poster vom 24.6.2025) 
+- *Digital Heraldry: Objektübergreifende Modellierung heraldischer Quellen im Knowledge Graph*
+  <https://zenodo.org/records/17022254>
+  (Präsentation vom 28.4.2025)
+- *Inschriften und der "Knowledge Graph … wie CIDOC-CRM als Referenzmodell fungiert*
+  <https://zenodo.org/records/15310724>
+  (28.4.2025)
 - *Hands On Data - Modellierungen zur Integration in den LIDO/CIDOC CRM basierten NFDI4Objects Knowledge Graph*
   <https://zenodo.org/records/17023156>
   (Präsentation vom 28.4.2025)
+- *NFDI4Objects - Providing Infrastructure for FAIR Research Data for the Material Remains of Human History*
+  <https://zenodo.org/records/15126810>
+  (Präsentation vom 27.3.2025)
+- *Interdisziplinäre Knowledge Graphen? Ortsdaten im Kontext von NFDI4Objects*
+  <https://zenodo.org/records/14916967>
+  (Präsentation vom 24.2.2025)
+- *Interdisciplinary Knowledge Graphs: Semantic Modelling using Linked Open Data, Wikibase and the Wikiverse*
+  <https://zenodo.org/records/14055805>
+  (Präsentation vom 6.11.2024)
 - *N4O Graph: The Knowledge Graph of NFDI4Objects*
   <https://doi.org/10.5281/zenodo.13946053>
   (Präsentation vom 17.10.2024)
